@@ -139,6 +139,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
+  salomon_bottom_bar_extend:
+    dependency: "direct main"
+    description:
+      name: salomon_bottom_bar_extend
+      sha256: "8c1358dbb79df64b26d99f94e29eb0aaf4abbaa2fa9c96587bc15f984044561e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.2"
   sky_engine:
     dependency: transitive
     description: flutter
