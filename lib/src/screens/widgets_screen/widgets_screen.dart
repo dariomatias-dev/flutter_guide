@@ -9,11 +9,38 @@ class WidgetsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: List.generate(10, (index) {
-          return const CardWidget(
-            title: 'Widget',
-          );
-        }),
+        children: [
+          const SizedBox(height: 20.0),
+          Container(
+            height: 52.0,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12.0,
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.grey.shade200,
+                prefixIcon: const Icon(
+                  Icons.search,
+                ),
+                hintText: "Widget...",
+                hintStyle: TextStyle(
+                  color: Colors.grey.shade600,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8.0),
+          ...List.generate(10, (index) {
+            return const CardWidget(
+              title: 'Widget',
+            );
+          })
+        ],
       ),
     );
   }
