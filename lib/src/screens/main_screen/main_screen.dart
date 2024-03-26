@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
 import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
-import 'package:flutter_guide/src/screens/home_screen/home_screen.dart';
+import 'package:flutter_guide/src/core/constants/bottom_app_bar_screens.dart';
+import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
+
 import 'package:flutter_guide/src/screens/main_screen/widgets/mode_toggle_button_widget.dart';
-import 'package:flutter_guide/src/screens/packages_screen/packages_screen.dart';
-import 'package:flutter_guide/src/screens/settings_screen/settings_screen.dart';
-import 'package:flutter_guide/src/screens/widgets_screen/widgets_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -18,12 +16,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int screenIndex = 0;
 
-  final screens = const <Widget>[
-    HomeScreen(),
-    WidgetsScreen(),
-    PackagesScreen(),
-    SettingsScreen(),
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +32,9 @@ class _MainScreenState extends State<MainScreen> {
               fit: BoxFit.cover,
             ),
             const SizedBox(width: 16.0),
-            const Text(
-              'FlutterGuide',
-              style: TextStyle(
+            Text(
+              bottomAppBarScreens[screenIndex].title,
+              style: const TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.w500,
               ),
@@ -60,7 +53,7 @@ class _MainScreenState extends State<MainScreen> {
           const SizedBox(width: 8.0),
         ],
       ),
-      body: screens[screenIndex],
+      body: bottomAppBarScreens[screenIndex].screen,
       bottomNavigationBar: SalomonBottomBar(
         backgroundColor: FlutterGuideColors.ligthBlue,
         currentIndex: screenIndex,
