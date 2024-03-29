@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/widgets/card_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/card_widget.dart';
 
 class WidgetsScreen extends StatelessWidget {
   const WidgetsScreen({super.key});
