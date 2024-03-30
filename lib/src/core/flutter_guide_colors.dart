@@ -5,4 +5,5 @@ class FlutterGuideColors {
   static const ligthBlue200 = Color(0xFFB3B9C4);
   static const darkNeutral = Color(0xFF101214);
   static const darkNeutral50 = Color(0xFF161A1D);
+  static const darkNeutral200 = Color(0xFF22272B);
 }

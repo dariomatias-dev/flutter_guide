@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
 
 import 'package:flutter_guide/src/shared/widgets/card_widget.dart';
 
@@ -24,9 +25,12 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
             child: TextFormField(
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Theme.of(context).colorScheme.secondary,
-                prefixIcon: const Icon(
+                fillColor: Theme.of(context).brightness == Brightness.light
+                    ? Colors.grey.shade200
+                    : FlutterGuideColors.darkNeutral200.withOpacity(0.8),
+                prefixIcon: Icon(
                   Icons.search,
+                  color: Theme.of(context).colorScheme.tertiary,
                 ),
                 hintText: "Widget...",
                 hintStyle: TextStyle(
