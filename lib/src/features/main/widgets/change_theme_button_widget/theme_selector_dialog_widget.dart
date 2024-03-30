@@ -29,7 +29,7 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
   Widget build(BuildContext context) {
     return SimpleDialog(
       title: const Text(
-        'Select Theme',
+        'Select The Theme',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 20.0,

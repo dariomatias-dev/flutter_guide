@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         actions: [
           const ChangeThemeButtonWidget(),
-          const SizedBox(width: 20.0),
+          const SizedBox(width: 4.0),
           IconButton(
             onPressed: () {},
             icon: Icon(
@@ -48,7 +48,7 @@ class _MainScreenState extends State<MainScreen> {
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
-          const SizedBox(width: 8.0),
+          const SizedBox(width: 4.0),
         ],
       ),
       body: bottomAppBarScreens[screenIndex].screen,
