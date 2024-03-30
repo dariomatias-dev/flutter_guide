@@ -20,13 +20,6 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
   }
 
   @override
-  void initState() {
-    _themeMode = ThemeController.instance.themeMode;
-
-    super.initState();
-  }
-
-  @override
   void didChangeDependencies() {
     _themeMode = ThemeController.instance.themeMode;
     super.didChangeDependencies();

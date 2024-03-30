@@ -28,7 +28,6 @@ class ChangeThemeIconButtonWidgetState
   @override
   void initState() {
     _themeController = ThemeController.instance;
-    _setBrightnessMode();
 
     super.initState();
   }
