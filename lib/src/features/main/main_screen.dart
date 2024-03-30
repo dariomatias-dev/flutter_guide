@@ -4,7 +4,7 @@ import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 import 'package:flutter_guide/src/core/constants/bottom_app_bar_screens.dart';
 import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
 
-import 'package:flutter_guide/src/features/main/widgets/mode_toggle_button_widget.dart';
+import 'package:flutter_guide/src/features/main/widgets/change_theme_button_widget/change_theme_button_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
           ],
         ),
         actions: [
-          const ModeToggleButtonWidget(),
+          const ChangeThemeButtonWidget(),
           const SizedBox(width: 20.0),
           IconButton(
             onPressed: () {},
