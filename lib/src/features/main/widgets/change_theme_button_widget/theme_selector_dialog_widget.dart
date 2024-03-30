@@ -9,12 +9,27 @@ class ThemeSelectorDialogWidget extends StatefulWidget {
 }
 
 class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
-  String _themeMode = ThemeMode.light.name;
+  late ThemeMode _themeMode;
 
-  void _updateThemeMode(String? value) {
+  void _updateThemeMode(ThemeMode? value) {
+    ThemeController.instance.setTheme(value!);
+
     setState(() {
-      _themeMode = value!;
+      _themeMode = value;
     });
+  }
+
+  @override
+  void initState() {
+    _themeMode = ThemeController.instance.themeMode;
+
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    _themeMode = ThemeController.instance.themeMode;
+    super.didChangeDependencies();
   }
 
   @override
@@ -28,7 +43,11 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
           fontWeight: FontWeight.w500,
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: _themeMode == ThemeMode.light ||
+              _themeMode == ThemeMode.system &&
+                  MediaQuery.of(context).platformBrightness == Brightness.light
+          ? Colors.white
+          : FlutterGuideColors.darkNeutral,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
@@ -37,19 +56,19 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
           children: [
             RadioListTile(
               title: const Text('Light'),
-              value: ThemeMode.light.name,
+              value: ThemeMode.light,
               groupValue: _themeMode,
               onChanged: _updateThemeMode,
             ),
             RadioListTile(
               title: const Text('Dark'),
-              value: ThemeMode.dark.name,
+              value: ThemeMode.dark,
               groupValue: _themeMode,
               onChanged: _updateThemeMode,
             ),
             RadioListTile(
               title: const Text('System'),
-              value: ThemeMode.system.name,
+              value: ThemeMode.system,
               groupValue: _themeMode,
               onChanged: _updateThemeMode,
             ),

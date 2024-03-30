@@ -25,8 +25,9 @@ class _CardWidgetState extends State<CardWidget> {
         child: Row(
           children: [
             const SizedBox(width: 16.0),
-            const Icon(
+            Icon(
               Icons.border_bottom,
+              color: Theme.of(context).colorScheme.tertiary,
             ),
             const SizedBox(width: 20.0),
             Text(
@@ -38,14 +39,16 @@ class _CardWidgetState extends State<CardWidget> {
             if (showYouTubeIcon)
               IconButton(
                 onPressed: () {},
-                icon: const Icon(
+                icon: Icon(
                   Icons.play_circle_filled,
+                  color: Theme.of(context).colorScheme.tertiary,
                 ),
               ),
             IconButton(
               onPressed: () {},
-              icon: const Icon(
+              icon: Icon(
                 Icons.bookmark_border,
+                color: Theme.of(context).colorScheme.tertiary,
               ),
             ),
             const SizedBox(width: 16.0),

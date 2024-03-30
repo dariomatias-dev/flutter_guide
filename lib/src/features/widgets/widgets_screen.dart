@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/shared/widgets/card_widget.dart';
 
-class WidgetsScreen extends StatelessWidget {
+class WidgetsScreen extends StatefulWidget {
   const WidgetsScreen({super.key});
 
+  @override
+  State<WidgetsScreen> createState() => _WidgetsScreenState();
+}
+
+class _WidgetsScreenState extends State<WidgetsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +24,7 @@ class WidgetsScreen extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.grey.shade200,
+                fillColor: Theme.of(context).colorScheme.secondary,
                 prefixIcon: const Icon(
                   Icons.search,
                 ),
