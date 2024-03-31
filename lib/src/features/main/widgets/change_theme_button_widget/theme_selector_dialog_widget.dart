@@ -27,46 +27,38 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SimpleDialog(
-      title: const Text(
-        'Select The Theme',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-      backgroundColor: _themeMode == ThemeMode.light ||
-              _themeMode == ThemeMode.system &&
-                  MediaQuery.of(context).platformBrightness == Brightness.light
-          ? Colors.white
-          : FlutterGuideColors.darkNeutral,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
+    return CustomDialog.dialog(
+      title: 'Select The Theme',
+      spacingAction: 8.0,
       children: [
-        Column(
-          children: [
-            RadioListTile(
-              title: const Text('Light'),
-              value: ThemeMode.light,
-              groupValue: _themeMode,
-              onChanged: _updateThemeMode,
-            ),
-            RadioListTile(
-              title: const Text('Dark'),
-              value: ThemeMode.dark,
-              groupValue: _themeMode,
-              onChanged: _updateThemeMode,
-            ),
-            RadioListTile(
-              title: const Text('System'),
-              value: ThemeMode.system,
-              groupValue: _themeMode,
-              onChanged: _updateThemeMode,
-            ),
-          ],
-        )
+        RadioListTile(
+          title: const Text('Light'),
+          value: ThemeMode.light,
+          groupValue: _themeMode,
+          onChanged: _updateThemeMode,
+        ),
+        RadioListTile(
+          title: const Text('Dark'),
+          value: ThemeMode.dark,
+          groupValue: _themeMode,
+          onChanged: _updateThemeMode,
+        ),
+        RadioListTile(
+          title: const Text('System'),
+          value: ThemeMode.system,
+          groupValue: _themeMode,
+          onChanged: _updateThemeMode,
+        ),
+      ],
+      actions: [
+        CustomDialog.button(
+          text: 'Ok',
+          textColor: Colors.black,
+          backgroundColor: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ],
     );
   }

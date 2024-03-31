@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
+
+import 'package:flutter_guide/src/shared/custom_dialog/custom_dialog.dart';
 
 part 'change_theme_icon_button_widget.dart';
 part 'theme_selector_dialog_widget.dart';
