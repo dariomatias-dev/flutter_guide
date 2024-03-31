@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'package:flutter_guide/src/shared/models/social_network_model.dart';
+part of 'social_networks_widget.dart';
 
 class SocialNetworkButtonWidget extends StatelessWidget {
   const SocialNetworkButtonWidget({

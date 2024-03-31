@@ -5,11 +5,13 @@ class ListTileItemWidget extends StatelessWidget {
     super.key,
     required this.title,
     required this.icon,
+    this.openInBrowser = false,
     required this.onTap,
   });
 
   final String title;
   final IconData icon;
+  final bool openInBrowser;
   final VoidCallback onTap;
 
   @override
@@ -33,6 +35,11 @@ class ListTileItemWidget extends StatelessWidget {
               fontSize: 14.0,
             ),
           ),
+          trailing: openInBrowser
+              ? const Icon(
+                  Icons.open_in_new_rounded,
+                )
+              : null,
         ),
       ),
     );
