@@ -10,14 +10,14 @@ class CustomDialog {
   static Widget dialog({
     required String title,
     String? description,
-    required List<Widget> children,
     double? spacingAction,
     required List<ActionButtonWidget> actions,
+    required List<Widget> children,
   }) =>
       DialogWidget(
         title: title,
         description: description,
-        spacingAction: spacingAction,
+        spacingAction: spacingAction ?? 8.0,
         actions: actions,
         children: children,
       );

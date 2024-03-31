@@ -5,19 +5,18 @@ class DialogWidget extends StatelessWidget {
     super.key,
     required this.title,
     this.description,
-    required this.children,
-    this.spacingAction,
+    this.descriptionTextAlign = TextAlign.center,
+    required this.spacingAction,
     required this.actions,
-  }) : assert(
-          !(actions.length == 2 && spacingAction == null),
-          '"spacingAction" property cannot be empty when there are two actions.',
-        );
+    required this.children,
+  });
 
   final String title;
   final String? description;
-  final List<Widget> children;
-  final double? spacingAction;
+  final TextAlign descriptionTextAlign;
+  final double spacingAction;
   final List<ActionButtonWidget> actions;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,7 @@ class DialogWidget extends StatelessWidget {
                   ),
                   child: Text(
                     description!,
-                    textAlign: TextAlign.center,
+                    textAlign: descriptionTextAlign,
                     style: TextStyle(
                       color:
                           isLight ? Colors.grey.shade900 : Colors.grey.shade400,

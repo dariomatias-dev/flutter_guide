@@ -7,16 +7,17 @@ class DonateDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
+
     return CustomDialog.dialog(
       title: 'Contribute',
       description: 'Support the project by buying a coffee.',
-      spacingAction: 8.0,
       actions: [
         CustomDialog.button(
           text: 'Cancel',
-          textColor: Colors.grey.shade700,
+          textColor: Colors.grey[isLight ? 700 : 800]!,
           backgroundColor: Colors.white.withOpacity(
-            Theme.of(context).brightness == Brightness.light ? 0.9 : 0.85,
+            isLight ? 0.9 : 0.85,
           ),
           onPressed: () {
             Navigator.pop(context);

@@ -29,7 +29,6 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
   Widget build(BuildContext context) {
     return CustomDialog.dialog(
       title: 'Select The Theme',
-      spacingAction: 8.0,
       children: [
         RadioListTile(
           title: const Text('Light'),
