@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/app_bar_widget.dart';
+import 'package:flutter_guide/src/features/widget/widgets/code_tab.dart';
 
 class WidgetScreen extends StatelessWidget {
   const WidgetScreen({
@@ -21,8 +23,8 @@ class WidgetScreen extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            Text('Preview'),
-            Text('Code'),
+            TextSample(),
+            CodeTab(),
           ],
         ),
       ),
