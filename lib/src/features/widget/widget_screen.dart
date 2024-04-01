@@ -23,6 +23,7 @@ class WidgetScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBarWidget(
           title: title,
+          widgetName: widgetName,
         ),
         body: TabBarView(
           children: [

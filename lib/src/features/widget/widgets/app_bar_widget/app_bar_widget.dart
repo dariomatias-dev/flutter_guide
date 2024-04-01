@@ -10,9 +10,11 @@ class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   const AppBarWidget({
     super.key,
     required this.title,
+    required this.widgetName,
   });
 
   final String title;
+  final String widgetName;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight * 2);
@@ -43,6 +45,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           builder: (context, value, child) {
             return PopupMenuWidget(
               currentTabIndex: value,
+              widgetName: widget.widgetName,
             );
           },
         ),
