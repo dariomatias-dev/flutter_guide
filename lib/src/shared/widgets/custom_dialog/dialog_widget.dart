@@ -5,7 +5,7 @@ class DialogWidget extends StatelessWidget {
     super.key,
     required this.title,
     this.description,
-    this.descriptionTextAlign = TextAlign.center,
+    required this.descriptionTextAlign,
     required this.spacingAction,
     required this.actions,
     required this.children,
@@ -18,6 +18,8 @@ class DialogWidget extends StatelessWidget {
   final List<ActionButtonWidget> actions;
   final List<Widget> children;
 
+  BorderRadius get borderRadius => BorderRadius.circular(32.0);
+
   @override
   Widget build(BuildContext context) {
     final isLight = Theme.of(context).brightness == Brightness.light;
@@ -25,12 +27,15 @@ class DialogWidget extends StatelessWidget {
     return SimpleDialog(
       contentPadding: EdgeInsets.zero,
       backgroundColor: isLight ? null : FlutterGuideColors.darkNeutral,
+      shape: RoundedRectangleBorder(
+        borderRadius: borderRadius,
+      ),
       children: [
         Container(
           width: MediaQuery.sizeOf(context).width,
           decoration: BoxDecoration(
             color: isLight ? null : Colors.black.withOpacity(0.42),
-            borderRadius: BorderRadius.circular(32.0),
+            borderRadius: borderRadius,
           ),
           child: Column(
             children: [

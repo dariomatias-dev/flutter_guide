@@ -10,6 +10,7 @@ class CustomDialog {
   static Widget dialog({
     required String title,
     String? description,
+    TextAlign descriptionTextAlign = TextAlign.center,
     double? spacingAction,
     required List<ActionButtonWidget> actions,
     required List<Widget> children,
@@ -19,6 +20,7 @@ class CustomDialog {
         description: description,
         spacingAction: spacingAction ?? 8.0,
         actions: actions,
+        descriptionTextAlign: descriptionTextAlign,
         children: children,
       );
 
