@@ -1,6 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 
 class CardWidget extends StatefulWidget {
   const CardWidget({
@@ -19,42 +22,28 @@ class _CardWidgetState extends State<CardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return ListTileItemWidget(
       onTap: () {},
-      child: Ink(
-        child: Row(
-          children: [
-            const SizedBox(width: 16.0),
-            Icon(
-              Icons.border_bottom,
+      title: widget.title,
+      icon: Icons.border_bottom,
+      trailingWidgets: [
+        if (true)
+          IconButton(
+            onPressed: () {},
+            icon: FaIcon(
+              FontAwesomeIcons.youtube,
               color: Theme.of(context).colorScheme.tertiary,
             ),
-            const SizedBox(width: 20.0),
-            Text(
-              widget.title,
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            if (showYouTubeIcon)
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.play_circle_filled,
-                  color: Theme.of(context).colorScheme.tertiary,
-                ),
-              ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.bookmark_border,
-                color: Theme.of(context).colorScheme.tertiary,
-              ),
-            ),
-            const SizedBox(width: 16.0),
-          ],
+          ),
+        const SizedBox(width: 8.0),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.bookmark_border,
+            color: Theme.of(context).colorScheme.tertiary,
+          ),
         ),
-      ),
+      ],
     );
   }
 }

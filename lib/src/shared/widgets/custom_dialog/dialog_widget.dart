@@ -27,6 +27,7 @@ class DialogWidget extends StatelessWidget {
       backgroundColor: isLight ? null : FlutterGuideColors.darkNeutral,
       children: [
         Container(
+          width: MediaQuery.sizeOf(context).width,
           decoration: BoxDecoration(
             color: isLight ? null : Colors.black.withOpacity(0.42),
             borderRadius: BorderRadius.circular(32.0),
