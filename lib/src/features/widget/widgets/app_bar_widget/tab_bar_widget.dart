@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TabBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  const TabBarWidget({super.key});
+  const TabBarWidget({
+    super.key,
+    required this.currentTabIndexNotifier,
+  });
+
+  final ValueNotifier<int> currentTabIndexNotifier;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -12,6 +17,9 @@ class TabBarWidget extends StatelessWidget implements PreferredSizeWidget {
       labelColor: Colors.blue.shade400.withOpacity(0.8),
       unselectedLabelColor: Theme.of(context).colorScheme.tertiary,
       indicatorColor: Colors.blue.shade400.withOpacity(0.8),
+      onTap: (value) {
+        currentTabIndexNotifier.value = value;
+      },
       tabs: const <Tab>[
         Tab(
           child: Text('Preview'),
