@@ -27,7 +27,7 @@ class CardWidget extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) {
               return WidgetScreen(
-                name: title,
+                title: title,
               );
             },
           ),
