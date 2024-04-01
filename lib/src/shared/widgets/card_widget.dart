@@ -1,35 +1,36 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:flutter_guide/src/shared/utils/open_url.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 
-class CardWidget extends StatefulWidget {
+class CardWidget extends StatelessWidget {
   const CardWidget({
     super.key,
+    required this.icon,
     required this.title,
+    this.youtubeLink,
   });
 
+  final IconData icon;
   final String title;
-
-  @override
-  State<CardWidget> createState() => _CardWidgetState();
-}
-
-class _CardWidgetState extends State<CardWidget> {
-  final showYouTubeIcon = Random().nextInt(3) == 1;
+  final String? youtubeLink;
 
   @override
   Widget build(BuildContext context) {
     return ListTileItemWidget(
       onTap: () {},
-      title: widget.title,
-      icon: Icons.border_bottom,
+      title: title,
+      icon: icon,
       trailingWidgets: [
-        if (true)
+        if (youtubeLink != null)
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              openURL(
+                () => context,
+                'https://youtu.be/${youtubeLink!}',
+              );
+            },
             icon: FaIcon(
               FontAwesomeIcons.youtube,
               color: Theme.of(context).colorScheme.tertiary,

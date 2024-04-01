@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/core/constants/widgets.dart';
 
 import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
 
@@ -44,10 +45,14 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 8.0),
-          ...List.generate(10, (index) {
-            return const CardWidget(
-              title: 'Widget',
+          const SizedBox(height: 16.0),
+          ...List.generate(widgets.length, (index) {
+            final widget = widgets[index];
+
+            return CardWidget(
+              icon: widget.icon,
+              title: widget.name,
+              youtubeLink: widget.youtubeLink,
             );
           })
         ],
