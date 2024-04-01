@@ -3,7 +3,7 @@ import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
 import 'package:flutter_guide/src/core/constants/bottom_app_bar_screens.dart';
 
-import 'package:flutter_guide/src/features/main/widgets/change_theme_button_widget/change_theme_button_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

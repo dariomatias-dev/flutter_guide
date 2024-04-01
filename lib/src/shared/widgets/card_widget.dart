@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:flutter_guide/src/features/widget/widget_screen.dart';
+
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 
@@ -19,7 +21,18 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTileItemWidget(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return WidgetScreen(
+                name: title,
+              );
+            },
+          ),
+        );
+      },
       title: title,
       icon: icon,
       trailingWidgets: [
