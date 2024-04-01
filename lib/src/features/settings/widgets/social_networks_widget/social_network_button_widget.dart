@@ -11,7 +11,12 @@ class SocialNetworkButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
+      onPressed: () {
+        openURL(
+          () => context,
+          socialNetwork.url,
+        );
+      },
       highlightColor: Colors.blue.withOpacity(0.07),
       hoverColor: Colors.blue.withOpacity(0.08),
       icon: FaIcon(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/features/settings/widgets/app_info_widget/app_info_widget.dart';
 import 'package:flutter_guide/src/features/settings/widgets/donate_dialog_widget.dart';
-import 'package:flutter_guide/src/features/settings/widgets/list_tile_item_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 import 'package:flutter_guide/src/features/settings/widgets/social_networks_widget/social_networks_widget.dart';
 
 class SettingsScreen extends StatelessWidget {

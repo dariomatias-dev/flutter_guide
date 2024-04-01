@@ -76,6 +76,7 @@ class DialogWidget extends StatelessWidget {
                   children: children,
                 ),
               ),
+              const SizedBox(height: 8.0),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 12.0,

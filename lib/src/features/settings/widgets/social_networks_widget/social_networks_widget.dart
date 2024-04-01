@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_guide/src/core/constants/social_networks.dart';
 
 import 'package:flutter_guide/src/shared/models/social_network_model.dart';
+import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
 part 'social_network_button_widget.dart';
 
