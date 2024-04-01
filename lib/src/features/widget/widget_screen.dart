@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
+import 'package:flutter_guide/src/core/constants/widgets.dart';
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/app_bar_widget.dart';
 import 'package:flutter_guide/src/features/widget/widgets/code_tab.dart';
 
@@ -14,6 +14,9 @@ class WidgetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final samples = widgetSamples();
+    final widgetName = title.replaceAll(" ", "_").toLowerCase();
+
     return DefaultTabController(
       initialIndex: 0,
       length: 2,
@@ -21,10 +24,12 @@ class WidgetScreen extends StatelessWidget {
         appBar: AppBarWidget(
           title: title,
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            TextSample(),
-            CodeTab(),
+            samples[widgetName]!,
+            CodeTab(
+              widgetName: title.replaceAll(" ", "_").toLowerCase(),
+            ),
           ],
         ),
       ),

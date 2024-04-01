@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:syntax_highlight/syntax_highlight.dart';
 
 class CodeTab extends StatefulWidget {
-  const CodeTab({super.key});
+  const CodeTab({
+    super.key,
+    required this.widgetName,
+  });
+
+  final String widgetName;
 
   @override
   State<CodeTab> createState() => _CodeTabState();
@@ -19,7 +24,7 @@ class _CodeTabState extends State<CodeTab> {
 
   Future<void> loadCode() async {
     final file = File(
-      'lib/src/features/widget/widget_samples/text_sample.dart',
+      'lib/src/features/widget/widget_samples/${widget.widgetName}_sample.dart',
     );
     final codeString = await file.readAsString();
 
