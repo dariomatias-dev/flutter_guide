@@ -23,33 +23,25 @@ class ListTileItemWidget extends StatelessWidget {
       ),
       hoverColor: Colors.blue.withOpacity(0.05),
       child: Ink(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16.0,
-            vertical: 12.0,
-          ),
-          child: Row(
-            children: [
-              Icon(
-                icon,
-                color: Theme.of(context).colorScheme.primary,
-                size: 20.0,
+        child: SizedBox(
+          width: MediaQuery.sizeOf(context).width * 0.9,
+          child: ListTile(
+            leading: Icon(
+              icon,
+              color: Theme.of(context).colorScheme.primary,
+              size: 20.0,
+            ),
+            title: Text(
+              title,
+              style: const TextStyle(
+                fontSize: 14.0,
               ),
-              const SizedBox(width: 16.0),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 14.0,
-                ),
-              ),
-              Expanded(
-                child: Container(),
-              ),
-              if (openInBrowser)
-                const Icon(
-                  Icons.open_in_new_rounded,
-                ),
-            ],
+            ),
+            trailing: openInBrowser
+                ? const Icon(
+                    Icons.open_in_new_rounded,
+                  )
+                : null,
           ),
         ),
       ),

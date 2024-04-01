@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/features/settings/widgets/app_info_widget/app_info_widget.dart';
+import 'package:flutter_guide/src/features/settings/widgets/docs_and_resources_dialog_widget.dart';
 import 'package:flutter_guide/src/features/settings/widgets/donate_dialog_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 import 'package:flutter_guide/src/features/settings/widgets/social_networks_widget/social_networks_widget.dart';
+
+import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -22,9 +24,16 @@ class SettingsScreen extends StatelessWidget {
               const AppInfoWidget(),
               const SizedBox(height: 20.0),
               ListTileItemWidget(
-                title: 'Docs',
+                title: 'Docs And Resources',
                 icon: Icons.description_outlined,
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const DocsAndResourcesDialogWidget();
+                    },
+                  );
+                },
               ),
               ListTileItemWidget(
                 title: 'My Website',
