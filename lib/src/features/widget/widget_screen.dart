@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/constants/widgets.dart';
-
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/app_bar_widget.dart';
 import 'package:flutter_guide/src/features/widget/widgets/code_tab.dart';
+
+import 'package:flutter_guide/src/providers/widget_samples_inherited_widget.dart';
 
 class WidgetScreen extends StatelessWidget {
   const WidgetScreen({
@@ -15,7 +15,7 @@ class WidgetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final samples = widgetSamples();
+    final samples = WidgetSamplesInheritedWidget.of(context)!.samples;
     final widgetName = title.replaceAll(" ", "_").toLowerCase();
 
     return DefaultTabController(
