@@ -25,12 +25,13 @@ class WidgetScreen extends StatelessWidget {
         appBar: AppBarWidget(
           title: title,
           widgetName: widgetName,
+          widgetCategory: samples[widgetName]!.category,
         ),
         body: TabBarView(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: samples[widgetName],
+              child: samples[widgetName]!.sample,
             ),
             CodeTab(
               widgetName: title.replaceAll(" ", "_").toLowerCase(),

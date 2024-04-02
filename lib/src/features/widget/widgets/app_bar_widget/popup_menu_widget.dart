@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'package:flutter_guide/src/shared/models/widget_model.dart';
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
 class PopupMenuWidget extends StatefulWidget {
@@ -10,11 +12,13 @@ class PopupMenuWidget extends StatefulWidget {
     required this.className,
     required this.widgetName,
     required this.currentTabIndex,
+    required this.widgetCategory,
   });
 
   final String className;
   final String widgetName;
   final int currentTabIndex;
+  final WidgetCategory widgetCategory;
 
   @override
   State<PopupMenuWidget> createState() => _PopupMenuWidgetState();
@@ -45,6 +49,17 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
     );
   }
 
+  String getCategory() {
+    switch (widget.widgetCategory) {
+      case WidgetCategory.widgets:
+        return 'widgets';
+      case WidgetCategory.material:
+        return 'material';
+      default:
+        return 'cupertino';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
@@ -62,9 +77,11 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
           ),
           PopupMenuItem(
             onTap: () {
+              final widgetCategory = getCategory();
+
               openURL(
                 () => context,
-                'https://api.flutter.dev/flutter/material/${widget.className}-class.html',
+                'https://api.flutter.dev/flutter/$widgetCategory/${widget.className}-class.html',
               );
             },
             child: const Text('Doc'),
