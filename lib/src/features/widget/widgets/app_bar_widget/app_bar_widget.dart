@@ -44,6 +44,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           valueListenable: _currentTabIndexNotifier,
           builder: (context, value, child) {
             return PopupMenuWidget(
+              className: widget.title.replaceAll(' ', ''),
               currentTabIndex: value,
               widgetName: widget.widgetName,
             );

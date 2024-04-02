@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
 
 import 'package:flutter_guide/src/shared/models/widget_model.dart';
 
@@ -21,6 +22,7 @@ const widgets = <WidgetModel>[
     name: 'Container',
     icon: Icons.crop_square,
     youtubeLink: 'c1xLMaTUWCY?si=PrsjqoW2tDReZUxp',
+    sample: ContainerSample(),
   ),
   WidgetModel(
     name: 'Row',

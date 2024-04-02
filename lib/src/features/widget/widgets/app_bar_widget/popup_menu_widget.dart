@@ -2,14 +2,17 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
 class PopupMenuWidget extends StatefulWidget {
   const PopupMenuWidget({
     super.key,
+    required this.className,
     required this.widgetName,
     required this.currentTabIndex,
   });
 
+  final String className;
   final String widgetName;
   final int currentTabIndex;
 
@@ -58,7 +61,12 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
             child: const Text('Save'),
           ),
           PopupMenuItem(
-            onTap: () {},
+            onTap: () {
+              openURL(
+                () => context,
+                'https://api.flutter.dev/flutter/widgets/${widget.className}-class.html',
+              );
+            },
             child: const Text('Doc'),
           ),
         ];
