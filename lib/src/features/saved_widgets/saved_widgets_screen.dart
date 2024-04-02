@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
@@ -7,15 +8,16 @@ import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/chan
 class SavedWidgets extends StatelessWidget {
   const SavedWidgets({super.key});
 
-  Future<void> getSavedWidgets() async {
-    final sharedPreferences = await SharedPreferences.getInstance();
+  void getSavedWidgets(BuildContext context) {
+    final sharedPreferences =
+        UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
     final savedWidgets = sharedPreferences.getStringList('saved_widgets');
     print(savedWidgets);
   }
 
   @override
   Widget build(BuildContext context) {
-    getSavedWidgets();
+    getSavedWidgets(context);
 
     return Scaffold(
       appBar: AppBar(

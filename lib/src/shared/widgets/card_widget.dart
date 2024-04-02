@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/features/widget/widget_screen.dart';
+
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
@@ -19,8 +20,9 @@ class CardWidget extends StatelessWidget {
   final String widgetName;
   final String? youtubeLink;
 
-  Future<void> _saveWidget() async {
-    final sharedPreferences = await SharedPreferences.getInstance();
+  void _saveWidget(BuildContext context) {
+    final sharedPreferences =
+        UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
 
     List<String>? savedWidgets = sharedPreferences.getStringList(
       'saved_widgets',
@@ -82,7 +84,7 @@ class CardWidget extends StatelessWidget {
           ),
         const SizedBox(width: 8.0),
         IconButton(
-          onPressed: _saveWidget,
+          onPressed: () => _saveWidget(context),
           icon: Icon(
             Icons.bookmark_border,
             color: Theme.of(context).colorScheme.tertiary,

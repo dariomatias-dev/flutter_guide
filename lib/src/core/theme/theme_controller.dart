@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeController extends ChangeNotifier {
@@ -8,12 +9,8 @@ class ThemeController extends ChangeNotifier {
 
   ThemeMode themeMode = ThemeMode.system;
 
-  ThemeController() {
-    _initialize();
-  }
-
-  Future<void> _initialize() async {
-    sharedPreferences = await SharedPreferences.getInstance();
+  ThemeController initialize(BuildContext context) {
+    sharedPreferences = UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
 
     final theme = sharedPreferences.getString("theme");
 
@@ -26,6 +23,8 @@ class ThemeController extends ChangeNotifier {
     }
 
     notifyListeners();
+
+    return ThemeController();
   }
 
   void saveTheme() async {
