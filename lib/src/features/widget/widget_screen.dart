@@ -3,38 +3,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/app_bar_widget.dart';
 import 'package:flutter_guide/src/features/widget/widgets/code_tab.dart';
 
-import 'package:flutter_guide/src/providers/widget_samples_inherited_widget.dart';
+import 'package:flutter_guide/src/providers/widgets_map_inherited_widget.dart';
 
 class WidgetScreen extends StatelessWidget {
   const WidgetScreen({
     super.key,
-    required this.title,
+    required this.widgetName,
   });
 
-  final String title;
+  final String widgetName;
 
   @override
   Widget build(BuildContext context) {
-    final samples = WidgetSamplesInheritedWidget.of(context)!.samples;
-    final widgetName = title.replaceAll(" ", "_").toLowerCase();
+    final widgetsMap = WidgetsMapInheritedWidget.of(context)!.widgetsMap;
 
     return DefaultTabController(
       initialIndex: 0,
       length: 2,
       child: Scaffold(
         appBar: AppBarWidget(
-          title: title,
           widgetName: widgetName,
-          widgetCategory: samples[widgetName]!.category,
+          widgetCategory: widgetsMap[widgetName]!.category,
         ),
         body: TabBarView(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: samples[widgetName]!.sample,
+              child: widgetsMap[widgetName]!.sample,
             ),
             CodeTab(
-              widgetName: title.replaceAll(" ", "_").toLowerCase(),
+              widgetName: widgetName,
             ),
           ],
         ),

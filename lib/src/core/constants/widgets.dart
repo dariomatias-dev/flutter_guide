@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/shared/models/widget_model.dart';
+import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
-import 'package:flutter_guide/src/features/widget/widget_samples/list_tile_sample.dart';
-import 'package:flutter_guide/src/features/widget/widget_samples/list_view_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
+
+import 'package:flutter_guide/src/shared/models/widget_model.dart';
+import 'package:flutter_guide/src/shared/models/widget_summary_model.dart';
 
 const widgets = <WidgetModel>[
   WidgetModel(
@@ -46,7 +49,7 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'List View',
+    name: 'ListView',
     icon: Icons.list,
     youtubeLink: 'KJpkjHGiI5A?si=MJEvCI9lL4kFg03_',
     sample: ListViewSample(),
@@ -66,7 +69,7 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'List Tile',
+    name: 'ListTile',
     icon: Icons.list_alt,
     youtubeLink: 'l8dj0yPBvgQ?si=3mUG7NVusfY126bs',
     sample: ListTileSample(),
@@ -74,10 +77,11 @@ const widgets = <WidgetModel>[
   ),
 ];
 
-Map<String, WidgetSample> widgetSamples() {
-  Map<String, WidgetSample> samples = {};
+Map<String, WidgetSummaryModel> widgetsMap() {
+  Map<String, WidgetSummaryModel> samples = {};
   for (WidgetModel widget in widgets) {
-    samples[widget.name.replaceAll(" ", "_").toLowerCase()] = WidgetSample(
+    samples[widget.name] = WidgetSummaryModel(
+      name: widget.name,
       sample: widget.sample,
       category: widget.category,
     );

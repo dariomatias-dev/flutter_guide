@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
+
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/back_button_widget.dart';
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/popup_menu_widget.dart';
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/tab_bar_widget.dart';
-import 'package:flutter_guide/src/shared/models/widget_model.dart';
 
 import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
 
 class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   const AppBarWidget({
     super.key,
-    required this.title,
     required this.widgetName,
     required this.widgetCategory,
   });
 
-  final String title;
   final String widgetName;
   final WidgetCategory widgetCategory;
 
@@ -35,7 +34,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
       leading: const BackButtonWidget(),
       backgroundColor: Theme.of(context).colorScheme.secondary,
       title: Text(
-        widget.title,
+        widget.widgetName,
         style: const TextStyle(
           fontSize: 16.0,
         ),
@@ -47,7 +46,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           valueListenable: _currentTabIndexNotifier,
           builder: (context, value, child) {
             return PopupMenuWidget(
-              className: widget.title.replaceAll(' ', ''),
+              className: widget.widgetName,
               currentTabIndex: value,
               widgetName: widget.widgetName,
               widgetCategory: widget.widgetCategory,

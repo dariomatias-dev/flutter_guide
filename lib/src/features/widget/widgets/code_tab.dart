@@ -24,7 +24,7 @@ class _CodeTabState extends State<CodeTab> {
 
   Future<void> loadCode() async {
     final file = File(
-      'lib/src/features/widget/widget_samples/${widget.widgetName}_sample.dart',
+      'lib/src/features/widget/widget_samples/${widget.widgetName.toLowerCase()}_sample.dart',
     );
     final codeString = await file.readAsString();
 

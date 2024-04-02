@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/constants/widgets.dart';
 
 import 'package:flutter_guide/src/features/widgets/widgets/search_field_widget.dart';
-import 'package:flutter_guide/src/shared/models/widget_model.dart';
 
+import 'package:flutter_guide/src/shared/models/widget_model.dart';
 import 'package:flutter_guide/src/shared/widgets/card_widget.dart';
 
 class WidgetsScreen extends StatefulWidget {
@@ -52,7 +52,7 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
 
             return CardWidget(
               icon: widget.icon,
-              title: widget.name,
+              widgetName: widget.name,
               youtubeLink: widget.youtubeLink,
             );
           })

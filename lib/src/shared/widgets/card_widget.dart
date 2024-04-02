@@ -10,12 +10,12 @@ class CardWidget extends StatelessWidget {
   const CardWidget({
     super.key,
     required this.icon,
-    required this.title,
+    required this.widgetName,
     this.youtubeLink,
   });
 
   final IconData icon;
-  final String title;
+  final String widgetName;
   final String? youtubeLink;
 
   @override
@@ -27,13 +27,13 @@ class CardWidget extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) {
               return WidgetScreen(
-                title: title,
+                widgetName: widgetName,
               );
             },
           ),
         );
       },
-      title: title,
+      title: widgetName,
       icon: icon,
       trailingWidgets: [
         if (youtubeLink != null)

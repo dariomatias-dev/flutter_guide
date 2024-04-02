@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:flutter_guide/src/shared/models/widget_model.dart';
+import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
+
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
 class PopupMenuWidget extends StatefulWidget {
