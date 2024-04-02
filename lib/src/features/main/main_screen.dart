@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
 import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
 import 'package:flutter_guide/src/core/constants/bottom_app_bar_screens.dart';
@@ -42,7 +43,12 @@ class _MainScreenState extends State<MainScreen> {
           const ChangeThemeButtonWidget(),
           const SizedBox(width: 4.0),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                FlutterGuideRouteNames.savedWidgets,
+              );
+            },
             icon: Icon(
               Icons.bookmark_border,
               color: Theme.of(context).colorScheme.primary,
