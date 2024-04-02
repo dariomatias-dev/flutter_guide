@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_guide/src/core/constants/widgets.dart';
 
-import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
+import 'package:flutter_guide/src/features/widgets/widgets/search_field_widget.dart';
+import 'package:flutter_guide/src/shared/models/widget_model.dart';
 
 import 'package:flutter_guide/src/shared/widgets/card_widget.dart';
 
@@ -13,41 +15,40 @@ class WidgetsScreen extends StatefulWidget {
 }
 
 class _WidgetsScreenState extends State<WidgetsScreen> {
+  List<WidgetModel> flutterWidgets = widgets;
+
+  void _onChange(String value) {
+    if (value.trim().isNotEmpty) {
+      final items = <WidgetModel>[];
+
+      for (WidgetModel widget in widgets) {
+        if (widget.name.toLowerCase().contains(
+              value.toLowerCase(),
+            )) {
+          items.add(widget);
+        }
+      }
+
+      flutterWidgets = items;
+    } else {
+      flutterWidgets = widgets;
+    }
+
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           const SizedBox(height: 20.0),
-          Container(
-            height: 52.0,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12.0,
-            ),
-            child: TextFormField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Theme.of(context).brightness == Brightness.light
-                    ? Colors.grey.shade200
-                    : FlutterGuideColors.darkNeutral200.withOpacity(0.8),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Theme.of(context).colorScheme.tertiary,
-                ),
-                hintText: "Widget...",
-                hintStyle: TextStyle(
-                  color: Colors.grey.shade600,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                  borderSide: BorderSide.none,
-                ),
-              ),
-            ),
+          SearchFieldWidget(
+            onChange: _onChange,
           ),
           const SizedBox(height: 16.0),
-          ...List.generate(widgets.length, (index) {
-            final widget = widgets[index];
+          ...List.generate(flutterWidgets.length, (index) {
+            final widget = flutterWidgets[index];
 
             return CardWidget(
               icon: widget.icon,
