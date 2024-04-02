@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
 
 import 'package:flutter_guide/src/shared/models/widget_model.dart';
 
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 
 const widgets = <WidgetModel>[
@@ -27,10 +29,12 @@ const widgets = <WidgetModel>[
   WidgetModel(
     name: 'Row',
     icon: Icons.view_week,
+    sample: RowSample(),
   ),
   WidgetModel(
     name: 'Column',
     icon: Icons.view_column,
+    sample: ColumnSample(),
   ),
   WidgetModel(
     name: 'List View',
