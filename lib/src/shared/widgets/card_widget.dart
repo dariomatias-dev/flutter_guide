@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/features/widget/widget_screen.dart';
 
@@ -17,6 +18,36 @@ class CardWidget extends StatelessWidget {
   final IconData icon;
   final String widgetName;
   final String? youtubeLink;
+
+  Future<void> _saveWidget() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+
+    List<String>? savedWidgets = sharedPreferences.getStringList(
+      'saved_widgets',
+    );
+
+    if (savedWidgets == null) {
+      savedWidgets = [widgetName];
+    } else {
+      if (savedWidgets.contains(widgetName)) {
+        final items = <String>[];
+        for (String savedWidget in savedWidgets) {
+          if (savedWidget != widgetName) {
+            items.add(savedWidget);
+          }
+        }
+
+        savedWidgets = items;
+      } else {
+        savedWidgets.add(widgetName);
+      }
+    }
+
+    sharedPreferences.setStringList(
+      'saved_widgets',
+      savedWidgets,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +82,7 @@ class CardWidget extends StatelessWidget {
           ),
         const SizedBox(width: 8.0),
         IconButton(
-          onPressed: () {},
+          onPressed: _saveWidget,
           icon: Icon(
             Icons.bookmark_border,
             color: Theme.of(context).colorScheme.tertiary,
