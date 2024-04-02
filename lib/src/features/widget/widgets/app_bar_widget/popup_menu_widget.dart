@@ -64,7 +64,7 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
             onTap: () {
               openURL(
                 () => context,
-                'https://api.flutter.dev/flutter/widgets/${widget.className}-class.html',
+                'https://api.flutter.dev/flutter/material/${widget.className}-class.html',
               );
             },
             child: const Text('Doc'),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/constants/widgets.dart';
+
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/app_bar_widget.dart';
 import 'package:flutter_guide/src/features/widget/widgets/code_tab.dart';
 
@@ -27,7 +28,10 @@ class WidgetScreen extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            samples[widgetName]!,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: samples[widgetName],
+            ),
             CodeTab(
               widgetName: title.replaceAll(" ", "_").toLowerCase(),
             ),

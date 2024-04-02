@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/shared/models/widget_model.dart';
 
-import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
-import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/list_tile_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/list_view_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 
 const widgets = <WidgetModel>[
@@ -40,29 +44,31 @@ const widgets = <WidgetModel>[
     name: 'List View',
     icon: Icons.list,
     youtubeLink: 'KJpkjHGiI5A?si=MJEvCI9lL4kFg03_',
+    sample: ListViewSample(),
   ),
   WidgetModel(
     name: 'Stack',
     icon: Icons.layers,
     youtubeLink: 'liEGSeD3Zt8?si=kn6VHbJgeHzG6C_N',
+    sample: StackSample(),
   ),
   WidgetModel(
-    name: 'CheckBox',
+    name: 'Checkbox',
     icon: Icons.check_box,
+    sample: CheckboxSample(),
   ),
   WidgetModel(
     name: 'List Tile',
     icon: Icons.list_alt,
     youtubeLink: 'l8dj0yPBvgQ?si=3mUG7NVusfY126bs',
+    sample: ListTileSample(),
   ),
 ];
 
 Map<String, Widget> widgetSamples() {
   Map<String, Widget> samples = {};
   for (WidgetModel widget in widgets) {
-    if (widget.sample != null) {
-      samples[widget.name.replaceAll(" ", "_").toLowerCase()] = widget.sample!;
-    }
+    samples[widget.name.replaceAll(" ", "_").toLowerCase()] = widget.sample;
   }
 
   return samples;
