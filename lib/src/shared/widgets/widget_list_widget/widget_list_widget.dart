@@ -11,12 +11,10 @@ class WidgetListWidget extends StatefulWidget {
     super.key,
     required this.widgets,
     required this.screenName,
-    this.updateWidgetsStatusChanged,
   });
 
   final List<WidgetModel> widgets;
   final String screenName;
-  final void Function(String value)? updateWidgetsStatusChanged;
 
   @override
   State<WidgetListWidget> createState() => _WidgetListWidgetState();
@@ -50,9 +48,6 @@ class _WidgetListWidgetState extends State<WidgetListWidget> {
           widgetName: flutterWidget.name,
           youtubeLink: flutterWidget.youtubeLink,
           saved: _savedWidgets.contains(flutterWidget.name),
-          updateWidgetsStatusChanged: widget.updateWidgetsStatusChanged != null
-              ? () => widget.updateWidgetsStatusChanged!(flutterWidget.name)
-              : () {},
         );
       },
     );

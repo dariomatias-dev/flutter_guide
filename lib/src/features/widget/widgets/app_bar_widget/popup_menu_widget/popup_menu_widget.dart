@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/popup_menu_widget/popup_menu_controller.dart';
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
@@ -55,12 +56,16 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
             ),
           PopupMenuItem(
             onTap: () {
-              setState(() {
-                _controller.saved =
-                    _controller.widgetBookmarkerService.toggleWidgetState(
-                  widget.widgetName,
-                );
-              });
+              _controller.saved =
+                  _controller.widgetBookmarkerService.toggleWidgetState(
+                widget.widgetName,
+              );
+
+              UserPreferencesInheritedWidget.of(context)!
+                  .widgetsStatusChangedNotifier
+                  .setValue(widget.widgetName);
+
+              setState(() {});
             },
             child: Text(
               _controller.saved ? 'Remove' : 'Save',

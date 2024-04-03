@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:flutter_guide/src/providers/widget_status_notifier.dart';
+
 class UserPreferencesInheritedWidget extends InheritedWidget {
   const UserPreferencesInheritedWidget({
     super.key,
     required this.widgetsStatusChangedNotifier,
-    required this.updateWidgetsStatusChanged,
     required this.sharedPreferences,
     required super.child,
   });
 
-  final ValueNotifier<String> widgetsStatusChangedNotifier;
-  final void Function(String value) updateWidgetsStatusChanged;
+  final WidgetStatusNotifier widgetsStatusChangedNotifier;
 
   final SharedPreferences sharedPreferences;
 

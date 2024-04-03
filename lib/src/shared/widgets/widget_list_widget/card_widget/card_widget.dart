@@ -15,7 +15,6 @@ class CardWidget extends StatelessWidget {
     required this.widgetName,
     this.youtubeLink,
     required this.saved,
-    required this.updateWidgetsStatusChanged,
   });
 
   final String screenName;
@@ -23,7 +22,6 @@ class CardWidget extends StatelessWidget {
   final String widgetName;
   final String? youtubeLink;
   final bool saved;
-  final VoidCallback updateWidgetsStatusChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +59,6 @@ class CardWidget extends StatelessWidget {
           screenName: screenName,
           widgetName: widgetName,
           saved: saved,
-          updateWidgetsStatusChanged: updateWidgetsStatusChanged,
         ),
       ],
     );

@@ -10,13 +10,11 @@ class SaveButtonWidget extends StatefulWidget {
     required this.screenName,
     required this.widgetName,
     required this.saved,
-    required this.updateWidgetsStatusChanged,
   });
 
   final String screenName;
   final String widgetName;
   final bool saved;
-  final VoidCallback updateWidgetsStatusChanged;
 
   @override
   State<SaveButtonWidget> createState() => _SaveButtonWidgetState();
@@ -25,6 +23,12 @@ class SaveButtonWidget extends StatefulWidget {
 class _SaveButtonWidgetState extends State<SaveButtonWidget> {
   late WidgetBookmarkerService _widgetBookmarkerService;
   late bool _saved;
+  bool hasUpdatedButton = false;
+
+  Icon get icon => Icon(
+        _saved ? Icons.bookmark : Icons.bookmark_border,
+        color: Theme.of(context).colorScheme.tertiary,
+      );
 
   @override
   void didChangeDependencies() {
@@ -47,24 +51,31 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
           widget.widgetName,
         );
 
-        widget.updateWidgetsStatusChanged();
+        if (widget.screenName != 'widgets') {
+          UserPreferencesInheritedWidget.of(context)!
+              .widgetsStatusChangedNotifier
+              .setValue(widget.widgetName);
+        }
+
+        hasUpdatedButton = true;
 
         setState(() {});
       },
-      icon: ValueListenableBuilder(
-        valueListenable: UserPreferencesInheritedWidget.of(context)!
-            .widgetsStatusChangedNotifier,
-        builder: (context, value, child) {
-          if (widget.screenName == 'widgets' && value == widget.widgetName) {
-            _saved = !_saved;
-          }
+      icon: widget.screenName == 'widgets'
+          ? ValueListenableBuilder(
+              valueListenable: UserPreferencesInheritedWidget.of(context)!
+                  .widgetsStatusChangedNotifier,
+              builder: (context, value, child) {
+                if (value == widget.widgetName && !hasUpdatedButton) {
+                  _saved = !_saved;
+                }
 
-          return Icon(
-            _saved ? Icons.bookmark : Icons.bookmark_border,
-            color: Theme.of(context).colorScheme.tertiary,
-          );
-        },
-      ),
+                hasUpdatedButton = false;
+
+                return icon;
+              },
+            )
+          : icon,
     );
   }
 }
