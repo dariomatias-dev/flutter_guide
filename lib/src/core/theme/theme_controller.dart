@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ThemeController extends ChangeNotifier {
-  static ThemeController instance = ThemeController();
+class ThemeController extends ValueNotifier {
+  ThemeController({
+    this.themeMode = ThemeMode.system,
+  }) : super(themeMode);
+
+  ThemeMode themeMode;
 
   late SharedPreferences sharedPreferences;
 
-  ThemeMode themeMode = ThemeMode.system;
-
-  ThemeController initialize(BuildContext context) {
-    sharedPreferences = UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
+  ThemeController initialize(
+    SharedPreferences sharedPreferencesInstance,
+  ) {
+    sharedPreferences = sharedPreferencesInstance;
 
     final theme = sharedPreferences.getString("theme");
 
@@ -18,26 +21,19 @@ class ThemeController extends ChangeNotifier {
       themeMode = ThemeMode.light;
     } else if (theme == ThemeMode.dark.name) {
       themeMode = ThemeMode.dark;
-    } else {
-      themeMode = ThemeMode.system;
     }
 
     notifyListeners();
 
-    return ThemeController();
-  }
-
-  void saveTheme() async {
-    await sharedPreferences.setString(
-      'theme',
-      themeMode.name,
+    return ThemeController(
+      themeMode: themeMode,
     );
   }
 
   void setTheme(ThemeMode value) {
     themeMode = value;
 
-    saveTheme();
+    _saveTheme();
 
     notifyListeners();
   }
@@ -49,8 +45,15 @@ class ThemeController extends ChangeNotifier {
       themeMode = ThemeMode.light;
     }
 
-    saveTheme();
+    _saveTheme();
 
     notifyListeners();
+  }
+
+  void _saveTheme() async {
+    await sharedPreferences.setString(
+      'theme',
+      themeMode.name,
+    );
   }
 }

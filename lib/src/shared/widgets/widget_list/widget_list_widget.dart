@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
+
 import 'package:flutter_guide/src/shared/models/widget_model.dart';
 import 'package:flutter_guide/src/shared/widgets/widget_list/card_widget/card_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/widget_list/widget_list_controller.dart';
@@ -24,32 +26,33 @@ class _WidgetListWidgetState extends State<WidgetListWidget> {
   final _controller = WidgetListController();
 
   @override
-  void didChangeDependencies() {
-    _controller.didChangeDependencies(context);
-
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: List.generate(
-        widget.widgets.length,
-        (index) {
-          final flutterWidget = widget.widgets[index];
+    return ValueListenableBuilder(
+      valueListenable:
+          UserPreferencesInheritedWidget.of(context)!.themeController,
+      builder: (context, value, child) {
+        _controller.getSavedWidgets(context);
 
-          return CardWidget(
-            screenName: widget.screenName,
-            icon: flutterWidget.icon,
-            widgetName: flutterWidget.name,
-            youtubeLink: flutterWidget.youtubeLink,
-            saved: _controller.savedWidgets.contains(
-              flutterWidget.name,
-            ),
-            handleRemoveWidget: widget.handleRemoveWidget,
-          );
-        },
-      ),
+        return ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: widget.widgets.length,
+          itemBuilder: (context, index) {
+            final flutterWidget = widget.widgets[index];
+
+            return CardWidget(
+              screenName: widget.screenName,
+              icon: flutterWidget.icon,
+              widgetName: flutterWidget.name,
+              youtubeLink: flutterWidget.youtubeLink,
+              saved: _controller.savedWidgetsConstain(
+                flutterWidget.name,
+              ),
+              handleRemoveWidget: widget.handleRemoveWidget,
+            );
+          },
+        );
+      },
     );
   }
 }

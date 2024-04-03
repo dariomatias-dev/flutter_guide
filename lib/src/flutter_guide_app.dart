@@ -4,23 +4,13 @@ import 'package:flutter_guide/src/core/routes/flutter_guide_routes.dart';
 import 'package:flutter_guide/src/core/theme/theme.dart';
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
-class FlutterGuideApp extends StatefulWidget {
-  const FlutterGuideApp({super.key});
+class FlutterGuideApp extends StatelessWidget {
+  const FlutterGuideApp({
+    super.key,
+    required this.themeController,
+  });
 
-  @override
-  State<FlutterGuideApp> createState() => _FlutterGuideAppState();
-}
-
-class _FlutterGuideAppState extends State<FlutterGuideApp> {
-  late ThemeController themeController;
-
-  @override
-  void didChangeDependencies() {
-    themeController = ThemeController.instance;
-    themeController.initialize(context);
-
-    super.didChangeDependencies();
-  }
+  final ThemeController themeController;
 
   @override
   Widget build(BuildContext context) {

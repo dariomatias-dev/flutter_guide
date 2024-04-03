@@ -26,14 +26,10 @@ class ChangeThemeIconButtonWidgetState
   }
 
   @override
-  void initState() {
-    _themeController = ThemeController.instance;
-
-    super.initState();
-  }
-
-  @override
   void didChangeDependencies() {
+    _themeController =
+        UserPreferencesInheritedWidget.of(context)!.themeController;
+
     _setBrightnessMode();
 
     super.didChangeDependencies();
@@ -44,7 +40,7 @@ class ChangeThemeIconButtonWidgetState
     return IconButton(
       onPressed: () {
         if (_themeController.themeMode != ThemeMode.system) {
-          ThemeController.instance.toggleTheme();
+          _themeController.toggleTheme();
 
           _themeMode =
               _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;

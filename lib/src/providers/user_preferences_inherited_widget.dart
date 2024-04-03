@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:flutter_guide/src/core/theme/theme_controller.dart';
+
 import 'package:flutter_guide/src/providers/widget_status_notifier.dart';
 
 class UserPreferencesInheritedWidget extends InheritedWidget {
   const UserPreferencesInheritedWidget({
     super.key,
+    required this.themeController,
     required this.widgetsStatusChangedNotifier,
     required this.sharedPreferences,
     required super.child,
   });
 
+  final ThemeController themeController;
   final WidgetStatusNotifier widgetsStatusChangedNotifier;
 
   final SharedPreferences sharedPreferences;

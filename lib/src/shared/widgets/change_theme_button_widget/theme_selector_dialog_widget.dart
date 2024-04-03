@@ -9,10 +9,11 @@ class ThemeSelectorDialogWidget extends StatefulWidget {
 }
 
 class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
+  late ThemeController _themeController;
   late ThemeMode _themeMode;
 
   void _updateThemeMode(ThemeMode? value) {
-    ThemeController.instance.setTheme(value!);
+    _themeController.setTheme(value!);
 
     setState(() {
       _themeMode = value;
@@ -21,7 +22,10 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
 
   @override
   void didChangeDependencies() {
-    _themeMode = ThemeController.instance.themeMode;
+    _themeController =
+        UserPreferencesInheritedWidget.of(context)!.themeController;
+    _themeMode = _themeController.themeMode;
+
     super.didChangeDependencies();
   }
 

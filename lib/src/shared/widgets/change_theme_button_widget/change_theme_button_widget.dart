@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
+
 import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
 
 part 'change_theme_icon_button_widget.dart';
