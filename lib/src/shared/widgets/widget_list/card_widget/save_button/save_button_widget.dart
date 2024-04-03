@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
+
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/widget_list/card_widget/save_button/save_button_controller.dart';
@@ -46,9 +48,9 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
           widget.widgetName,
         );
         _controller.saved =
-            widget.screenName != 'saved_widgets' ? saved : _controller.saved;
+            widget.screenName != FlutterGuideRouteNames.savedWidgets ? saved : _controller.saved;
 
-        if (widget.screenName != 'widgets') {
+        if (widget.screenName != FlutterGuideRouteNames.widgets) {
           UserPreferencesInheritedWidget.of(context)!
               .widgetsStatusChangedNotifier
               .setValue(widget.widgetName);
@@ -60,7 +62,7 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
 
         setState(() {});
       },
-      icon: widget.screenName == 'widgets'
+      icon: widget.screenName == FlutterGuideRouteNames.widgets
           ? ValueListenableBuilder(
               valueListenable: UserPreferencesInheritedWidget.of(context)!
                   .widgetsStatusChangedNotifier,

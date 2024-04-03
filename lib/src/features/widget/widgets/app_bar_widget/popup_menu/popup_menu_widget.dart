@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
-import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/popup_menu_widget/popup_menu_controller.dart';
+import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/popup_menu/popup_menu_controller.dart';
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/utils/open_url.dart';

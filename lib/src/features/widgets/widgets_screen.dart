@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
+
 import 'package:flutter_guide/src/features/widgets/widgets/search_field_widget/search_field_widget.dart';
 import 'package:flutter_guide/src/features/widgets/widgets_controller.dart';
 
@@ -28,7 +30,7 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
           }),
           const SizedBox(height: 16.0),
           WidgetListWidget(
-            screenName: 'widgets',
+            screenName: FlutterGuideRouteNames.widgets,
             widgets: _controller.flutterWidgets,
           ),
         ],

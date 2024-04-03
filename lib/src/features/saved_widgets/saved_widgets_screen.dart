@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
+
 import 'package:flutter_guide/src/features/saved_widgets/saved_widgets_controller.dart';
 
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
@@ -48,7 +50,7 @@ class _SavedWidgetsState extends State<SavedWidgets> {
       body: _controller.flutterWidgets.isNotEmpty
           ? SingleChildScrollView(
               child: WidgetListWidget(
-                screenName: 'saved_widgets',
+                screenName: FlutterGuideRouteNames.savedWidgets,
                 widgets: _controller.flutterWidgets,
                 handleRemoveWidget: handleRemoveWidget,
               ),
