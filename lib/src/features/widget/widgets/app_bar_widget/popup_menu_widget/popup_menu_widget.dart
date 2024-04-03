@@ -1,12 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
-import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
-import 'package:flutter_guide/src/services/widget_bookmarker_service.dart';
+import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/popup_menu_widget/popup_menu_controller.dart';
 
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
@@ -29,54 +25,15 @@ class PopupMenuWidget extends StatefulWidget {
 }
 
 class _PopupMenuWidgetState extends State<PopupMenuWidget> {
-  late WidgetBookmarkerService _widgetBookmarkerService;
+  final _controller = PopupMenuController();
+
   BuildContext getContext() => context;
-  late bool _saved;
-
-  Future<void> copyCode() async {
-    final file = File(
-      'lib/src/features/widget/widget_samples/${widget.widgetName}_sample.dart',
-    );
-
-    final codeString = await file.readAsString();
-
-    Clipboard.setData(
-      ClipboardData(text: codeString),
-    );
-
-    ScaffoldMessenger.of(
-      getContext(),
-    ).showSnackBar(
-      const SnackBar(
-        content: Text(
-          'Code copied to the clipboard',
-        ),
-      ),
-    );
-  }
-
-  String getCategory() {
-    switch (widget.widgetCategory) {
-      case WidgetCategory.widgets:
-        return 'widgets';
-      case WidgetCategory.material:
-        return 'material';
-      default:
-        return 'cupertino';
-    }
-  }
 
   @override
   void didChangeDependencies() {
-    final sharedPreferences =
-        UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
-    final savedWidgets = sharedPreferences.getStringList('saved_widgets');
-
-    _saved = savedWidgets?.contains(widget.widgetName) ?? false;
-
-    _widgetBookmarkerService = WidgetBookmarkerService(
-      context: context,
-      sharedPreferences: sharedPreferences,
+    _controller.didChangeDependencies(
+      widget.widgetName,
+      context,
     );
 
     super.didChangeDependencies();
@@ -90,24 +47,30 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
         return [
           if (widget.currentTabIndex == 1)
             PopupMenuItem(
-              onTap: copyCode,
+              onTap: () => _controller.copyCode(
+                widget.widgetName,
+                getContext,
+              ),
               child: const Text('Copy'),
             ),
           PopupMenuItem(
             onTap: () {
               setState(() {
-                _saved = _widgetBookmarkerService.toggleWidgetState(
+                _controller.saved =
+                    _controller.widgetBookmarkerService.toggleWidgetState(
                   widget.widgetName,
                 );
               });
             },
             child: Text(
-              _saved ? 'Remove' : 'Save',
+              _controller.saved ? 'Remove' : 'Save',
             ),
           ),
           PopupMenuItem(
             onTap: () {
-              final widgetCategory = getCategory();
+              final widgetCategory = _controller.getCategory(
+                widget.widgetCategory,
+              );
 
               openURL(
                 () => context,

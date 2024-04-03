@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/features/widget/widgets/app_bar_widget/app_bar_widget.dart';
-import 'package:flutter_guide/src/features/widget/widgets/code_tab.dart';
+import 'package:flutter_guide/src/features/widget/widgets/code_tab/code_tab_widget.dart';
 
 import 'package:flutter_guide/src/providers/widgets_map_inherited_widget.dart';
 

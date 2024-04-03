@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/constants/widgets.dart';
+import 'package:flutter_guide/src/features/widgets/widgets/search_field_widget/search_field_widget.dart';
+import 'package:flutter_guide/src/features/widgets/widgets_controller.dart';
 
-import 'package:flutter_guide/src/features/widgets/widgets/search_field_widget.dart';
-
-import 'package:flutter_guide/src/shared/models/widget_model.dart';
 import 'package:flutter_guide/src/shared/widgets/widget_list_widget/widget_list_widget.dart';
 
 class WidgetsScreen extends StatefulWidget {
@@ -15,27 +13,7 @@ class WidgetsScreen extends StatefulWidget {
 }
 
 class _WidgetsScreenState extends State<WidgetsScreen> {
-  List<WidgetModel> flutterWidgets = widgets;
-
-  void _onChange(String value) {
-    if (value.trim().isNotEmpty) {
-      final items = <WidgetModel>[];
-
-      for (WidgetModel widget in widgets) {
-        if (widget.name.toLowerCase().contains(
-              value.toLowerCase(),
-            )) {
-          items.add(widget);
-        }
-      }
-
-      flutterWidgets = items;
-    } else {
-      flutterWidgets = widgets;
-    }
-
-    setState(() {});
-  }
+  final _controller = WidgetsController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +21,14 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
       body: Column(
         children: [
           const SizedBox(height: 20.0),
-          SearchFieldWidget(
-            onChange: _onChange,
-          ),
+          SearchFieldWidget(onChange: (String value) {
+            _controller.updateWidgetList(value, () {
+              setState(() {});
+            });
+          }),
           const SizedBox(height: 16.0),
           WidgetListWidget(
-            widgets: flutterWidgets,
+            widgets: _controller.flutterWidgets,
           ),
         ],
       ),

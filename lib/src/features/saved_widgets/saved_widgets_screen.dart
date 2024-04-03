@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/constants/widgets.dart';
+import 'package:flutter_guide/src/features/saved_widgets/saved_widgets_controller.dart';
 
-import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
-
-import 'package:flutter_guide/src/shared/models/widget_model.dart';
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/widget_list_widget/widget_list_widget.dart';
@@ -17,27 +14,11 @@ class SavedWidgets extends StatefulWidget {
 }
 
 class _SavedWidgetsState extends State<SavedWidgets> {
-  late List<WidgetModel> flutterWidgets = [];
-
-  void getSavedWidgets() {
-    final sharedPreferences =
-        UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
-    final savedWidgets = sharedPreferences.getStringList('saved_widgets')!;
-
-    final items = <WidgetModel>[];
-
-    for (WidgetModel widgetItem in widgets) {
-      if (savedWidgets.contains(widgetItem.name)) {
-        items.add(widgetItem);
-      }
-    }
-
-    flutterWidgets = items;
-  }
+  final _controller = SavedWidgetsController();
 
   @override
   void didChangeDependencies() {
-    getSavedWidgets();
+    _controller.getSavedWidgets(context);
 
     super.didChangeDependencies();
   }
@@ -58,10 +39,10 @@ class _SavedWidgetsState extends State<SavedWidgets> {
           ChangeThemeButtonWidget(),
         ],
       ),
-      body: flutterWidgets.isNotEmpty
+      body: _controller.flutterWidgets.isNotEmpty
           ? SingleChildScrollView(
               child: WidgetListWidget(
-                widgets: flutterWidgets,
+                widgets: _controller.flutterWidgets,
               ),
             )
           : const Center(

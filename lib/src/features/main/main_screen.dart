@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
+import 'package:flutter_guide/src/features/main/main_controller.dart';
 import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
 import 'package:flutter_guide/src/core/constants/bottom_app_bar_screens.dart';
@@ -14,7 +15,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int screenIndex = 0;
+  final _controller = MainController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             const SizedBox(width: 16.0),
             Text(
-              bottomAppBarScreens[screenIndex].title,
+              bottomAppBarScreens[_controller.screenIndex].title,
               style: const TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.w500,
@@ -57,13 +58,13 @@ class _MainScreenState extends State<MainScreen> {
           const SizedBox(width: 4.0),
         ],
       ),
-      body: bottomAppBarScreens[screenIndex].screen,
+      body: bottomAppBarScreens[_controller.screenIndex].screen,
       bottomNavigationBar: SalomonBottomBar(
         backgroundColor: Theme.of(context).colorScheme.secondary,
-        currentIndex: screenIndex,
+        currentIndex: _controller.screenIndex,
         onTap: (value) {
           setState(() {
-            screenIndex = value;
+            _controller.screenIndex = value;
           });
         },
         items: [

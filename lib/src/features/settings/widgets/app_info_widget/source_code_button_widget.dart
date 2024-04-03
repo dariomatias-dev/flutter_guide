@@ -1,4 +1,4 @@
-part of 'app_info_widget.dart';
+import 'package:flutter/material.dart';
 
 class SourceCodeButtonWidget extends StatelessWidget {
   const SourceCodeButtonWidget({super.key});

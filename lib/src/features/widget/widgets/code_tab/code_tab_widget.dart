@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:syntax_highlight/syntax_highlight.dart';
+
+import 'package:flutter_guide/src/features/widget/widgets/code_tab/code_tab_controller.dart';
 
 class CodeTab extends StatefulWidget {
   const CodeTab({
@@ -16,39 +15,19 @@ class CodeTab extends StatefulWidget {
 }
 
 class _CodeTabState extends State<CodeTab> {
-  TextSpan code = const TextSpan(
-    text: '',
-  );
+  final _controller = CodeTabController();
 
   BuildContext currentContext() => context;
 
-  Future<void> loadCode() async {
-    final file = File(
-      'lib/src/features/widget/widget_samples/${widget.widgetName.toLowerCase()}_sample.dart',
-    );
-    final codeString = await file.readAsString();
-
-    await Highlighter.initialize(['dart', 'yaml']);
-
-    final theme = await (Theme.of(currentContext()).colorScheme.brightness ==
-            Brightness.light
-        ? HighlighterTheme.loadLightTheme
-        : HighlighterTheme.loadDarkTheme)();
-    final highlighter = Highlighter(
-      language: 'dart',
-      theme: theme,
-    );
-
-    final highlightedCode = highlighter.highlight(codeString);
-
-    setState(() {
-      code = highlightedCode;
-    });
-  }
-
   @override
   void didChangeDependencies() {
-    loadCode();
+    _controller.loadCode(
+      widget.widgetName,
+      currentContext,
+      () {
+        setState(() {});
+      },
+    );
 
     super.didChangeDependencies();
   }
@@ -66,7 +45,7 @@ class _CodeTabState extends State<CodeTab> {
             horizontal: 6.0,
           ),
           child: Text.rich(
-            code,
+            _controller.code,
             style: const TextStyle(
               fontSize: 12.0,
             ),

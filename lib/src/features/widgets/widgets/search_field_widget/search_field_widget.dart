@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
 
+import 'package:flutter_guide/src/features/widgets/widgets/search_field_widget/search_field_controller.dart';
+
 class SearchFieldWidget extends StatefulWidget {
   const SearchFieldWidget({
     super.key,
@@ -15,7 +17,14 @@ class SearchFieldWidget extends StatefulWidget {
 }
 
 class _SearchFieldWidgetState extends State<SearchFieldWidget> {
-  final _searchFieldController = TextEditingController();
+  final _controller = SearchFieldController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +34,7 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
         horizontal: 12.0,
       ),
       child: TextFormField(
-        controller: _searchFieldController,
+        controller: _controller.searchFieldController,
         decoration: InputDecoration(
           filled: true,
           fillColor: Theme.of(context).brightness == Brightness.light

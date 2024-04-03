@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
-part 'source_code_button_widget.dart';
-part 'app_version.dart';
+import 'package:flutter_guide/src/features/settings/widgets/app_info_widget/app_version/app_version_widget.dart';
+import 'package:flutter_guide/src/features/settings/widgets/app_info_widget/source_code_button_widget.dart';
 
 class AppInfoWidget extends StatelessWidget {
   const AppInfoWidget({super.key});
@@ -25,7 +24,7 @@ class AppInfoWidget extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          const AppVersion(),
+          const AppVersionWidget(),
           const SizedBox(height: 20.0),
           const SourceCodeButtonWidget(),
         ],
