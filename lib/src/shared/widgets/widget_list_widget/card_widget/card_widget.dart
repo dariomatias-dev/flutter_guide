@@ -10,16 +10,20 @@ import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 class CardWidget extends StatelessWidget {
   const CardWidget({
     super.key,
+    required this.screenName,
     required this.icon,
     required this.widgetName,
     this.youtubeLink,
     required this.saved,
+    required this.updateWidgetsStatusChanged,
   });
 
+  final String screenName;
   final IconData icon;
   final String widgetName;
   final String? youtubeLink;
   final bool saved;
+  final VoidCallback updateWidgetsStatusChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +58,10 @@ class CardWidget extends StatelessWidget {
           ),
         const SizedBox(width: 8.0),
         SaveButtonWidget(
+          screenName: screenName,
           widgetName: widgetName,
           saved: saved,
+          updateWidgetsStatusChanged: updateWidgetsStatusChanged,
         ),
       ],
     );

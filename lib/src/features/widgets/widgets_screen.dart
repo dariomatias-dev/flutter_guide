@@ -28,6 +28,7 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
           }),
           const SizedBox(height: 16.0),
           WidgetListWidget(
+            screenName: 'widgets',
             widgets: _controller.flutterWidgets,
           ),
         ],

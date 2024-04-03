@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
@@ -9,9 +10,13 @@ class WidgetListWidget extends StatefulWidget {
   const WidgetListWidget({
     super.key,
     required this.widgets,
+    required this.screenName,
+    this.updateWidgetsStatusChanged,
   });
 
   final List<WidgetModel> widgets;
+  final String screenName;
+  final void Function(String value)? updateWidgetsStatusChanged;
 
   @override
   State<WidgetListWidget> createState() => _WidgetListWidgetState();
@@ -19,12 +24,13 @@ class WidgetListWidget extends StatefulWidget {
 
 class _WidgetListWidgetState extends State<WidgetListWidget> {
   late List<String> _savedWidgets;
+  late SharedPreferences _sharedPreferences;
 
   @override
   void didChangeDependencies() {
-    final sharedPreferences =
+    _sharedPreferences =
         UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
-    _savedWidgets = sharedPreferences.getStringList('saved_widgets')!;
+    _savedWidgets = _sharedPreferences.getStringList('saved_widgets')!;
 
     super.didChangeDependencies();
   }
@@ -39,10 +45,14 @@ class _WidgetListWidgetState extends State<WidgetListWidget> {
         final flutterWidget = widget.widgets[index];
 
         return CardWidget(
+          screenName: widget.screenName,
           icon: flutterWidget.icon,
           widgetName: flutterWidget.name,
           youtubeLink: flutterWidget.youtubeLink,
           saved: _savedWidgets.contains(flutterWidget.name),
+          updateWidgetsStatusChanged: widget.updateWidgetsStatusChanged != null
+              ? () => widget.updateWidgetsStatusChanged!(flutterWidget.name)
+              : () {},
         );
       },
     );
