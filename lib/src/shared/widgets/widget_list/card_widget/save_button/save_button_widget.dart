@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
-import 'package:flutter_guide/src/services/widget_bookmarker_service.dart';
+import 'package:flutter_guide/src/shared/widgets/widget_list/card_widget/save_button/save_button_controller.dart';
 
 class SaveButtonWidget extends StatefulWidget {
   const SaveButtonWidget({
@@ -10,34 +10,29 @@ class SaveButtonWidget extends StatefulWidget {
     required this.screenName,
     required this.widgetName,
     required this.saved,
+    this.handleRemoveWidget,
   });
 
   final String screenName;
   final String widgetName;
   final bool saved;
+  final VoidCallback? handleRemoveWidget;
 
   @override
   State<SaveButtonWidget> createState() => _SaveButtonWidgetState();
 }
 
 class _SaveButtonWidgetState extends State<SaveButtonWidget> {
-  late WidgetBookmarkerService _widgetBookmarkerService;
-  late bool _saved;
-  bool hasUpdatedButton = false;
-
-  Icon get icon => Icon(
-        _saved ? Icons.bookmark : Icons.bookmark_border,
-        color: Theme.of(context).colorScheme.tertiary,
-      );
+  late SaveButtonController _controller;
 
   @override
   void didChangeDependencies() {
-    _saved = widget.saved;
-
-    _widgetBookmarkerService = WidgetBookmarkerService(
+    _controller = SaveButtonController(
       context: context,
-      sharedPreferences:
-          UserPreferencesInheritedWidget.of(context)!.sharedPreferences,
+    );
+
+    _controller.didChangeDependencies(
+      widget.saved,
     );
 
     super.didChangeDependencies();
@@ -47,9 +42,11 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        _saved = _widgetBookmarkerService.toggleWidgetState(
+        final saved = _controller.widgetBookmarkerService.toggleWidgetState(
           widget.widgetName,
         );
+        _controller.saved =
+            widget.screenName != 'saved_widgets' ? saved : _controller.saved;
 
         if (widget.screenName != 'widgets') {
           UserPreferencesInheritedWidget.of(context)!
@@ -57,7 +54,9 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
               .setValue(widget.widgetName);
         }
 
-        hasUpdatedButton = true;
+        _controller.hasUpdatedButton = true;
+
+        if (widget.handleRemoveWidget != null) widget.handleRemoveWidget!();
 
         setState(() {});
       },
@@ -66,16 +65,17 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
               valueListenable: UserPreferencesInheritedWidget.of(context)!
                   .widgetsStatusChangedNotifier,
               builder: (context, value, child) {
-                if (value == widget.widgetName && !hasUpdatedButton) {
-                  _saved = !_saved;
+                if (value == widget.widgetName &&
+                    !_controller.hasUpdatedButton) {
+                  _controller.saved = !_controller.saved;
                 }
 
-                hasUpdatedButton = false;
+                _controller.hasUpdatedButton = false;
 
-                return icon;
+                return _controller.icon;
               },
             )
-          : icon,
+          : _controller.icon,
     );
   }
 }

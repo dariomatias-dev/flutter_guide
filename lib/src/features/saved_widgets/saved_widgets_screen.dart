@@ -4,7 +4,7 @@ import 'package:flutter_guide/src/features/saved_widgets/saved_widgets_controlle
 
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/widget_list_widget/widget_list_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/widget_list/widget_list_widget.dart';
 
 class SavedWidgets extends StatefulWidget {
   const SavedWidgets({super.key});
@@ -16,7 +16,11 @@ class SavedWidgets extends StatefulWidget {
 class _SavedWidgetsState extends State<SavedWidgets> {
   final _controller = SavedWidgetsController();
 
-  final widgetsStatusChanged = <String>[];
+  void handleRemoveWidget() {
+    _controller.getSavedWidgets(context);
+
+    setState(() {});
+  }
 
   @override
   void didChangeDependencies() {
@@ -46,6 +50,7 @@ class _SavedWidgetsState extends State<SavedWidgets> {
               child: WidgetListWidget(
                 screenName: 'saved_widgets',
                 widgets: _controller.flutterWidgets,
+                handleRemoveWidget: handleRemoveWidget,
               ),
             )
           : const Center(
