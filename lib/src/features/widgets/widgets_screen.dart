@@ -5,7 +5,7 @@ import 'package:flutter_guide/src/core/constants/widgets.dart';
 import 'package:flutter_guide/src/features/widgets/widgets/search_field_widget.dart';
 
 import 'package:flutter_guide/src/shared/models/widget_model.dart';
-import 'package:flutter_guide/src/shared/widgets/widget_list_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/widget_list_widget/widget_list_widget.dart';
 
 class WidgetsScreen extends StatefulWidget {
   const WidgetsScreen({super.key});

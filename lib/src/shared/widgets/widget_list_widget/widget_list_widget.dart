@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/models/widget_model.dart';
-import 'package:flutter_guide/src/shared/widgets/card_widget/card_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/widget_list_widget/card_widget/card_widget.dart';
 
 class WidgetListWidget extends StatefulWidget {
   const WidgetListWidget({

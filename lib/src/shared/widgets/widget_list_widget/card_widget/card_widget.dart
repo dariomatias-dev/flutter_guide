@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_guide/src/features/widget/widget_screen.dart';
 
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
-import 'package:flutter_guide/src/shared/widgets/card_widget/save_button_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/widget_list_widget/card_widget/save_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 
 class CardWidget extends StatelessWidget {

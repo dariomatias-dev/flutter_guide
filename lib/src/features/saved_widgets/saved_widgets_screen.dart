@@ -7,7 +7,7 @@ import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.da
 import 'package:flutter_guide/src/shared/models/widget_model.dart';
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/widget_list_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/widget_list_widget/widget_list_widget.dart';
 
 class SavedWidgets extends StatefulWidget {
   const SavedWidgets({super.key});
