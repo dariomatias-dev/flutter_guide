@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
+import 'package:flutter_guide/src/services/widget_bookmarker_service.dart';
 
 class SaveButtonWidget extends StatefulWidget {
   const SaveButtonWidget({
@@ -17,54 +18,32 @@ class SaveButtonWidget extends StatefulWidget {
 }
 
 class _SaveButtonWidgetState extends State<SaveButtonWidget> {
+  late WidgetBookmarkerService _widgetBookmarkerService;
   late bool _saved;
 
-  void _saveButtonWidget(BuildContext context) {
-    final sharedPreferences =
-        UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
-
-    List<String>? savedWidgets = sharedPreferences.getStringList(
-      'saved_widgets',
-    );
-
-    if (savedWidgets == null) {
-      savedWidgets = [widget.widgetName];
-    } else {
-      if (savedWidgets.contains(widget.widgetName)) {
-        final items = <String>[];
-        for (String savedWidget in savedWidgets) {
-          if (savedWidget != widget.widgetName) {
-            items.add(savedWidget);
-          }
-        }
-
-        savedWidgets = items;
-      } else {
-        savedWidgets.add(widget.widgetName);
-      }
-    }
-
-    sharedPreferences.setStringList(
-      'saved_widgets',
-      savedWidgets,
-    );
-
-    setState(() {
-      _saved = savedWidgets!.contains(widget.widgetName);
-    });
-  }
-
   @override
-  void initState() {
+  void didChangeDependencies() {
     _saved = widget.saved;
 
-    super.initState();
+    _widgetBookmarkerService = WidgetBookmarkerService(
+      context: context,
+      sharedPreferences:
+          UserPreferencesInheritedWidget.of(context)!.sharedPreferences,
+    );
+
+    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () => _saveButtonWidget(context),
+      onPressed: () {
+        setState(() {
+          _saved = _widgetBookmarkerService.toggleWidgetState(
+            widget.widgetName,
+          );
+        });
+      },
       icon: Icon(
         _saved ? Icons.bookmark : Icons.bookmark_border,
         color: Theme.of(context).colorScheme.tertiary,
