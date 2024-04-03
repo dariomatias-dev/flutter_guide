@@ -5,6 +5,9 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
+import 'package:flutter_guide/src/services/widget_bookmarker_service.dart';
+
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
 class PopupMenuWidget extends StatefulWidget {
@@ -26,7 +29,9 @@ class PopupMenuWidget extends StatefulWidget {
 }
 
 class _PopupMenuWidgetState extends State<PopupMenuWidget> {
+  late WidgetBookmarkerService _widgetBookmarkerService;
   BuildContext getContext() => context;
+  late bool _saved;
 
   Future<void> copyCode() async {
     final file = File(
@@ -62,6 +67,22 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
   }
 
   @override
+  void didChangeDependencies() {
+    final sharedPreferences =
+        UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
+    final savedWidgets = sharedPreferences.getStringList('saved_widgets');
+
+    _saved = savedWidgets?.contains(widget.widgetName) ?? false;
+
+    _widgetBookmarkerService = WidgetBookmarkerService(
+      context: context,
+      sharedPreferences: sharedPreferences,
+    );
+
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
       iconColor: Theme.of(context).colorScheme.tertiary,
@@ -73,8 +94,16 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
               child: const Text('Copy'),
             ),
           PopupMenuItem(
-            onTap: () {},
-            child: const Text('Save'),
+            onTap: () {
+              setState(() {
+                _saved = _widgetBookmarkerService.toggleWidgetState(
+                  widget.widgetName,
+                );
+              });
+            },
+            child: Text(
+              _saved ? 'Remove' : 'Save',
+            ),
           ),
           PopupMenuItem(
             onTap: () {
