@@ -4,6 +4,8 @@ import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
 
 import 'package:flutter_guide/src/features/saved_widgets/saved_widgets_controller.dart';
 
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
+
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/widget_list/widget_list_widget.dart';
@@ -17,12 +19,6 @@ class SavedWidgets extends StatefulWidget {
 
 class _SavedWidgetsState extends State<SavedWidgets> {
   final _controller = SavedWidgetsController();
-
-  void handleRemoveWidget() {
-    _controller.getSavedWidgets(context);
-
-    setState(() {});
-  }
 
   @override
   void didChangeDependencies() {
@@ -49,10 +45,17 @@ class _SavedWidgetsState extends State<SavedWidgets> {
       ),
       body: _controller.flutterWidgets.isNotEmpty
           ? SingleChildScrollView(
-              child: WidgetListWidget(
-                screenName: FlutterGuideRouteNames.savedWidgets,
-                widgets: _controller.flutterWidgets,
-                handleRemoveWidget: handleRemoveWidget,
+              child: ValueListenableBuilder(
+                valueListenable: UserPreferencesInheritedWidget.of(context)!
+                    .widgetsStatusChangedNotifier,
+                builder: (context, value, child) {
+                  _controller.getSavedWidgets(context);
+
+                  return WidgetListWidget(
+                    screenName: FlutterGuideRouteNames.savedWidgets,
+                    widgets: _controller.flutterWidgets,
+                  );
+                },
               ),
             )
           : const Center(

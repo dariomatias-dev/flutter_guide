@@ -14,14 +14,12 @@ class CardWidget extends StatelessWidget {
     required this.icon,
     required this.widgetName,
     this.youtubeLink,
-    this.handleRemoveWidget,
   });
 
   final String screenName;
   final IconData icon;
   final String widgetName;
   final String? youtubeLink;
-  final VoidCallback? handleRemoveWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +56,6 @@ class CardWidget extends StatelessWidget {
         SaveButtonWidget(
           screenName: screenName,
           widgetName: widgetName,
-          handleRemoveWidget: handleRemoveWidget,
         ),
       ],
     );

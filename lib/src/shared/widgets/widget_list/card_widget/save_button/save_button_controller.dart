@@ -21,13 +21,15 @@ class SaveButtonController {
       );
 
   void didChangeDependencies(
-    bool savedValue,
+    String widgetName,
   ) {
-    saved = savedValue;
+    widgetBookmarkerService =
+        UserPreferencesInheritedWidget.of(context)!.widgetBookmarkerService;
 
-    widgetBookmarkerService = WidgetBookmarkerService(
-      sharedPreferences:
-          UserPreferencesInheritedWidget.of(context)!.sharedPreferences,
-    );
+    setSaved(widgetName);
+  }
+
+  void setSaved(String widgetName) {
+    saved = widgetBookmarkerService.contains(widgetName);
   }
 }

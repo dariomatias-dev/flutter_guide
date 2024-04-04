@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
-
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/widget_list/card_widget/save_button/save_button_controller.dart';
@@ -11,12 +9,10 @@ class SaveButtonWidget extends StatefulWidget {
     super.key,
     required this.screenName,
     required this.widgetName,
-    this.handleRemoveWidget,
   });
 
   final String screenName;
   final String widgetName;
-  final VoidCallback? handleRemoveWidget;
 
   @override
   State<SaveButtonWidget> createState() => _SaveButtonWidgetState();
@@ -32,11 +28,7 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
     );
 
     _controller.didChangeDependencies(
-      UserPreferencesInheritedWidget.of(context)!
-          .widgetBookmarkerService
-          .contains(
-            widget.widgetName,
-          ),
+      widget.widgetName,
     );
 
     super.didChangeDependencies();
@@ -46,43 +38,24 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        final saved = _controller.widgetBookmarkerService.toggleWidgetState(
+        _controller.widgetBookmarkerService.toggleWidgetState(
           context,
           widget.widgetName,
         );
-        _controller.saved =
-            widget.screenName != FlutterGuideRouteNames.savedWidgets
-                ? saved
-                : _controller.saved;
 
-        if (widget.screenName != FlutterGuideRouteNames.widgets) {
-          UserPreferencesInheritedWidget.of(context)!
-              .widgetsStatusChangedNotifier
-              .setValue(widget.widgetName);
-        }
-
-        _controller.hasUpdatedButton = true;
-
-        if (widget.handleRemoveWidget != null) widget.handleRemoveWidget!();
-
-        setState(() {});
+        UserPreferencesInheritedWidget.of(context)!
+            .widgetsStatusChangedNotifier
+            .setValue(widget.widgetName);
       },
-      icon: widget.screenName == FlutterGuideRouteNames.widgets
-          ? ValueListenableBuilder(
-              valueListenable: UserPreferencesInheritedWidget.of(context)!
-                  .widgetsStatusChangedNotifier,
-              builder: (context, value, child) {
-                if (value == widget.widgetName &&
-                    !_controller.hasUpdatedButton) {
-                  _controller.saved = !_controller.saved;
-                }
+      icon: ValueListenableBuilder(
+        valueListenable: UserPreferencesInheritedWidget.of(context)!
+            .widgetsStatusChangedNotifier,
+        builder: (context, value, child) {
+          _controller.setSaved(widget.widgetName);
 
-                _controller.hasUpdatedButton = false;
-
-                return _controller.icon;
-              },
-            )
-          : _controller.icon,
+          return _controller.icon;
+        },
+      ),
     );
   }
 }

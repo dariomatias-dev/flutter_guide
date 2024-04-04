@@ -55,14 +55,8 @@ class PopupMenuController {
     String widgetName,
     BuildContext context,
   ) {
-    final sharedPreferences =
-        UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
-    final savedWidgets = sharedPreferences.getStringList('saved_widgets');
-
-    saved = savedWidgets?.contains(widgetName) ?? false;
-
-    widgetBookmarkerService = WidgetBookmarkerService(
-      sharedPreferences: sharedPreferences,
-    );
+    widgetBookmarkerService =
+        UserPreferencesInheritedWidget.of(context)!.widgetBookmarkerService;
+    saved = widgetBookmarkerService.contains(widgetName);
   }
 }

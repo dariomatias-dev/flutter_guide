@@ -10,12 +10,10 @@ class WidgetListWidget extends StatefulWidget {
     super.key,
     required this.widgets,
     required this.screenName,
-    this.handleRemoveWidget,
   });
 
   final List<WidgetModel> widgets;
   final String screenName;
-  final VoidCallback? handleRemoveWidget;
 
   @override
   State<WidgetListWidget> createState() => _WidgetListWidgetState();
@@ -44,7 +42,6 @@ class _WidgetListWidgetState extends State<WidgetListWidget> {
               icon: flutterWidget.icon,
               widgetName: flutterWidget.name,
               youtubeLink: flutterWidget.youtubeLink,
-              handleRemoveWidget: widget.handleRemoveWidget,
             );
           },
         );
