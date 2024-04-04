@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
@@ -10,10 +11,12 @@ import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/app_ba
 class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   const AppBarWidget({
     super.key,
+    required this.componentType,
     required this.componentName,
     this.componentCategory,
   });
 
+  final ComponentType componentType;
   final String componentName;
   final WidgetCategory? componentCategory;
 
@@ -45,6 +48,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           valueListenable: _currentTabIndexNotifier,
           builder: (context, value, child) {
             return PopupMenuWidget(
+              componentType: widget.componentType,
               currentTabIndex: value,
               componentName: widget.componentName,
               componentCategory: widget.componentCategory,

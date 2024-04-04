@@ -21,14 +21,12 @@ class CodeTab extends StatefulWidget {
 class _CodeTabState extends State<CodeTab> {
   final _controller = CodeTabController();
 
-  BuildContext currentContext() => context;
+  BuildContext getContext() => context;
 
   @override
   void didChangeDependencies() {
     _controller.loadCode(
-      widget.componentType,
-      widget.componentName,
-      currentContext,
+      getContext,
       () {
         setState(() {});
       },
