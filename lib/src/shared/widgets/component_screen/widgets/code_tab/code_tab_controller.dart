@@ -16,8 +16,11 @@ class CodeTabController {
     BuildContext Function() currentContext,
     VoidCallback setStateCallback,
   ) async {
+    final componentTypeName =
+        componentType == ComponentType.widget ? 'widget' : 'package';
+
     final file = File(
-      'lib/src/features/widget/${componentType == ComponentType.widget ? 'widget' : 'package'}_samples/${widgetName.toLowerCase()}_sample.dart',
+      'lib/src/features/$componentTypeName/${componentTypeName}_samples/${widgetName.toLowerCase()}_sample.dart',
     );
     final codeString = await file.readAsString();
 

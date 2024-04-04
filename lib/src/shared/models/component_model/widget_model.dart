@@ -6,6 +6,8 @@ class WidgetModel extends ComponentModel {
     required super.icon,
     super.youtubeLink,
     required super.sample,
-    required super.category,
+    required this.category,
   });
+
+  final WidgetCategory category;
 }

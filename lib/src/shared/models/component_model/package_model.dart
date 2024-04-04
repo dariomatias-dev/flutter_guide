@@ -6,6 +6,5 @@ class PackageModel extends ComponentModel {
     required super.icon,
     super.youtubeLink,
     required super.sample,
-    required super.category,
   });
 }
