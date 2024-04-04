@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
-class WidgetModel {
-  const WidgetModel({
+part 'package_model.dart';
+part 'widget_model.dart';
+
+class ComponentModel {
+  const ComponentModel({
     required this.name,
     required this.icon,
     this.youtubeLink,

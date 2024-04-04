@@ -12,8 +12,8 @@ import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 
-import 'package:flutter_guide/src/shared/models/widget_model.dart';
-import 'package:flutter_guide/src/shared/models/widget_summary_model.dart';
+import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
+import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
 
 const widgets = <WidgetModel>[
   WidgetModel(

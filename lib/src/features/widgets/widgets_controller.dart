@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/constants/widgets.dart';
+import 'package:flutter_guide/src/core/constants/components/widgets.dart';
 
-import 'package:flutter_guide/src/shared/models/widget_model.dart';
+import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
 
 class WidgetsController {
   List<WidgetModel> flutterWidgets = widgets;
