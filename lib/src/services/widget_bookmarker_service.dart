@@ -19,6 +19,10 @@ class WidgetBookmarkerService {
     savedWidgets = _sharedPreferences.getStringList(key) ?? [];
   }
 
+  bool contains(String widgetName) {
+    return savedWidgets.contains(widgetName);
+  }
+
   bool toggleWidgetState(
     BuildContext context,
     String widgetName,

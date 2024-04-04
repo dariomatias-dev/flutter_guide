@@ -11,13 +11,11 @@ class SaveButtonWidget extends StatefulWidget {
     super.key,
     required this.screenName,
     required this.widgetName,
-    required this.saved,
     this.handleRemoveWidget,
   });
 
   final String screenName;
   final String widgetName;
-  final bool saved;
   final VoidCallback? handleRemoveWidget;
 
   @override
@@ -34,7 +32,11 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
     );
 
     _controller.didChangeDependencies(
-      widget.saved,
+      UserPreferencesInheritedWidget.of(context)!
+          .widgetBookmarkerService
+          .contains(
+            widget.widgetName,
+          ),
     );
 
     super.didChangeDependencies();
@@ -49,7 +51,9 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
           widget.widgetName,
         );
         _controller.saved =
-            widget.screenName != FlutterGuideRouteNames.savedWidgets ? saved : _controller.saved;
+            widget.screenName != FlutterGuideRouteNames.savedWidgets
+                ? saved
+                : _controller.saved;
 
         if (widget.screenName != FlutterGuideRouteNames.widgets) {
           UserPreferencesInheritedWidget.of(context)!

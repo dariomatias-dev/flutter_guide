@@ -4,7 +4,6 @@ import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.da
 
 import 'package:flutter_guide/src/shared/models/widget_model.dart';
 import 'package:flutter_guide/src/shared/widgets/widget_list/card_widget/card_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/widget_list/widget_list_controller.dart';
 
 class WidgetListWidget extends StatefulWidget {
   const WidgetListWidget({
@@ -23,15 +22,15 @@ class WidgetListWidget extends StatefulWidget {
 }
 
 class _WidgetListWidgetState extends State<WidgetListWidget> {
-  final _controller = WidgetListController();
-
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable:
           UserPreferencesInheritedWidget.of(context)!.themeController,
       builder: (context, value, child) {
-        _controller.getSavedWidgets(context);
+        UserPreferencesInheritedWidget.of(context)!
+            .widgetBookmarkerService
+            .getWidgets();
 
         return ListView.builder(
           shrinkWrap: true,
@@ -45,9 +44,6 @@ class _WidgetListWidgetState extends State<WidgetListWidget> {
               icon: flutterWidget.icon,
               widgetName: flutterWidget.name,
               youtubeLink: flutterWidget.youtubeLink,
-              saved: _controller.savedWidgetsConstain(
-                flutterWidget.name,
-              ),
               handleRemoveWidget: widget.handleRemoveWidget,
             );
           },
