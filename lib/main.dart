@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/services/widget_bookmarker_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/flutter_guide_app.dart';
@@ -20,10 +21,15 @@ Future<void> main() async {
     sharedPreferences,
   );
 
+  final widgetBookmarkerService = WidgetBookmarkerService(
+    sharedPreferences: sharedPreferences,
+  );
+
   runApp(
     UserPreferencesInheritedWidget(
       themeController: themeController,
       widgetsStatusChangedNotifier: widgetsStatusChangedNotifier,
+      widgetBookmarkerService: widgetBookmarkerService,
       sharedPreferences: sharedPreferences,
       child: WidgetsMapInheritedWidget(
         widgetsMap: widgetsMap(),

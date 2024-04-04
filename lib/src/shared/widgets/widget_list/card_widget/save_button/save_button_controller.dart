@@ -26,7 +26,6 @@ class SaveButtonController {
     saved = savedValue;
 
     widgetBookmarkerService = WidgetBookmarkerService(
-      context: context,
       sharedPreferences:
           UserPreferencesInheritedWidget.of(context)!.sharedPreferences,
     );

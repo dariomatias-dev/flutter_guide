@@ -45,6 +45,7 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
     return IconButton(
       onPressed: () {
         final saved = _controller.widgetBookmarkerService.toggleWidgetState(
+          context,
           widget.widgetName,
         );
         _controller.saved =

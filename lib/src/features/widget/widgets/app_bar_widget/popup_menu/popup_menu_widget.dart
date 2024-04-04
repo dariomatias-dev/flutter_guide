@@ -58,6 +58,7 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
             onTap: () {
               _controller.saved =
                   _controller.widgetBookmarkerService.toggleWidgetState(
+                context,
                 widget.widgetName,
               );
 

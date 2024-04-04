@@ -62,7 +62,6 @@ class PopupMenuController {
     saved = savedWidgets?.contains(widgetName) ?? false;
 
     widgetBookmarkerService = WidgetBookmarkerService(
-      context: context,
       sharedPreferences: sharedPreferences,
     );
   }

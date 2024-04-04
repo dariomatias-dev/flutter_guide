@@ -9,6 +9,7 @@ class WidgetListController {
     savedWidgets = UserPreferencesInheritedWidget.of(context)!
         .sharedPreferences
         .getStringList('saved_widgets')!;
+
   }
 
   bool savedWidgetsConstain(String widgetName) {

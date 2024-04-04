@@ -3,22 +3,29 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class WidgetBookmarkerService {
   WidgetBookmarkerService({
-    required BuildContext context,
     required SharedPreferences sharedPreferences,
-  })  : _context = context,
-        _sharedPreferences = sharedPreferences;
+  }) : _sharedPreferences = sharedPreferences {
+    getWidgets();
+  }
 
-  final BuildContext _context;
   final SharedPreferences _sharedPreferences;
+
+  late List<String> savedWidgets;
 
   static const key = 'saved_widgets';
   String _snackBarMessage = '';
 
-  bool toggleWidgetState(String widgetName) {
-    List<String>? savedWidgets = _sharedPreferences.getStringList(key);
+  void getWidgets() {
+    savedWidgets = _sharedPreferences.getStringList(key) ?? [];
+  }
+
+  bool toggleWidgetState(
+    BuildContext context,
+    String widgetName,
+  ) {
     bool saved = true;
 
-    if (savedWidgets == null || !savedWidgets.contains(widgetName)) {
+    if (!savedWidgets.contains(widgetName)) {
       savedWidgets = _saveWidget(widgetName, savedWidgets);
     } else {
       savedWidgets = _removeWidget(widgetName, savedWidgets);
@@ -30,7 +37,9 @@ class WidgetBookmarkerService {
       savedWidgets,
     );
 
-    _showSnackbar();
+    _showSnackbar(context);
+
+    getWidgets();
 
     return saved;
   }
@@ -60,14 +69,14 @@ class WidgetBookmarkerService {
     return items;
   }
 
-  void _showSnackbar() {
-    ScaffoldMessenger.of(_context).showSnackBar(
+  void _showSnackbar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(_snackBarMessage),
         action: SnackBarAction(
           label: 'Ok',
           onPressed: () {
-            ScaffoldMessenger.of(_context).hideCurrentSnackBar();
+            ScaffoldMessenger.of(context).hideCurrentSnackBar();
           },
         ),
       ),
