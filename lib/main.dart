@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/flutter_guide_app.dart';
 
+import 'package:flutter_guide/src/core/constants/components/packages.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
@@ -32,8 +33,9 @@ Future<void> main() async {
       widgetsStatusChangedNotifier: widgetsStatusChangedNotifier,
       widgetBookmarkerService: widgetBookmarkerService,
       sharedPreferences: sharedPreferences,
-      child: WidgetsMapInheritedWidget(
+      child: ComponentsMapInheritedWidget(
         widgetsMap: widgetsMap(),
+        packagesMap: packagesMap(),
         child: FlutterGuideApp(
           themeController: themeController,
         ),

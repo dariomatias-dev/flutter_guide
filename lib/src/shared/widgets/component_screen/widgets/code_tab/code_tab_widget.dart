@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/features/widget/widgets/code_tab/code_tab_controller.dart';
+import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
+
+import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/code_tab/code_tab_controller.dart';
 
 class CodeTab extends StatefulWidget {
   const CodeTab({
     super.key,
-    required this.widgetName,
+    required this.componentType,
+    required this.componentName,
   });
 
-  final String widgetName;
+  final ComponentType componentType;
+  final String componentName;
 
   @override
   State<CodeTab> createState() => _CodeTabState();
@@ -22,7 +26,8 @@ class _CodeTabState extends State<CodeTab> {
   @override
   void didChangeDependencies() {
     _controller.loadCode(
-      widget.widgetName,
+      widget.componentType,
+      widget.componentName,
       currentContext,
       () {
         setState(() {});

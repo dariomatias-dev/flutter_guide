@@ -3,7 +3,7 @@ import 'package:flutter_guide/src/shared/models/component_summary_mode/component
 
 const packages = <PackageModel>[];
 
-Map<String, PackageSummaryModel> widgetsMap() {
+Map<String, PackageSummaryModel> packagesMap() {
   Map<String, PackageSummaryModel> samples = {};
   for (PackageModel packages in packages) {
     samples[packages.name] = PackageSummaryModel(

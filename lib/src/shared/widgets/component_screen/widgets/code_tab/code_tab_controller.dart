@@ -3,18 +3,21 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:syntax_highlight/syntax_highlight.dart';
 
+import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
+
 class CodeTabController {
   TextSpan code = const TextSpan(
     text: '',
   );
 
   Future<void> loadCode(
+    ComponentType componentType,
     String widgetName,
     BuildContext Function() currentContext,
     VoidCallback setStateCallback,
   ) async {
     final file = File(
-      'lib/src/features/widget/widget_samples/${widgetName.toLowerCase()}_sample.dart',
+      'lib/src/features/widget/${componentType == ComponentType.widget ? 'widget' : 'package'}_samples/${widgetName.toLowerCase()}_sample.dart',
     );
     final codeString = await file.readAsString();
 
