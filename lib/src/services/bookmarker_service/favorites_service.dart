@@ -3,11 +3,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
-part 'package_bookmarker_service.dart';
-part 'widget_bookmarker_service.dart';
+part 'favorite_packages_service.dart';
+part 'favorite_widgets_service.dart';
 
-class BookmarkerService {
-  BookmarkerService({
+class FavoritesService {
+  FavoritesService({
     required this.componentType,
     required SharedPreferences sharedPreferences,
   }) : _sharedPreferences = sharedPreferences {

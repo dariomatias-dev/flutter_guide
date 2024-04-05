@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
-import 'package:flutter_guide/src/services/bookmarker_service/bookmarker_service.dart';
+import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 
 class SaveButtonController {
   SaveButtonController({
@@ -11,7 +11,7 @@ class SaveButtonController {
 
   final BuildContext context;
 
-  late WidgetBookmarkerService widgetBookmarkerService;
+  late FavoriteWidgetsService favoriteWidgetsService;
   late bool saved;
   bool hasUpdatedButton = false;
 
@@ -23,13 +23,13 @@ class SaveButtonController {
   void didChangeDependencies(
     String widgetName,
   ) {
-    widgetBookmarkerService =
-        UserPreferencesInheritedWidget.of(context)!.widgetBookmarkerService;
+    favoriteWidgetsService =
+        UserPreferencesInheritedWidget.of(context)!.favoriteWidgetsService;
 
     setSaved(widgetName);
   }
 
   void setSaved(String widgetName) {
-    saved = widgetBookmarkerService.contains(widgetName);
+    saved = favoriteWidgetsService.contains(widgetName);
   }
 }

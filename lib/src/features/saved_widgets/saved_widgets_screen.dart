@@ -16,10 +16,15 @@ class SavedWidgets extends StatefulWidget {
 }
 
 class _SavedWidgetsState extends State<SavedWidgets> {
-  final _controller = SavedWidgetsController();
+  late SavedWidgetsController _controller;
 
   @override
   void didChangeDependencies() {
+    _controller = SavedWidgetsController(
+      favoriteWidgetsService:
+          UserPreferencesInheritedWidget.of(context)!.favoriteWidgetsService,
+    );
+
     _controller.getSavedWidgets(context);
 
     super.didChangeDependencies();
@@ -45,7 +50,7 @@ class _SavedWidgetsState extends State<SavedWidgets> {
           ? SingleChildScrollView(
               child: ValueListenableBuilder(
                 valueListenable: UserPreferencesInheritedWidget.of(context)!
-                    .widgetsStatusChangedNotifier,
+                    .favoriteWidgetNotifier,
                 builder: (context, value, child) {
                   _controller.getSavedWidgets(context);
 

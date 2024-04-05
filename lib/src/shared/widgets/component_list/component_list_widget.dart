@@ -25,7 +25,7 @@ class _ComponentListWidgetState extends State<ComponentListWidget> {
           UserPreferencesInheritedWidget.of(context)!.themeController,
       builder: (context, value, child) {
         UserPreferencesInheritedWidget.of(context)!
-            .widgetBookmarkerService
+            .favoritePackagesService
             .getWidgets();
 
         return ListView.builder(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WidgetStatusNotifier extends ValueNotifier<String> {
-  WidgetStatusNotifier(
+class FavoritePackageNotifier extends ValueNotifier<String> {
+  FavoritePackageNotifier(
     super.widgetStatus,
   );
 

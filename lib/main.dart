@@ -7,31 +7,39 @@ import 'package:flutter_guide/src/core/constants/components/packages.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
+import 'package:flutter_guide/src/providers/favorite_package_notifier.dart';
+import 'package:flutter_guide/src/providers/favorite_widget_notifier.dart';
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
-import 'package:flutter_guide/src/providers/widget_status_notifier.dart';
 import 'package:flutter_guide/src/providers/widgets_map_inherited_widget.dart';
 
-import 'package:flutter_guide/src/services/bookmarker_service/bookmarker_service.dart';
+import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final themeController = ThemeController();
-  final widgetsStatusChangedNotifier = WidgetStatusNotifier('');
   final sharedPreferences = await SharedPreferences.getInstance();
   themeController.initialize(
     sharedPreferences,
   );
 
-  final widgetBookmarkerService = WidgetBookmarkerService(
+  final favoriteWidgetNotifier = FavoriteWidgetNotifier('');
+  final favoriteWidgetsService = FavoriteWidgetsService(
+    sharedPreferences: sharedPreferences,
+  );
+
+  final favoritePackageNotifier = FavoritePackageNotifier('');
+  final favoritePackagesService = FavoritePackagesService(
     sharedPreferences: sharedPreferences,
   );
 
   runApp(
     UserPreferencesInheritedWidget(
       themeController: themeController,
-      widgetsStatusChangedNotifier: widgetsStatusChangedNotifier,
-      widgetBookmarkerService: widgetBookmarkerService,
+      favoriteWidgetNotifier: favoriteWidgetNotifier,
+      favoriteWidgetsService: favoriteWidgetsService,
+      favoritePackageNotifier: favoritePackageNotifier,
+      favoritePackagesService: favoritePackagesService,
       sharedPreferences: sharedPreferences,
       child: ComponentsMapInheritedWidget(
         widgetsMap: widgetsMap(),

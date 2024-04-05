@@ -7,7 +7,7 @@ import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 import 'package:flutter_guide/src/providers/component_screen_inherited_widget.dart';
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
-import 'package:flutter_guide/src/services/bookmarker_service/bookmarker_service.dart';
+import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 
 class PopupMenuController {
   PopupMenuController({
@@ -20,7 +20,7 @@ class PopupMenuController {
   final String componentName;
   final BuildContext Function() getContext;
 
-  late WidgetBookmarkerService widgetBookmarkerService;
+  late FavoritePackagesService favoritePackagesService;
   late bool saved;
 
   Future<void> copyCode() async {
@@ -59,8 +59,8 @@ class PopupMenuController {
     String componentName,
     BuildContext context,
   ) {
-    widgetBookmarkerService =
-        UserPreferencesInheritedWidget.of(context)!.widgetBookmarkerService;
-    saved = widgetBookmarkerService.contains(componentName);
+    favoritePackagesService =
+        UserPreferencesInheritedWidget.of(context)!.favoritePackagesService;
+    saved = favoritePackagesService.contains(componentName);
   }
 }

@@ -36,18 +36,18 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        _controller.widgetBookmarkerService.toggleWidgetState(
+        _controller.favoriteWidgetsService.toggleWidgetState(
           context,
           widget.widgetName,
         );
 
         UserPreferencesInheritedWidget.of(context)!
-            .widgetsStatusChangedNotifier
+            .favoriteWidgetNotifier
             .setValue(widget.widgetName);
       },
       icon: ValueListenableBuilder(
-        valueListenable: UserPreferencesInheritedWidget.of(context)!
-            .widgetsStatusChangedNotifier,
+        valueListenable:
+            UserPreferencesInheritedWidget.of(context)!.favoriteWidgetNotifier,
         builder: (context, value, child) {
           _controller.setSaved(widget.widgetName);
 

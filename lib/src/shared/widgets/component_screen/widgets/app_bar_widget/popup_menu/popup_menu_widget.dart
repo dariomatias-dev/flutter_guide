@@ -61,13 +61,13 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
           PopupMenuItem(
             onTap: () {
               _controller.saved =
-                  _controller.widgetBookmarkerService.toggleWidgetState(
+                  _controller.favoritePackagesService.toggleWidgetState(
                 context,
                 widget.componentName,
               );
 
               UserPreferencesInheritedWidget.of(context)!
-                  .widgetsStatusChangedNotifier
+                  .favoritePackageNotifier
                   .setValue(widget.componentName);
 
               setState(() {});

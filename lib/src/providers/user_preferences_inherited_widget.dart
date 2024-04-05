@@ -3,25 +3,31 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
-import 'package:flutter_guide/src/providers/widget_status_notifier.dart';
+import 'package:flutter_guide/src/providers/favorite_package_notifier.dart';
+import 'package:flutter_guide/src/providers/favorite_widget_notifier.dart';
 
-import 'package:flutter_guide/src/services/bookmarker_service/bookmarker_service.dart';
+import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 
 class UserPreferencesInheritedWidget extends InheritedWidget {
   const UserPreferencesInheritedWidget({
     super.key,
     required this.themeController,
-    required this.widgetsStatusChangedNotifier,
-    required this.widgetBookmarkerService,
     required this.sharedPreferences,
+    required this.favoriteWidgetNotifier,
+    required this.favoriteWidgetsService,
+    required this.favoritePackageNotifier,
+    required this.favoritePackagesService,
     required super.child,
   });
 
   final ThemeController themeController;
-  final WidgetStatusNotifier widgetsStatusChangedNotifier;
-  final WidgetBookmarkerService widgetBookmarkerService;
-
   final SharedPreferences sharedPreferences;
+
+  final FavoriteWidgetNotifier favoriteWidgetNotifier;
+  final FavoriteWidgetsService favoriteWidgetsService;
+
+  final FavoritePackageNotifier favoritePackageNotifier;
+  final FavoritePackagesService favoritePackagesService;
 
   static UserPreferencesInheritedWidget? of(BuildContext context) {
     return context
