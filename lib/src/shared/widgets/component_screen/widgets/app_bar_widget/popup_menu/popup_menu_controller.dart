@@ -7,7 +7,7 @@ import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 import 'package:flutter_guide/src/providers/component_screen_inherited_widget.dart';
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
-import 'package:flutter_guide/src/services/widget_bookmarker_service.dart';
+import 'package:flutter_guide/src/services/bookmarker_service/bookmarker_service.dart';
 
 class PopupMenuController {
   PopupMenuController({

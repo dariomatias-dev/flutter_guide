@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide/src/services/widget_bookmarker_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
 import 'package:flutter_guide/src/providers/widget_status_notifier.dart';
+
+import 'package:flutter_guide/src/services/bookmarker_service/bookmarker_service.dart';
 
 class UserPreferencesInheritedWidget extends InheritedWidget {
   const UserPreferencesInheritedWidget({
