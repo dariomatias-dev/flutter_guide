@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
-import 'package:flutter_guide/src/features/main/main_controller.dart';
 import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
 import 'package:flutter_guide/src/core/constants/bottom_app_bar_screens.dart';
+
+import 'package:flutter_guide/src/features/main/main_controller.dart';
+import 'package:flutter_guide/src/features/main/widgets/select_favorites_screen_dialog_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
 
@@ -45,9 +46,11 @@ class _MainScreenState extends State<MainScreen> {
           const SizedBox(width: 4.0),
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(
-                context,
-                FlutterGuideRouteNames.savedWidgets,
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return const SelectFavoritesScreenDialogWidget();
+                },
               );
             },
             icon: Icon(
