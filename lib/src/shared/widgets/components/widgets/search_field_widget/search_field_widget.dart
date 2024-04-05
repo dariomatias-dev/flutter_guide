@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
 
-import 'package:flutter_guide/src/features/widgets/widgets/search_field_widget/search_field_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/components/widgets/search_field_widget/search_field_controller.dart';
 
 class SearchFieldWidget extends StatefulWidget {
   const SearchFieldWidget({

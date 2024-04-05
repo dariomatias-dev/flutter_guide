@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
-import 'package:flutter_guide/src/shared/widgets/widget_list/card_widget/save_button/save_button_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/component_list/card_widget/save_button/save_button_controller.dart';
 
 class SaveButtonWidget extends StatefulWidget {
   const SaveButtonWidget({
     super.key,
-    required this.screenName,
     required this.widgetName,
   });
 
-  final String screenName;
   final String widgetName;
 
   @override

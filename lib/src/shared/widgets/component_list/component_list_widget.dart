@@ -3,23 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
-import 'package:flutter_guide/src/shared/widgets/widget_list/card_widget/card_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component_list/card_widget/card_widget.dart';
 
-class WidgetListWidget extends StatefulWidget {
-  const WidgetListWidget({
+class ComponentListWidget extends StatefulWidget {
+  const ComponentListWidget({
     super.key,
-    required this.widgets,
-    required this.screenName,
+    required this.components,
   });
 
-  final List<WidgetModel> widgets;
-  final String screenName;
+  final List<ComponentModel> components;
 
   @override
-  State<WidgetListWidget> createState() => _WidgetListWidgetState();
+  State<ComponentListWidget> createState() => _ComponentListWidgetState();
 }
 
-class _WidgetListWidgetState extends State<WidgetListWidget> {
+class _ComponentListWidgetState extends State<ComponentListWidget> {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -33,12 +31,11 @@ class _WidgetListWidgetState extends State<WidgetListWidget> {
         return ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: widget.widgets.length,
+          itemCount: widget.components.length,
           itemBuilder: (context, index) {
-            final flutterWidget = widget.widgets[index];
+            final flutterWidget = widget.components[index];
 
             return CardWidget(
-              screenName: widget.screenName,
               icon: flutterWidget.icon,
               widgetName: flutterWidget.name,
               youtubeLink: flutterWidget.youtubeLink,

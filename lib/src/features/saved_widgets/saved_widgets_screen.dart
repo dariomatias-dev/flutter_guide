@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
-
 import 'package:flutter_guide/src/features/saved_widgets/saved_widgets_controller.dart';
 
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/widget_list/widget_list_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component_list/component_list_widget.dart';
 
 class SavedWidgets extends StatefulWidget {
   const SavedWidgets({super.key});
@@ -51,9 +49,8 @@ class _SavedWidgetsState extends State<SavedWidgets> {
                 builder: (context, value, child) {
                   _controller.getSavedWidgets(context);
 
-                  return WidgetListWidget(
-                    screenName: FlutterGuideRouteNames.savedWidgets,
-                    widgets: _controller.flutterWidgets,
+                  return ComponentListWidget(
+                    components: _controller.flutterWidgets,
                   );
                 },
               ),

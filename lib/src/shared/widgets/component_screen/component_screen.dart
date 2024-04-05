@@ -67,10 +67,7 @@ class _ComponentScreenState extends State<ComponentScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: _component.sample,
               ),
-              CodeTab(
-                componentType: widget.componentType,
-                componentName: widget.componentName,
-              ),
+              const CodeTab(),
             ],
           ),
         ),
