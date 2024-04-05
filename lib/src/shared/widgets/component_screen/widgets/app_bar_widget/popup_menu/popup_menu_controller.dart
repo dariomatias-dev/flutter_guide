@@ -20,7 +20,7 @@ class PopupMenuController {
   final String componentName;
   final BuildContext Function() getContext;
 
-  late FavoritePackagesService favoritePackagesService;
+  late FavoriteWidgetsService favoriteWidgetsService;
   late bool saved;
 
   Future<void> copyCode() async {
@@ -59,8 +59,8 @@ class PopupMenuController {
     String componentName,
     BuildContext context,
   ) {
-    favoritePackagesService =
-        UserPreferencesInheritedWidget.of(context)!.favoritePackagesService;
-    saved = favoritePackagesService.contains(componentName);
+    favoriteWidgetsService =
+        UserPreferencesInheritedWidget.of(context)!.favoriteWidgetsService;
+    saved = favoriteWidgetsService.contains(componentName);
   }
 }

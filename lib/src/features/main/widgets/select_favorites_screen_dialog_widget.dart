@@ -8,6 +8,18 @@ import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 class SelectFavoritesScreenDialogWidget extends StatelessWidget {
   const SelectFavoritesScreenDialogWidget({super.key});
 
+  void _navigateTo(
+    BuildContext context,
+    String routeName,
+  ) {
+    Navigator.pop(context);
+
+    Navigator.pushNamed(
+      context,
+      routeName,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomDialog.dialog(
@@ -15,7 +27,7 @@ class SelectFavoritesScreenDialogWidget extends StatelessWidget {
       children: [
         ListTileItemWidget(
           onTap: () {
-            Navigator.pushNamed(
+            _navigateTo(
               context,
               FlutterGuideRouteNames.savedWidgets,
             );
@@ -25,7 +37,7 @@ class SelectFavoritesScreenDialogWidget extends StatelessWidget {
         ),
         ListTileItemWidget(
           onTap: () {
-            Navigator.pushNamed(
+            _navigateTo(
               context,
               FlutterGuideRouteNames.savedPackages,
             );

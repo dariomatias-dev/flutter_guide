@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
-import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
-
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
+import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/app_bar_widget/popup_menu/favorite_button/favorite_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/app_bar_widget/popup_menu/popup_menu_controller.dart';
 
 class PopupMenuWidget extends StatefulWidget {
@@ -58,23 +57,8 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
               onTap: _controller.copyCode,
               child: const Text('Copy'),
             ),
-          PopupMenuItem(
-            onTap: () {
-              _controller.saved =
-                  _controller.favoritePackagesService.toggleWidgetState(
-                context,
-                widget.componentName,
-              );
-
-              UserPreferencesInheritedWidget.of(context)!
-                  .favoritePackageNotifier
-                  .setValue(widget.componentName);
-
-              setState(() {});
-            },
-            child: Text(
-              _controller.saved ? 'Remove' : 'Save',
-            ),
+          FavoriteButtonWidget(
+            componentName: widget.componentName,
           ),
           PopupMenuItem(
             onTap: () {
