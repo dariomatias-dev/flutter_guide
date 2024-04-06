@@ -4,8 +4,8 @@ import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
-import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/app_bar_widget/popup_menu/favorite_button/favorite_button_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/app_bar_widget/popup_menu/popup_menu_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/component/widgets/app_bar_widget/popup_menu/favorite_button/favorite_button_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component/widgets/app_bar_widget/popup_menu/popup_menu_controller.dart';
 
 class PopupMenuWidget extends StatefulWidget {
   const PopupMenuWidget({

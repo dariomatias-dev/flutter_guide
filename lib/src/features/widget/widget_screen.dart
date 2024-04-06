@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
-import 'package:flutter_guide/src/shared/widgets/component_screen/component_screen.dart';
+import 'package:flutter_guide/src/shared/widgets/component/component_screen.dart';
 
 class WidgetScreen extends StatelessWidget {
   const WidgetScreen({

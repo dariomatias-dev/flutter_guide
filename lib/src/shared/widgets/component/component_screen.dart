@@ -1,15 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
 import 'package:flutter_guide/src/providers/component_screen_inherited_widget.dart';
-import 'package:flutter_guide/src/providers/widgets_map_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
-import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/app_bar_widget/app_bar_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/code_tab/code_tab_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component/component_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/component/widgets/app_bar_widget/app_bar_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component/widgets/code_tab/code_tab_widget.dart';
 
 class ComponentScreen extends StatefulWidget {
   const ComponentScreen({
@@ -26,21 +24,14 @@ class ComponentScreen extends StatefulWidget {
 }
 
 class _ComponentScreenState extends State<ComponentScreen> {
-  late ComponentSummaryModel _component;
-  late File _componentFile;
+  late ComponentController _controller;
 
   @override
   void didChangeDependencies() {
-    final componentsMapInheritedWidget =
-        ComponentsMapInheritedWidget.of(context)!;
-    _component = (widget.componentType == ComponentType.widget
-        ? componentsMapInheritedWidget.widgetsMap
-        : componentsMapInheritedWidget.packagesMap)[widget.componentName]!;
-
-    final componentTypeName =
-        widget.componentType == ComponentType.widget ? 'widget' : 'package';
-    _componentFile = File(
-      'lib/src/features/$componentTypeName/${componentTypeName}_samples/${widget.componentName.toLowerCase()}_sample.dart',
+    _controller = ComponentController(
+      context: context,
+      componentType: widget.componentType,
+      componentName: widget.componentName,
     );
 
     super.didChangeDependencies();
@@ -49,7 +40,7 @@ class _ComponentScreenState extends State<ComponentScreen> {
   @override
   Widget build(BuildContext context) {
     return ComponentScreenInheritedWidget(
-      componentFile: _componentFile,
+      componentFile: _controller.file,
       child: DefaultTabController(
         initialIndex: 0,
         length: 2,
@@ -58,14 +49,14 @@ class _ComponentScreenState extends State<ComponentScreen> {
             componentType: widget.componentType,
             componentName: widget.componentName,
             componentCategory: widget.componentType == ComponentType.widget
-                ? (_component as WidgetSummaryModel).category
+                ? (_controller.component as WidgetSummaryModel).category
                 : null,
           ),
           body: TabBarView(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: _component.sample,
+                child: _controller.component.sample,
               ),
               const CodeTab(),
             ],

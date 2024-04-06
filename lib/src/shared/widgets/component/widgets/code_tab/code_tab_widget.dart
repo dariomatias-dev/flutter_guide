@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/code_tab/code_tab_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/component/widgets/code_tab/code_tab_controller.dart';
 
 class CodeTab extends StatefulWidget {
   const CodeTab({super.key});
