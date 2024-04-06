@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
@@ -13,9 +14,11 @@ class UserPreferencesInheritedWidget extends InheritedWidget {
     required this.themeController,
     required this.sharedPreferences,
     required this.favoriteWidgetNotifier,
-    required this.favoriteWidgetsService,
     required this.favoritePackageNotifier,
+    required this.getFavoriteNotifier,
+    required this.favoriteWidgetsService,
     required this.favoritePackagesService,
+    required this.getFavoritesService,
     required super.child,
   });
 
@@ -23,10 +26,16 @@ class UserPreferencesInheritedWidget extends InheritedWidget {
   final SharedPreferences sharedPreferences;
 
   final FavoriteWidgetNotifier favoriteWidgetNotifier;
-  final FavoriteWidgetsService favoriteWidgetsService;
-
   final FavoritePackageNotifier favoritePackageNotifier;
+  final FavoriteNotifier Function(
+    ComponentType componentType,
+  ) getFavoriteNotifier;
+
+  final FavoriteWidgetsService favoriteWidgetsService;
   final FavoritePackagesService favoritePackagesService;
+  final FavoritesService Function(
+    ComponentType componentType,
+  ) getFavoritesService;
 
   static UserPreferencesInheritedWidget? of(BuildContext context) {
     return context

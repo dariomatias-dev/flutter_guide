@@ -29,8 +29,6 @@ class _SavedComponentsState extends State<SavedComponents> {
       componentType: widget.componentType,
     );
 
-    _controller.getSavedComponents();
-
     super.didChangeDependencies();
   }
 
