@@ -40,7 +40,7 @@ class _ComponentScreenState extends State<ComponentScreen> {
   @override
   Widget build(BuildContext context) {
     return ComponentScreenInheritedWidget(
-      componentFile: _controller.file,
+      file: _controller.file,
       child: DefaultTabController(
         initialIndex: 0,
         length: 2,

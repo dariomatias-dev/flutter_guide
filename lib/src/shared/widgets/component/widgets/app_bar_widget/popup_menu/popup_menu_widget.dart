@@ -33,8 +33,6 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
   @override
   void didChangeDependencies() {
     _controller = PopupMenuController(
-      componentType: widget.componentType,
-      componentName: widget.componentName,
       getContext: getContext,
     );
 

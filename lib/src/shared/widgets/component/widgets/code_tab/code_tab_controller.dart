@@ -1,24 +1,39 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:syntax_highlight/syntax_highlight.dart';
 
 import 'package:flutter_guide/src/providers/component_screen_inherited_widget.dart';
 
 class CodeTabController {
+  CodeTabController({
+    required BuildContext context,
+    required VoidCallback setStateCallback,
+  }) {
+    final file = ComponentScreenInheritedWidget.of(context)!.file;
+    final brightness = Theme.of(context).colorScheme.brightness;
+
+    _loadCode(
+      file,
+      brightness,
+      setStateCallback,
+    );
+  }
+
   TextSpan code = const TextSpan(
     text: '',
   );
 
-  Future<void> loadCode(
-    BuildContext Function() getContext,
+  Future<void> _loadCode(
+    File file,
+    Brightness brightness,
     VoidCallback setStateCallback,
   ) async {
-    final file = ComponentScreenInheritedWidget.of(getContext())!.componentFile;
     final codeString = await file.readAsString();
 
     await Highlighter.initialize(['dart', 'yaml']);
 
-    final theme = await (Theme.of(getContext()).colorScheme.brightness ==
-            Brightness.light
+    final theme = await (brightness == Brightness.light
         ? HighlighterTheme.loadLightTheme
         : HighlighterTheme.loadDarkTheme)();
 

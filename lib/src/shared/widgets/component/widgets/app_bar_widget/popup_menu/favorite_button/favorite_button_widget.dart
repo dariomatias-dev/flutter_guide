@@ -29,7 +29,7 @@ class FavoriteButtonWidgetState extends State<FavoriteButtonWidget> {
 
   @override
   void didChangeDependencies() {
-    _controller.didChangeDependencies(
+    _controller.init(
       context,
       widget.componentType,
       widget.componentName,

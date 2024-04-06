@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
+import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';

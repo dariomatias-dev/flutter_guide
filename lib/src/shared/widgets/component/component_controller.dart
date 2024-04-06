@@ -15,16 +15,18 @@ class ComponentController {
     required String componentName,
   })  : _context = context,
         _componentType = componentType,
-        _componentName = componentName;
+        _componentName = componentName {
+    _init();
+  }
+
+  late File file;
+  late ComponentSummaryModel component;
 
   final BuildContext _context;
   final ComponentType _componentType;
   final String _componentName;
 
-  late File file;
-  late ComponentSummaryModel component;
-
-  void init() {
+  void _init() {
     final ComponentsMapInheritedWidget(
       :widgetsMap,
       :packagesMap,

@@ -10,15 +10,13 @@ class CodeTab extends StatefulWidget {
 }
 
 class _CodeTabState extends State<CodeTab> {
-  final _controller = CodeTabController();
-
-  BuildContext getContext() => context;
+  late CodeTabController _controller;
 
   @override
   void didChangeDependencies() {
-    _controller.loadCode(
-      getContext,
-      () {
+    _controller = CodeTabController(
+      context: context,
+      setStateCallback: () {
         setState(() {});
       },
     );
@@ -28,6 +26,8 @@ class _CodeTabState extends State<CodeTab> {
 
   @override
   Widget build(BuildContext context) {
+    _controller.code;
+
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(
         scrollbars: false,
