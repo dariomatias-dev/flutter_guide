@@ -31,20 +31,25 @@ class FavoritesService {
     savedComponents = _sharedPreferences.getStringList(valueKey) ?? [];
   }
 
-  bool contains(String widgetName) {
-    return savedComponents.contains(widgetName);
+  bool contains(String componentName) {
+    return savedComponents.contains(componentName);
   }
 
   bool toggleWidgetState(
     BuildContext context,
-    String widgetName,
+    String componentName,
   ) {
-    bool saved = true;
+    late bool saved;
 
-    if (!savedComponents.contains(widgetName)) {
-      savedComponents = _saveWidget(widgetName, savedComponents);
+    if (!savedComponents.contains(componentName)) {
+      _saveComponent(
+        componentName,
+      );
+      saved = true;
     } else {
-      savedComponents = _removeWidget(widgetName, savedComponents);
+      _removeComponent(
+        componentName,
+      );
       saved = false;
     }
 
@@ -60,29 +65,27 @@ class FavoritesService {
     return saved;
   }
 
-  List<String> _saveWidget(String widgetName, List<String>? savedComponents) {
+  void _saveComponent(
+    String componentName,
+  ) {
     _snackBarMessage = '$_componentTypeName saved';
 
-    if (savedComponents == null) {
-      savedComponents = [widgetName];
-    } else {
-      savedComponents.add(widgetName);
-    }
-
-    return savedComponents;
+    savedComponents.add(componentName);
   }
 
-  List<String> _removeWidget(String widgetName, List<String> savedComponents) {
+  void _removeComponent(
+    String componentName,
+  ) {
     _snackBarMessage = '$_componentTypeName removed';
 
     final items = <String>[];
     for (String savedWidget in savedComponents) {
-      if (savedWidget != widgetName) {
+      if (savedWidget != componentName) {
         items.add(savedWidget);
       }
     }
 
-    return items;
+    savedComponents = items;
   }
 
   void _showSnackbar(BuildContext context) {

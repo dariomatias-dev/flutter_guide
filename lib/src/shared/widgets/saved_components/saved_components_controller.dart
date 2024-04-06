@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/constants/components/packages.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
+import 'package:flutter_guide/src/providers/favorite_notifier/favorite_notifier.dart';
 
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
@@ -16,16 +17,21 @@ class SavedComponentsController {
     required this.componentType,
   }) {
     final UserPreferencesInheritedWidget(
+      :favoriteWidgetNotifier,
+      :favoritePackageNotifier,
       :favoriteWidgetsService,
       :favoritePackagesService,
     ) = UserPreferencesInheritedWidget.of(context)!;
 
-    favoritesService = componentType == ComponentType.widget
-        ? favoriteWidgetsService
-        : favoritePackagesService;
+    final typeIsWidget = componentType == ComponentType.widget;
 
-    _groupOfComponents =
-        componentType == ComponentType.widget ? widgets : packages;
+    favoritesService =
+        typeIsWidget ? favoriteWidgetsService : favoritePackagesService;
+
+    favoriteNotifier =
+        typeIsWidget ? favoriteWidgetNotifier : favoritePackageNotifier;
+
+    _groupOfComponents = typeIsWidget ? widgets : packages;
   }
 
   final BuildContext context;
@@ -33,10 +39,10 @@ class SavedComponentsController {
 
   late List<ComponentModel> _groupOfComponents;
 
+  late FavoriteNotifier favoriteNotifier;
   late FavoritesService favoritesService;
-  late List<ComponentModel> components = [];
 
-  void didChangeDependencies() {}
+  late List<ComponentModel> components = [];
 
   void getSavedComponents() {
     final items = <ComponentModel>[];
