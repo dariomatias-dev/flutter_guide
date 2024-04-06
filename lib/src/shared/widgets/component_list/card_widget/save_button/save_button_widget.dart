@@ -36,14 +36,12 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        _controller.favoriteWidgetsService.toggleWidgetState(
+        _controller.favoritesService.toggleWidgetState(
           context,
           widget.widgetName,
         );
 
-        UserPreferencesInheritedWidget.of(context)!
-            .favoriteWidgetNotifier
-            .setValue(widget.widgetName);
+        _controller.favoriteNotifier.setValue(widget.widgetName);
       },
       icon: ValueListenableBuilder(
         valueListenable:

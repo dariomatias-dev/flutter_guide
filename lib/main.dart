@@ -7,8 +7,7 @@ import 'package:flutter_guide/src/core/constants/components/packages.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
-import 'package:flutter_guide/src/providers/favorite_package_notifier.dart';
-import 'package:flutter_guide/src/providers/favorite_widget_notifier.dart';
+import 'package:flutter_guide/src/providers/favorite_notifier/favorite_notifier.dart';
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 import 'package:flutter_guide/src/providers/widgets_map_inherited_widget.dart';
 

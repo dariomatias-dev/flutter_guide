@@ -3,8 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
-import 'package:flutter_guide/src/providers/favorite_package_notifier.dart';
-import 'package:flutter_guide/src/providers/favorite_widget_notifier.dart';
+import 'package:flutter_guide/src/providers/favorite_notifier/favorite_notifier.dart';
 
 import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 

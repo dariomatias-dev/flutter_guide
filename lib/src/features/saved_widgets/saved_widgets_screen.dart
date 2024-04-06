@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
 import 'package:flutter_guide/src/features/saved_widgets/saved_widgets_controller.dart';
 
@@ -55,6 +56,7 @@ class _SavedWidgetsState extends State<SavedWidgets> {
                   _controller.getSavedWidgets(context);
 
                   return ComponentListWidget(
+                    componentType: ComponentType.widget,
                     components: _controller.flutterWidgets,
                   );
                 },
