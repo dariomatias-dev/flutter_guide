@@ -55,8 +55,9 @@ class _ComponentListWidgetState extends State<ComponentListWidget> {
               final flutterWidget = widget.components[index];
 
               return CardWidget(
+                componentType: widget.componentType,
                 icon: flutterWidget.icon,
-                widgetName: flutterWidget.name,
+                componentName: flutterWidget.name,
                 youtubeLink: flutterWidget.youtubeLink,
               );
             },

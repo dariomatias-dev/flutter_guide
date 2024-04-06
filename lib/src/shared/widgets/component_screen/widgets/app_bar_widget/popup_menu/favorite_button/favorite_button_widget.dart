@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
+import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
 import 'package:flutter_guide/src/shared/widgets/component_screen/widgets/app_bar_widget/popup_menu/favorite_button/favorite_button_controller.dart';
 
 class FavoriteButtonWidget extends PopupMenuEntry {
   const FavoriteButtonWidget({
     super.key,
+    required this.componentType,
     required this.componentName,
   });
 
+  final ComponentType componentType;
   final String componentName;
 
   @override
@@ -29,9 +31,10 @@ class FavoriteButtonWidgetState extends State<FavoriteButtonWidget> {
   void didChangeDependencies() {
     _controller.didChangeDependencies(
       context,
+      widget.componentType,
       widget.componentName,
     );
-    
+
     super.didChangeDependencies();
   }
 
@@ -39,15 +42,12 @@ class FavoriteButtonWidgetState extends State<FavoriteButtonWidget> {
   Widget build(BuildContext context) {
     return PopupMenuItem(
       onTap: () {
-        _controller.saved =
-            _controller.favoriteWidgetsService.toggleWidgetState(
+        _controller.saved = _controller.favoritesService.toggleWidgetState(
           context,
           widget.componentName,
         );
 
-        UserPreferencesInheritedWidget.of(context)!
-            .favoriteWidgetNotifier
-            .setValue(widget.componentName);
+        _controller.favoriteNotifier.setValue(widget.componentName);
       },
       child: Text(
         _controller.saved ? 'Remove' : 'Save',

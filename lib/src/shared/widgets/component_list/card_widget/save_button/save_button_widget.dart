@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
-
 import 'package:flutter_guide/src/shared/widgets/component_list/card_widget/save_button/save_button_controller.dart';
 
 class SaveButtonWidget extends StatefulWidget {
   const SaveButtonWidget({
     super.key,
-    required this.widgetName,
+    required this.componentName,
   });
 
-  final String widgetName;
+  final String componentName;
 
   @override
   State<SaveButtonWidget> createState() => _SaveButtonWidgetState();
@@ -26,7 +24,7 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
     );
 
     _controller.didChangeDependencies(
-      widget.widgetName,
+      widget.componentName,
     );
 
     super.didChangeDependencies();
@@ -38,16 +36,15 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
       onPressed: () {
         _controller.favoritesService.toggleWidgetState(
           context,
-          widget.widgetName,
+          widget.componentName,
         );
 
-        _controller.favoriteNotifier.setValue(widget.widgetName);
+        _controller.favoriteNotifier.setValue(widget.componentName);
       },
       icon: ValueListenableBuilder(
-        valueListenable:
-            UserPreferencesInheritedWidget.of(context)!.favoriteWidgetNotifier,
+        valueListenable: _controller.favoriteNotifier,
         builder: (context, value, child) {
-          _controller.setSaved(widget.widgetName);
+          _controller.setSaved(widget.componentName);
 
           return _controller.icon;
         },

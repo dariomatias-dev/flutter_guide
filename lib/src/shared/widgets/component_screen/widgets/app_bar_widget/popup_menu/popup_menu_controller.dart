@@ -5,9 +5,6 @@ import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 import 'package:flutter_guide/src/providers/component_screen_inherited_widget.dart';
-import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
-
-import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 
 class PopupMenuController {
   PopupMenuController({
@@ -20,7 +17,6 @@ class PopupMenuController {
   final String componentName;
   final BuildContext Function() getContext;
 
-  late FavoriteWidgetsService favoriteWidgetsService;
   late bool saved;
 
   Future<void> copyCode() async {
@@ -53,14 +49,5 @@ class PopupMenuController {
       default:
         return 'cupertino';
     }
-  }
-
-  void didChangeDependencies(
-    String componentName,
-    BuildContext context,
-  ) {
-    favoriteWidgetsService =
-        UserPreferencesInheritedWidget.of(context)!.favoriteWidgetsService;
-    saved = favoriteWidgetsService.contains(componentName);
   }
 }

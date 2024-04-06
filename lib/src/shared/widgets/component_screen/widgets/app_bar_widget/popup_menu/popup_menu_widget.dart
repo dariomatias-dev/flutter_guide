@@ -38,11 +38,6 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
       getContext: getContext,
     );
 
-    _controller.didChangeDependencies(
-      widget.componentName,
-      context,
-    );
-
     super.didChangeDependencies();
   }
 
@@ -58,6 +53,7 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
               child: const Text('Copy'),
             ),
           FavoriteButtonWidget(
+            componentType: widget.componentType,
             componentName: widget.componentName,
           ),
           PopupMenuItem(

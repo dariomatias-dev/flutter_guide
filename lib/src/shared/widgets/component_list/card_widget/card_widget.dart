@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
+
+import 'package:flutter_guide/src/features/package/package_screen.dart';
 import 'package:flutter_guide/src/features/widget/widget_screen.dart';
 
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
@@ -11,12 +14,14 @@ class CardWidget extends StatelessWidget {
   const CardWidget({
     super.key,
     required this.icon,
-    required this.widgetName,
+    required this.componentName,
+    required this.componentType,
     this.youtubeLink,
   });
 
   final IconData icon;
-  final String widgetName;
+  final String componentName;
+  final ComponentType componentType;
   final String? youtubeLink;
 
   @override
@@ -27,14 +32,18 @@ class CardWidget extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return WidgetScreen(
-                widgetName: widgetName,
-              );
+              return componentType == ComponentType.widget
+                  ? WidgetScreen(
+                      widgetName: componentName,
+                    )
+                  : PackageScreen(
+                      packageName: componentName,
+                    );
             },
           ),
         );
       },
-      title: widgetName,
+      title: componentName,
       icon: icon,
       trailingWidgets: [
         if (youtubeLink != null)
@@ -52,7 +61,7 @@ class CardWidget extends StatelessWidget {
           ),
         const SizedBox(width: 8.0),
         SaveButtonWidget(
-          widgetName: widgetName,
+          componentName: componentName,
         ),
       ],
     );
