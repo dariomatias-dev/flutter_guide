@@ -21,10 +21,7 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
   void didChangeDependencies() {
     _controller = SaveButtonController(
       context: context,
-    );
-
-    _controller.didChangeDependencies(
-      widget.componentName,
+      componentName: widget.componentName,
     );
 
     super.didChangeDependencies();
@@ -46,7 +43,10 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
         builder: (context, value, child) {
           _controller.setSaved(widget.componentName);
 
-          return _controller.icon;
+          return Icon(
+            _controller.saved ? Icons.bookmark : Icons.bookmark_border,
+            color: Theme.of(context).colorScheme.tertiary,
+          );
         },
       ),
     );

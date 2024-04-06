@@ -8,17 +8,21 @@ import 'package:flutter_guide/src/shared/models/component_model/component_model.
 
 class ComponentsController {
   ComponentsController({
-    required this.componentType,
+    required ComponentType componentType,
   }) {
+    _init(componentType);
+  }
+
+  late List<ComponentModel> _standardComponents;
+  late List<ComponentModel> components;
+
+  void _init(
+    ComponentType componentType,
+  ) {
     _standardComponents =
         componentType == ComponentType.widget ? widgets : packages;
     components = _standardComponents;
   }
-
-  final ComponentType componentType;
-
-  late List<ComponentModel> _standardComponents;
-  late List<ComponentModel> components;
 
   void updateComponentList(
     String value,

@@ -13,16 +13,32 @@ import 'package:flutter_guide/src/shared/models/component_model/component_model.
 
 class SavedComponentsController {
   SavedComponentsController({
-    required this.context,
-    required this.componentType,
+    required BuildContext context,
+    required ComponentType componentType,
   }) {
+    _init(
+      context,
+      componentType,
+    );
+  }
+
+  late FavoriteNotifier favoriteNotifier;
+  late FavoritesService _favoritesService;
+
+  late List<ComponentModel> components;
+  late List<ComponentModel> _groupOfComponents;
+
+  void _init(
+    BuildContext context,
+    ComponentType componentType,
+  ) {
     final UserPreferencesInheritedWidget(
       :getFavoriteNotifier,
       :getFavoritesService
     ) = UserPreferencesInheritedWidget.of(context)!;
 
     favoriteNotifier = getFavoriteNotifier(componentType);
-    favoritesService = getFavoritesService(componentType);
+    _favoritesService = getFavoritesService(componentType);
 
     _groupOfComponents =
         componentType == ComponentType.widget ? widgets : packages;
@@ -30,20 +46,11 @@ class SavedComponentsController {
     getSavedComponents();
   }
 
-  final BuildContext context;
-  final ComponentType componentType;
-
-  late FavoriteNotifier favoriteNotifier;
-  late FavoritesService favoritesService;
-
-  late List<ComponentModel> components;
-  late List<ComponentModel> _groupOfComponents;
-
   void getSavedComponents() {
     final items = <ComponentModel>[];
 
     for (ComponentModel widgetItem in _groupOfComponents) {
-      if (favoritesService.savedComponents.contains(widgetItem.name)) {
+      if (_favoritesService.savedComponents.contains(widgetItem.name)) {
         items.add(widgetItem);
       }
     }

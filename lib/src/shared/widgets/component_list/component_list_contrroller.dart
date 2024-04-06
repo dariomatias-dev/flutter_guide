@@ -9,9 +9,22 @@ import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.
 
 class ComponentListController {
   ComponentListController({
-    required this.context,
-    required this.componentType,
+    required BuildContext context,
+    required ComponentType componentType,
   }) {
+    _init(
+      context,
+      componentType,
+    );
+  }
+
+  late FavoritesService favoritesService;
+  late FavoriteNotifier favoriteNotifier;
+
+  void _init(
+    BuildContext context,
+    ComponentType componentType,
+  ) {
     final userPreferencesInheritedWidget =
         UserPreferencesInheritedWidget.of(context)!;
 
@@ -23,10 +36,4 @@ class ComponentListController {
         ? userPreferencesInheritedWidget.favoriteWidgetsService
         : userPreferencesInheritedWidget.favoritePackagesService;
   }
-
-  final BuildContext context;
-  final ComponentType componentType;
-
-  late FavoritesService favoritesService;
-  late FavoriteNotifier favoriteNotifier;
 }

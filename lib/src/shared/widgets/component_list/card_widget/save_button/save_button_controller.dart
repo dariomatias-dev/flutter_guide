@@ -7,10 +7,14 @@ import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.
 
 class SaveButtonController {
   SaveButtonController({
-    required this.context,
-  });
-
-  final BuildContext context;
+    required BuildContext context,
+    required String componentName,
+  }) {
+    _init(
+      context,
+      componentName,
+    );
+  }
 
   late FavoriteNotifier favoriteNotifier;
   late FavoritesService favoritesService;
@@ -18,13 +22,9 @@ class SaveButtonController {
   late bool saved;
   bool hasUpdatedButton = false;
 
-  Icon get icon => Icon(
-        saved ? Icons.bookmark : Icons.bookmark_border,
-        color: Theme.of(context).colorScheme.tertiary,
-      );
-
-  void didChangeDependencies(
-    String widgetName,
+  void _init(
+    BuildContext context,
+    String componentName,
   ) {
     favoriteNotifier =
         ComponentListInheritedWidget.of(context)!.favoriteNotifier;
@@ -32,7 +32,7 @@ class SaveButtonController {
     favoritesService =
         ComponentListInheritedWidget.of(context)!.favoritesService;
 
-    setSaved(widgetName);
+    setSaved(componentName);
   }
 
   void setSaved(String componentName) {

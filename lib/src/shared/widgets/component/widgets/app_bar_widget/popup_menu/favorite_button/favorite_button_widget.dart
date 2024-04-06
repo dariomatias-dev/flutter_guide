@@ -25,14 +25,14 @@ class FavoriteButtonWidget extends PopupMenuEntry {
 }
 
 class FavoriteButtonWidgetState extends State<FavoriteButtonWidget> {
-  final _controller = FavoriteButtonController();
+  late FavoriteButtonController _controller;
 
   @override
   void didChangeDependencies() {
-    _controller.init(
-      context,
-      widget.componentType,
-      widget.componentName,
+    _controller = FavoriteButtonController(
+      context: context,
+      componentType: widget.componentType,
+      componentName: widget.componentName,
     );
 
     super.didChangeDependencies();

@@ -10,6 +10,20 @@ class CodeTabController {
     required BuildContext context,
     required VoidCallback setStateCallback,
   }) {
+    _init(
+      context,
+      setStateCallback,
+    );
+  }
+
+  TextSpan code = const TextSpan(
+    text: '',
+  );
+
+  void _init(
+    BuildContext context,
+    VoidCallback setStateCallback,
+  ) {
     final file = ComponentScreenInheritedWidget.of(context)!.file;
     final brightness = Theme.of(context).colorScheme.brightness;
 
@@ -19,10 +33,6 @@ class CodeTabController {
       setStateCallback,
     );
   }
-
-  TextSpan code = const TextSpan(
-    text: '',
-  );
 
   Future<void> _loadCode(
     File file,

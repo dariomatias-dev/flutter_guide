@@ -8,12 +8,24 @@ import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.da
 import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 
 class FavoriteButtonController {
+  FavoriteButtonController({
+    required BuildContext context,
+    required ComponentType componentType,
+    required String componentName,
+  }) {
+    _init(
+      context,
+      componentType,
+      componentName,
+    );
+  }
+
   late FavoritesService favoritesService;
   late FavoriteNotifier favoriteNotifier;
 
   late bool saved;
 
-  void init(
+  void _init(
     BuildContext context,
     ComponentType componentType,
     String componentName,
