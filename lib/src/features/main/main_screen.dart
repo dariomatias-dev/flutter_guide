@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
 import 'package:flutter_guide/src/core/constants/bottom_app_bar_screens.dart';
 
 import 'package:flutter_guide/src/features/main/main_controller.dart';
-import 'package:flutter_guide/src/features/main/widgets/select_favorites_screen_dialog_widget.dart';
+import 'package:flutter_guide/src/features/main/widgets/bottom_navigation_bar_widget.dart';
+import 'package:flutter_guide/src/features/main/widgets/select_favorite_screen_dialog/select_favorite_screen_dialog_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/change_theme_button/change_theme_button_widget.dart';
 
@@ -17,6 +17,12 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final _controller = MainController();
+
+  void updateScreenIndex(int value) {
+    setState(() {
+      _controller.screenIndex = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +55,7 @@ class _MainScreenState extends State<MainScreen> {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return const SelectFavoritesScreenDialogWidget();
+                  return const SelectFavoriteScreenDialogWidget();
                 },
               );
             },
@@ -62,40 +68,9 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       body: bottomAppBarScreens[_controller.screenIndex].screen,
-      bottomNavigationBar: SalomonBottomBar(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
-        currentIndex: _controller.screenIndex,
-        onTap: (value) {
-          setState(() {
-            _controller.screenIndex = value;
-          });
-        },
-        items: [
-          SalomonBottomBarItem(
-            unselectedColor: Theme.of(context).colorScheme.primary,
-            icon: const Icon(Icons.home_outlined),
-            title: const Text("Home"),
-            selectedColor: Colors.blue,
-          ),
-          SalomonBottomBarItem(
-            unselectedColor: Theme.of(context).colorScheme.primary,
-            icon: const Icon(Icons.extension_outlined),
-            title: const Text("Widgets"),
-            selectedColor: Colors.blue,
-          ),
-          SalomonBottomBarItem(
-            unselectedColor: Theme.of(context).colorScheme.primary,
-            icon: const Icon(Icons.archive_outlined),
-            title: const Text("Packages"),
-            selectedColor: Colors.blue,
-          ),
-          SalomonBottomBarItem(
-            unselectedColor: Theme.of(context).colorScheme.primary,
-            icon: const Icon(Icons.settings_outlined),
-            title: const Text("Settings"),
-            selectedColor: Colors.blue,
-          ),
-        ],
+      bottomNavigationBar: BottomNavigationBarWidget(
+        screenIndex: _controller.screenIndex,
+        updateScreenIndex: updateScreenIndex,
       ),
     );
   }

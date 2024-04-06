@@ -2,22 +2,30 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
 
+import 'package:flutter_guide/src/features/main/widgets/select_favorite_screen_dialog/select_favorite_screen_dialog_controller.dart';
+
 import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 
-class SelectFavoritesScreenDialogWidget extends StatelessWidget {
-  const SelectFavoritesScreenDialogWidget({super.key});
+class SelectFavoriteScreenDialogWidget extends StatefulWidget {
+  const SelectFavoriteScreenDialogWidget({super.key});
 
-  void _navigateTo(
-    BuildContext context,
-    String routeName,
-  ) {
-    Navigator.pop(context);
+  @override
+  State<SelectFavoriteScreenDialogWidget> createState() =>
+      _SelectFavoriteScreenDialogWidgetState();
+}
 
-    Navigator.pushNamed(
-      context,
-      routeName,
+class _SelectFavoriteScreenDialogWidgetState
+    extends State<SelectFavoriteScreenDialogWidget> {
+  late SelectFavoriteScreenDialogController _controller;
+
+  @override
+  void didChangeDependencies() {
+    _controller = SelectFavoriteScreenDialogController(
+      context: context,
     );
+
+    super.didChangeDependencies();
   }
 
   @override
@@ -27,8 +35,7 @@ class SelectFavoritesScreenDialogWidget extends StatelessWidget {
       children: [
         ListTileItemWidget(
           onTap: () {
-            _navigateTo(
-              context,
+            _controller.navigateTo(
               FlutterGuideRouteNames.savedWidgets,
             );
           },
@@ -37,8 +44,7 @@ class SelectFavoritesScreenDialogWidget extends StatelessWidget {
         ),
         ListTileItemWidget(
           onTap: () {
-            _navigateTo(
-              context,
+            _controller.navigateTo(
               FlutterGuideRouteNames.savedPackages,
             );
           },

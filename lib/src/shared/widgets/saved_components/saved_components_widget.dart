@@ -39,6 +39,7 @@ class _SavedComponentsState extends State<SavedComponents> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         leading: const BackButtonWidget(),
         title: Text(
           'Saved $componentTypeName',
