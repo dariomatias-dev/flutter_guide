@@ -6,7 +6,7 @@ import 'package:flutter_guide/src/core/constants/bottom_app_bar_screens.dart';
 import 'package:flutter_guide/src/features/main/main_controller.dart';
 import 'package:flutter_guide/src/features/main/widgets/select_favorites_screen_dialog_widget.dart';
 
-import 'package:flutter_guide/src/shared/widgets/change_theme_button_widget/change_theme_button_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/change_theme_button/change_theme_button_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

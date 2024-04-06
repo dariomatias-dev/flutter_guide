@@ -1,4 +1,8 @@
-part of 'change_theme_button_widget.dart';
+
+import 'package:flutter/material.dart';
+
+import 'package:flutter_guide/src/shared/widgets/change_theme_button/theme_selector_dialog/theme_selector_dialog_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
 
 class ThemeSelectorDialogWidget extends StatefulWidget {
   const ThemeSelectorDialogWidget({super.key});
@@ -9,22 +13,16 @@ class ThemeSelectorDialogWidget extends StatefulWidget {
 }
 
 class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
-  late ThemeController _themeController;
-  late ThemeMode _themeMode;
+  late ThemeSelectorDialogController _controller;
 
-  void _updateThemeMode(ThemeMode? value) {
-    _themeController.setTheme(value!);
-
-    setState(() {
-      _themeMode = value;
-    });
-  }
+  void _setStateCallback() => setState(() {});
 
   @override
   void didChangeDependencies() {
-    _themeController =
-        UserPreferencesInheritedWidget.of(context)!.themeController;
-    _themeMode = _themeController.themeMode;
+    _controller = ThemeSelectorDialogController(
+      context: context,
+      setStateCallback: _setStateCallback,
+    );
 
     super.didChangeDependencies();
   }
@@ -37,20 +35,20 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
         RadioListTile(
           title: const Text('Light'),
           value: ThemeMode.light,
-          groupValue: _themeMode,
-          onChanged: _updateThemeMode,
+          groupValue: _controller.themeMode,
+          onChanged: _controller.updateThemeMode,
         ),
         RadioListTile(
           title: const Text('Dark'),
           value: ThemeMode.dark,
-          groupValue: _themeMode,
-          onChanged: _updateThemeMode,
+          groupValue: _controller.themeMode,
+          onChanged: _controller.updateThemeMode,
         ),
         RadioListTile(
           title: const Text('System'),
           value: ThemeMode.system,
-          groupValue: _themeMode,
-          onChanged: _updateThemeMode,
+          groupValue: _controller.themeMode,
+          onChanged: _controller.updateThemeMode,
         ),
       ],
       actions: [
