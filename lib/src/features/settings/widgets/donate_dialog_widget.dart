@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
 import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
 
@@ -27,7 +28,12 @@ class DonateDialogWidget extends StatelessWidget {
           text: 'Donate',
           textColor: Colors.white,
           backgroundColor: Colors.yellow,
-          onPressed: () {},
+          onPressed: () {
+            openURL(
+              () => context,
+              'https://www.buymeacoffee.com/dariomatias',
+            );
+          },
         ),
       ],
       children: [],

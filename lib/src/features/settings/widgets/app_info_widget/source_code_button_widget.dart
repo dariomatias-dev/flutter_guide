@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
 class SourceCodeButtonWidget extends StatelessWidget {
   const SourceCodeButtonWidget({super.key});
@@ -12,7 +13,12 @@ class SourceCodeButtonWidget extends StatelessWidget {
         horizontal: 36.0,
       ),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          openURL(
+            () => context,
+            'https://github.com/dariomatias-dev/flutter_guide',
+          );
+        },
         borderRadius: borderRadius,
         overlayColor: MaterialStatePropertyAll(
           Colors.blue.withOpacity(
@@ -32,9 +38,8 @@ class SourceCodeButtonWidget extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: Colors.blue.withOpacity(
-                  Theme.of(context).brightness == Brightness.light
-                      ? 0.05
-                      : 0.1),
+                Theme.of(context).brightness == Brightness.light ? 0.05 : 0.1,
+              ),
               borderRadius: borderRadius,
             ),
             child: const Center(
