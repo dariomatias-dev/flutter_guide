@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+// Samples
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
 
+// Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
 import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
 

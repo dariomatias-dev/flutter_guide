@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
+// Samples
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
@@ -12,6 +13,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 
+// Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
 import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
 

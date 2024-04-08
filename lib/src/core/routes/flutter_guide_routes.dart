@@ -5,7 +5,10 @@ import 'package:flutter_guide/src/features/saved_packages/saved_packages_screen.
 import 'package:flutter_guide/src/features/saved_widgets/saved_widgets_screen.dart';
 
 final flutterGuideRoutes = {
+  // Main Screen
   FlutterGuideRouteNames.main: (_) => const MainScreen(),
+
+  // Saved Screens
   FlutterGuideRouteNames.savedWidgets: (_) => const SavedWidgets(),
   FlutterGuideRouteNames.savedPackages: (_) => const SavedPackages(),
 };
