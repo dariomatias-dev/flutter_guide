@@ -17,7 +17,7 @@ class TrailingIconButtonWidget extends StatelessWidget {
       icon: Icon(
         icon,
         color: Theme.of(context).colorScheme.primary,
-        size: 18.0,
+        size: 20.0,
       ),
     );
   }

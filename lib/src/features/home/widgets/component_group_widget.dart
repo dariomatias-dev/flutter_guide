@@ -32,24 +32,22 @@ class _ComponentGroupWidgetState extends State<ComponentGroupWidget> {
           ],
         ),
         if (isExpanded)
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 12.0,
-            ),
-            child: Column(
-              children: [
-                ListTileItemWidget(
-                  onTap: () {},
-                  title: 'Text',
-                  trailingWidgets: [
-                    TrailingIconButtonWidget(
-                      onPressed: () {},
-                      icon: Icons.bookmark_border,
-                    ),
-                  ],
+          Column(
+            children: [
+              ListTileItemWidget(
+                onTap: () {},
+                title: 'Text',
+                padding: const EdgeInsets.only(
+                  left: 20.0,
                 ),
-              ],
-            ),
+                trailingWidgets: [
+                  TrailingIconButtonWidget(
+                    onPressed: () {},
+                    icon: Icons.bookmark_border,
+                  ),
+                ],
+              ),
+            ],
           ),
       ],
     );

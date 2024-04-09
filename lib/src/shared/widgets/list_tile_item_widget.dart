@@ -8,6 +8,7 @@ class ListTileItemWidget extends StatelessWidget {
     this.icon,
     this.openInBrowser = false,
     this.borderRadius = 0,
+    this.padding,
     this.trailingWidgets,
   });
 
@@ -16,6 +17,7 @@ class ListTileItemWidget extends StatelessWidget {
   final IconData? icon;
   final bool openInBrowser;
   final double borderRadius;
+  final EdgeInsets? padding;
   final List<Widget>? trailingWidgets;
 
   @override
@@ -28,31 +30,43 @@ class ListTileItemWidget extends StatelessWidget {
       hoverColor: Colors.blue.withOpacity(0.05),
       borderRadius: BorderRadius.circular(borderRadius),
       child: Ink(
-        child: ListTile(
-          leading: icon != null
-              ? Icon(
-                  icon,
-                  color: Theme.of(context).colorScheme.primary,
-                  size: 18.0,
-                )
-              : null,
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14.0,
-            ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 12.0,
+            horizontal: 10.0,
           ),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              if (openInBrowser)
-                Icon(
-                  Icons.open_in_new_rounded,
-                  color: Theme.of(context).colorScheme.tertiary,
-                  size: 18.0,
+          child: Padding(
+            padding: padding ?? EdgeInsets.zero,
+            child: Row(
+              children: [
+                if (icon != null)
+                  Icon(
+                    icon,
+                    color: Theme.of(context).colorScheme.primary,
+                    size: 20.0,
+                  ),
+                const SizedBox(width: 12.0),
+                Expanded(
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                    ),
+                  ),
                 ),
-              if (trailingWidgets != null) ...trailingWidgets!,
-            ],
+                Row(
+                  children: [
+                    if (openInBrowser)
+                      Icon(
+                        Icons.open_in_new_rounded,
+                        color: Theme.of(context).colorScheme.tertiary,
+                        size: 18.0,
+                      ),
+                    if (trailingWidgets != null) ...trailingWidgets!,
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
