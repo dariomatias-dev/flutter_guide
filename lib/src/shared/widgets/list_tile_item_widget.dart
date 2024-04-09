@@ -7,6 +7,7 @@ class ListTileItemWidget extends StatelessWidget {
     required this.title,
     required this.icon,
     this.openInBrowser = false,
+    this.borderRadius = 0,
     this.trailingWidgets,
   });
 
@@ -14,6 +15,7 @@ class ListTileItemWidget extends StatelessWidget {
   final String title;
   final IconData icon;
   final bool openInBrowser;
+  final double borderRadius;
   final List<Widget>? trailingWidgets;
 
   @override
@@ -24,6 +26,7 @@ class ListTileItemWidget extends StatelessWidget {
         Colors.blue.withOpacity(0.05),
       ),
       hoverColor: Colors.blue.withOpacity(0.05),
+      borderRadius: BorderRadius.circular(borderRadius),
       child: Ink(
         child: ListTile(
           leading: Icon(
