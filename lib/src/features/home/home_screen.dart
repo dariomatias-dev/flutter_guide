@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/features/home/widgets/border_list_tile_item_widget.dart';
+import 'package:flutter_guide/src/features/home/widgets/component_group_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,6 +32,8 @@ class HomeScreen extends StatelessWidget {
               icon: Icons.movie,
               onTap: () {},
             ),
+            const SizedBox(height: 12.0),
+            const ComponentGroupWidget(),
           ],
         ),
       ),
