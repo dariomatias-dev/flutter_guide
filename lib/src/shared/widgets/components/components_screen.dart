@@ -33,20 +33,27 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(height: 20.0),
-          SearchFieldWidget(onChange: (String value) {
-            _controller.updateComponentList(value, () {
-              setState(() {});
-            });
-          }),
-          const SizedBox(height: 16.0),
-          ComponentListWidget(
-            componentType: widget.componentType,
-            components: _controller.components,
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          scrollbars: false,
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 20.0),
+              SearchFieldWidget(onChange: (String value) {
+                _controller.updateComponentList(value, () {
+                  setState(() {});
+                });
+              }),
+              const SizedBox(height: 16.0),
+              ComponentListWidget(
+                componentType: widget.componentType,
+                components: _controller.components,
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

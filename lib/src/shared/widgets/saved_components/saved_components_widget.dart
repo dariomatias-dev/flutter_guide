@@ -58,10 +58,15 @@ class _SavedComponentsState extends State<SavedComponents> {
           _controller.getSavedComponents();
 
           return _controller.components.isNotEmpty
-              ? SingleChildScrollView(
-                  child: ComponentListWidget(
-                    componentType: widget.componentType,
-                    components: _controller.components,
+              ? ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(context).copyWith(
+                    scrollbars: false,
+                  ),
+                  child: SingleChildScrollView(
+                    child: ComponentListWidget(
+                      componentType: widget.componentType,
+                      components: _controller.components,
+                    ),
                   ),
                 )
               : Center(
