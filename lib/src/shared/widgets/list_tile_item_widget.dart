@@ -29,11 +29,13 @@ class ListTileItemWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(borderRadius),
       child: Ink(
         child: ListTile(
-          leading: icon != null ? Icon(
-            icon,
-            color: Theme.of(context).colorScheme.primary,
-            size: 20.0,
-          ) : null,
+          leading: icon != null
+              ? Icon(
+                  icon,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 18.0,
+                )
+              : null,
           title: Text(
             title,
             style: const TextStyle(
@@ -47,6 +49,7 @@ class ListTileItemWidget extends StatelessWidget {
                 Icon(
                   Icons.open_in_new_rounded,
                   color: Theme.of(context).colorScheme.tertiary,
+                  size: 18.0,
                 ),
               if (trailingWidgets != null) ...trailingWidgets!,
             ],

@@ -6,9 +6,10 @@ import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 import 'package:flutter_guide/src/features/package/package_screen.dart';
 import 'package:flutter_guide/src/features/widget/widget_screen.dart';
 
-import 'package:flutter_guide/src/shared/utils/open_url.dart';
 import 'package:flutter_guide/src/shared/widgets/component_list/card_widget/save_button/save_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
+import 'package:flutter_guide/src/shared/utils/open_url.dart';
+import 'package:flutter_guide/src/shared/widgets/trailing_icon_button_widget.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({
@@ -47,17 +48,14 @@ class CardWidget extends StatelessWidget {
       icon: icon,
       trailingWidgets: [
         if (youtubeLink != null)
-          IconButton(
+          TrailingIconButtonWidget(
+            icon: FontAwesomeIcons.youtube,
             onPressed: () {
               openURL(
                 () => context,
                 'https://youtu.be/${youtubeLink!}',
               );
             },
-            icon: FaIcon(
-              FontAwesomeIcons.youtube,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
           ),
         const SizedBox(width: 8.0),
         SaveButtonWidget(
