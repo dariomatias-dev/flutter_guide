@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/constants/component_groups.dart';
+
 import 'package:flutter_guide/src/features/home/widgets/border_list_tile_item_widget.dart';
 import 'package:flutter_guide/src/features/home/widgets/component_group_widget.dart';
 
@@ -13,9 +15,9 @@ class HomeScreen extends StatelessWidget {
         behavior: ScrollConfiguration.of(context).copyWith(
           scrollbars: false,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
+            const SizedBox(height: 20.0),
             BorderListTileItemWidget(
               title: 'UIs',
               icon: Icons.web,
@@ -48,7 +50,18 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4.0),
-            const ComponentGroupWidget(),
+            ...List.generate(
+              componentGroups.length * 2 - 1,
+              (index) {
+                if (index % 2 == 1) {
+                  return const SizedBox(height: 4.0);
+                }
+
+                return ComponentGroupWidget(
+                  componentGroup: componentGroups[index ~/ 2],
+                );
+              },
+            ),
           ],
         ),
       ),
