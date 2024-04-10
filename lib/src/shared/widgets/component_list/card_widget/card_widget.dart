@@ -47,16 +47,18 @@ class CardWidget extends StatelessWidget {
       title: componentName,
       icon: icon,
       trailingWidgets: [
-        if (youtubeLink != null)
-          TrailingIconButtonWidget(
+        if (youtubeLink != null) ...[
+          IconButtonWidget(
             icon: FontAwesomeIcons.youtube,
-            onPressed: () {
+            onTap: () {
               openURL(
                 () => context,
                 'https://youtu.be/${youtubeLink!}',
               );
             },
           ),
+          const SizedBox(width: 12.0),
+        ],
         SaveButtonWidget(
           componentName: componentName,
         ),

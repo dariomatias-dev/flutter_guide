@@ -41,8 +41,8 @@ class _ComponentGroupWidgetState extends State<ComponentGroupWidget> {
                   left: 20.0,
                 ),
                 trailingWidgets: [
-                  TrailingIconButtonWidget(
-                    onPressed: () {},
+                  IconButtonWidget(
+                    onTap: () {},
                     icon: Icons.bookmark_border,
                   ),
                 ],
