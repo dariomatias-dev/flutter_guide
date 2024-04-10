@@ -19,12 +19,20 @@ class IconButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: child ??
-          Icon(
-            icon,
-            color: Theme.of(context).colorScheme.primary,
-            size: 20.0,
-          ),
+      child: Container(
+        padding: const EdgeInsets.all(4.0),
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+        ),
+        child: Center(
+          child: child ??
+              Icon(
+                icon,
+                color: Theme.of(context).colorScheme.primary,
+                size: 20.0,
+              ),
+        ),
+      ),
     );
   }
 }

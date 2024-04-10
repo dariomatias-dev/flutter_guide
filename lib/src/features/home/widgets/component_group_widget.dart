@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/trailing_icon_button_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/icon_button_widget.dart';
 
 class ComponentGroupWidget extends StatefulWidget {
   const ComponentGroupWidget({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/shared/widgets/component_list/card_widget/save_button/save_button_controller.dart';
-import 'package:flutter_guide/src/shared/widgets/trailing_icon_button_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/icon_button_widget.dart';
 
 class SaveButtonWidget extends StatefulWidget {
   const SaveButtonWidget({
@@ -31,14 +31,10 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return IconButtonWidget(
-      onTap: () {
-        _controller.favoritesService.toggleWidgetState(
-          context,
-          widget.componentName,
-        );
-
-        _controller.favoriteNotifier.setValue(widget.componentName);
-      },
+      onTap: () => _controller.ontap(
+        context,
+        widget.componentName,
+      ),
       child: ValueListenableBuilder(
         valueListenable: _controller.favoriteNotifier,
         builder: (context, value, child) {

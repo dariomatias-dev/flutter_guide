@@ -31,26 +31,34 @@ class ListTileItemWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(borderRadius),
       child: Ink(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 12.0,
-            horizontal: 10.0,
-          ),
+          padding: padding ?? EdgeInsets.zero,
           child: Padding(
-            padding: padding ?? EdgeInsets.zero,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10.0,
+            ),
             child: Row(
               children: [
-                if (icon != null)
-                  Icon(
-                    icon,
-                    color: Theme.of(context).colorScheme.primary,
-                    size: 20.0,
-                  ),
-                const SizedBox(width: 12.0),
                 Expanded(
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 14.0,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12.0,
+                    ),
+                    child: Row(
+                      children: [
+                        if (icon != null)
+                          Icon(
+                            icon,
+                            color: Theme.of(context).colorScheme.primary,
+                            size: 20.0,
+                          ),
+                        const SizedBox(width: 12.0),
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

@@ -9,7 +9,7 @@ import 'package:flutter_guide/src/features/widget/widget_screen.dart';
 import 'package:flutter_guide/src/shared/widgets/component_list/card_widget/save_button/save_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
-import 'package:flutter_guide/src/shared/widgets/trailing_icon_button_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/icon_button_widget.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({

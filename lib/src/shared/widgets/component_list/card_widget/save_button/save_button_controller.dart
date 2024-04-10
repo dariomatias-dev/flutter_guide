@@ -17,7 +17,7 @@ class SaveButtonController {
   }
 
   late FavoriteNotifier favoriteNotifier;
-  late FavoritesService favoritesService;
+  late FavoritesService _favoritesService;
 
   late bool saved;
   bool hasUpdatedButton = false;
@@ -29,13 +29,25 @@ class SaveButtonController {
     favoriteNotifier =
         ComponentListInheritedWidget.of(context)!.favoriteNotifier;
 
-    favoritesService =
+    _favoritesService =
         ComponentListInheritedWidget.of(context)!.favoritesService;
 
     setSaved(componentName);
   }
 
+  void ontap(
+    BuildContext context,
+    String componentName,
+  ) {
+    _favoritesService.toggleWidgetState(
+      context,
+      componentName,
+    );
+
+    favoriteNotifier.setValue(componentName);
+  }
+
   void setSaved(String componentName) {
-    saved = favoritesService.contains(componentName);
+    saved = _favoritesService.contains(componentName);
   }
 }
