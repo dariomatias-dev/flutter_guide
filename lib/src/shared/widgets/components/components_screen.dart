@@ -46,7 +46,7 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
                   setState(() {});
                 });
               }),
-              const SizedBox(height: 16.0),
+              const SizedBox(height: 12.0),
               ComponentListWidget(
                 componentType: widget.componentType,
                 components: _controller.components,

@@ -25,9 +25,9 @@ class _ComponentGroupWidgetState extends State<ComponentGroupWidget> {
           },
           title: 'Text',
           icon: Icons.text_fields,
-          trailingWidgets: const <Widget>[
+          trailingWidgets: <Widget>[
             Icon(
-              Icons.arrow_right_sharp,
+              isExpanded ? Icons.arrow_drop_down : Icons.arrow_right_sharp,
             ),
           ],
         ),

@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
           scrollbars: false,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BorderListTileItemWidget(
               title: 'UIs',
@@ -32,7 +33,21 @@ class HomeScreen extends StatelessWidget {
               icon: Icons.movie,
               onTap: () {},
             ),
-            const SizedBox(height: 12.0),
+            const SizedBox(height: 20.0),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 12.0,
+              ),
+              child: Text(
+                'Components',
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            const SizedBox(height: 4.0),
             const ComponentGroupWidget(),
           ],
         ),
@@ -40,5 +55,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-

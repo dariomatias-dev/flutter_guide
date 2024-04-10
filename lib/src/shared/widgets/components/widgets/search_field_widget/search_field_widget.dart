@@ -29,9 +29,10 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 52.0,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 12.0,
+      width: double.infinity,
+      height: 44.0,
+      margin: const EdgeInsets.symmetric(
+        horizontal: 8.0,
       ),
       child: TextFormField(
         controller: _controller.searchFieldController,
@@ -43,10 +44,12 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
           prefixIcon: Icon(
             Icons.search,
             color: Theme.of(context).colorScheme.tertiary,
+            size: 20.0,
           ),
           hintText: "Widget...",
           hintStyle: TextStyle(
             color: Colors.grey.shade600,
+            fontSize: 14.0,
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0),
