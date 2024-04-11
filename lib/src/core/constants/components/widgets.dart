@@ -14,6 +14,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/richtext_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/selectabletext_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 
@@ -104,6 +105,13 @@ const widgets = <WidgetModel>[
     name: 'CircleAvatar',
     icon: Icons.person,
     sample: CircleAvatarSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: 'SelectableText',
+    icon: Icons.text_fields,
+    youtubeLink: 'ZSU3ZXOs6hc?si=JnQTXm3Kt6yYg7Gl',
+    sample: SelectableTextSample(),
     category: WidgetCategory.material,
   ),
 ];
