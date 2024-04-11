@@ -6,6 +6,7 @@ import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
@@ -75,6 +76,12 @@ const widgets = <WidgetModel>[
     icon: Icons.list_alt,
     youtubeLink: 'l8dj0yPBvgQ?si=3mUG7NVusfY126bs',
     sample: ListTileSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: 'ElevatedButton',
+    icon: Icons.crop_16_9,
+    sample: ElevatedButtonSample(),
     category: WidgetCategory.material,
   ),
 ];
