@@ -11,6 +11,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_samp
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/richtext_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
@@ -89,6 +90,13 @@ const widgets = <WidgetModel>[
     name: 'IconButton',
     icon: Icons.crop_16_9,
     sample: IconButtonSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: 'RichText',
+    icon: Icons.text_fields,
+    youtubeLink: 'rykDVh-QFfw?si=R5meCvURew46-dH3',
+    sample: RichTextSample(),
     category: WidgetCategory.material,
   ),
 ];
