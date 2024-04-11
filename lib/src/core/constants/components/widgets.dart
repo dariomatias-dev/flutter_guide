@@ -4,6 +4,7 @@ import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 // Samples
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/circleavatar_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
@@ -97,6 +98,12 @@ const widgets = <WidgetModel>[
     icon: Icons.text_fields,
     youtubeLink: 'rykDVh-QFfw?si=R5meCvURew46-dH3',
     sample: RichTextSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: 'CircleAvatar',
+    icon: Icons.person,
+    sample: CircleAvatarSample(),
     category: WidgetCategory.material,
   ),
 ];
