@@ -24,30 +24,16 @@ import 'package:flutter_guide/src/shared/models/component_summary_mode/component
 
 const widgets = <WidgetModel>[
   WidgetModel(
-    name: 'Text',
-    icon: Icons.text_fields,
-    sample: TextSample(),
-    category: WidgetCategory.widgets,
+    name: 'Checkbox',
+    icon: Icons.check_box,
+    sample: CheckboxSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'Image',
-    icon: Icons.image,
-    youtubeLink: '7oIAs-0G4mw?si=Ay5lAKDi1TIZxcwN',
-    sample: ImageSample(),
-    category: WidgetCategory.widgets,
-  ),
-  WidgetModel(
-    name: 'Container',
-    icon: Icons.crop_square,
-    youtubeLink: 'c1xLMaTUWCY?si=PrsjqoW2tDReZUxp',
-    sample: ContainerSample(),
-    category: WidgetCategory.widgets,
-  ),
-  WidgetModel(
-    name: 'Row',
-    icon: Icons.view_week,
-    sample: RowSample(),
-    category: WidgetCategory.widgets,
+    name: 'CircleAvatar',
+    icon: Icons.person,
+    sample: CircleAvatarSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: 'Column',
@@ -56,31 +42,11 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'ListView',
-    icon: Icons.list,
-    youtubeLink: 'KJpkjHGiI5A?si=MJEvCI9lL4kFg03_',
-    sample: ListViewSample(),
+    name: 'Container',
+    icon: Icons.crop_square,
+    youtubeLink: 'c1xLMaTUWCY?si=PrsjqoW2tDReZUxp',
+    sample: ContainerSample(),
     category: WidgetCategory.widgets,
-  ),
-  WidgetModel(
-    name: 'Stack',
-    icon: Icons.layers,
-    youtubeLink: 'liEGSeD3Zt8?si=kn6VHbJgeHzG6C_N',
-    sample: StackSample(),
-    category: WidgetCategory.widgets,
-  ),
-  WidgetModel(
-    name: 'Checkbox',
-    icon: Icons.check_box,
-    sample: CheckboxSample(),
-    category: WidgetCategory.material,
-  ),
-  WidgetModel(
-    name: 'ListTile',
-    icon: Icons.list_alt,
-    youtubeLink: 'l8dj0yPBvgQ?si=3mUG7NVusfY126bs',
-    sample: ListTileSample(),
-    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: 'ElevatedButton',
@@ -95,6 +61,27 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.material,
   ),
   WidgetModel(
+    name: 'Image',
+    icon: Icons.image,
+    youtubeLink: '7oIAs-0G4mw?si=Ay5lAKDi1TIZxcwN',
+    sample: ImageSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: 'ListTile',
+    icon: Icons.list_alt,
+    youtubeLink: 'l8dj0yPBvgQ?si=3mUG7NVusfY126bs',
+    sample: ListTileSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: 'ListView',
+    icon: Icons.list,
+    youtubeLink: 'KJpkjHGiI5A?si=MJEvCI9lL4kFg03_',
+    sample: ListViewSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
     name: 'RichText',
     icon: Icons.text_fields,
     youtubeLink: 'rykDVh-QFfw?si=R5meCvURew46-dH3',
@@ -102,10 +89,10 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'CircleAvatar',
-    icon: Icons.person,
-    sample: CircleAvatarSample(),
-    category: WidgetCategory.material,
+    name: 'Row',
+    icon: Icons.view_week,
+    sample: RowSample(),
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: 'SelectableText',
@@ -113,6 +100,19 @@ const widgets = <WidgetModel>[
     youtubeLink: 'ZSU3ZXOs6hc?si=JnQTXm3Kt6yYg7Gl',
     sample: SelectableTextSample(),
     category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: 'Stack',
+    icon: Icons.layers,
+    youtubeLink: 'liEGSeD3Zt8?si=kn6VHbJgeHzG6C_N',
+    sample: StackSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: 'Text',
+    icon: Icons.text_fields,
+    sample: TextSample(),
+    category: WidgetCategory.widgets,
   ),
 ];
 
