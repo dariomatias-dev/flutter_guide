@@ -58,7 +58,7 @@ class _ComponentListWidgetState extends State<ComponentListWidget> {
                 componentType: widget.componentType,
                 icon: flutterWidget.icon,
                 componentName: flutterWidget.name,
-                youtubeLink: flutterWidget.youtubeLink,
+                videoId: flutterWidget.videoId,
               );
             },
           );

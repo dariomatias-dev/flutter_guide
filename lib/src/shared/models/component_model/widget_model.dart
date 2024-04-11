@@ -4,7 +4,7 @@ class WidgetModel extends ComponentModel {
   const WidgetModel({
     required super.name,
     required super.icon,
-    super.youtubeLink,
+    super.videoId,
     required super.sample,
     required this.category,
   });

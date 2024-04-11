@@ -17,13 +17,13 @@ class CardWidget extends StatelessWidget {
     required this.icon,
     required this.componentName,
     required this.componentType,
-    this.youtubeLink,
+    this.videoId,
   });
 
   final IconData icon;
   final String componentName;
   final ComponentType componentType;
-  final String? youtubeLink;
+  final String? videoId;
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +47,13 @@ class CardWidget extends StatelessWidget {
       title: componentName,
       icon: icon,
       trailingWidgets: [
-        if (youtubeLink != null) ...[
+        if (videoId != null) ...[
           IconButtonWidget(
             icon: FontAwesomeIcons.youtube,
             onTap: () {
               openURL(
                 () => context,
-                'https://youtu.be/${youtubeLink!}',
+                'https://youtu.be/${videoId!}',
               );
             },
           ),

@@ -4,7 +4,7 @@ class PackageModel extends ComponentModel {
   const PackageModel({
     required super.name,
     required super.icon,
-    super.youtubeLink,
+    super.videoId,
     required super.sample,
   });
 }
