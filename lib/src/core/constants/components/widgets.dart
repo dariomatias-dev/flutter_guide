@@ -7,6 +7,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
@@ -82,6 +83,12 @@ const widgets = <WidgetModel>[
     name: 'ElevatedButton',
     icon: Icons.crop_16_9,
     sample: ElevatedButtonSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: 'IconButton',
+    icon: Icons.crop_16_9,
+    sample: IconButtonSample(),
     category: WidgetCategory.material,
   ),
 ];
