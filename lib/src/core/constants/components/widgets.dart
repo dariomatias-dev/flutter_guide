@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
-// Samples
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
+
+// Samples
 import 'package:flutter_guide/src/features/widget/widget_samples/alertdialog_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/circleavatar_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/clipoval_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/cliprrect_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
@@ -41,6 +44,18 @@ const widgets = <WidgetModel>[
     icon: Icons.person,
     sample: CircleAvatarSample(),
     category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: 'ClipRRect',
+    icon: Icons.crop,
+    sample: ClipRRectSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: 'ClipOval',
+    icon: Icons.crop,
+    sample: ClipOvalSample(),
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: 'Column',
