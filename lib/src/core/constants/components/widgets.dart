@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/constants/widget_names.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 // Samples
@@ -28,115 +29,115 @@ import 'package:flutter_guide/src/shared/models/component_summary_mode/component
 
 const widgets = <WidgetModel>[
   WidgetModel(
-    name: 'AlertDialog',
+    name: WidgetNames.alertDialog,
     icon: Icons.chat,
     sample: AlertDialogSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'Checkbox',
+    name: WidgetNames.checkbox,
     icon: Icons.check_box,
     sample: CheckboxSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'CircleAvatar',
+    name: WidgetNames.circleAvatar,
     icon: Icons.person,
     sample: CircleAvatarSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'ClipRRect',
+    name: WidgetNames.clipRRect,
     icon: Icons.crop,
     sample: ClipRRectSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'ClipOval',
+    name: WidgetNames.clipOval,
     icon: Icons.crop,
     sample: ClipOvalSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'Column',
+    name: WidgetNames.column,
     icon: Icons.view_column,
     sample: ColumnSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'Container',
+    name: WidgetNames.container,
     icon: Icons.crop_square,
     videoId: 'c1xLMaTUWCY',
     sample: ContainerSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'ElevatedButton',
+    name: WidgetNames.elevatedButton,
     icon: Icons.crop_16_9,
     sample: ElevatedButtonSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'IconButton',
+    name: WidgetNames.iconButton,
     icon: Icons.crop_16_9,
     sample: IconButtonSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'Image',
+    name: WidgetNames.image,
     icon: Icons.image,
     videoId: '7oIAs-0G4mw',
     sample: ImageSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'ListTile',
+    name: WidgetNames.listTile,
     icon: Icons.list_alt,
     videoId: 'l8dj0yPBvgQ',
     sample: ListTileSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'ListView',
+    name: WidgetNames.listView,
     icon: Icons.list,
     videoId: 'KJpkjHGiI5A',
     sample: ListViewSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'RichText',
+    name: WidgetNames.richText,
     icon: Icons.text_fields,
     videoId: 'rykDVh-QFfw',
     sample: RichTextSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'Row',
+    name: WidgetNames.row,
     icon: Icons.view_week,
     sample: RowSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'SelectableText',
+    name: WidgetNames.selectableText,
     icon: Icons.text_fields,
     videoId: 'ZSU3ZXOs6hc',
     sample: SelectableTextSample(),
     category: WidgetCategory.material,
   ),  WidgetModel(
-    name: 'SimpleDialog',
+    name: WidgetNames.simpleDialog,
     icon: Icons.chat,
     sample: SimpleDialogSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: 'Stack',
+    name: WidgetNames.stack,
     icon: Icons.layers,
     videoId: 'liEGSeD3Zt8',
     sample: StackSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
-    name: 'Text',
+    name: WidgetNames.text,
     icon: Icons.text_fields,
     sample: TextSample(),
     category: WidgetCategory.widgets,
