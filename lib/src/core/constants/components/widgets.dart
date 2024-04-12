@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 // Samples
+import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/alertdialog_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/circleavatar_sample.dart';
@@ -15,10 +15,11 @@ import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample
 import 'package:flutter_guide/src/features/widget/widget_samples/richtext_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/selectabletext_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/simpledialog_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
-// Models
 
+// Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
 import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
 
@@ -105,6 +106,11 @@ const widgets = <WidgetModel>[
     icon: Icons.text_fields,
     videoId: 'ZSU3ZXOs6hc',
     sample: SelectableTextSample(),
+    category: WidgetCategory.material,
+  ),  WidgetModel(
+    name: 'SimpleDialog',
+    icon: Icons.chat,
+    sample: SimpleDialogSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
