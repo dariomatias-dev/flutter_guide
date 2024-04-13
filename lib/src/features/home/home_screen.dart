@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 8.0),
             BorderListTileItemWidget(
               title: 'Elements',
-              icon: Icons.list_alt,
+              icon: Icons.extension_outlined,
               onTap: () {},
             ),
             const SizedBox(height: 8.0),
@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 8.0),
             BorderListTileItemWidget(
               title: 'Animations',
-              icon: Icons.movie,
+              icon: Icons.movie_creation_outlined,
               onTap: () {},
             ),
             const SizedBox(height: 20.0),

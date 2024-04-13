@@ -29,7 +29,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
         ),
         SalomonBottomBarItem(
           unselectedColor: Theme.of(context).colorScheme.primary,
-          icon: const Icon(Icons.extension_outlined),
+          icon: const Icon(Icons.widgets_outlined),
           title: const Text("Widgets"),
           selectedColor: Colors.blue,
         ),

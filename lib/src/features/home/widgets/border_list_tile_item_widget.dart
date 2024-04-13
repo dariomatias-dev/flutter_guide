@@ -22,7 +22,9 @@ class BorderListTileItemWidget extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.grey.shade300,
+          color: Theme.of(context).brightness == Brightness.light
+              ? Colors.grey.shade300
+              : Colors.grey.shade600,
         ),
         borderRadius: BorderRadius.circular(12.0),
       ),

@@ -28,6 +28,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: Theme.of(context).colorScheme.secondary,
         backgroundColor: Theme.of(context).colorScheme.secondary,
         title: Row(
           children: [
