@@ -26,11 +26,12 @@ import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dar
 // Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
 import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
+import 'package:flutter_guide/src/shared/models/widget_infos_model/component_infos_model.dart';
 
 const widgets = <WidgetModel>[
   WidgetModel(
     name: WidgetNames.alertDialog,
-    icon: Icons.chat,
+    icon: Icons.chat_bubble_outline,
     sample: AlertDialogSample(),
     category: WidgetCategory.material,
   ),
@@ -123,9 +124,10 @@ const widgets = <WidgetModel>[
     videoId: 'ZSU3ZXOs6hc',
     sample: SelectableTextSample(),
     category: WidgetCategory.material,
-  ),  WidgetModel(
+  ),
+  WidgetModel(
     name: WidgetNames.simpleDialog,
-    icon: Icons.chat,
+    icon: Icons.chat_bubble_outline,
     sample: SimpleDialogSample(),
     category: WidgetCategory.material,
   ),
@@ -144,15 +146,21 @@ const widgets = <WidgetModel>[
   ),
 ];
 
-Map<String, WidgetSummaryModel> widgetsMap() {
+WidgetInfosModel getWidgetInfos() {
+  List<String> widgetNames = [];
   Map<String, WidgetSummaryModel> samples = {};
   for (WidgetModel widget in widgets) {
+    widgetNames.add(widget.name);
+
     samples[widget.name] = WidgetSummaryModel(
       name: widget.name,
-      sample: widget.sample,
       category: widget.category,
+      sample: widget.sample,
     );
   }
 
-  return samples;
+  return WidgetInfosModel(
+    componentNames: widgetNames,
+    samples: samples,
+  );
 }

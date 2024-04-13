@@ -6,7 +6,11 @@ import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 import 'package:flutter_guide/src/features/package/package_screen.dart';
 import 'package:flutter_guide/src/features/widget/widget_screen.dart';
 
-import 'package:flutter_guide/src/shared/widgets/component_list/card_widget/save_button/save_button_widget.dart';
+import 'package:flutter_guide/src/providers/favorite_notifier/favorite_notifier.dart';
+
+import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
+
+import 'package:flutter_guide/src/shared/widgets/card_widget/save_button/save_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
 import 'package:flutter_guide/src/shared/widgets/icon_button_widget.dart';
@@ -18,6 +22,9 @@ class CardWidget extends StatelessWidget {
     required this.componentName,
     required this.componentType,
     this.videoId,
+    required this.favoritesService,
+    required this.favoriteNotifier,
+    this.padding,
   });
 
   final IconData icon;
@@ -25,9 +32,15 @@ class CardWidget extends StatelessWidget {
   final ComponentType componentType;
   final String? videoId;
 
+  final FavoritesService favoritesService;
+  final FavoriteNotifier favoriteNotifier;
+  
+  final EdgeInsets? padding;
+
   @override
   Widget build(BuildContext context) {
     return ListTileItemWidget(
+      padding: padding,
       onTap: () {
         Navigator.push(
           context,
@@ -61,6 +74,8 @@ class CardWidget extends StatelessWidget {
         ],
         SaveButtonWidget(
           componentName: componentName,
+          favoritesService: favoritesService,
+          favoriteNotifier: favoriteNotifier,
         ),
       ],
     );

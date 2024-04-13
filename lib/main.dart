@@ -45,6 +45,8 @@ Future<void> main() async {
           ? favoriteWidgetsService
           : favoritePackagesService;
 
+  final widgetInfos = getWidgetInfos();
+
   runApp(
     UserPreferencesInheritedWidget(
       themeController: themeController,
@@ -56,8 +58,9 @@ Future<void> main() async {
       getFavoritesService: getFavoritesService,
       sharedPreferences: sharedPreferences,
       child: ComponentsMapInheritedWidget(
-        widgetsMap: widgetsMap(),
+        widgetsMap: widgetInfos.samples,
         packagesMap: packagesMap(),
+        widgetNames: widgetInfos.componentNames,
         child: FlutterGuideApp(
           themeController: themeController,
         ),

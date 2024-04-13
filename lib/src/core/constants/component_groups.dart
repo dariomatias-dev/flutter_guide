@@ -7,13 +7,13 @@ import 'package:flutter_guide/src/shared/models/component_group_model.dart';
 const componentGroups = <ComponentGroupModel>[
   ComponentGroupModel(
     icon: Icons.text_fields,
-    title: 'Text',
+    title: 'Texts',
     components: [
       WidgetNames.text,
     ],
   ),
   ComponentGroupModel(
-    icon: Icons.text_fields,
+    icon: Icons.chat_bubble_outline,
     title: 'Dialogs',
     components: [
       WidgetNames.alertDialog,

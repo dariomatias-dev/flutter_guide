@@ -5,10 +5,13 @@ import 'package:flutter_guide/src/shared/models/component_summary_mode/component
 class ComponentsMapInheritedWidget extends InheritedWidget {
   const ComponentsMapInheritedWidget({
     super.key,
+    required this.widgetNames,
     required this.widgetsMap,
     required this.packagesMap,
     required super.child,
   });
+
+  final List<String> widgetNames;
 
   final Map<String, WidgetSummaryModel> widgetsMap;
   final Map<String, PackageSummaryModel> packagesMap;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/providers/component_list_inherited_widget.dart';
 import 'package:flutter_guide/src/providers/favorite_notifier/favorite_notifier.dart';
 
 import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
@@ -9,15 +8,18 @@ class SaveButtonController {
   SaveButtonController({
     required BuildContext context,
     required String componentName,
-  }) {
+    required FavoritesService favoritesService,
+    required FavoriteNotifier favoriteNotifier,
+  })  : _favoritesService = favoritesService,
+        _favoriteNotifier = favoriteNotifier {
     _init(
       context,
       componentName,
     );
   }
 
-  late FavoriteNotifier favoriteNotifier;
-  late FavoritesService _favoritesService;
+  final FavoriteNotifier _favoriteNotifier;
+  final FavoritesService _favoritesService;
 
   late bool saved;
   bool hasUpdatedButton = false;
@@ -26,12 +28,6 @@ class SaveButtonController {
     BuildContext context,
     String componentName,
   ) {
-    favoriteNotifier =
-        ComponentListInheritedWidget.of(context)!.favoriteNotifier;
-
-    _favoritesService =
-        ComponentListInheritedWidget.of(context)!.favoritesService;
-
     setSaved(componentName);
   }
 
@@ -44,7 +40,7 @@ class SaveButtonController {
       componentName,
     );
 
-    favoriteNotifier.setValue(componentName);
+    _favoriteNotifier.setValue(componentName);
   }
 
   void setSaved(String componentName) {

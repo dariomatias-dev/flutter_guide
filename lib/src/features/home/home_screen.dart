@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/constants/component_groups.dart';
 
 import 'package:flutter_guide/src/features/home/widgets/border_list_tile_item_widget.dart';
-import 'package:flutter_guide/src/features/home/widgets/component_group_widget.dart';
+import 'package:flutter_guide/src/features/home/widgets/component_group_widgetcomponent_group/component_group_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
