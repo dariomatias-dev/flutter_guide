@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
-import 'package:flutter_guide/src/features/home/widgets/component_group_widgetcomponent_group/component_group_widgetcomponent_group_controller.dart';
+import 'package:flutter_guide/src/features/home/widgets/component_groups/component_group_widgetcomponent_group/component_group_controller.dart';
 
 import 'package:flutter_guide/src/shared/models/component_group_model.dart';
 import 'package:flutter_guide/src/shared/widgets/card_widget/card_widget.dart';
@@ -68,7 +68,7 @@ class _ComponentGroupWidgetState extends State<ComponentGroupWidget> {
                   favoritesService: _controller
                       .userPreferencesInheritedWidget.favoriteWidgetsService,
                   favoriteNotifier: _controller
-                      .userPreferencesInheritedWidget.favoritePackageNotifier,
+                      .userPreferencesInheritedWidget.favoriteWidgetNotifier,
                   padding: const EdgeInsets.only(
                     left: 20.0,
                   ),
