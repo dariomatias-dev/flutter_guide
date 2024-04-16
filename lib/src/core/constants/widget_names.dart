@@ -7,6 +7,7 @@ class WidgetNames {
   static const columnWidget = 'Column';
   static const containerWidget = 'Container';
   static const elevatedButtonWidget = 'ElevatedButton';
+  static const floatingActionButtonWidget = 'FloatingActionButton';
   static const iconButtonWidget = 'IconButton';
   static const imageWidget = 'Image';
   static const listTileWidget = 'ListTile';

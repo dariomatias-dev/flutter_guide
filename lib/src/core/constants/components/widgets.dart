@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/constants/widget_names.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
-import 'package:flutter_guide/src/features/widget/widget_samples/Switch_sample.dart';
 
 // Samples
 import 'package:flutter_guide/src/features/widget/widget_samples/alertdialog_sample.dart';
@@ -13,6 +12,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/cliprrect_sampl
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/floatingactionbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
@@ -24,6 +24,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart
 import 'package:flutter_guide/src/features/widget/widget_samples/selectabletext_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/simpledialog_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/Switch_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/textformfield_sample.dart';
 
@@ -80,6 +81,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.elevatedButtonWidget,
     icon: Icons.crop_16_9,
     sample: ElevatedButtonSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.floatingActionButtonWidget,
+    icon: Icons.add,
+    sample: FloatingActionButtonSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
