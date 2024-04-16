@@ -17,4 +17,5 @@ class WidgetNames {
   static const simpleDialog = 'SimpleDialog';
   static const stack = 'Stack';
   static const text = 'Text';
+  static const textFormField = 'TextFormField';
 }

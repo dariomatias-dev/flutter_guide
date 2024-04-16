@@ -22,6 +22,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/selectabletext_
 import 'package:flutter_guide/src/features/widget/widget_samples/simpledialog_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/textformfield_sample.dart';
 
 // Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
@@ -142,6 +143,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.text,
     icon: Icons.text_fields,
     sample: TextSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.textFormField,
+    icon: Icons.edit,
+    sample: TextFormFieldSample(),
     category: WidgetCategory.widgets,
   ),
 ];
