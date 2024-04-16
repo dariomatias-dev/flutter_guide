@@ -154,6 +154,12 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
+    name: WidgetNames.switchA,
+    icon: Icons.toggle_on,
+    sample: StackSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
     name: WidgetNames.text,
     icon: Icons.text_fields,
     sample: TextSample(),

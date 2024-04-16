@@ -18,6 +18,7 @@ class WidgetNames {
   static const selectableText = 'SelectableText';
   static const simpleDialog = 'SimpleDialog';
   static const stack = 'Stack';
+  static const switchA = 'Switch';
   static const text = 'Text';
   static const textFormField = 'TextFormField';
 }
