@@ -9,31 +9,31 @@ const componentGroups = <ComponentGroupModel>[
     icon: Icons.crop_16_9,
     title: 'Buttons',
     components: [
-      WidgetNames.elevatedButton,
-      WidgetNames.iconButton,
+      WidgetNames.elevatedButtonWidget,
+      WidgetNames.iconButtonWidget,
     ],
   ),
   ComponentGroupModel(
     icon: Icons.chat_bubble_outline,
     title: 'Dialogs',
     components: [
-      WidgetNames.alertDialog,
-      WidgetNames.simpleDialog,
+      WidgetNames.alertDialogWidget,
+      WidgetNames.simpleDialogWidget,
     ],
   ),
   ComponentGroupModel(
     icon: Icons.crop,
     title: 'Clips',
     components: [
-      WidgetNames.clipOval,
-      WidgetNames.clipRRect,
+      WidgetNames.clipOvalWidget,
+      WidgetNames.clipRRectWidget,
     ],
   ),
   ComponentGroupModel(
     icon: Icons.text_fields,
     title: 'Texts',
     components: [
-      WidgetNames.text,
+      WidgetNames.textWidget,
     ],
   ),
 ];
