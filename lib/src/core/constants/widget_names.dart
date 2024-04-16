@@ -12,6 +12,7 @@ class WidgetNames {
   static const listTile = 'ListTile';
   static const listView = 'ListView';
   static const radio = 'Radio';
+  static const radioListTile = 'RadioListTile';
   static const richText = 'RichText';
   static const row = 'Row';
   static const selectableText = 'SelectableText';

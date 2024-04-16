@@ -17,6 +17,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.da
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/radio_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/radiolisttile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/richtext_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/selectabletext_sample.dart';
@@ -118,6 +119,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.radio,
     icon: Icons.radio_button_checked,
     sample: RadioSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.radioListTile,
+    icon: Icons.radio_button_checked,
+    sample: RadioListTileSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
