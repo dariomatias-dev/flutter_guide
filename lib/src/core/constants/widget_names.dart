@@ -11,6 +11,7 @@ class WidgetNames {
   static const image = 'Image';
   static const listTile = 'ListTile';
   static const listView = 'ListView';
+  static const radio = 'Radio';
   static const richText = 'RichText';
   static const row = 'Row';
   static const selectableText = 'SelectableText';
