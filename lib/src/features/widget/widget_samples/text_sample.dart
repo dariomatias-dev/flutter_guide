@@ -49,31 +49,78 @@ const fontWeights = <FontWeightModel>[
   ),
 ];
 
+const fontSizes = <double>[
+  10.0,
+  12.0,
+  14.0,
+  16.0,
+  18.0,
+  20.0,
+  22.0,
+  24.0,
+  26.0,
+  28.0,
+  30.0,
+];
+
 class TextSample extends StatelessWidget {
   const TextSample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ...List.generate(fontWeights.length * 2 - 1, (index) {
-            if (index % 2 == 0) {
-              return const SizedBox(height: 4.0);
-            }
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ...List.generate(fontWeights.length * 2, (index) {
+                if (index % 2 == 0) {
+                  return const SizedBox(height: 4.0);
+                }
 
-            final fontWeight = fontWeights[index ~/ 2];
+                final fontWeight = fontWeights[index ~/ 2];
 
-            return Text(
-              fontWeight.name,
-              style: TextStyle(
-                fontWeight: fontWeight.weight,
+                return Text(
+                  fontWeight.name,
+                  style: TextStyle(
+                    fontWeight: fontWeight.weight,
+                  ),
+                );
+              }),
+              const SizedBox(height: 12.0),
+              ...List.generate(fontSizes.length * 2, (index) {
+                if (index % 2 == 0) {
+                  return const SizedBox(height: 4.0);
+                }
+
+                final fontSize = fontSizes[index ~/ 2];
+
+                return Text(
+                  'Font Size $fontSize',
+                  style: TextStyle(
+                    fontSize: fontSize,
+                  ),
+                );
+              }),
+              const SizedBox(height: 12.0),
+              const Text(
+                'Text Blue',
+                style: TextStyle(
+                  color: Colors.blue,
+                ),
               ),
-            );
-          }),
-          const SizedBox(height: 12.0),
-        ],
+              const SizedBox(height: 4.0),
+              const Text(
+                'Text Yellow',
+                style: TextStyle(
+                  color: Colors.yellow,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
