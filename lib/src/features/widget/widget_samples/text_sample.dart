@@ -1,5 +1,120 @@
 import 'package:flutter/material.dart';
 
+class TextSample extends StatefulWidget {
+  const TextSample({super.key});
+
+  @override
+  State<TextSample> createState() => _TextSampleState();
+}
+
+class _TextSampleState extends State<TextSample> {
+  void navigateTo(StatelessWidget screen) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return screen;
+        },
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                navigateTo(const ColorsSample());
+              },
+              child: const Text('Colors'),
+            ),
+            const SizedBox(height: 8.0),
+            ElevatedButton(
+              onPressed: () {
+                navigateTo(const FontWeightsSample());
+              },
+              child: const Text('Font Weights'),
+            ),
+            const SizedBox(height: 8.0),
+            ElevatedButton(
+              onPressed: () {
+                navigateTo(const FontSizesSample());
+              },
+              child: const Text('Font Sizes'),
+            ),
+            const SizedBox(height: 8.0),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ColorModel {
+  const ColorModel({
+    required this.name,
+    required this.color,
+  });
+
+  final String name;
+  final MaterialColor color;
+}
+
+const colors = <ColorModel>[
+  ColorModel(
+    name: 'Red',
+    color: Colors.red,
+  ),
+  ColorModel(
+    name: 'Green',
+    color: Colors.green,
+  ),
+  ColorModel(
+    name: 'Blue',
+    color: Colors.blue,
+  ),
+  ColorModel(
+    name: 'Yellow',
+    color: Colors.yellow,
+  ),
+  ColorModel(
+    name: 'Purple',
+    color: Colors.purple,
+  ),
+  ColorModel(
+    name: 'Orange',
+    color: Colors.orange,
+  ),
+];
+
+class ColorsSample extends StatelessWidget {
+  const ColorsSample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenSample(
+      children: List.generate(colors.length * 2, (index) {
+        if (index % 2 == 0) {
+          return const SizedBox(height: 4.0);
+        }
+
+        final color = colors[index ~/ 2];
+
+        return Text(
+          'Color ${color.name}',
+          style: TextStyle(
+            color: color.color,
+          ),
+        );
+      }),
+    );
+  }
+}
+
 class FontWeightModel {
   const FontWeightModel({
     required this.name,
@@ -49,6 +164,30 @@ const fontWeights = <FontWeightModel>[
   ),
 ];
 
+class FontWeightsSample extends StatelessWidget {
+  const FontWeightsSample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenSample(
+      children: List.generate(fontWeights.length * 2, (index) {
+        if (index % 2 == 0) {
+          return const SizedBox(height: 4.0);
+        }
+
+        final fontWeight = fontWeights[index ~/ 2];
+
+        return Text(
+          fontWeight.name,
+          style: TextStyle(
+            fontWeight: fontWeight.weight,
+          ),
+        );
+      }),
+    );
+  }
+}
+
 const fontSizes = <double>[
   10.0,
   12.0,
@@ -63,63 +202,55 @@ const fontSizes = <double>[
   30.0,
 ];
 
-class TextSample extends StatelessWidget {
-  const TextSample({super.key});
+class FontSizesSample extends StatelessWidget {
+  const FontSizesSample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenSample(
+      children: List.generate(fontSizes.length * 2, (index) {
+        if (index % 2 == 0) {
+          return const SizedBox(height: 4.0);
+        }
+
+        final fontSize = fontSizes[index ~/ 2];
+
+        return Text(
+          'Font Size $fontSize',
+          style: TextStyle(
+            fontSize: fontSize,
+          ),
+        );
+      }),
+    );
+  }
+}
+
+class ScreenSample extends StatelessWidget {
+  const ScreenSample({
+    super.key,
+    required this.children,
+  });
+
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SizedBox(
-          width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ...List.generate(fontWeights.length * 2, (index) {
-                if (index % 2 == 0) {
-                  return const SizedBox(height: 4.0);
-                }
-
-                final fontWeight = fontWeights[index ~/ 2];
-
-                return Text(
-                  fontWeight.name,
-                  style: TextStyle(
-                    fontWeight: fontWeight.weight,
-                  ),
-                );
-              }),
-              const SizedBox(height: 12.0),
-              ...List.generate(fontSizes.length * 2, (index) {
-                if (index % 2 == 0) {
-                  return const SizedBox(height: 4.0);
-                }
-
-                final fontSize = fontSizes[index ~/ 2];
-
-                return Text(
-                  'Font Size $fontSize',
-                  style: TextStyle(
-                    fontSize: fontSize,
-                  ),
-                );
-              }),
-              const SizedBox(height: 12.0),
-              const Text(
-                'Text Blue',
-                style: TextStyle(
-                  color: Colors.blue,
-                ),
-              ),
-              const SizedBox(height: 4.0),
-              const Text(
-                'Text Yellow',
-                style: TextStyle(
-                  color: Colors.yellow,
-                ),
-              ),
-            ],
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
           ),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: children,
         ),
       ),
     );
