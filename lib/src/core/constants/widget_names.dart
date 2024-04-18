@@ -2,6 +2,7 @@ class WidgetNames {
   static const alertDialogWidget = 'AlertDialog';
   static const animatedContainerWidget = 'AnimatedContainer';
   static const checkboxWidget = 'Checkbox';
+  static const checkboxListTileWidget = 'CheckboxListTile';
   static const circleAvatarWidget = 'CircleAvatar';
   static const clipOvalWidget = 'ClipOval';
   static const clipRRectWidget = 'ClipRRect';

@@ -7,6 +7,7 @@ import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/alertdialog_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/animatedcontainer_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/checkboxlisttile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/circleavatar_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/clipoval_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/cliprrect_sample.dart';
@@ -52,6 +53,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.checkboxWidget,
     icon: Icons.check_box,
     sample: CheckboxSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.checkboxListTileWidget,
+    icon: Icons.check_box,
+    videoId: 'RkSqPAn9szs',
+    sample: CheckboxListTileSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
