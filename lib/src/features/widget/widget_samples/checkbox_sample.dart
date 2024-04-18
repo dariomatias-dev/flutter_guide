@@ -8,30 +8,33 @@ class CheckboxSample extends StatefulWidget {
 }
 
 class _CheckboxSampleState extends State<CheckboxSample> {
+  final _selectedOptions = [false, false];
+
+  void updateSelectedOptions(int index, bool newValue) {
+    setState(() {
+      _selectedOptions[index] = newValue;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
-          Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(2, (index) {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Checkbox(
-                onChanged: (value) {},
-                value: false,
+                onChanged: (value) {
+                  updateSelectedOptions(index, value!);
+                },
+                value: _selectedOptions[index],
               ),
-              const Text('Item 1'),
+              Text('Item ${index + 1}'),
             ],
-          ),
-          Row(
-            children: [
-              Checkbox(
-                onChanged: (value) {},
-                value: false,
-              ),
-              const Text('Item 2'),
-            ],
-          ),
-        ],
+          );
+        }),
       ),
     );
   }
