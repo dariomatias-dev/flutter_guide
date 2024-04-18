@@ -5,6 +5,7 @@ import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 // Samples
 import 'package:flutter_guide/src/features/widget/widget_samples/alertdialog_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/align_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/animatedcontainer_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkboxlisttile_sample.dart';
@@ -41,6 +42,13 @@ const widgets = <WidgetModel>[
     icon: Icons.chat_bubble_outline,
     videoId: 'yI-8QHpGIP4',
     sample: AlertDialogSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.alignWidget,
+    icon: Icons.center_focus_strong,
+    videoId: 'g2E7yl3MwMk',
+    sample: AlignSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(

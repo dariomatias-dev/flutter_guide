@@ -1,5 +1,6 @@
 class WidgetNames {
   static const alertDialogWidget = 'AlertDialog';
+  static const alignWidget = 'Align';
   static const animatedContainerWidget = 'AnimatedContainer';
   static const checkboxWidget = 'Checkbox';
   static const checkboxListTileWidget = 'CheckboxListTile';
