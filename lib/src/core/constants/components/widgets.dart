@@ -7,6 +7,7 @@ import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/alertdialog_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/align_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/animatedcontainer_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/appbar_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkboxlisttile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/circleavatar_sample.dart';
@@ -55,6 +56,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.animatedContainerWidget,
     icon: Icons.animation,
     sample: AnimatedContainerSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.appBarWidget,
+    icon: Icons.menu,
+    sample: AppBarSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
