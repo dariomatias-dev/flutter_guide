@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_guide/src/core/constants/package_names.dart';
-import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 
 // Samples
+import 'package:flutter_guide/src/features/package/package_samples/flutter_svg_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
 
 // Models
@@ -10,6 +12,11 @@ import 'package:flutter_guide/src/shared/models/component_model/component_model.
 import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
 
 const packages = <PackageModel>[
+  PackageModel(
+    name: PackageNames.flutterSvgPackage,
+    icon: Icons.image,
+    sample: FlutterSvgSample(),
+  ),
   PackageModel(
     name: PackageNames.urlLauncherPackage,
     icon: Icons.link,
