@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/core/constants/package_names.dart';
+import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 
 // Samples
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
@@ -9,9 +11,14 @@ import 'package:flutter_guide/src/shared/models/component_summary_mode/component
 
 const packages = <PackageModel>[
   PackageModel(
-    name: 'url_launcher',
+    name: PackageNames.urlLauncherPackage,
     icon: Icons.link,
     sample: UrlLauncherSample(),
+  ),
+  PackageModel(
+    name: PackageNames.mshCheckboxPackage,
+    icon: Icons.check_box_outlined,
+    sample: MshCheckboxSample(),
   ),
 ];
 
