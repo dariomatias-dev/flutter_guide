@@ -30,6 +30,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/selectabletext_
 import 'package:flutter_guide/src/features/widget/widget_samples/simpledialog_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/Switch_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/switchlisttile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/textformfield_sample.dart';
 
@@ -203,6 +204,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.switchWidget,
     icon: Icons.toggle_on,
     sample: SwitchSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.switchListTileWidget,
+    icon: Icons.toggle_on,
+    sample: SwitchListTileSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(

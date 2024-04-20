@@ -25,6 +25,7 @@ class WidgetNames {
   static const simpleDialogWidget = 'SimpleDialog';
   static const stackWidget = 'Stack';
   static const switchWidget = 'Switch';
+  static const switchListTileWidget = 'SwitchListTile';
   static const textWidget = 'Text';
   static const textFormFieldWidget = 'TextFormField';
 }
