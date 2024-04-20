@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/constants/package_names.dart';
 
 // Samples
+import 'package:flutter_guide/src/features/package/package_samples/flutter_spinkit_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_svg_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
@@ -13,8 +14,13 @@ import 'package:flutter_guide/src/shared/models/component_summary_mode/component
 
 const packages = <PackageModel>[
   PackageModel(
-    name: PackageNames.flutterSvgPackage,
+    name: PackageNames.flutterSpinkitPackage,
     icon: Icons.image,
+    sample: FlutterSpinkitSample(),
+  ),
+  PackageModel(
+    name: PackageNames.flutterSvgPackage,
+    icon: Icons.autorenew,
     sample: FlutterSvgSample(),
   ),
   PackageModel(
