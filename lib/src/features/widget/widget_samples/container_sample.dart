@@ -8,8 +8,8 @@ class ContainerSample extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          width: 200.0,
-          height: 200.0,
+          width: 160.0,
+          height: 160.0,
           color: Colors.blue,
         ),
       ),

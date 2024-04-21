@@ -40,7 +40,7 @@ class SimpleDialogSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: TextButton(
+        child: ElevatedButton(
           onPressed: () => _showSimpleDialog(context),
           child: const Text('Simple Dialog'),
         ),

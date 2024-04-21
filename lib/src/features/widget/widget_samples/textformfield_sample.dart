@@ -16,26 +16,31 @@ class _TextFormFieldSampleState extends State<TextFormFieldSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            _value,
-          ),
-          const SizedBox(height: 12.0),
-          TextFormField(
-            controller: _inputController,
-            onChanged: (value) {
-              if (value.length <= 100) {
-                setState(() {
-                  _value = value.isEmpty ? defaultMessage : value;
-                });
-              } else {
-                _inputController.text = _value;
-              }
-            },
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 8.0,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              _value,
+            ),
+            const SizedBox(height: 12.0),
+            TextFormField(
+              controller: _inputController,
+              onChanged: (value) {
+                if (value.length <= 100) {
+                  setState(() {
+                    _value = value.isEmpty ? defaultMessage : value;
+                  });
+                } else {
+                  _inputController.text = _value;
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -18,7 +18,10 @@ class AppBarSample extends StatelessWidget {
         ),
         title: const Text('Title'),
         actions: const <Widget>[
-          Icon(Icons.notifications_none,),
+          Icon(
+            Icons.notifications_none,
+          ),
+          SizedBox(width: 8.0),
         ],
       ),
     );
