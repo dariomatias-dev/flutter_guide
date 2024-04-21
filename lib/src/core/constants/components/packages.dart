@@ -42,14 +42,14 @@ const packages = <PackageModel>[
     sample: HttpSample(),
   ),
   PackageModel(
-    name: PackageNames.urlLauncherPackage,
-    icon: Icons.link,
-    sample: UrlLauncherSample(),
-  ),
-  PackageModel(
     name: PackageNames.mshCheckboxPackage,
     icon: Icons.check_box_outlined,
     sample: MshCheckboxSample(),
+  ),
+  PackageModel(
+    name: PackageNames.urlLauncherPackage,
+    icon: Icons.link,
+    sample: UrlLauncherSample(),
   ),
 ];
 

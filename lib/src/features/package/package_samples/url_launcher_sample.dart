@@ -47,8 +47,10 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        height: double.infinity,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 8.0,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -64,7 +66,8 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
                 filled: true,
               ),
             ),
-            TextButton(
+            const SizedBox(height: 12.0),
+            ElevatedButton(
               onPressed: _openURL,
               child: const Text(
                 'Open',

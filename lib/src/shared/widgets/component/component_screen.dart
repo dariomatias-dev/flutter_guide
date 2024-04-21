@@ -54,10 +54,7 @@ class _ComponentScreenState extends State<ComponentScreen> {
           ),
           body: TabBarView(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: _controller.component.sample,
-              ),
+              _controller.component.sample,
               const CodeTab(),
             ],
           ),

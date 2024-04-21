@@ -36,49 +36,54 @@ class _BatteryPlusSampleState extends State<BatteryPlusSample> {
     getBatteryInfos();
 
     return Scaffold(
-      body: FutureBuilder(
-        future: getBatteryInfos(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 8.0,
+        ),
+        child: FutureBuilder(
+          future: getBatteryInfos(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.hasError) {
+              return const Center(
+                child: Text(
+                  'Error fetching data.',
+                ),
+              );
+            }
+        
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Battery Level: ${_batteryLevel!}%',
+                  style: const TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Text(
+                  'Device in battery saving mode: ${_isInBatterySaveMode! ? 'Yes' : 'No'}.',
+                  style: const TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Text(
+                  'Battery State: ${_batteryState?.name}',
+                  style: const TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+                )
+              ],
             );
-          } else if (snapshot.hasError) {
-            return const Center(
-              child: Text(
-                'Error fetching data.',
-              ),
-            );
-          }
-
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Battery Level: ${_batteryLevel!}%',
-                style: const TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              Text(
-                'Device in battery saving mode: ${_isInBatterySaveMode! ? 'Yes' : 'No'}.',
-                style: const TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              Text(
-                'Battery State: ${_batteryState?.name}',
-                style: const TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w400,
-                ),
-              )
-            ],
-          );
-        },
+          },
+        ),
       ),
     );
   }
