@@ -1,4 +1,5 @@
 class PackageNames {
+  static const batteryPlusPackage = 'battery_plus';
   static const flutterSvgPackage = 'flutter_svg';
   static const dioPackage = 'dio';
   static const flutterSpinkitPackage = 'flutter_spinkit';
