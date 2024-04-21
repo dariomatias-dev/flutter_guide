@@ -33,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
         title: Row(
           children: [
             Image.asset(
-              'assets/images/flutter_icon.png',
+              'assets/icons/flutter_icon.png',
               width: 20.0,
               height: 20.0,
               fit: BoxFit.cover,

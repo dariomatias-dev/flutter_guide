@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
+
 import 'package:flutter_guide/src/features/home/widgets/border_list_tile_item_widget.dart';
 import 'package:flutter_guide/src/features/home/widgets/component_groups/component_groups_widget.dart';
 
@@ -31,7 +33,12 @@ class HomeScreen extends StatelessWidget {
             BorderListTileItemWidget(
               title: 'Examples',
               icon: Icons.list_alt,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  FlutterGuideRouteNames.examples,
+                );
+              },
             ),
             const SizedBox(height: 8.0),
             BorderListTileItemWidget(

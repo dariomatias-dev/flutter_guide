@@ -2,6 +2,8 @@ class FlutterGuideRouteNames {
   // Main Screen
   static const main = "/";
 
+  static const examples = '/examples';
+
   // Bottom Navigation Screens
   static const home = "/home";
   static const widgets = "/widgets";
