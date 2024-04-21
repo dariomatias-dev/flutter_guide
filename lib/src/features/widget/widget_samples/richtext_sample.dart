@@ -16,7 +16,7 @@ class RichTextSample extends StatelessWidget {
               style: TextStyle(
                 color: Colors.black,
               ),
-              children: [
+              children: <TextSpan>[
                 TextSpan(
                   text: 'Text',
                   style: TextStyle(

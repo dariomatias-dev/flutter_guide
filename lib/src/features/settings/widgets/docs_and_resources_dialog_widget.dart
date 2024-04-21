@@ -13,7 +13,7 @@ class DocsAndResourcesDialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomDialog.dialog(
       title: 'Docs And Resources',
-      actions: [
+      actions: <ActionButtonWidget>[
         CustomDialog.button(
           text: 'Ok',
           textColor: Colors.black,

@@ -32,7 +32,7 @@ class _SelectFavoriteScreenDialogWidgetState
   Widget build(BuildContext context) {
     return CustomDialog.dialog(
       title: 'Favorites',
-      children: [
+      children: <Widget>[
         ListTileItemWidget(
           onTap: () {
             _controller.navigateTo(
@@ -52,7 +52,7 @@ class _SelectFavoriteScreenDialogWidgetState
           icon: Icons.archive_outlined,
         ),
       ],
-      actions: [
+      actions: <ActionButtonWidget>[
         CustomDialog.button(
           text: 'Ok',
           textColor: Colors.black,

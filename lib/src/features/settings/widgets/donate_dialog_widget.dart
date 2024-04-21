@@ -13,7 +13,7 @@ class DonateDialogWidget extends StatelessWidget {
     return CustomDialog.dialog(
       title: 'Contribute',
       description: 'Support the project by buying a coffee.',
-      actions: [
+      actions: <ActionButtonWidget>[
         CustomDialog.button(
           text: 'Cancel',
           textColor: Colors.grey[isLight ? 700 : 800]!,

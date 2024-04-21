@@ -59,7 +59,7 @@ class CardWidget extends StatelessWidget {
       },
       title: componentName,
       icon: icon,
-      trailingWidgets: [
+      trailingWidgets: <Widget>[
         if (videoId != null) ...[
           IconButtonWidget(
             icon: FontAwesomeIcons.youtube,

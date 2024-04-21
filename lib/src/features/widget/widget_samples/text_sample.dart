@@ -25,7 +25,7 @@ class _TextSampleState extends State<TextSample> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             ElevatedButton(
               onPressed: () {
                 navigateTo(const ColorsSample());

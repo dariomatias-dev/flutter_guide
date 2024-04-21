@@ -39,7 +39,7 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
         ),
         child: SingleChildScrollView(
           child: Column(
-            children: [
+            children: <Widget>[
               const SizedBox(height: 20.0),
               SearchFieldWidget(onChange: (String value) {
                 _controller.updateComponentList(value, () {

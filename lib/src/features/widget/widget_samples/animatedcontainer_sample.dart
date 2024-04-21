@@ -57,7 +57,7 @@ class _AnimatedContainerSampleState extends State<AnimatedContainerSample> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             SizedBox(
               width: 120.0,
               height: 120.0,

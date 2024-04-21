@@ -20,7 +20,7 @@ class SettingsScreen extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           child: Column(
-            children: [
+            children: <Widget>[
               const SizedBox(height: 36.0),
               const AppInfoWidget(),
               const SizedBox(height: 20.0),

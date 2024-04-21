@@ -4,8 +4,8 @@ import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
 import 'package:flutter_guide/src/shared/widgets/saved_components/saved_components_widget.dart';
 
-class SavedPackages extends StatelessWidget {
-  const SavedPackages({super.key});
+class SavedPackagesScreen extends StatelessWidget {
+  const SavedPackagesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

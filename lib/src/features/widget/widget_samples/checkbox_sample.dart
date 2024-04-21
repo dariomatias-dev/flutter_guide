@@ -24,7 +24,7 @@ class _CheckboxSampleState extends State<CheckboxSample> {
         children: List.generate(2, (index) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: <Widget>[
               Checkbox(
                 onChanged: (value) {
                   updateSelectedOptions(index, value!);

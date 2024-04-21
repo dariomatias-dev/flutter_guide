@@ -66,7 +66,7 @@ class _AlignSampleState extends State<AlignSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
+        children: <Widget>[
           Expanded(
             child: Align(
               alignment: _alignment.alignment,

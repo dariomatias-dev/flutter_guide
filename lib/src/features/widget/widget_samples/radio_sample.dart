@@ -22,7 +22,7 @@ class _RadioSampleState extends State<RadioSample> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
+        children: <Widget>[
           Text(
             'Selected radio $_radioIndex',
           ),

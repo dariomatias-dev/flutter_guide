@@ -44,7 +44,7 @@ class _PopupMenuWidgetState extends State<PopupMenuWidget> {
     return PopupMenuButton(
       iconColor: Theme.of(context).colorScheme.tertiary,
       itemBuilder: (context) {
-        return [
+        return <PopupMenuEntry>[
           if (widget.currentTabIndex == 1)
             PopupMenuItem(
               onTap: _controller.copyCode,

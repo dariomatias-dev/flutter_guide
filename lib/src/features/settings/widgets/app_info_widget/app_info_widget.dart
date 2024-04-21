@@ -10,7 +10,7 @@ class AppInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        children: [
+        children: <Widget>[
           Image.asset(
             "assets/images/flutter_icon.png",
             width: 52.0,

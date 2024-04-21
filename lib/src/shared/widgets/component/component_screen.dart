@@ -53,7 +53,7 @@ class _ComponentScreenState extends State<ComponentScreen> {
                 : null,
           ),
           body: TabBarView(
-            children: [
+            children: <Widget>[
               _controller.component.sample,
               const CodeTab(),
             ],

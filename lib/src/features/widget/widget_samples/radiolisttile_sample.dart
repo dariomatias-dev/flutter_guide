@@ -22,7 +22,7 @@ class RadioListTileSampleState extends State<RadioListTileSample> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
+        children: <Widget>[
           Text(
             'Selected radio $_radioIndex',
           ),

@@ -22,7 +22,7 @@ class _TextFormFieldSampleState extends State<TextFormFieldSample> {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Text(
               _value,
             ),

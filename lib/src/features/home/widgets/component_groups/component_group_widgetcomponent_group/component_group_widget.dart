@@ -36,7 +36,7 @@ class _ComponentGroupWidgetState extends State<ComponentGroupWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: <Widget>[
         ListTileItemWidget(
           onTap: () {
             setState(() {

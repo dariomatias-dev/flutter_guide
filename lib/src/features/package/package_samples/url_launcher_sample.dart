@@ -30,7 +30,7 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
           return AlertDialog(
             title: const Text('Error'),
             content: Text('Unable to open the link: $_url'),
-            actions: [
+            actions: <Widget>[
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -53,7 +53,7 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             TextFormField(
               controller: _urlController,
               decoration: InputDecoration(

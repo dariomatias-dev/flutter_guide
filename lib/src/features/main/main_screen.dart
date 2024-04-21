@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
         surfaceTintColor: Theme.of(context).colorScheme.secondary,
         backgroundColor: Theme.of(context).colorScheme.secondary,
         title: Row(
-          children: [
+          children: <Widget>[
             Image.asset(
               'assets/icons/flutter_icon.png',
               width: 20.0,
@@ -48,7 +48,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ],
         ),
-        actions: [
+        actions: <Widget>[
           const ChangeThemeButtonWidget(),
           const SizedBox(width: 4.0),
           IconButton(

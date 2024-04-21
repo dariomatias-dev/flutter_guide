@@ -9,7 +9,7 @@ class RowSample extends StatelessWidget {
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Container(
               width: 50.0,
               height: 50.0,

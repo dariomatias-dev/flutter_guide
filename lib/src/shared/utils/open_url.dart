@@ -18,7 +18,7 @@ void showAlertDialog(BuildContext context, String url) async {
     builder: (context) {
       return CustomDialog.dialog(
         title: 'Error',
-        actions: [
+        actions: <ActionButtonWidget>[
           CustomDialog.button(
             text: 'Ok',
             textColor: Colors.black,
@@ -28,7 +28,7 @@ void showAlertDialog(BuildContext context, String url) async {
             },
           ),
         ],
-        children: [
+        children: <Widget>[
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 12.0,
@@ -41,7 +41,7 @@ void showAlertDialog(BuildContext context, String url) async {
                   fontWeight: FontWeight.w400,
                   letterSpacing: 1.0,
                 ),
-                children: [
+                children: <TextSpan>[
                   const TextSpan(
                     text: 'An error occurred while trying to open the link: ',
                   ),

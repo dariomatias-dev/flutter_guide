@@ -16,7 +16,7 @@ class _SwitchSampleState extends State<SwitchSample> {
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Switch(
               value: _isEnabled,
               onChanged: (value) {

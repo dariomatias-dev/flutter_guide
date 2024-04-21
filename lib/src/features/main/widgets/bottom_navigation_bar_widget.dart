@@ -20,7 +20,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
       onTap: (value) {
         updateScreenIndex(value);
       },
-      items: [
+      items: <SalomonBottomBarItem>[
         SalomonBottomBarItem(
           unselectedColor: Theme.of(context).colorScheme.primary,
           icon: const Icon(Icons.home_outlined),

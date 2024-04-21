@@ -30,7 +30,7 @@ class DialogWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
       ),
-      children: [
+      children: <Widget>[
         Container(
           width: MediaQuery.sizeOf(context).width,
           decoration: BoxDecoration(
@@ -38,7 +38,7 @@ class DialogWidget extends StatelessWidget {
             borderRadius: borderRadius,
           ),
           child: Column(
-            children: [
+            children: <Widget>[
               const SizedBox(height: 6.0),
               Center(
                 child: LineWidget(
@@ -89,13 +89,13 @@ class DialogWidget extends StatelessWidget {
                 ),
                 child: Row(
                   children: actions.length == 1
-                      ? [
+                      ? <Widget>[
                           Expanded(
                             child: Container(),
                           ),
                           ...actions
                         ]
-                      : [
+                      : <Widget>[
                           actions[0],
                           SizedBox(
                             width: spacingAction,
@@ -106,7 +106,7 @@ class DialogWidget extends StatelessWidget {
               ),
               const SizedBox(height: 26.0),
               Row(
-                children: [
+                children: <Widget>[
                   Expanded(
                     child: Container(),
                   ),

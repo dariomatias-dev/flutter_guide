@@ -10,7 +10,7 @@ class AlertDialogSample extends StatelessWidget {
         return AlertDialog(
           title: const Text('Title'),
           content: const Text('Description'),
-          actions: [
+          actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.pop(context);

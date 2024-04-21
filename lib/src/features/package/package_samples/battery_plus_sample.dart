@@ -58,7 +58,7 @@ class _BatteryPlusSampleState extends State<BatteryPlusSample> {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Text(
                   'Battery Level: ${_batteryLevel!}%',
                   style: const TextStyle(

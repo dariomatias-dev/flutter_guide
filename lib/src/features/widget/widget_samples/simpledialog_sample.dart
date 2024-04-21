@@ -9,14 +9,14 @@ class SimpleDialogSample extends StatelessWidget {
       builder: (context) {
         return SimpleDialog(
           title: const Text('Title'),
-          children: [
+          children: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 24.0,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   const Text('Description'),
                   Align(
                     alignment: Alignment.centerRight,

@@ -37,14 +37,14 @@ class ListTileItemWidget extends StatelessWidget {
               horizontal: 10.0,
             ),
             child: Row(
-              children: [
+              children: <Widget>[
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 12.0,
                     ),
                     child: Row(
-                      children: [
+                      children: <Widget>[
                         if (icon != null)
                           Icon(
                             icon,
@@ -63,7 +63,7 @@ class ListTileItemWidget extends StatelessWidget {
                   ),
                 ),
                 Row(
-                  children: [
+                  children: <Widget>[
                     if (openInBrowser)
                       Icon(
                         Icons.open_in_new_rounded,

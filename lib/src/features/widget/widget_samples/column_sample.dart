@@ -9,7 +9,7 @@ class ColumnSample extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Container(
               width: 50.0,
               height: 50.0,

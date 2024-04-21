@@ -31,7 +31,17 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
   Widget build(BuildContext context) {
     return CustomDialog.dialog(
       title: 'Select The Theme',
-      children: [
+      actions: <ActionButtonWidget>[
+        CustomDialog.button(
+          text: 'Ok',
+          textColor: Colors.black,
+          backgroundColor: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ],
+      children: <Widget>[
         RadioListTile(
           title: const Text('Light'),
           value: ThemeMode.light,
@@ -49,16 +59,6 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
           value: ThemeMode.system,
           groupValue: _controller.themeMode,
           onChanged: _controller.updateThemeMode,
-        ),
-      ],
-      actions: [
-        CustomDialog.button(
-          text: 'Ok',
-          textColor: Colors.black,
-          backgroundColor: Colors.white,
-          onPressed: () {
-            Navigator.pop(context);
-          },
         ),
       ],
     );

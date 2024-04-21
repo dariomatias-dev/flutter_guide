@@ -24,7 +24,7 @@ class _SelectLanguageWidgetState extends State<SelectLanguageWidget> {
       },
       icon: Icons.language,
       title: 'Language',
-      trailingWidgets: [
+      trailingWidgets: <Widget>[
         ValueListenableBuilder(
           valueListenable: _controller.selectedLanguageNotifier,
           builder: (context, value, child) {
