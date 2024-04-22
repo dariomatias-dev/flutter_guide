@@ -10,6 +10,7 @@ import 'package:flutter_guide/src/features/package/package_samples/flutter_svg_s
 import 'package:flutter_guide/src/features/package/package_samples/http_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/uuid_sample.dart';
 
 // Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
@@ -50,6 +51,11 @@ const packages = <PackageModel>[
     name: PackageNames.urlLauncherPackage,
     icon: Icons.link,
     sample: UrlLauncherSample(),
+  ),
+  PackageModel(
+    name: PackageNames.uuidPackage,
+    icon: Icons.vpn_key,
+    sample: UuidSample(),
   ),
 ];
 

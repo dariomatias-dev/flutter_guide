@@ -6,4 +6,5 @@ class PackageNames {
   static const httpPackage = 'http';
   static const mshCheckboxPackage = 'msh_checkbox';
   static const urlLauncherPackage = 'url_launcher';
+  static const uuidPackage = 'uuid';
 }
