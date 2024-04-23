@@ -5,6 +5,7 @@ import 'package:flutter_guide/src/core/constants/package_names.dart';
 // Samples
 import 'package:flutter_guide/src/features/package/package_samples/battery_plus_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/dio_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/flutter_rating_bar_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_spinkit_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_svg_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/font_awesome_flutter_sample.dart';
@@ -27,6 +28,11 @@ const packages = <PackageModel>[
     name: PackageNames.dioPackage,
     icon: Icons.wifi,
     sample: DioSample(),
+  ),
+  PackageModel(
+    name: PackageNames.flutterRatingBarPackage,
+    icon: Icons.star,
+    sample: FlutterRatingBarSample(),
   ),
   PackageModel(
     name: PackageNames.flutterSpinkitPackage,
