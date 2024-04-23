@@ -7,6 +7,7 @@ import 'package:flutter_guide/src/features/package/package_samples/battery_plus_
 import 'package:flutter_guide/src/features/package/package_samples/dio_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_spinkit_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_svg_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/font_awesome_flutter_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/http_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
@@ -36,6 +37,11 @@ const packages = <PackageModel>[
     name: PackageNames.flutterSvgPackage,
     icon: Icons.autorenew,
     sample: FlutterSvgSample(),
+  ),
+  PackageModel(
+    name: PackageNames.fontAwesomeFlutterPackage,
+    icon: Icons.palette,
+    sample: FontAwesomeFlutterSample(),
   ),
   PackageModel(
     name: PackageNames.httpPackage,
