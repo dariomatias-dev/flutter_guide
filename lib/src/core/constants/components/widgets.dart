@@ -22,6 +22,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_samp
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/navigationrail_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/opacity_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/radio_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/radiolisttile_sample.dart';
@@ -93,15 +94,15 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: WidgetNames.clipRRectWidget,
-    icon: Icons.crop,
-    sample: ClipRRectSample(),
-    category: WidgetCategory.widgets,
-  ),
-  WidgetModel(
     name: WidgetNames.clipOvalWidget,
     icon: Icons.crop,
     sample: ClipOvalSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.clipRRectWidget,
+    icon: Icons.crop,
+    sample: ClipRRectSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
@@ -157,18 +158,18 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
+    name: WidgetNames.navigationRailWidget,
+    icon: Icons.view_carousel,
+    videoId: 'y9xchtVTtqQ',
+    sample: NavigationRailSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
     name: WidgetNames.opacityWidget,
     icon: Icons.opacity,
     videoId: '9hltevOHQBw',
     sample: OpacitySample(),
     category: WidgetCategory.widgets,
-  ),
-  WidgetModel(
-    name: WidgetNames.richTextWidget,
-    icon: Icons.text_fields,
-    videoId: 'rykDVh-QFfw',
-    sample: RichTextSample(),
-    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.radioWidget,
@@ -180,6 +181,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.radioListTileWidget,
     icon: Icons.radio_button_checked,
     sample: RadioListTileSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.richTextWidget,
+    icon: Icons.text_fields,
+    videoId: 'rykDVh-QFfw',
+    sample: RichTextSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
