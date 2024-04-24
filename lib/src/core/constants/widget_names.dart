@@ -17,6 +17,7 @@ class WidgetNames {
   static const imageWidget = 'Image';
   static const listTileWidget = 'ListTile';
   static const listViewWidget = 'ListView';
+  static const navigationRailWidget = 'NavigationRail';
   static const radioWidget = 'Radio';
   static const radioListTileWidget = 'RadioListTile';
   static const richTextWidget = 'RichText';
