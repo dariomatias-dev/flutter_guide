@@ -5,13 +5,21 @@ class ListTileSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: ListTile(
-          leading: Icon(Icons.info),
-          title: Text('Title'),
-          subtitle: Text('Subtitle'),
-          trailing: Icon(Icons.arrow_right),
+        child: ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 2,
+          itemBuilder: (context, index) {
+            return ListTile(
+              onTap: index == 1 ? () {} : null,
+              leading: const Icon(Icons.info),
+              title: const Text('Title'),
+              subtitle: const Text('Subtitle'),
+              trailing: const Icon(Icons.arrow_right),
+            );
+          },
         ),
       ),
     );

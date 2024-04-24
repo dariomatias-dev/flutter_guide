@@ -35,7 +35,7 @@ class _OpacitySampleState extends State<OpacitySample> {
                     maxWidth: 140.0,
                   ),
                   child: Opacity(
-                    opacity: _opacity,
+                    opacity: _opacity / 100,
                     child: Image.asset(
                       'assets/icons/flutter_icon.png',
                     ),
@@ -48,25 +48,16 @@ class _OpacitySampleState extends State<OpacitySample> {
             padding: const EdgeInsets.symmetric(
               vertical: 20.0,
             ),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton(
-                value: _opacity,
-                items: List.generate(opacities.length, (index) {
-                  final opacity = opacities[index];
-            
-                  return DropdownMenuItem(
-                    value: opacity,
-                    child: Text(
-                      (opacity * 100).floor().toString(),
-                    ),
-                  );
-                }),
-                onChanged: (value) {
-                  setState(() {
-                    _opacity = value!;
-                  });
-                },
-              ),
+            child: Slider(
+              label: _opacity.floor().toString(),
+              value: _opacity,
+              divisions: 100,
+              max: 100,
+              onChanged: (value) {
+                setState(() {
+                  _opacity = value;
+                });
+              },
             ),
           ),
         ],
