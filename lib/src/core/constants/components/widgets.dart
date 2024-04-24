@@ -22,7 +22,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_samp
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
-import 'package:flutter_guide/src/features/widget/widget_samples/navigationrail_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/opacity_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/radio_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/radiolisttile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/richtext_sample.dart';
@@ -150,17 +150,17 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: WidgetNames.navigationRailWidget,
-    icon: Icons.view_carousel,
-    videoId: 'y9xchtVTtqQ',
-    sample: NavigationRailSample(),
-    category: WidgetCategory.widgets,
-  ),
-  WidgetModel(
     name: WidgetNames.listViewWidget,
     icon: Icons.list,
     videoId: 'KJpkjHGiI5A',
     sample: ListViewSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.opacityWidget,
+    icon: Icons.opacity,
+    videoId: '9hltevOHQBw',
+    sample: OpacitySample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
