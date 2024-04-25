@@ -7,6 +7,7 @@ class PackageNames {
   static const fontAwesomeFlutterPackage = 'font_awesome_flutter';
   static const httpPackage = 'http';
   static const mshCheckboxPackage = 'msh_checkbox';
+  static const salomonBottomBarPackage = 'salomon_bottom_bar';
   static const urlLauncherPackage = 'url_launcher';
   static const uuidPackage = 'uuid';
 }

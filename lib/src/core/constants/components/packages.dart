@@ -11,6 +11,7 @@ import 'package:flutter_guide/src/features/package/package_samples/flutter_svg_s
 import 'package:flutter_guide/src/features/package/package_samples/font_awesome_flutter_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/http_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/salomon_bottom_bar_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/uuid_sample.dart';
 
@@ -58,6 +59,11 @@ const packages = <PackageModel>[
     name: PackageNames.mshCheckboxPackage,
     icon: Icons.check_box_outlined,
     sample: MshCheckboxSample(),
+  ),
+  PackageModel(
+    name: PackageNames.salomonBottomBarPackage,
+    icon: Icons.view_carousel,
+    sample: SalomonBottomBarSample(),
   ),
   PackageModel(
     name: PackageNames.urlLauncherPackage,
