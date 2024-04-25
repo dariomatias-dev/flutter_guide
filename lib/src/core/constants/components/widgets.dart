@@ -37,6 +37,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/Switch_sample.d
 import 'package:flutter_guide/src/features/widget/widget_samples/switchlisttile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/textformfield_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/togglebuttons_sample.dart';
 
 // Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
@@ -253,6 +254,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.textFormFieldWidget,
     icon: Icons.edit,
     sample: TextFormFieldSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.toggleButtonsWidget,
+    icon: Icons.check_box,
+    videoId: 'kVEguaQWGAY',
+    sample: ToggleButtonsSample(),
     category: WidgetCategory.widgets,
   ),
 ];
