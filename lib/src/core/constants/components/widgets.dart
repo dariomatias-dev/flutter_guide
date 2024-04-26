@@ -30,6 +30,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/opacity_sample.
 import 'package:flutter_guide/src/features/widget/widget_samples/popupmenubutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/radio_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/radiolisttile_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/rangeslider_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/richtext_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/selectabletext_sample.dart';
@@ -214,6 +215,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.radioListTileWidget,
     icon: Icons.radio_button_checked,
     sample: RadioListTileSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.rangeSliderWidget,
+    icon: Icons.tune,
+    videoId: 'ufb4gIPDmEs',
+    sample: RangeSliderSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(

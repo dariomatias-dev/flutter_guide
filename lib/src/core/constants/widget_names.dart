@@ -25,6 +25,7 @@ class WidgetNames {
   static const popupMenuButtonWidget = 'PopupMenuButton';
   static const radioWidget = 'Radio';
   static const radioListTileWidget = 'RadioListTile';
+  static const rangeSliderWidget = 'RangeSlider';
   static const richTextWidget = 'RichText';
   static const rowWidget = 'Row';
   static const selectableTextWidget = 'SelectableText';
