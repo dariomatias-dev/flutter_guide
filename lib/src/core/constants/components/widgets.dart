@@ -34,6 +34,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/richtext_sample
 import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/selectabletext_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/simpledialog_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/slider_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/Switch_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/switchlisttile_sample.dart';
@@ -239,6 +240,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.simpleDialogWidget,
     icon: Icons.chat_bubble_outline,
     sample: SimpleDialogSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.sliderWidget,
+    icon: Icons.tune,
+    videoId: 'ufb4gIPDmEs',
+    sample: SliderSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
