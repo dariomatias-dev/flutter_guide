@@ -5,32 +5,49 @@ class SliderSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SliderTemplate(
-              title: 'Standard',
+    return Scaffold(
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          scrollbars: false,
+        ),
+        child: const SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 12.0,
             ),
-            Divider(),
-            SliderTemplate(
-              title: '0 to 100 without divisions',
-              max: 100.0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SliderTemplate(
+                  title: 'Standard',
+                ),
+                Divider(),
+                SliderTemplate(
+                  title: '0 to 100 without divisions',
+                  max: 100.0,
+                ),
+                Divider(),
+                SliderTemplate(
+                  title: '50 to 100 with 20 divisions',
+                  min: 50.0,
+                  max: 100.0,
+                  divisions: 50,
+                ),
+                Divider(),
+                SliderTemplate(
+                  title: '0 to 100 with 20 divisions',
+                  max: 100.0,
+                  divisions: 20,
+                ),
+                Divider(),
+                SliderTemplate(
+                  title: '0 to 100 with 100 divisions',
+                  max: 100.0,
+                  divisions: 100,
+                ),
+              ],
             ),
-            Divider(),
-            SliderTemplate(
-              title: '0 to 100 with 20 divisions',
-              max: 100.0,
-              divisions: 20,
-            ),
-            Divider(),
-            SliderTemplate(
-              title: '0 to 100 with 100 divisions',
-              max: 100.0,
-              divisions: 100,
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -57,10 +74,12 @@ class SliderTemplate extends StatefulWidget {
 
 class _SliderTemplateState extends State<SliderTemplate> {
   bool _showFloatingPoint = true;
-  double _value = 0;
+  double _value = 0.0;
 
   @override
   void initState() {
+    _value = widget.min;
+
     if (widget.divisions != null) {
       final divisionResult = widget.max / widget.divisions!;
       _showFloatingPoint = divisionResult != divisionResult.floor();
