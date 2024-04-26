@@ -7,6 +7,7 @@ class WidgetNames {
   static const checkboxWidget = 'Checkbox';
   static const checkboxListTileWidget = 'CheckboxListTile';
   static const circleAvatarWidget = 'CircleAvatar';
+  static const circularProgressIndicatorWidget = 'CircularProgressIndicator';
   static const clipOvalWidget = 'ClipOval';
   static const clipRRectWidget = 'ClipRRect';
   static const columnWidget = 'Column';
@@ -16,6 +17,7 @@ class WidgetNames {
   static const floatingActionButtonWidget = 'FloatingActionButton';
   static const iconButtonWidget = 'IconButton';
   static const imageWidget = 'Image';
+  static const linearProgressIndicatorWidget = 'LinearProgressIndicator';
   static const listTileWidget = 'ListTile';
   static const listViewWidget = 'ListView';
   static const navigationRailWidget = 'NavigationRail';

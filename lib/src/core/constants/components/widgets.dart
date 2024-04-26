@@ -12,6 +12,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/bottomnavigatio
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkboxlisttile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/circleavatar_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/circularprogressindicator_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/clipoval_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/cliprrect_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
@@ -21,6 +22,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_
 import 'package:flutter_guide/src/features/widget/widget_samples/floatingactionbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/linearprogressindicator_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/navigationrail_sample.dart';
@@ -97,6 +99,13 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.material,
   ),
   WidgetModel(
+    name: WidgetNames.circularProgressIndicatorWidget,
+    icon: Icons.cached,
+    videoId: 'O-rhXZLtpv0',
+    sample: CircularProgressIndicatorSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
     name: WidgetNames.clipOvalWidget,
     icon: Icons.crop,
     sample: ClipOvalSample(),
@@ -151,6 +160,13 @@ const widgets = <WidgetModel>[
     icon: Icons.image,
     videoId: '7oIAs-0G4mw',
     sample: ImageSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.linearProgressIndicatorWidget,
+    icon: Icons.cached,
+    videoId: 'O-rhXZLtpv0',
+    sample: LinearProgressIndicatorSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
