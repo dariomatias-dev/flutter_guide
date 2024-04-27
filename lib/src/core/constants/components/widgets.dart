@@ -8,6 +8,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/alertdialog_sam
 import 'package:flutter_guide/src/features/widget/widget_samples/align_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/animatedcontainer_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/appbar_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/banner_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/bottomnavigationbar_widget.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkboxlisttile_sample.dart';
@@ -74,6 +75,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.appBarWidget,
     icon: Icons.menu,
     sample: AppBarSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.bannerWidget,
+    icon: Icons.flag,
+    sample: BannerSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(

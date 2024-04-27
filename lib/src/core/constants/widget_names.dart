@@ -3,6 +3,7 @@ class WidgetNames {
   static const alignWidget = 'Align';
   static const animatedContainerWidget = 'AnimatedContainer';
   static const appBarWidget = 'AppBar';
+  static const bannerWidget = 'Banner';
   static const bottomNavigationBarWidget = 'BottomNavigationBar';
   static const checkboxWidget = 'Checkbox';
   static const checkboxListTileWidget = 'CheckboxListTile';
