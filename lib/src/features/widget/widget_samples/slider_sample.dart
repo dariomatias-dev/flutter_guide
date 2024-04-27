@@ -28,7 +28,7 @@ class SliderSample extends StatelessWidget {
                 ),
                 Divider(),
                 SliderTemplate(
-                  title: '50 to 100 with 20 divisions',
+                  title: '50 to 100 with 50 divisions',
                   min: 50.0,
                   max: 100.0,
                   divisions: 50,

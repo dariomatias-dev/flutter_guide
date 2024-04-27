@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+const colors = <Color>[
+  Colors.blue,
+  Colors.yellow,
+  Colors.red,
+];
+
 class RowSample extends StatelessWidget {
   const RowSample({super.key});
 
@@ -9,23 +15,13 @@ class RowSample extends StatelessWidget {
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
+          children: List.generate(colors.length, (index) {
+            return Container(
               width: 50.0,
               height: 50.0,
-              color: Colors.blue,
-            ),
-            Container(
-              width: 50.0,
-              height: 50.0,
-              color: Colors.yellow,
-            ),
-            Container(
-              width: 50.0,
-              height: 50.0,
-              color: Colors.red,
-            ),
-          ],
+              color: colors[index],
+            );
+          }),
         ),
       ),
     );

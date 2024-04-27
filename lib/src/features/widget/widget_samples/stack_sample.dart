@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 
-class StackSample extends StatelessWidget {
+const colors = <Color>[
+  Colors.blue,
+  Colors.yellow,
+  Colors.red,
+];
+
+class StackSample extends StatefulWidget {
   const StackSample({super.key});
+
+  @override
+  State<StackSample> createState() => _StackSampleState();
+}
+
+class _StackSampleState extends State<StackSample> {
+  double _size = 300.0;
 
   @override
   Widget build(BuildContext context) {
@@ -9,23 +22,15 @@ class StackSample extends StatelessWidget {
       body: Center(
         child: Stack(
           alignment: Alignment.center,
-          children: <Widget>[
-            Container(
-              width: 250.0,
-              height: 250.0,
-              color: Colors.red,
-            ),
-            Container(
-              width: 200.0,
-              height: 200.0,
-              color: Colors.yellow,
-            ),
-            Container(
-              width: 150.0,
-              height: 150.0,
-              color: Colors.blue,
-            ),
-          ],
+          children: List.generate(colors.length, (index) {
+            _size -= 50.0;
+
+            return Container(
+              width: _size,
+              height: _size,
+              color: colors[index],
+            );
+          }),
         ),
       ),
     );
