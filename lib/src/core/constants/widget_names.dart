@@ -17,6 +17,7 @@ class WidgetNames {
   static const dropdownButtonWidget = 'DropdownButton';
   static const elevatedButtonWidget = 'ElevatedButton';
   static const floatingActionButtonWidget = 'FloatingActionButton';
+  static const futureBuilderWidget = 'FutureBuilder';
   static const iconButtonWidget = 'IconButton';
   static const imageWidget = 'Image';
   static const linearProgressIndicatorWidget = 'LinearProgressIndicator';

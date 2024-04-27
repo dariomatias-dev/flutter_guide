@@ -22,6 +22,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/cupertinoslider
 import 'package:flutter_guide/src/features/widget/widget_samples/dropdownbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/floatingactionbutton_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/futurebuilder_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/linearprogressindicator_sample.dart';
@@ -164,6 +165,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.floatingActionButtonWidget,
     icon: Icons.add,
     sample: FloatingActionButtonSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.futureBuilderWidget,
+    icon: Icons.hourglass_empty,
+     videoId: 'zEdw_1B7JHY',
+    sample: FutureBuilderSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
