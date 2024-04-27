@@ -17,6 +17,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/clipoval_sample
 import 'package:flutter_guide/src/features/widget/widget_samples/cliprrect_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/cupertinoslider_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/dropdownbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/floatingactionbutton_sample.dart';
@@ -130,6 +131,13 @@ const widgets = <WidgetModel>[
     icon: Icons.crop_square,
     videoId: 'c1xLMaTUWCY',
     sample: ContainerSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.cupertinoSliderWidget,
+    icon: Icons.tune,
+    videoId: 'ufb4gIPDmEs',
+    sample: CupertinoSliderSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
