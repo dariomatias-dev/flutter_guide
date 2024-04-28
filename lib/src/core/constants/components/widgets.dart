@@ -38,6 +38,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/richtext_sample
 import 'package:flutter_guide/src/features/widget/widget_samples/row_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/selectabletext_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/simpledialog_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/singlechildscrollview_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/slider_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/Switch_sample.dart';
@@ -170,7 +171,7 @@ const widgets = <WidgetModel>[
   WidgetModel(
     name: WidgetNames.futureBuilderWidget,
     icon: Icons.hourglass_empty,
-     videoId: 'zEdw_1B7JHY',
+    videoId: 'zEdw_1B7JHY',
     sample: FutureBuilderSample(),
     category: WidgetCategory.material,
   ),
@@ -271,6 +272,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.simpleDialogWidget,
     icon: Icons.chat_bubble_outline,
     sample: SimpleDialogSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.singleChildScrollViewWidget,
+    icon: Icons.swap_vert,
+    sample: SingleChildScrollViewSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
