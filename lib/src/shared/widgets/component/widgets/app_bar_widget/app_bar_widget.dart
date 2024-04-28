@@ -6,7 +6,6 @@ import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/change_theme_button/change_theme_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/component/widgets/app_bar_widget/popup_menu/popup_menu_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/component/widgets/app_bar_widget/tab_bar_widget.dart';
 
 class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   const AppBarWidget({
@@ -56,9 +55,6 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           },
         ),
       ],
-      bottom: TabBarWidget(
-        currentTabIndexNotifier: _currentTabIndexNotifier,
-      ),
     );
   }
 }

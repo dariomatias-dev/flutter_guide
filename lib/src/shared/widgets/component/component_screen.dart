@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
-import 'package:flutter_guide/src/providers/component_screen_inherited_widget.dart';
-
-import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
 import 'package:flutter_guide/src/shared/widgets/component/component_controller.dart';
-import 'package:flutter_guide/src/shared/widgets/component/widgets/app_bar_widget/app_bar_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/component/widgets/code_tab/code_tab_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component_sample/component_sample_screen.dart';
 
 class ComponentScreen extends StatefulWidget {
   const ComponentScreen({
@@ -25,6 +21,7 @@ class ComponentScreen extends StatefulWidget {
 
 class _ComponentScreenState extends State<ComponentScreen> {
   late ComponentController _controller;
+  // final _currentTabIndexNotifier = ValueNotifier(0);
 
   @override
   void didChangeDependencies() {
@@ -39,27 +36,10 @@ class _ComponentScreenState extends State<ComponentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentScreenInheritedWidget(
+    return ComponentSampleScreen(
+      title: widget.componentName,
       file: _controller.file,
-      child: DefaultTabController(
-        initialIndex: 0,
-        length: 2,
-        child: Scaffold(
-          appBar: AppBarWidget(
-            componentType: widget.componentType,
-            componentName: widget.componentName,
-            componentCategory: widget.componentType == ComponentType.widget
-                ? (_controller.component as WidgetSummaryModel).category
-                : null,
-          ),
-          body: TabBarView(
-            children: <Widget>[
-              _controller.component.sample,
-              const CodeTab(),
-            ],
-          ),
-        ),
-      ),
+      sample: _controller.component.sample,
     );
   }
 }
