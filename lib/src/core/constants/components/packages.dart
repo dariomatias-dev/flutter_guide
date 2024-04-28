@@ -9,6 +9,7 @@ import 'package:flutter_guide/src/features/package/package_samples/flutter_ratin
 import 'package:flutter_guide/src/features/package/package_samples/flutter_spinkit_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_svg_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/font_awesome_flutter_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/google_fonts_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/http_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/salomon_bottom_bar_sample.dart';
@@ -49,6 +50,11 @@ const packages = <PackageModel>[
     name: PackageNames.fontAwesomeFlutterPackage,
     icon: Icons.palette,
     sample: FontAwesomeFlutterSample(),
+  ),
+  PackageModel(
+    name: PackageNames.googleFontsPackage,
+    icon: Icons.font_download_outlined,
+    sample: GoogleFontsSamples(),
   ),
   PackageModel(
     name: PackageNames.httpPackage,
