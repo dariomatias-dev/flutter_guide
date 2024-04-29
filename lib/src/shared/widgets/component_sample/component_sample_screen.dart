@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/providers/component_sample_screen_inherited_widget.dart';
 
-import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/app_bar_widget/app_bar_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/app_bar/app_bar_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/code_tab/code_tab_widget.dart';
 
 class ComponentSampleScreen extends StatefulWidget {

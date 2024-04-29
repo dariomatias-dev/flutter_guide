@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_guide/src/providers/component_sample_screen_inherited_widget.dart';
 
+import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/app_bar/popup_menu_widget.dart';
+
 class AppBarController {
   AppBarController({
     required this.getContext,
@@ -13,6 +15,7 @@ class AppBarController {
   }
 
   final BuildContext Function() getContext;
+  OverlayEntry? _overlayEntry;
 
   late File _file;
 
@@ -32,5 +35,22 @@ class AppBarController {
         ),
       ),
     );
+  }
+
+  void showPopupMenu(
+    BuildContext context,
+    GlobalKey popupMenuButtonKey,
+  ) {
+    _overlayEntry = OverlayEntry(
+      builder: (context) {
+        return const PopupMenuWidget();
+      },
+    );
+
+    Overlay.of(context).insert(_overlayEntry!);
+  }
+
+  void removePopupMenu() {
+    _overlayEntry!.remove();
   }
 }

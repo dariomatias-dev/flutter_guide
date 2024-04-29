@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/change_theme_button/change_theme_button_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/app_bar_widget/tab_bar_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/app_bar/app_bar_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/app_bar/tab_bar_widget.dart';
 
 class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   const AppBarWidget({
@@ -22,19 +23,21 @@ class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _AppBarWidgetState extends State<AppBarWidget> {
-  // late AppBarController _controller;
+  late AppBarController _controller;
+  final _popupMenuButtonKey = GlobalKey();
+
   final _currentTabIndexNotifier = ValueNotifier(0);
 
   BuildContext getContext() => context;
 
-  // @override
-  // void didChangeDependencies() {
-  //   _controller = AppBarController(
-  //     getContext: getContext,
-  //   );
+  @override
+  void didChangeDependencies() {
+    _controller = AppBarController(
+      getContext: getContext,
+    );
 
-  //   super.didChangeDependencies();
-  // }
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +50,38 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           fontSize: 16.0,
         ),
       ),
-      actions: const <Widget>[
-        ChangeThemeButtonWidget(),
-        SizedBox(width: 4.0),
+      actions: <Widget>[
+        const ChangeThemeButtonWidget(),
+        const SizedBox(width: 4.0),
+        GestureDetector(
+          key: _popupMenuButtonKey,
+          onTap: () {
+            _controller.showPopupMenu(
+              context,
+              _popupMenuButtonKey,
+            );
+          },
+          child: Container(
+            padding: const EdgeInsets.all(5.0),
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              Icons.more_vert,
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
+          ),
+        ),
+        const SizedBox(width: 2.0),
+        // PopupMenuButton(
+        //   itemBuilder: (context) {
+        //     return [
+        //       const PopupMenuItem(
+        //         child: Text('Item 1'),
+        //       ),
+        //     ];
+        //   },
+        // ),
         // PopupMenuButton(
         //   iconColor: Theme.of(context).colorScheme.tertiary,
         //   itemBuilder: (context) {
