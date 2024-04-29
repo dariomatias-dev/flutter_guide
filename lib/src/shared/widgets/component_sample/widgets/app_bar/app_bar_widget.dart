@@ -24,7 +24,6 @@ class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
 
 class _AppBarWidgetState extends State<AppBarWidget> {
   late AppBarController _controller;
-  final _popupMenuButtonKey = GlobalKey();
 
   final _currentTabIndexNotifier = ValueNotifier(0);
 
@@ -53,47 +52,19 @@ class _AppBarWidgetState extends State<AppBarWidget> {
       actions: <Widget>[
         const ChangeThemeButtonWidget(),
         const SizedBox(width: 4.0),
-        GestureDetector(
-          key: _popupMenuButtonKey,
-          onTap: () {
-            _controller.showPopupMenu(
-              context,
-              _popupMenuButtonKey,
-            );
+        PopupMenuButton(
+          surfaceTintColor: Colors.white,
+          iconColor: Theme.of(context).colorScheme.tertiary,
+          itemBuilder: (context) {
+            return <PopupMenuEntry>[
+              PopupMenuItem(
+                onTap: _controller.copyCode,
+                child: const Text('Copy'),
+              ),
+              // ...widget.popupMenuItems,
+            ];
           },
-          child: Container(
-            padding: const EdgeInsets.all(5.0),
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              Icons.more_vert,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-          ),
         ),
-        const SizedBox(width: 2.0),
-        // PopupMenuButton(
-        //   itemBuilder: (context) {
-        //     return [
-        //       const PopupMenuItem(
-        //         child: Text('Item 1'),
-        //       ),
-        //     ];
-        //   },
-        // ),
-        // PopupMenuButton(
-        //   iconColor: Theme.of(context).colorScheme.tertiary,
-        //   itemBuilder: (context) {
-        //     return <PopupMenuEntry>[
-        //       PopupMenuItem(
-        //         onTap: _controller.copyCode,
-        //         child: const Text('Copy'),
-        //       ),
-        //       ...widget.popupMenuItems,
-        //     ];
-        //   },
-        // ),
       ],
       bottom: TabBarWidget(
         currentTabIndexNotifier: _currentTabIndexNotifier,
