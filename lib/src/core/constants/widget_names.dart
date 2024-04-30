@@ -13,6 +13,7 @@ class WidgetNames {
   static const clipRRectWidget = 'ClipRRect';
   static const columnWidget = 'Column';
   static const containerWidget = 'Container';
+  static const cupertinoAlertDialogWidget = 'CupertinoAlertDialog';
   static const cupertinoSliderWidget = 'CupertinoSlider';
   static const dropdownButtonWidget = 'DropdownButton';
   static const elevatedButtonWidget = 'ElevatedButton';
