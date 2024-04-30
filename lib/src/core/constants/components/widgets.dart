@@ -26,6 +26,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/floatingactionb
 import 'package:flutter_guide/src/features/widget/widget_samples/futurebuilder_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/indexedstack_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/linearprogressindicator_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
@@ -194,6 +195,13 @@ const widgets = <WidgetModel>[
     icon: Icons.image,
     videoId: '7oIAs-0G4mw',
     sample: ImageSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.indexedStackWidget,
+    icon: Icons.layers,
+    videoId: '_O0PPD1Xfbk',
+    sample: IndexedStackSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
