@@ -8,6 +8,7 @@ class PackageNames {
   static const fontAwesomeFlutterPackage = 'font_awesome_flutter';
   static const googleFontsPackage = 'google_fonts';
   static const httpPackage = 'http';
+  static const iconsPlusPackage = 'icons_plus';
   static const infiniteScrollPaginationPackage = 'infinite_scroll_pagination';
   static const mshCheckboxPackage = 'msh_checkbox';
   static const salomonBottomBarPackage = 'salomon_bottom_bar';
