@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/constants/examples.dart';
 
+import 'package:flutter_guide/src/features/example/example_screen.dart';
 import 'package:flutter_guide/src/features/examples/widgets/examples_app_bar_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
@@ -30,7 +31,10 @@ class ExamplesScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return example.component;
+                    return ExampleScreen(
+                      title: example.name,
+                      sample: example.component,
+                    );
                   },
                 ),
               );
