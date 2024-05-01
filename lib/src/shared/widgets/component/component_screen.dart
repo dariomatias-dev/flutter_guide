@@ -4,6 +4,8 @@ import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
 import 'package:flutter_guide/src/shared/widgets/component/component_controller.dart';
 import 'package:flutter_guide/src/shared/widgets/component_sample/component_sample_screen.dart';
+import 'package:flutter_guide/src/shared/widgets/component/widgets/doc_popup_menu_item/doc_popup_menu_item_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component/widgets/favorite_popup_menu_item/favorite_popup_menu_item_widget.dart';
 
 class ComponentScreen extends StatefulWidget {
   const ComponentScreen({
@@ -21,7 +23,6 @@ class ComponentScreen extends StatefulWidget {
 
 class _ComponentScreenState extends State<ComponentScreen> {
   late ComponentController _controller;
-  // final _currentTabIndexNotifier = ValueNotifier(0);
 
   @override
   void didChangeDependencies() {
@@ -40,6 +41,16 @@ class _ComponentScreenState extends State<ComponentScreen> {
       title: widget.componentName,
       file: _controller.file,
       sample: _controller.component.sample,
+      popupMenuItems: <PopupMenuEntry>[
+        FavoritePopupMenuItemWidget(
+          componentType: widget.componentType,
+          componentName: widget.componentName,
+        ),
+        DocPopupMenuItemWidget(
+          componentName: widget.componentName,
+          componentCategory: _controller.componentCategory,
+        ),
+      ],
     );
   }
 }

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
+import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 import 'package:flutter_guide/src/providers/widgets_map_inherited_widget.dart';
 
@@ -21,6 +22,7 @@ class ComponentController {
 
   late File file;
   late ComponentSummaryModel component;
+  late WidgetCategory? componentCategory;
 
   final BuildContext _context;
   final ComponentType _componentType;
@@ -34,6 +36,10 @@ class ComponentController {
     component = (_componentType == ComponentType.widget
         ? widgetsMap
         : packagesMap)[_componentName]!;
+
+    componentCategory = _componentType == ComponentType.widget
+        ? (component as WidgetSummaryModel).category
+        : null;
 
     final componentTypeName =
         _componentType == ComponentType.widget ? 'widget' : 'package';

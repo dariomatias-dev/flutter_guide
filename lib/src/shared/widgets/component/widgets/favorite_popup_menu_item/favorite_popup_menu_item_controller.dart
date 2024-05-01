@@ -7,8 +7,8 @@ import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.da
 
 import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 
-class FavoriteButtonController {
-  FavoriteButtonController({
+class FavoritePopupMenuItemController {
+  FavoritePopupMenuItemController({
     required BuildContext context,
     required ComponentType componentType,
     required String componentName,

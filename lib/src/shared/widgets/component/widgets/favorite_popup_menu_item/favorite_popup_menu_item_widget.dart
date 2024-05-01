@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
 
-import 'package:flutter_guide/src/shared/widgets/component/widgets/app_bar_widget/popup_menu/favorite_button/favorite_button_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/component/widgets/favorite_popup_menu_item/favorite_popup_menu_item_controller.dart';
 
-class FavoriteButtonWidget extends PopupMenuEntry {
-  const FavoriteButtonWidget({
+class FavoritePopupMenuItemWidget extends PopupMenuEntry {
+  const FavoritePopupMenuItemWidget({
     super.key,
     required this.componentType,
     required this.componentName,
@@ -15,21 +15,21 @@ class FavoriteButtonWidget extends PopupMenuEntry {
   final String componentName;
 
   @override
-  double get height => throw UnimplementedError();
+  double get height => kMinInteractiveDimension;
 
   @override
-  bool represents(value) => true;
+  bool represents(value) => false;
 
   @override
-  State<FavoriteButtonWidget> createState() => FavoriteButtonWidgetState();
+  State<FavoritePopupMenuItemWidget> createState() => FavoritePopupMenuItemWidgetState();
 }
 
-class FavoriteButtonWidgetState extends State<FavoriteButtonWidget> {
-  late FavoriteButtonController _controller;
+class FavoritePopupMenuItemWidgetState extends State<FavoritePopupMenuItemWidget> {
+  late FavoritePopupMenuItemController _controller;
 
   @override
   void didChangeDependencies() {
-    _controller = FavoriteButtonController(
+    _controller = FavoritePopupMenuItemController(
       context: context,
       componentType: widget.componentType,
       componentName: widget.componentName,

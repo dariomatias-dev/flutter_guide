@@ -11,13 +11,13 @@ class ComponentSampleScreen extends StatefulWidget {
   const ComponentSampleScreen({
     super.key,
     required this.title,
-    // required this.popupMenuItems,
+    this.popupMenuItems,
     required this.file,
     required this.sample,
   });
 
   final String title;
-  // final List<PopupMenuEntry> popupMenuItems;
+  final List<PopupMenuEntry>? popupMenuItems;
   final File file;
   final Widget sample;
 
@@ -36,7 +36,7 @@ class _ComponentSampleScreenState extends State<ComponentSampleScreen> {
         child: Scaffold(
           appBar: AppBarWidget(
             title: widget.title,
-            // popupMenuItems: widget.popupMenuItems,
+            popupMenuItems: widget.popupMenuItems,
           ),
           body: TabBarView(
             children: <Widget>[

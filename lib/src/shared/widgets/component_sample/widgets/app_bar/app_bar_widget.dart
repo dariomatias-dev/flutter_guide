@@ -9,11 +9,11 @@ class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   const AppBarWidget({
     super.key,
     required this.title,
-    // required this.popupMenuItems,
+    required this.popupMenuItems,
   });
 
   final String title;
-  // final List<PopupMenuEntry> popupMenuItems;
+  final List<PopupMenuEntry>? popupMenuItems;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight * 2);
@@ -61,7 +61,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 onTap: _controller.copyCode,
                 child: const Text('Copy'),
               ),
-              // ...widget.popupMenuItems,
+              if (widget.popupMenuItems != null) ...widget.popupMenuItems!,
             ];
           },
         ),
