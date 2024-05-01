@@ -77,7 +77,7 @@ class CcustoPpopuMmenSsampleState extends State<CustomPopupMenuSample> {
 
     _overlayEntry = OverlayEntry(
       builder: (context) => Stack(
-        children: [
+        children: <Widget>[
           GestureDetector(
             onTap: _removeOverlay,
             child: Container(
@@ -124,7 +124,7 @@ class CcustoPpopuMmenSsampleState extends State<CustomPopupMenuSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
+        children: <Widget>[
           Expanded(
             child: Align(
               alignment: _buttonAlignment,

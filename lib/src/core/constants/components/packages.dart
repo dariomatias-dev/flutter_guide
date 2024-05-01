@@ -16,6 +16,7 @@ import 'package:flutter_guide/src/features/package/package_samples/icons_plus_sa
 import 'package:flutter_guide/src/features/package/package_samples/infinite_scroll_pagination_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/salomon_bottom_bar_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/toastification_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/uuid_sample.dart';
 
@@ -88,6 +89,11 @@ const packages = <PackageModel>[
     name: PackageNames.salomonBottomBarPackage,
     icon: Icons.view_carousel,
     sample: SalomonBottomBarSample(),
+  ),
+  PackageModel(
+    name: PackageNames.toastificationPackage,
+    icon: Icons.notifications,
+    sample: ToastificationSample(),
   ),
   PackageModel(
     name: PackageNames.urlLauncherPackage,

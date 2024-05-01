@@ -12,6 +12,7 @@ class PackageNames {
   static const infiniteScrollPaginationPackage = 'infinite_scroll_pagination';
   static const mshCheckboxPackage = 'msh_checkbox';
   static const salomonBottomBarPackage = 'salomon_bottom_bar';
+  static const toastificationPackage = 'toastification';
   static const urlLauncherPackage = 'url_launcher';
   static const uuidPackage = 'uuid';
 }
