@@ -48,6 +48,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/switchlisttile_
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/textformfield_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/togglebuttons_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/tooltip_sample.dart';
 
 // Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
@@ -339,6 +340,13 @@ const widgets = <WidgetModel>[
     icon: Icons.check_box,
     videoId: 'kVEguaQWGAY',
     sample: ToggleButtonsSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.tooltipWidget,
+    icon: Icons.help_outline,
+    videoId: 'EeEfD5fI-5Q',
+    sample: TooltipSample(),
     category: WidgetCategory.widgets,
   ),
 ];

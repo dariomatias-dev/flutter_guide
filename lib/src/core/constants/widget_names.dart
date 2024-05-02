@@ -43,4 +43,5 @@ class WidgetNames {
   static const textWidget = 'Text';
   static const textFormFieldWidget = 'TextFormField';
   static const toggleButtonsWidget = 'ToggleButtons';
+  static const tooltipWidget = 'Tooltip';
 }
