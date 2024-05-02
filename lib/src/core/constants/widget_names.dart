@@ -41,6 +41,7 @@ class WidgetNames {
   static const switchWidget = 'Switch';
   static const switchListTileWidget = 'SwitchListTile';
   static const textWidget = 'Text';
+  static const textFieldWidget = 'TextField';
   static const textFormFieldWidget = 'TextFormField';
   static const toggleButtonsWidget = 'ToggleButtons';
   static const tooltipWidget = 'Tooltip';

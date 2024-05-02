@@ -46,6 +46,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/stack_sample.da
 import 'package:flutter_guide/src/features/widget/widget_samples/Switch_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/switchlisttile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/text_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/textfield_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/textformfield_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/togglebuttons_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/tooltip_sample.dart';
@@ -327,6 +328,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.textWidget,
     icon: Icons.text_fields,
     sample: TextSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.textFieldWidget,
+    icon: Icons.edit,
+    sample: TextFieldSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
