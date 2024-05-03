@@ -32,6 +32,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/navigationrail_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/opacity_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/pageview_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/popupmenubutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/radio_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/radiolisttile_sample.dart';
@@ -239,6 +240,13 @@ const widgets = <WidgetModel>[
     icon: Icons.opacity,
     videoId: '9hltevOHQBw',
     sample: OpacitySample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.pageViewWidget,
+    icon: Icons.view_carousel,
+    videoId: 'J1gE9xvph-A',
+    sample: PageViewSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
