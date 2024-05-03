@@ -18,6 +18,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/circularprogres
 import 'package:flutter_guide/src/features/widget/widget_samples/clipoval_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/cliprrect_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/column_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/constrainedbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/cupertinoalertdialog.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/cupertinoslider_sample.dart';
@@ -146,6 +147,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.columnWidget,
     icon: Icons.view_column,
     sample: ColumnSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.constrainedBoxWidget,
+    icon: Icons.border_all,
+    videoId: 'o2KveVr7adg',
+    sample: ConstrainedBoxSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
