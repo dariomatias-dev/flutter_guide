@@ -27,6 +27,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/futurebuilder_s
 import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/indexedstack_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/interactiveviewer_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/linearprogressindicator_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listview_sample.dart';
@@ -205,6 +206,13 @@ const widgets = <WidgetModel>[
     icon: Icons.layers,
     videoId: '_O0PPD1Xfbk',
     sample: IndexedStackSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.interactiveViewerWidget,
+    icon: Icons.zoom_out_map,
+    videoId: 'zrn7V3bMJvg',
+    sample: InteractiveViewerSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(

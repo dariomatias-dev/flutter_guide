@@ -22,6 +22,7 @@ class WidgetNames {
   static const iconButtonWidget = 'IconButton';
   static const imageWidget = 'Image';
   static const indexedStackWidget = 'IndexedStack';
+  static const interactiveViewerWidget = 'InteractiveViewer';
   static const linearProgressIndicatorWidget = 'LinearProgressIndicator';
   static const listTileWidget = 'ListTile';
   static const listViewWidget = 'ListView';
