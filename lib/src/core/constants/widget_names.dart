@@ -31,6 +31,7 @@ class WidgetNames {
   static const navigationRailWidget = 'NavigationRail';
   static const opacityWidget = 'Opacity';
   static const pageViewWidget = 'PageView';
+  static const placeholderWidget = 'Placeholder';
   static const popupMenuButtonWidget = 'PopupMenuButton';
   static const radioWidget = 'Radio';
   static const radioListTileWidget = 'RadioListTile';
