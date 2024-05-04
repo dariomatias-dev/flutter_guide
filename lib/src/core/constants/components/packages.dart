@@ -39,31 +39,35 @@ const packages = <PackageModel>[
   PackageModel(
     name: PackageNames.flutterRatingBarPackage,
     icon: Icons.star,
+    videoId: 'VdkRy3yZiPo',
     sample: FlutterRatingBarSample(),
   ),
   PackageModel(
     name: PackageNames.flutterSlidablePackage,
     icon: Icons.more_horiz,
+    videoId: 'QFcFEpFmNJ8',
     sample: FlutterSlidableSample(),
   ),
   PackageModel(
     name: PackageNames.flutterSpinkitPackage,
-    icon: Icons.image,
+    icon: Icons.cached,
     sample: FlutterSpinkitSample(),
   ),
   PackageModel(
     name: PackageNames.flutterSvgPackage,
-    icon: Icons.autorenew,
+    icon: Icons.image,
     sample: FlutterSvgSample(),
   ),
   PackageModel(
     name: PackageNames.fontAwesomeFlutterPackage,
-    icon: Icons.palette,
+    icon: Icons.circle_outlined,
+    videoId: 'TOAyjIAsT7o',
     sample: FontAwesomeFlutterSample(),
   ),
   PackageModel(
     name: PackageNames.googleFontsPackage,
     icon: Icons.font_download_outlined,
+    videoId: '8Vzv2CdbEY0',
     sample: GoogleFontsSamples(),
   ),
   PackageModel(
@@ -73,7 +77,7 @@ const packages = <PackageModel>[
   ),
   PackageModel(
     name: PackageNames.iconsPlusPackage,
-    icon: Icons.wifi,
+    icon: Icons.circle_outlined,
     sample: IconsPlusSample(),
   ),
   PackageModel(
@@ -104,6 +108,7 @@ const packages = <PackageModel>[
   PackageModel(
     name: PackageNames.urlLauncherPackage,
     icon: Icons.link,
+    videoId: 'qYxRYB1oszw',
     sample: UrlLauncherSample(),
   ),
   PackageModel(
