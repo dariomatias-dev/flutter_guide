@@ -13,6 +13,7 @@ class PackageNames {
   static const loadingAnimationWidgetPackage = 'loading_animation_widget';
   static const mshCheckboxPackage = 'msh_checkbox';
   static const salomonBottomBarPackage = 'salomon_bottom_bar';
+  static const sharedPreferencesPackage = 'shared_preferences';
   static const toastificationPackage = 'toastification';
   static const urlLauncherPackage = 'url_launcher';
   static const uuidPackage = 'uuid';

@@ -17,6 +17,7 @@ import 'package:flutter_guide/src/features/package/package_samples/infinite_scro
 import 'package:flutter_guide/src/features/package/package_samples/loading_animation_widget_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/salomon_bottom_bar_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/shared_preferences_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/toastification_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/uuid_sample.dart';
@@ -99,6 +100,12 @@ const packages = <PackageModel>[
     name: PackageNames.salomonBottomBarPackage,
     icon: Icons.view_carousel,
     sample: SalomonBottomBarSample(),
+  ),
+  PackageModel(
+    name: PackageNames.sharedPreferencesPackage,
+    icon: Icons.storage,
+    videoId: 'sa_U0jffQII',
+    sample: SharedPreferencesSample(),
   ),
   PackageModel(
     name: PackageNames.toastificationPackage,
