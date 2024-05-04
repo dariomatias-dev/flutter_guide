@@ -54,6 +54,7 @@ dependencies:
   infinite_scroll_pagination: ^4.0.0
   icons_plus: ^5.0.0
   toastification: ^1.2.1
+  loading_animation_widget: ^1.2.1
 
 dev_dependencies:
   flutter_test:

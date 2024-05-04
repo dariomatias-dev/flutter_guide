@@ -14,6 +14,7 @@ import 'package:flutter_guide/src/features/package/package_samples/google_fonts_
 import 'package:flutter_guide/src/features/package/package_samples/http_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/icons_plus_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/infinite_scroll_pagination_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/loading_animation_widget_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/salomon_bottom_bar_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/toastification_sample.dart';
@@ -79,6 +80,11 @@ const packages = <PackageModel>[
     name: PackageNames.infiniteScrollPaginationPackage,
     icon: Icons.swap_vert,
     sample: InfiniteScrollPaginationSample(),
+  ),
+  PackageModel(
+    name: PackageNames.loadingAnimationWidgetPackage,
+    icon: Icons.cached,
+    sample: LoadingAnimationWidgetSample(),
   ),
   PackageModel(
     name: PackageNames.mshCheckboxPackage,
