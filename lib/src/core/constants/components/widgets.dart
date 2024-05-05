@@ -26,6 +26,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/dropdownbutton_
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/floatingactionbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/futurebuilder_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/gridview_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/indexedstack_sample.dart';
@@ -202,6 +203,12 @@ const widgets = <WidgetModel>[
     icon: Icons.hourglass_empty,
     videoId: 'zEdw_1B7JHY',
     sample: FutureBuilderSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.gridViewWidget,
+    icon: Icons.grid_3x3,
+    sample: GridViewSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(

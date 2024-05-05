@@ -21,6 +21,7 @@ class WidgetNames {
   static const elevatedButtonWidget = 'ElevatedButton';
   static const floatingActionButtonWidget = 'FloatingActionButton';
   static const futureBuilderWidget = 'FutureBuilder';
+  static const gridViewWidget = 'GridView';
   static const iconButtonWidget = 'IconButton';
   static const imageWidget = 'Image';
   static const indexedStackWidget = 'IndexedStack';
