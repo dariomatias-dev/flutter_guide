@@ -19,6 +19,7 @@ class WidgetNames {
   static const cupertinoSliderWidget = 'CupertinoSlider';
   static const dropdownButtonWidget = 'DropdownButton';
   static const elevatedButtonWidget = 'ElevatedButton';
+  static const expansionTileWidget = 'ExpansionTile';
   static const floatingActionButtonWidget = 'FloatingActionButton';
   static const futureBuilderWidget = 'FutureBuilder';
   static const gridViewWidget = 'GridView';

@@ -24,6 +24,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/cupertinoalertd
 import 'package:flutter_guide/src/features/widget/widget_samples/cupertinoslider_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/dropdownbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/expansiontile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/floatingactionbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/futurebuilder_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/gridview_sample.dart';
@@ -190,6 +191,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.elevatedButtonWidget,
     icon: Icons.crop_16_9,
     sample: ElevatedButtonSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.expansionTileWidget,
+    icon: Icons.keyboard_arrow_down_rounded,
+    sample: ExpansionTileSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
