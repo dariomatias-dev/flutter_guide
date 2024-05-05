@@ -14,6 +14,7 @@ class PackageNames {
   static const mshCheckboxPackage = 'msh_checkbox';
   static const salomonBottomBarPackage = 'salomon_bottom_bar';
   static const sharedPreferencesPackage = 'shared_preferences';
+  static const smoothPageIndicatorPackage = 'smooth_page_indicator';
   static const toastificationPackage = 'toastification';
   static const urlLauncherPackage = 'url_launcher';
   static const uuidPackage = 'uuid';

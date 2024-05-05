@@ -18,6 +18,7 @@ import 'package:flutter_guide/src/features/package/package_samples/loading_anima
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/salomon_bottom_bar_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/shared_preferences_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/smooth_page_indicator_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/toastification_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/url_launcher_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/uuid_sample.dart';
@@ -106,6 +107,12 @@ const packages = <PackageModel>[
     icon: Icons.storage,
     videoId: 'sa_U0jffQII',
     sample: SharedPreferencesSample(),
+  ),
+  PackageModel(
+    name: PackageNames.smoothPageIndicatorPackage,
+    icon: Icons.view_carousel,
+    videoId: 'sa_U0jffQII',
+    sample: SmoothPageIndicatorSample(),
   ),
   PackageModel(
     name: PackageNames.toastificationPackage,
