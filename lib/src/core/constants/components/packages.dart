@@ -15,6 +15,7 @@ import 'package:flutter_guide/src/features/package/package_samples/http_sample.d
 import 'package:flutter_guide/src/features/package/package_samples/icons_plus_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/infinite_scroll_pagination_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/loading_animation_widget_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/loading_indicator_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/salomon_bottom_bar_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/shared_preferences_sample.dart';
@@ -91,6 +92,11 @@ const packages = <PackageModel>[
     name: PackageNames.loadingAnimationWidgetPackage,
     icon: Icons.cached,
     sample: LoadingAnimationWidgetSample(),
+  ),
+  PackageModel(
+    name: PackageNames.loadingIndicatorPackage,
+    icon: Icons.cached,
+    sample: LoadingIndicatorSample(),
   ),
   PackageModel(
     name: PackageNames.mshCheckboxPackage,
