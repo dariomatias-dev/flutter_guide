@@ -4,6 +4,7 @@ import 'package:flutter_guide/src/core/constants/package_names.dart';
 
 // Samples
 import 'package:flutter_guide/src/features/package/package_samples/battery_plus_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/carousel_slider_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/dio_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_rating_bar_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_slidable_sample.dart';
@@ -33,6 +34,11 @@ const packages = <PackageModel>[
     name: PackageNames.batteryPlusPackage,
     icon: Icons.battery_std_rounded,
     sample: BatteryPlusSample(),
+  ),
+  PackageModel(
+    name: PackageNames.carouselSliderPackage,
+    icon: Icons.view_carousel,
+    sample: CarouselSliderSample(),
   ),
   PackageModel(
     name: PackageNames.dioPackage,
