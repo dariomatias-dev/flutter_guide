@@ -11,6 +11,7 @@ class PackageNames {
   static const httpPackage = 'http';
   static const iconsPlusPackage = 'icons_plus';
   static const infiniteScrollPaginationPackage = 'infinite_scroll_pagination';
+  static const likeButtonPackage = 'like_button';
   static const loadingAnimationWidgetPackage = 'loading_animation_widget';
   static const loadingIndicatorPackage = 'loading_indicator';
   static const mshCheckboxPackage = 'msh_checkbox';
