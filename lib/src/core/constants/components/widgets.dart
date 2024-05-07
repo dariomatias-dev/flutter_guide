@@ -58,6 +58,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/textfield_sampl
 import 'package:flutter_guide/src/features/widget/widget_samples/textformfield_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/togglebuttons_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/tooltip_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/wrap_sample.dart';
 
 // Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
@@ -415,6 +416,13 @@ const widgets = <WidgetModel>[
     icon: Icons.help_outline,
     videoId: 'EeEfD5fI-5Q',
     sample: TooltipSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.wrapWidget,
+    icon: Icons.view_week,
+    videoId: 'z5iw2SeFx2M',
+    sample: WrapSample(),
     category: WidgetCategory.widgets,
   ),
 ];
