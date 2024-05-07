@@ -22,6 +22,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/constrainedbox_
 import 'package:flutter_guide/src/features/widget/widget_samples/container_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/cupertinoalertdialog.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/cupertinoslider_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/dismissible_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/dropdownbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/expansiontile_sample.dart';
@@ -178,6 +179,13 @@ const widgets = <WidgetModel>[
     icon: Icons.tune,
     videoId: 'ufb4gIPDmEs',
     sample: CupertinoSliderSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.dismissibleWidget,
+    icon: Icons.delete_outline,
+    videoId: 'iEMgjrfuc58',
+    sample: DismissibleSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
