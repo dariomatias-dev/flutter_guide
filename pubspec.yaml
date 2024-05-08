@@ -59,6 +59,7 @@ dependencies:
   loading_indicator: ^3.1.1
   carousel_slider: ^4.2.1
   like_button: ^2.0.5
+  circular_countdown_timer: ^0.2.3
 
 dev_dependencies:
   flutter_test:
