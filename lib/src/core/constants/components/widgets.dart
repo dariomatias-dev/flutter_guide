@@ -25,6 +25,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/cupertinoslider
 import 'package:flutter_guide/src/features/widget/widget_samples/dismissible_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/dropdownbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/expanded_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/expansiontile_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/floatingactionbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/futurebuilder_sample.dart';
@@ -200,6 +201,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.elevatedButtonWidget,
     icon: Icons.crop_16_9,
     sample: ElevatedButtonSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.expandedWidget,
+    icon: Icons.open_with,
+    videoId: '_rnZaagadyo',
+    sample: ExpandedSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(

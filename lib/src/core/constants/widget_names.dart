@@ -20,6 +20,7 @@ class WidgetNames {
   static const dismissibleWidget = 'Dismissible';
   static const dropdownButtonWidget = 'DropdownButton';
   static const elevatedButtonWidget = 'ElevatedButton';
+  static const expandedWidget = 'Expanded';
   static const expansionTileWidget = 'ExpansionTile';
   static const floatingActionButtonWidget = 'FloatingActionButton';
   static const futureBuilderWidget = 'FutureBuilder';
