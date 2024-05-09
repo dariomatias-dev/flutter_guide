@@ -60,6 +60,7 @@ dependencies:
   carousel_slider: ^4.2.1
   like_button: ^2.0.5
   circular_countdown_timer: ^0.2.3
+  glass: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:

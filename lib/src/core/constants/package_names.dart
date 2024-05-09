@@ -8,6 +8,7 @@ class PackageNames {
   static const flutterSpinkitPackage = 'flutter_spinkit';
   static const flutterSvgPackage = 'flutter_svg';
   static const fontAwesomeFlutterPackage = 'font_awesome_flutter';
+  static const glassPackage = 'glass';
   static const googleFontsPackage = 'google_fonts';
   static const httpPackage = 'http';
   static const iconsPlusPackage = 'icons_plus';

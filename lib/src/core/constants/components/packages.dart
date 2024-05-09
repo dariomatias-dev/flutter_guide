@@ -12,6 +12,7 @@ import 'package:flutter_guide/src/features/package/package_samples/flutter_slida
 import 'package:flutter_guide/src/features/package/package_samples/flutter_spinkit_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_svg_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/font_awesome_flutter_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/glass_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/google_fonts_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/http_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/icons_plus_sample.dart';
@@ -79,6 +80,11 @@ const packages = <PackageModel>[
     icon: Icons.circle_outlined,
     videoId: 'TOAyjIAsT7o',
     sample: FontAwesomeFlutterSample(),
+  ),
+  PackageModel(
+    name: PackageNames.glassPackage,
+    icon: Icons.blur_on,
+    sample: GlassSample(),
   ),
   PackageModel(
     name: PackageNames.googleFontsPackage,
