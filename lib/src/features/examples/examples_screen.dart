@@ -14,7 +14,7 @@ class ExamplesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const StandardAppBarWidget(
-        title: 'Examples',
+        titleName: 'Examples',
       ),
       body: ListView.separated(
         itemCount: examples.length,

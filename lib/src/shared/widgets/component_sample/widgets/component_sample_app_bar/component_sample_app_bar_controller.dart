@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_guide/src/providers/component_sample_screen_inherited_widget.dart';
 
-class AppBarController {
-  AppBarController({
+class ComponentSampleAppBarController {
+  ComponentSampleAppBarController({
     required this.getContext,
   }) {
     _file = ComponentSampleScreenInheritedWidget.of(getContext())!.file;

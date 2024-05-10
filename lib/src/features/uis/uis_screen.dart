@@ -14,7 +14,7 @@ class UisScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const StandardAppBarWidget(
-        title: 'UIs',
+        titleName: 'UIs',
       ),
       body: ListView.separated(
         itemCount: uis.length,

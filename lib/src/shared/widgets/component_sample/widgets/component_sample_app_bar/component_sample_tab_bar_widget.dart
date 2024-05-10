@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TabBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  const TabBarWidget({
+class ComponentSampleTabBarWidget extends StatelessWidget implements PreferredSizeWidget {
+  const ComponentSampleTabBarWidget({
     super.key,
     required this.currentTabIndexNotifier,
   });

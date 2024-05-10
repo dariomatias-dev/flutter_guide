@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/shared/widgets/back_button_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/change_theme_button/change_theme_button_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/app_bar/app_bar_controller.dart';
-import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/app_bar/tab_bar_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/component_sample_app_bar/component_sample_app_bar_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/component_sample_app_bar/component_sample_tab_bar_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/standard_app_bar_widget.dart';
 
-class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
-  const AppBarWidget({
+class ComponentSampleAppBarWidget extends StatefulWidget
+    implements PreferredSizeWidget {
+  const ComponentSampleAppBarWidget({
     super.key,
     required this.title,
     required this.popupMenuItems,
@@ -19,11 +19,13 @@ class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight * 2);
 
   @override
-  State<AppBarWidget> createState() => _AppBarWidgetState();
+  State<ComponentSampleAppBarWidget> createState() =>
+      _ComponentSampleAppBarWidgetState();
 }
 
-class _AppBarWidgetState extends State<AppBarWidget> {
-  late AppBarController _controller;
+class _ComponentSampleAppBarWidgetState
+    extends State<ComponentSampleAppBarWidget> {
+  late ComponentSampleAppBarController _controller;
 
   final _currentTabIndexNotifier = ValueNotifier(0);
 
@@ -31,7 +33,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
 
   @override
   void didChangeDependencies() {
-    _controller = AppBarController(
+    _controller = ComponentSampleAppBarController(
       getContext: getContext,
     );
 
@@ -40,18 +42,9 @@ class _AppBarWidgetState extends State<AppBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      leading: const BackButtonWidget(),
-      backgroundColor: Theme.of(context).colorScheme.secondary,
-      title: Text(
-        widget.title,
-        style: const TextStyle(
-          fontSize: 16.0,
-        ),
-      ),
+    return StandardAppBarWidget(
+      titleName: widget.title,
       actions: <Widget>[
-        const ChangeThemeButtonWidget(),
-        const SizedBox(width: 4.0),
         PopupMenuButton(
           surfaceTintColor: Colors.white,
           iconColor: Theme.of(context).colorScheme.tertiary,
@@ -66,7 +59,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           },
         ),
       ],
-      bottom: TabBarWidget(
+      bottom: ComponentSampleTabBarWidget(
         currentTabIndexNotifier: _currentTabIndexNotifier,
       ),
     );
