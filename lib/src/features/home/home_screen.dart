@@ -21,7 +21,12 @@ class HomeScreen extends StatelessWidget {
             BorderListTileItemWidget(
               title: 'UIs',
               icon: Icons.web,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  FlutterGuideRouteNames.uis,
+                );
+              },
             ),
             const SizedBox(height: 8.0),
             BorderListTileItemWidget(
