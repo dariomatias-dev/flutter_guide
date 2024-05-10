@@ -1,4 +1,5 @@
 class WidgetNames {
+  static const actionChipWidget = 'ActionChip';
   static const alertDialogWidget = 'AlertDialog';
   static const alignWidget = 'Align';
   static const animatedContainerWidget = 'AnimatedContainer';

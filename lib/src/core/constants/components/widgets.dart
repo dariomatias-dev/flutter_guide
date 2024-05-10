@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/constants/widget_names.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/actionchip_sample.dart';
 
 // Samples
 import 'package:flutter_guide/src/features/widget/widget_samples/alertdialog_sample.dart';
@@ -67,6 +68,12 @@ import 'package:flutter_guide/src/shared/models/component_summary_mode/component
 import 'package:flutter_guide/src/shared/models/widget_infos_model/component_infos_model.dart';
 
 const widgets = <WidgetModel>[
+  WidgetModel(
+    name: WidgetNames.actionChipWidget,
+    icon: Icons.label_outline,
+    sample: ActionchipSample(),
+    category: WidgetCategory.material,
+  ),
   WidgetModel(
     name: WidgetNames.alertDialogWidget,
     icon: Icons.chat_bubble_outline,
