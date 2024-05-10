@@ -7,6 +7,7 @@ import 'package:flutter_guide/src/features/package/package_samples/battery_plus_
 import 'package:flutter_guide/src/features/package/package_samples/carousel_slider_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/circular_countdown_timer_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/dio_sample.dart';
+import 'package:flutter_guide/src/features/package/package_samples/dotted_border_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_rating_bar_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_slidable_sample.dart';
 import 'package:flutter_guide/src/features/package/package_samples/flutter_spinkit_sample.dart';
@@ -52,6 +53,11 @@ const packages = <PackageModel>[
     name: PackageNames.dioPackage,
     icon: Icons.wifi,
     sample: DioSample(),
+  ),
+  PackageModel(
+    name: PackageNames.dottedBorderPackage,
+    icon: Icons.border_clear_outlined,
+    sample: DottedBorderSample(),
   ),
   PackageModel(
     name: PackageNames.flutterRatingBarPackage,
