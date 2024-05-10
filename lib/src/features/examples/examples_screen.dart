@@ -34,8 +34,7 @@ class ExamplesScreen extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) {
                     return ExampleScreen(
-                      title: example.name,
-                      sample: example.component,
+                      example: example,
                     );
                   },
                 ),

@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/features/example/example_controller.dart';
+import 'package:flutter_guide/src/shared/models/example_model.dart';
 
 import 'package:flutter_guide/src/shared/widgets/component_sample/component_sample_screen.dart';
 
 class ExampleScreen extends StatefulWidget {
   const ExampleScreen({
     super.key,
-    required this.title,
-    required this.sample,
+    required this.example,
   });
 
-  final String title;
-  final Widget sample;
+  final ExampleModel example;
 
   @override
   State<ExampleScreen> createState() => _ExampleScreenState();
@@ -23,7 +22,7 @@ class _ExampleScreenState extends State<ExampleScreen> {
 
   @override
   void initState() {
-    _controller = ExampleController(widget.title);
+    _controller = ExampleController(widget.example.name);
 
     super.initState();
   }
@@ -31,9 +30,9 @@ class _ExampleScreenState extends State<ExampleScreen> {
   @override
   Widget build(BuildContext context) {
     return ComponentSampleScreen(
-      title: widget.title,
+      title: widget.example.name,
       file: _controller.file,
-      sample: widget.sample,
+      sample: widget.example.component,
     );
   }
 }
