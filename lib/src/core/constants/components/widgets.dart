@@ -14,6 +14,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/banner_sample.d
 import 'package:flutter_guide/src/features/widget/widget_samples/bottomnavigationbar_widget.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkbox_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/checkboxlisttile_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/chip_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/circleavatar_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/circularprogressindicator_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/clipoval_sample.dart';
@@ -129,6 +130,12 @@ const widgets = <WidgetModel>[
     icon: Icons.check_box,
     videoId: 'RkSqPAn9szs',
     sample: CheckboxListTileSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.chipWidget,
+    icon: Icons.label_outline,
+    sample: ChipSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
