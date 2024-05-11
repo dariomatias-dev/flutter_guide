@@ -28,20 +28,27 @@ class _CodeTabState extends State<CodeTab> {
   Widget build(BuildContext context) {
     _controller.code;
 
-    return ScrollConfiguration(
-      behavior: ScrollConfiguration.of(context).copyWith(
-        scrollbars: false,
+    return Theme(
+      data: Theme.of(context).copyWith(
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          selectedItemColor: Colors.white,
+        ),
       ),
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 16.0,
-            horizontal: 6.0,
-          ),
-          child: Text.rich(
-            _controller.code,
-            style: const TextStyle(
-              fontSize: 12.0,
+      child: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          scrollbars: false,
+        ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 16.0,
+              horizontal: 6.0,
+            ),
+            child: Text.rich(
+              _controller.code,
+              style: const TextStyle(
+                fontSize: 12.0,
+              ),
             ),
           ),
         ),

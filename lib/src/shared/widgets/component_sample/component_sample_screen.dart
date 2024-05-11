@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/providers/component_sample_screen_inherited_widget.dart';
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/component_sample_app_bar/component_sample_app_bar_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/code_tab/code_tab_widget.dart';
@@ -28,6 +29,9 @@ class ComponentSampleScreen extends StatefulWidget {
 class _ComponentSampleScreenState extends State<ComponentSampleScreen> {
   @override
   Widget build(BuildContext context) {
+    final themeController =
+        UserPreferencesInheritedWidget.of(context)!.themeController;
+
     return ComponentSampleScreenInheritedWidget(
       file: widget.file,
       child: DefaultTabController(
@@ -40,7 +44,17 @@ class _ComponentSampleScreenState extends State<ComponentSampleScreen> {
           ),
           body: TabBarView(
             children: <Widget>[
-              widget.sample,
+              AnimatedBuilder(
+                animation: themeController,
+                builder: (context, child) {
+                  return Theme(
+                    data: Theme.of(context).brightness == Brightness.light
+                        ? ThemeData.light()
+                        : ThemeData.dark(),
+                    child: widget.sample,
+                  );
+                },
+              ),
               const CodeTab(),
             ],
           ),
