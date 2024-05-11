@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ExampleModel {
-  const ExampleModel({
+class ElementModel {
+  const ElementModel({
     required this.name,
     required this.component,
   });

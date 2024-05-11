@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/shared/models/ui_model.dart';
+import 'package:flutter_guide/src/shared/models/element_model.dart';
 
 import 'package:flutter_guide/src/shared/widgets/component_sample/component_sample_screen.dart';
 
@@ -10,7 +10,7 @@ class UiScreen extends StatelessWidget {
     required this.ui,
   });
 
-  final UiModel ui;
+  final ElementModel ui;
 
   @override
   Widget build(BuildContext context) {
