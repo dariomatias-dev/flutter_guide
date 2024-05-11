@@ -35,6 +35,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/gridview_sample
 import 'package:flutter_guide/src/features/widget/widget_samples/iconbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/image_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/indexedstack_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/inputchip_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/interactiveviewer_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/linearprogressindicator_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/listtile_sample.dart';
@@ -267,6 +268,12 @@ const widgets = <WidgetModel>[
     icon: Icons.layers,
     videoId: '_O0PPD1Xfbk',
     sample: IndexedStackSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.inputChipWidget,
+    icon: Icons.label_outline,
+    sample: InputChipSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
