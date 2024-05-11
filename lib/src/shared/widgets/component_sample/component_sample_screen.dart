@@ -13,13 +13,13 @@ class ComponentSampleScreen extends StatefulWidget {
     super.key,
     required this.title,
     this.popupMenuItems,
-    required this.file,
+    required this.filePath,
     required this.sample,
   });
 
   final String title;
   final List<PopupMenuEntry>? popupMenuItems;
-  final File file;
+  final String filePath;
   final Widget sample;
 
   @override
@@ -33,7 +33,7 @@ class _ComponentSampleScreenState extends State<ComponentSampleScreen> {
         UserPreferencesInheritedWidget.of(context)!.themeController;
 
     return ComponentSampleScreenInheritedWidget(
-      file: widget.file,
+      file: File(widget.filePath),
       child: DefaultTabController(
         initialIndex: 0,
         length: 2,

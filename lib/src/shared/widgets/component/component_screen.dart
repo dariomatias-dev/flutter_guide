@@ -39,7 +39,7 @@ class _ComponentScreenState extends State<ComponentScreen> {
   Widget build(BuildContext context) {
     return ComponentSampleScreen(
       title: widget.componentName,
-      file: _controller.file,
+      filePath: _controller.filePath,
       sample: _controller.component.sample,
       popupMenuItems: <PopupMenuEntry>[
         FavoritePopupMenuItemWidget(

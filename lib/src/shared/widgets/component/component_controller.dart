@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
@@ -20,7 +18,7 @@ class ComponentController {
     _init();
   }
 
-  late File file;
+  late String filePath;
   late ComponentSummaryModel component;
   late WidgetCategory? componentCategory;
 
@@ -43,8 +41,7 @@ class ComponentController {
 
     final componentTypeName =
         _componentType == ComponentType.widget ? 'widget' : 'package';
-    file = File(
-      'lib/src/features/$componentTypeName/${componentTypeName}_samples/${_componentName.toLowerCase()}_sample.dart',
-    );
+    filePath =
+        'lib/src/features/$componentTypeName/${componentTypeName}_samples/${_componentName.toLowerCase()}_sample.dart';
   }
 }
