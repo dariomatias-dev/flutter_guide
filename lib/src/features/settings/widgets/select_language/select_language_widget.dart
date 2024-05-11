@@ -12,7 +12,16 @@ class SelectLanguageWidget extends StatefulWidget {
 }
 
 class _SelectLanguageWidgetState extends State<SelectLanguageWidget> {
-  final _controller = SelectLanguageController();
+  late SelectLanguageController _controller;
+
+  @override
+  void didChangeDependencies() {
+    _controller = SelectLanguageController(
+      context: context,
+    );
+
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +39,9 @@ class _SelectLanguageWidgetState extends State<SelectLanguageWidget> {
           builder: (context, value, child) {
             return Row(
               mainAxisSize: MainAxisSize.min,
-              children: [
+              children: <Widget>[
                 Text(
-                  value,
+                  value.name,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 14.0,

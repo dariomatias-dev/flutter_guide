@@ -1,13 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/core/enums/language_code.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-const languages = [
-  'English',
-  'Português',
-];
+import 'package:flutter_guide/src/core/constants/languages.dart';
+import 'package:flutter_guide/src/core/shared_preferences_keys.dart';
+
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
+
+import 'package:flutter_guide/src/shared/models/language_model.dart';
 
 class SelectLanguageController {
-  final ValueNotifier<String> selectedLanguageNotifier =
-      ValueNotifier(languages[0]);
+  SelectLanguageController({
+    required BuildContext context,
+  }) {
+    _init(context);
+  }
+
+  late SharedPreferences _sharedPreferences;
+
+  late ValueNotifier<LanguageModel> selectedLanguageNotifier;
+
+  void _init(
+    BuildContext context,
+  ) {
+    _sharedPreferences =
+        UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
+
+    final selectedLanguageName = _sharedPreferences.getString(
+          SharedPreferencesKeys.languageKey,
+        ) ??
+        '';
+
+    late LanguageModel selectedLanguage;
+
+    if (selectedLanguageName == LanguageCode.ptBr.name) {
+      selectedLanguage = portugueseLanguage;
+    } else {
+      selectedLanguage = englishLanguage;
+    }
+
+    selectedLanguageNotifier = ValueNotifier(
+      selectedLanguage,
+    );
+  }
 
   void showLanguageMenu(
     BuildContext context,
@@ -42,11 +77,16 @@ class SelectLanguageController {
             onTap: () {
               selectedLanguageNotifier.value = language;
 
+              _sharedPreferences.setString(
+                SharedPreferencesKeys.languageKey,
+                language.languageCode.name,
+              );
+
               setStateCallback();
             },
             value: language,
             child: Text(
-              language,
+              language.name,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 14.0,
