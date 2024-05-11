@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/constants/widget_names.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
-import 'package:flutter_guide/src/features/widget/widget_samples/actionchip_sample.dart';
 
 // Samples
+import 'package:flutter_guide/src/features/widget/widget_samples/actionchip_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/alertdialog_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/align_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/animatedcontainer_sample.dart';
@@ -30,6 +30,7 @@ import 'package:flutter_guide/src/features/widget/widget_samples/dropdownbutton_
 import 'package:flutter_guide/src/features/widget/widget_samples/elevatedbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/expanded_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/expansiontile_sample.dart';
+import 'package:flutter_guide/src/features/widget/widget_samples/filterchip_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/floatingactionbutton_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/futurebuilder_sample.dart';
 import 'package:flutter_guide/src/features/widget/widget_samples/gridview_sample.dart';
@@ -236,6 +237,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.expansionTileWidget,
     icon: Icons.keyboard_arrow_down_rounded,
     sample: ExpansionTileSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.filterChipWidget,
+    icon: Icons.label_outline,
+    sample: FilterChipSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
