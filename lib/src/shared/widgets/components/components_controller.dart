@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/constants/components/packages.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
-import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
 

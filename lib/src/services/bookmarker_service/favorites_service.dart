@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
 part 'favorite_packages_service.dart';
 part 'favorite_widgets_service.dart';

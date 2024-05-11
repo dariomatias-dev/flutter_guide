@@ -6,7 +6,7 @@ import 'package:flutter_guide/src/flutter_guide_app.dart';
 
 import 'package:flutter_guide/src/core/constants/components/packages.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
-import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
 import 'package:flutter_guide/src/providers/favorite_notifier/favorite_notifier.dart';

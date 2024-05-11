@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ElementModel {
-  const ElementModel({
+class InterfaceModel {
+  const InterfaceModel({
     required this.name,
     required this.component,
   });

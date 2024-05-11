@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:flutter_guide/src/core/enums/component_typ_enum.dart';
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
 import 'package:flutter_guide/src/features/package/package_screen.dart';
 import 'package:flutter_guide/src/features/widget/widget_screen.dart';

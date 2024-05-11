@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/enums/element_type_enum.dart';
+import 'package:flutter_guide/src/core/enums/interface_type_enum.dart';
 
 import 'package:flutter_guide/src/features/home/widgets/border_list_tile_item_widget.dart';
 import 'package:flutter_guide/src/features/home/widgets/component_groups/component_groups_widget.dart';
 
-import 'package:flutter_guide/src/shared/widgets/interface_catalog_screen.dart';
+import 'package:flutter_guide/src/shared/widgets/interface_catalog/interface_catalog_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
                     return const InterfaceCatalogScreen(
-                      elementType: ElementTypeEnum.ui,
+                      elementType: InterfaceTypeEnum.ui,
                     );
                   },
                 ));
@@ -35,13 +35,13 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             BorderListTileItemWidget(
-              title: 'Examples',
+              title: 'Elements',
               icon: Icons.list_alt,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
                     return const InterfaceCatalogScreen(
-                      elementType: ElementTypeEnum.example,
+                      elementType: InterfaceTypeEnum.element,
                     );
                   },
                 ));

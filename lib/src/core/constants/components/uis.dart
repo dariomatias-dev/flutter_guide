@@ -1,10 +1,10 @@
 // UIs
-import 'package:flutter_guide/src/features/ui/samples/login_screen_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/uis/login_screen_sample.dart';
 
-import 'package:flutter_guide/src/shared/models/element_model.dart';
+import 'package:flutter_guide/src/shared/models/interface_model.dart';
 
-const uis = <ElementModel>[
-  ElementModel(
+const uis = <InterfaceModel>[
+  InterfaceModel(
     name: 'Login Screen',
     component: LoginScreenSample(),
   ),

@@ -1,0 +1,4 @@
+enum InterfaceTypeEnum {
+  ui,
+  element,
+}

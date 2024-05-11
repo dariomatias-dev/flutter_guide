@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/constants/components/examples.dart';
+import 'package:flutter_guide/src/core/constants/components/elements.dart';
 import 'package:flutter_guide/src/core/constants/components/uis.dart';
-import 'package:flutter_guide/src/core/enums/element_type_enum.dart';
-import 'package:flutter_guide/src/shared/widgets/component_sample/component_sample_screen.dart';
+import 'package:flutter_guide/src/core/enums/interface_type_enum.dart';
 
+import 'package:flutter_guide/src/shared/widgets/component_sample/component_sample_screen.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/standard_app_bar_widget.dart';
 
@@ -14,18 +14,18 @@ class InterfaceCatalogScreen extends StatelessWidget {
     required this.elementType,
   });
 
-  final ElementTypeEnum elementType;
+  final InterfaceTypeEnum elementType;
 
   @override
   Widget build(BuildContext context) {
-    final isUi = elementType == ElementTypeEnum.ui;
+    final isUi = elementType == InterfaceTypeEnum.ui;
 
     return Scaffold(
       appBar: StandardAppBarWidget(
-        titleName: isUi ? 'UIs' : 'Examples',
+        titleName: isUi ? 'UIs' : 'Elements',
       ),
       body: ListView.separated(
-        itemCount: (isUi ? uis : examples).length,
+        itemCount: (isUi ? uis : elements).length,
         padding: const EdgeInsets.symmetric(
           vertical: 12.0,
         ),
@@ -33,7 +33,7 @@ class InterfaceCatalogScreen extends StatelessWidget {
           return const SizedBox(height: 12.0);
         },
         itemBuilder: (context, index) {
-          final element = (isUi ? uis : examples)[index];
+          final element = (isUi ? uis : elements)[index];
 
           return ListTileItemWidget(
             onTap: () {
@@ -44,7 +44,7 @@ class InterfaceCatalogScreen extends StatelessWidget {
                     return ComponentSampleScreen(
                       title: element.name,
                       filePath:
-                          'lib/src/features/ui/samples/${element.name.toLowerCase().replaceAll(' ', '_')}_sample.dart',
+                          'lib/src/shared/widgets/interface_catalog/samples/${isUi ? 'uis' : 'elements'}/${element.name.toLowerCase().replaceAll(' ', '_')}_sample.dart',
                       sample: element.component,
                     );
                   },

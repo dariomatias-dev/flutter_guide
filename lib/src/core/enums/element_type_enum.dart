@@ -1,4 +1,0 @@
-enum ElementTypeEnum {
-  ui,
-  example,
-}
