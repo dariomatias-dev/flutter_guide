@@ -10,6 +10,7 @@ class WidgetNames {
   static const checkboxWidget = 'Checkbox';
   static const checkboxListTileWidget = 'CheckboxListTile';
   static const chipWidget = 'Chip';
+  static const choiceChipWidget = 'ChoiceChip';
   static const circleAvatarWidget = 'CircleAvatar';
   static const circularProgressIndicatorWidget = 'CircularProgressIndicator';
   static const clipOvalWidget = 'ClipOval';
