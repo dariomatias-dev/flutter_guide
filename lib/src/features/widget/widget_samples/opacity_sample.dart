@@ -17,7 +17,7 @@ class OpacitySample extends StatefulWidget {
 }
 
 class _OpacitySampleState extends State<OpacitySample> {
-  double _opacity = 1.0;
+  double _opacity = 50;
 
   @override
   Widget build(BuildContext context) {

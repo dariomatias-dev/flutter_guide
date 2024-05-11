@@ -8,7 +8,7 @@ class ImageSample extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Image.asset(
-          'assets/images/flutter_image.png',
+          'assets/images/flutter_logo.png',
         ),
       ),
     );

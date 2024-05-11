@@ -90,13 +90,13 @@ const widgets = <WidgetModel>[
     icon: Icons.center_focus_strong,
     videoId: 'g2E7yl3MwMk',
     sample: AlignSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.animatedContainerWidget,
     icon: Icons.animation,
     sample: AnimatedContainerSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.appBarWidget,
@@ -114,7 +114,7 @@ const widgets = <WidgetModel>[
     name: WidgetNames.bannerWidget,
     icon: Icons.flag,
     sample: BannerSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.bottomNavigationBarWidget,
@@ -197,14 +197,14 @@ const widgets = <WidgetModel>[
     icon: Icons.chat_bubble_outline,
     videoId: '75CsnyRXf5I',
     sample: CupertinoAlertDialogSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.cupertino,
   ),
   WidgetModel(
     name: WidgetNames.cupertinoSliderWidget,
     icon: Icons.tune,
     videoId: 'ufb4gIPDmEs',
     sample: CupertinoSliderSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.cupertino,
   ),
   WidgetModel(
     name: WidgetNames.dismissibleWidget,
@@ -218,7 +218,7 @@ const widgets = <WidgetModel>[
     icon: Icons.arrow_drop_down,
     videoId: 'ZzQ_PWrFihg',
     sample: DropdownButtonSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.elevatedButtonWidget,
@@ -231,7 +231,7 @@ const widgets = <WidgetModel>[
     icon: Icons.open_with,
     videoId: '_rnZaagadyo',
     sample: ExpandedSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.expansionTileWidget,
@@ -256,13 +256,13 @@ const widgets = <WidgetModel>[
     icon: Icons.hourglass_empty,
     videoId: 'zEdw_1B7JHY',
     sample: FutureBuilderSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.gridViewWidget,
     icon: Icons.grid_3x3,
     sample: GridViewSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.iconButtonWidget,
@@ -288,7 +288,7 @@ const widgets = <WidgetModel>[
     name: WidgetNames.inputChipWidget,
     icon: Icons.label_outline,
     sample: InputChipSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.interactiveViewerWidget,
@@ -302,7 +302,7 @@ const widgets = <WidgetModel>[
     icon: Icons.cached,
     videoId: 'O-rhXZLtpv0',
     sample: LinearProgressIndicatorSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.listTileWidget,
@@ -323,7 +323,7 @@ const widgets = <WidgetModel>[
     icon: Icons.view_carousel,
     videoId: 'y9xchtVTtqQ',
     sample: NavigationRailSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.opacityWidget,
@@ -350,7 +350,7 @@ const widgets = <WidgetModel>[
     name: WidgetNames.popupMenuButtonWidget,
     icon: Icons.more_vert,
     sample: PopupMenuButtonSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.radioWidget,
@@ -376,7 +376,7 @@ const widgets = <WidgetModel>[
     icon: Icons.text_fields,
     videoId: 'rykDVh-QFfw',
     sample: RichTextSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.rowWidget,
@@ -401,7 +401,7 @@ const widgets = <WidgetModel>[
     name: WidgetNames.singleChildScrollViewWidget,
     icon: Icons.swap_vert,
     sample: SingleChildScrollViewSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.sliderWidget,
@@ -427,7 +427,7 @@ const widgets = <WidgetModel>[
     name: WidgetNames.switchListTileWidget,
     icon: Icons.toggle_on,
     sample: SwitchListTileSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.textWidget,
@@ -439,27 +439,27 @@ const widgets = <WidgetModel>[
     name: WidgetNames.textFieldWidget,
     icon: Icons.edit,
     sample: TextFieldSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.textFormFieldWidget,
     icon: Icons.edit,
     sample: TextFormFieldSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.toggleButtonsWidget,
     icon: Icons.check_box,
     videoId: 'kVEguaQWGAY',
     sample: ToggleButtonsSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.tooltipWidget,
     icon: Icons.help_outline,
     videoId: 'EeEfD5fI-5Q',
     sample: TooltipSample(),
-    category: WidgetCategory.widgets,
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.wrapWidget,
