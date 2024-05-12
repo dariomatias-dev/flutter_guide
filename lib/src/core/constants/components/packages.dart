@@ -170,10 +170,11 @@ const packages = <PackageModel>[
 
 Map<String, PackageSummaryModel> packagesMap() {
   Map<String, PackageSummaryModel> samples = {};
-  for (PackageModel packages in packages) {
-    samples[packages.name] = PackageSummaryModel(
-      name: packages.name,
-      sample: packages.sample,
+  for (PackageModel package in packages) {
+    samples[package.name] = PackageSummaryModel(
+      name: package.name,
+      videoId: package.videoId,
+      sample: package.sample,
     );
   }
 

@@ -81,7 +81,7 @@ const widgets = <WidgetModel>[
   WidgetModel(
     name: WidgetNames.alertDialogWidget,
     icon: Icons.chat_bubble_outline,
-    videoId: 'yI-8QHpGIP4',
+    videoId: '75CsnyRXf5I',
     sample: AlertDialogSample(),
     category: WidgetCategory.material,
   ),
@@ -479,6 +479,7 @@ WidgetInfosModel getWidgetInfos() {
     samples[widget.name] = WidgetSummaryModel(
       name: widget.name,
       category: widget.category,
+      videoId: widget.videoId,
       sample: widget.sample,
     );
   }

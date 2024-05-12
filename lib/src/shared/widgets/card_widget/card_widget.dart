@@ -66,7 +66,7 @@ class CardWidget extends StatelessWidget {
             onTap: () {
               openURL(
                 () => context,
-                'https://youtu.be/${videoId!}',
+                'https://www.youtube.com/watch?v=${videoId!}',
               );
             },
           ),

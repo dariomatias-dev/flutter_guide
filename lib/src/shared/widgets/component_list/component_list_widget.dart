@@ -48,13 +48,13 @@ class _ComponentListWidgetState extends State<ComponentListWidget> {
           physics: const NeverScrollableScrollPhysics(),
           itemCount: widget.components.length,
           itemBuilder: (context, index) {
-            final flutterWidget = widget.components[index];
+            final component = widget.components[index];
     
             return CardWidget(
               componentType: widget.componentType,
-              icon: flutterWidget.icon,
-              componentName: flutterWidget.name,
-              videoId: flutterWidget.videoId,
+              icon: component.icon,
+              componentName: component.name,
+              videoId: component.videoId,
               favoritesService: _controller.favoritesService,
               favoriteNotifier: _controller.favoriteNotifier,
             );

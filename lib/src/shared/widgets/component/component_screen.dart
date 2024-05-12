@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
+import 'package:flutter_guide/src/shared/utils/open_url.dart';
 import 'package:flutter_guide/src/shared/widgets/component/component_controller.dart';
 import 'package:flutter_guide/src/shared/widgets/component_sample/component_sample_screen.dart';
 import 'package:flutter_guide/src/shared/widgets/component/widgets/doc_popup_menu_item/doc_popup_menu_item_widget.dart';
@@ -37,17 +38,28 @@ class _ComponentScreenState extends State<ComponentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _controller;
     return ComponentSampleScreen(
-      title: widget.componentName,
+      title: _controller.component.name,
       filePath: _controller.filePath,
       sample: _controller.component.sample,
       popupMenuItems: <PopupMenuEntry>[
         FavoritePopupMenuItemWidget(
           componentType: widget.componentType,
-          componentName: widget.componentName,
+          componentName: _controller.component.name,
         ),
+        if (_controller.component.videoId != null)
+          PopupMenuItem(
+            onTap: () {
+              openURL(
+                () => context,
+                'https://www.youtube.com/watch?v=${_controller.component.videoId}',
+              );
+            },
+            child: const Text('YouTube'),
+          ),
         DocPopupMenuItemWidget(
-          componentName: widget.componentName,
+          componentName: _controller.component.name,
           componentCategory: _controller.componentCategory,
         ),
       ],
