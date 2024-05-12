@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/src/shared/widgets/ink_well_button_widget.dart';
 
 class ListTileItemWidget extends StatelessWidget {
   const ListTileItemWidget({
@@ -22,59 +23,53 @@ class ListTileItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return InkWellButtonWidget(
       onTap: onTap,
-      overlayColor: MaterialStatePropertyAll(
-        Colors.blue.withOpacity(0.05),
-      ),
-      hoverColor: Colors.blue.withOpacity(0.05),
-      borderRadius: BorderRadius.circular(borderRadius),
-      child: Ink(
+      borderRadius: borderRadius,
+      child: Padding(
+        padding: padding ?? EdgeInsets.zero,
         child: Padding(
-          padding: padding ?? EdgeInsets.zero,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10.0,
-            ),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12.0,
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        if (icon != null)
-                          Icon(
-                            icon,
-                            color: Theme.of(context).colorScheme.primary,
-                            size: 20.0,
-                          ),
-                        const SizedBox(width: 12.0),
-                        Text(
-                          title,
-                          style: const TextStyle(
-                            fontSize: 14.0,
-                          ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10.0,
+          ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12.0,
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      if (icon != null)
+                        Icon(
+                          icon,
+                          color: Theme.of(context).colorScheme.primary,
+                          size: 20.0,
                         ),
-                      ],
-                    ),
+                      const SizedBox(width: 12.0),
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Row(
-                  children: <Widget>[
-                    if (openInBrowser)
-                      Icon(
-                        Icons.open_in_new_rounded,
-                        color: Theme.of(context).colorScheme.tertiary,
-                        size: 18.0,
-                      ),
-                    if (trailingWidgets != null) ...trailingWidgets!,
-                  ],
-                ),
-              ],
-            ),
+              ),
+              Row(
+                children: <Widget>[
+                  if (openInBrowser)
+                    Icon(
+                      Icons.open_in_new_rounded,
+                      color: Theme.of(context).colorScheme.tertiary,
+                      size: 18.0,
+                    ),
+                  if (trailingWidgets != null) ...trailingWidgets!,
+                ],
+              ),
+            ],
           ),
         ),
       ),

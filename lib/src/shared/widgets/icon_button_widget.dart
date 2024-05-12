@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/shared/widgets/ink_well_button_widget.dart';
+
 class IconButtonWidget extends StatelessWidget {
   const IconButtonWidget({
     super.key,
@@ -17,19 +19,18 @@ class IconButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWellButtonWidget(
       onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(4.0),
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-        ),
+      borderRadius: 100,
+      child: SizedBox(
+        width: 40.0,
+        height: 40.0,
         child: Center(
           child: child ??
               Icon(
                 icon,
                 color: Theme.of(context).colorScheme.primary,
-                size: 20.0,
+                size: 24.0,
               ),
         ),
       ),

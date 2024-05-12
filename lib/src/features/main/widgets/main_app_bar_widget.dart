@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/features/main/widgets/select_favorite_screen_dialog/select_favorite_screen_dialog_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/icon_button_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/standard_app_bar_widget.dart';
 
@@ -37,8 +38,8 @@ class MainAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       actions: <Widget>[
-        IconButton(
-          onPressed: () {
+        IconButtonWidget(
+          onTap: () {
             showDialog(
               context: context,
               builder: (context) {
@@ -46,10 +47,7 @@ class MainAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               },
             );
           },
-          icon: Icon(
-            Icons.bookmark_border,
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          icon: Icons.bookmark_border,
         ),
         const SizedBox(width: 4.0),
       ],

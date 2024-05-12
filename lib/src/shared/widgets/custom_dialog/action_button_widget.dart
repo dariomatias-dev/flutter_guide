@@ -4,15 +4,15 @@ class ActionButtonWidget extends StatelessWidget {
   const ActionButtonWidget({
     super.key,
     required this.text,
-    required this.textColor,
-    required this.backgroundColor,
-    required this.onPressed,
+    this.textColor,
+    this.backgroundColor,
+    required this.onTap,
   });
 
   final String text;
-  final Color textColor;
-  final Color backgroundColor;
-  final VoidCallback onPressed;
+  final Color? textColor;
+  final Color? backgroundColor;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class ActionButtonWidget extends StatelessWidget {
       child: SizedBox(
         height: 48.0,
         child: ElevatedButton(
-          onPressed: onPressed,
+          onPressed: onTap,
           style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
+            backgroundColor: backgroundColor ?? Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16.0),
             ),
@@ -30,7 +30,7 @@ class ActionButtonWidget extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              color: textColor,
+              color: textColor ?? Colors.black,
             ),
           ),
         ),

@@ -34,9 +34,7 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
       actions: <ActionButtonWidget>[
         CustomDialog.button(
           text: 'Ok',
-          textColor: Colors.black,
-          backgroundColor: Colors.white,
-          onPressed: () {
+          onTap: () {
             Navigator.pop(context);
           },
         ),

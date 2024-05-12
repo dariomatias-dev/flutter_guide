@@ -20,15 +20,14 @@ class DonateDialogWidget extends StatelessWidget {
           backgroundColor: Colors.white.withOpacity(
             isLight ? 0.9 : 0.85,
           ),
-          onPressed: () {
+          onTap: () {
             Navigator.pop(context);
           },
         ),
         CustomDialog.button(
           text: 'Donate',
-          textColor: Colors.white,
           backgroundColor: Colors.yellow,
-          onPressed: () {
+          onTap: () {
             openURL(
               () => context,
               'https://www.buymeacoffee.com/dariomatias',

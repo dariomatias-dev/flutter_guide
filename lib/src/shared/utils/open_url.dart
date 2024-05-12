@@ -21,9 +21,7 @@ void showAlertDialog(BuildContext context, String url) async {
         actions: <ActionButtonWidget>[
           CustomDialog.button(
             text: 'Ok',
-            textColor: Colors.black,
-            backgroundColor: Colors.white,
-            onPressed: () {
+            onTap: () {
               Navigator.pop(context);
             },
           ),
