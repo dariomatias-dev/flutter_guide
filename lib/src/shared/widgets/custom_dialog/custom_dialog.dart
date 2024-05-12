@@ -39,7 +39,7 @@ class CustomDialog {
 
   void showDialog({
     required BuildContext context,
-    required DialogWidget Function(
+    required Widget Function(
       OverlayEntry? overlayEntry,
     ) builder,
   }) {

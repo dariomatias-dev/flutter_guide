@@ -4,7 +4,12 @@ import 'package:flutter_guide/src/shared/utils/open_url.dart';
 import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
 
 class DonateDialogWidget extends StatelessWidget {
-  const DonateDialogWidget({super.key});
+  const DonateDialogWidget({
+    super.key,
+    required this.overlayEntry,
+  });
+
+  final OverlayEntry? overlayEntry;
 
   @override
   Widget build(BuildContext context) {
@@ -15,23 +20,24 @@ class DonateDialogWidget extends StatelessWidget {
       description: 'Support the project by buying a coffee.',
       actions: <ActionButtonWidget>[
         CustomDialog.button(
-          text: 'Cancel',
-          textColor: Colors.grey[isLight ? 700 : 800]!,
-          backgroundColor: Colors.white.withOpacity(
-            isLight ? 0.9 : 0.85,
-          ),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        CustomDialog.button(
           text: 'Donate',
+          textColor: Colors.white,
           backgroundColor: Colors.yellow,
           onTap: () {
             openURL(
               () => context,
               'https://www.buymeacoffee.com/dariomatias',
             );
+          },
+        ),
+        CustomDialog.button(
+          text: 'Cancel',
+          textColor: Colors.grey[isLight ? 700 : 800]!,
+          backgroundColor: Colors.white.withOpacity(
+            isLight ? 0.9 : 0.85,
+          ),
+          onTap: () {
+            overlayEntry?.remove();
           },
         ),
       ],
