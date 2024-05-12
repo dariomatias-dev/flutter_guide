@@ -56,7 +56,7 @@ class InterfaceCatalogScreen extends StatelessWidget {
               Icon(
                 Icons.keyboard_arrow_right_rounded,
                 size: 26.0,
-              )
+              ),
             ],
           );
         },

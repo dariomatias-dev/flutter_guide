@@ -18,6 +18,8 @@ class ComponentListController {
     );
   }
 
+  final adInterval = 15;
+
   late FavoritesService favoritesService;
   late FavoriteNotifier favoriteNotifier;
 

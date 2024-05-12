@@ -57,7 +57,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/simpl
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/singlechildscrollview_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/slider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/stack_sample.dart';
-import 'package:flutter_guide/src/features/widget/widget_samples/Switch_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switch_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switchlisttile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/text_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textfield_sample.dart';
