@@ -4,7 +4,7 @@ import 'package:flutter_guide/src/core/constants/bottom_app_bar_screens.dart';
 
 import 'package:flutter_guide/src/features/main/main_controller.dart';
 import 'package:flutter_guide/src/features/main/widgets/bottom_navigation_bar_widget.dart';
-import 'package:flutter_guide/src/features/main/widgets/main_app_bar_widget.dart';
+import 'package:flutter_guide/src/features/main/widgets/main_app_bar/main_app_bar_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

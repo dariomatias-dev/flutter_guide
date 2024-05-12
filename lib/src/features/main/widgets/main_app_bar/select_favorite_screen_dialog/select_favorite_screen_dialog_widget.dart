@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
-import 'package:flutter_guide/src/features/main/widgets/select_favorite_screen_dialog/select_favorite_screen_dialog_controller.dart';
+import 'package:flutter_guide/src/features/main/widgets/main_app_bar/select_favorite_screen_dialog/select_favorite_screen_dialog_controller.dart';
 
 import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 
 class SelectFavoriteScreenDialogWidget extends StatefulWidget {
-  const SelectFavoriteScreenDialogWidget({super.key});
+  const SelectFavoriteScreenDialogWidget({
+    super.key,
+    this.overlayEntry,
+  });
+
+  final OverlayEntry? overlayEntry;
 
   @override
   State<SelectFavoriteScreenDialogWidget> createState() =>
@@ -35,6 +40,8 @@ class _SelectFavoriteScreenDialogWidgetState
       children: <Widget>[
         ListTileItemWidget(
           onTap: () {
+            widget.overlayEntry?.remove();
+
             _controller.navigateTo(
               ComponentType.widget,
             );
@@ -44,6 +51,8 @@ class _SelectFavoriteScreenDialogWidgetState
         ),
         ListTileItemWidget(
           onTap: () {
+            widget.overlayEntry?.remove();
+
             _controller.navigateTo(
               ComponentType.package,
             );
@@ -56,7 +65,7 @@ class _SelectFavoriteScreenDialogWidgetState
         CustomDialog.button(
           text: 'Ok',
           onTap: () {
-            Navigator.pop(context);
+            widget.overlayEntry?.remove();
           },
         ),
       ],

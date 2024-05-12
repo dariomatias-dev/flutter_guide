@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide/src/features/main/widgets/select_favorite_screen_dialog/select_favorite_screen_dialog_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/icon_button_widget.dart';
 
+import 'package:flutter_guide/src/features/main/widgets/main_app_bar/main_app_bar_controller.dart';
+
+import 'package:flutter_guide/src/shared/widgets/icon_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/standard_app_bar_widget.dart';
 
-class MainAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+class MainAppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   const MainAppBarWidget({
     super.key,
     required this.title,
@@ -14,6 +15,22 @@ class MainAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  State<MainAppBarWidget> createState() => _MainAppBarWidgetState();
+}
+
+class _MainAppBarWidgetState extends State<MainAppBarWidget> {
+  late MainAppBarController _controller;
+
+  @override
+  void didChangeDependencies() {
+    _controller = MainAppBarController(
+      context: context,
+    );
+
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +46,7 @@ class MainAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           ),
           const SizedBox(width: 16.0),
           Text(
-            title,
+            widget.title,
             style: const TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w500,
@@ -39,14 +56,7 @@ class MainAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: <Widget>[
         IconButtonWidget(
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return const SelectFavoriteScreenDialogWidget();
-              },
-            );
-          },
+          onTap: _controller.showSelectFavoriteScreenDialog,
           icon: Icons.bookmark_border,
         ),
         const SizedBox(width: 4.0),

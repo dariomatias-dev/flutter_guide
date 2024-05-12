@@ -6,18 +6,16 @@ import 'package:flutter_guide/src/shared/widgets/saved_components/saved_componen
 
 class SelectFavoriteScreenDialogController {
   SelectFavoriteScreenDialogController({
-    required this.context,
-  });
+    required BuildContext context,
+  }) : _context = context;
 
-  final BuildContext context;
+  final BuildContext _context;
 
   void navigateTo(
     ComponentType componentType,
   ) {
-    Navigator.pop(context);
-
     Navigator.push(
-      context,
+      _context,
       MaterialPageRoute(
         builder: (context) {
           return SavedComponents(
