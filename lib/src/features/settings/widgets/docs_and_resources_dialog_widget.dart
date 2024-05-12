@@ -17,7 +17,7 @@ class DocsAndResourcesDialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomDialog.dialog(
-      title: 'Docs And Resources',
+      title: 'Docs and Resources',
       actions: <ActionButtonWidget>[
         CustomDialog.button(
           text: 'Ok',

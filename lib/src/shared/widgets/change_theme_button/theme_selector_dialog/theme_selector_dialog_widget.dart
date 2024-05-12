@@ -1,11 +1,15 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/shared/widgets/change_theme_button/theme_selector_dialog/theme_selector_dialog_controller.dart';
 import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
 
 class ThemeSelectorDialogWidget extends StatefulWidget {
-  const ThemeSelectorDialogWidget({super.key});
+  const ThemeSelectorDialogWidget({
+    super.key,
+    this.overlayEntry,
+  });
+
+  final OverlayEntry? overlayEntry;
 
   @override
   State<ThemeSelectorDialogWidget> createState() =>
@@ -30,12 +34,12 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
   @override
   Widget build(BuildContext context) {
     return CustomDialog.dialog(
-      title: 'Select The Theme',
+      title: 'Select the Theme',
       actions: <ActionButtonWidget>[
         CustomDialog.button(
           text: 'Ok',
           onTap: () {
-            Navigator.pop(context);
+            widget.overlayEntry?.remove();
           },
         ),
       ],
