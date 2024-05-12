@@ -22,6 +22,8 @@ class SavedComponentsController {
     );
   }
 
+  late String componentTypeName;
+
   late FavoriteNotifier favoriteNotifier;
   late FavoritesService _favoritesService;
 
@@ -32,6 +34,8 @@ class SavedComponentsController {
     BuildContext context,
     ComponentType componentType,
   ) {
+    componentTypeName = componentType.name;
+
     final UserPreferencesInheritedWidget(
       :getFavoriteNotifier,
       :getFavoritesService

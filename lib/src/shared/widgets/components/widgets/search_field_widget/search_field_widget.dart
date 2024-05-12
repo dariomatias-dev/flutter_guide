@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
+
 import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
 
 import 'package:flutter_guide/src/shared/widgets/components/widgets/search_field_widget/search_field_controller.dart';
@@ -7,9 +9,11 @@ import 'package:flutter_guide/src/shared/widgets/components/widgets/search_field
 class SearchFieldWidget extends StatefulWidget {
   const SearchFieldWidget({
     super.key,
+    required this.componentType,
     required this.onChange,
   });
 
+  final ComponentType componentType;
   final void Function(String value) onChange;
 
   @override
@@ -46,7 +50,8 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
             color: Theme.of(context).colorScheme.tertiary,
             size: 20.0,
           ),
-          hintText: "Widget...",
+          hintText:
+              '${widget.componentType == ComponentType.widget ? 'Widget' : 'Package'}...',
           hintStyle: TextStyle(
             color: Colors.grey.shade600,
             fontSize: 14.0,

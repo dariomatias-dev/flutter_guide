@@ -1,28 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/constants/components/packages.dart';
-import 'package:flutter_guide/src/core/constants/components/widgets.dart';
-import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
-
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
 
 class ComponentsController {
   ComponentsController({
-    required ComponentType componentType,
+    required List<ComponentModel> elements,
   }) {
-    _init(componentType);
+    _standardComponents = elements;
+    components = _standardComponents;
   }
 
   late List<ComponentModel> _standardComponents;
   late List<ComponentModel> components;
-
-  void _init(
-    ComponentType componentType,
-  ) {
-    _standardComponents =
-        componentType == ComponentType.widget ? widgets : packages;
-    components = _standardComponents;
-  }
 
   void updateComponentList(
     String value,
