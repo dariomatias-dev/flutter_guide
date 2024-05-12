@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
+
+import 'package:flutter_guide/src/shared/widgets/saved_components/saved_components_widget.dart';
+
 class SelectFavoriteScreenDialogController {
   SelectFavoriteScreenDialogController({
     required this.context,
@@ -8,13 +12,19 @@ class SelectFavoriteScreenDialogController {
   final BuildContext context;
 
   void navigateTo(
-    String routeName,
+    ComponentType componentType,
   ) {
     Navigator.pop(context);
 
-    Navigator.pushNamed(
+    Navigator.push(
       context,
-      routeName,
+      MaterialPageRoute(
+        builder: (context) {
+          return SavedComponents(
+            componentType: componentType,
+          );
+        },
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/routes/flutter_guide_route_names.dart';
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
 import 'package:flutter_guide/src/features/main/widgets/select_favorite_screen_dialog/select_favorite_screen_dialog_controller.dart';
 
@@ -36,7 +36,7 @@ class _SelectFavoriteScreenDialogWidgetState
         ListTileItemWidget(
           onTap: () {
             _controller.navigateTo(
-              FlutterGuideRouteNames.savedWidgets,
+              ComponentType.widget,
             );
           },
           title: 'Widgets',
@@ -45,7 +45,7 @@ class _SelectFavoriteScreenDialogWidgetState
         ListTileItemWidget(
           onTap: () {
             _controller.navigateTo(
-              FlutterGuideRouteNames.savedPackages,
+              ComponentType.package,
             );
           },
           title: 'Packages',

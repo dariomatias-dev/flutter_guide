@@ -11,8 +11,4 @@ class FlutterGuideRouteNames {
   // Component Screens
   static const widget = "/widget";
   static const package = "/package";
-
-  // Saved Screens
-  static const savedWidgets = "/saved_widgets";
-  static const savedPackages = "/saved_packages";
 }
