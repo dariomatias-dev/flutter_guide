@@ -38,7 +38,6 @@ class _ComponentScreenState extends State<ComponentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _controller;
     return ComponentSampleScreen(
       title: _controller.component.name,
       filePath: _controller.filePath,

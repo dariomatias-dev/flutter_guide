@@ -3,16 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
-import 'package:flutter_guide/src/features/package/package_screen.dart';
-import 'package:flutter_guide/src/features/widget/widget_screen.dart';
-
 import 'package:flutter_guide/src/providers/favorite_notifier/favorite_notifier.dart';
 
 import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 
-import 'package:flutter_guide/src/shared/widgets/card_widget/save_button/save_button_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
+import 'package:flutter_guide/src/shared/widgets/card_widget/save_button/save_button_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component/component_screen.dart';
+import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/icon_button_widget.dart';
 
 class CardWidget extends StatelessWidget {
@@ -34,7 +32,7 @@ class CardWidget extends StatelessWidget {
 
   final FavoritesService favoritesService;
   final FavoriteNotifier favoriteNotifier;
-  
+
   final EdgeInsets? padding;
 
   @override
@@ -46,13 +44,10 @@ class CardWidget extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return componentType == ComponentType.widget
-                  ? WidgetScreen(
-                      widgetName: componentName,
-                    )
-                  : PackageScreen(
-                      packageName: componentName,
-                    );
+              return ComponentScreen(
+                componentType: componentType,
+                componentName: componentName,
+              );
             },
           ),
         );
@@ -60,7 +55,7 @@ class CardWidget extends StatelessWidget {
       title: componentName,
       icon: icon,
       trailingWidgets: <Widget>[
-        if (videoId != null) ...[
+        if (videoId != null) ...<Widget>[
           IconButtonWidget(
             icon: FontAwesomeIcons.youtube,
             onTap: () {

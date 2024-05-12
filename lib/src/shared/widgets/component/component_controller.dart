@@ -39,9 +39,7 @@ class ComponentController {
         ? (component as WidgetSummaryModel).category
         : null;
 
-    final componentTypeName =
-        _componentType == ComponentType.widget ? 'widget' : 'package';
     filePath =
-        'lib/src/features/$componentTypeName/${componentTypeName}_samples/${_componentName.toLowerCase()}_sample.dart';
+        'lib/src/shared/widgets/component/samples${_componentType.name}s/${_componentName.toLowerCase()}_sample.dart';
   }
 }
