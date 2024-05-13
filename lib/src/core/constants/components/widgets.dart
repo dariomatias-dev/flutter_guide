@@ -52,6 +52,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/radio
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/rangeslider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/richtext_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/row_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/segmentedbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/selectabletext_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/simpledialog_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/singlechildscrollview_sample.dart';
@@ -383,6 +384,12 @@ const widgets = <WidgetModel>[
     icon: Icons.view_week,
     sample: RowSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.segmentedButtonWidget,
+    icon: Icons.linear_scale_sharp,
+    sample: SegmentedButtonSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.selectableTextWidget,
