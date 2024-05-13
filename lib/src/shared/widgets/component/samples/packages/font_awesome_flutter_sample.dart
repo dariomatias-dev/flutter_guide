@@ -16,14 +16,12 @@ class FontAwesomeFlutterSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(icons.length * 2 - 1, (index) {
-            if (index % 2 == 1) {
-              return const SizedBox(height: 12.0);
-            }
-
-            return FaIcon(icons[index ~/ 2]);
+        child: Wrap(
+          spacing: 20.0,
+          direction: Axis.vertical,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children:  List.generate(icons.length, (index) {
+            return FaIcon(icons[index]);
           }),
         ),
       ),

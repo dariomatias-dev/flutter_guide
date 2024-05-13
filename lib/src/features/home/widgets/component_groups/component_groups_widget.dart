@@ -26,18 +26,13 @@ class ComponentGroupsWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 4.0),
-        ...List.generate(
-          componentGroups.length * 2 - 1,
-          (index) {
-            if (index % 2 == 1) {
-              return const SizedBox(height: 4.0);
-            }
-
+        Column(
+          children: List.generate(componentGroups.length, (index) {
             return ComponentGroupWidget(
-              componentGroup: componentGroups[index ~/ 2],
+              componentGroup: componentGroups[index],
             );
-          },
-        )
+          }),
+        ),
       ],
     );
   }

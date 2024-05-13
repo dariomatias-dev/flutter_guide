@@ -44,22 +44,20 @@ class FloatingActionButtonSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Wrap(
+          direction: Axis.vertical,
+          spacing: 12.0,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: List.generate(
-            floatingActionButtonTypes.length * 2 - 1,
+            floatingActionButtonTypes.length,
             (index) {
-              if (index % 2 == 1) {
-                return const SizedBox(height: 12.0);
-              }
-
               return ElevatedButton(
                 onPressed: () => onPressed(
                   context,
-                  floatingActionButtonTypes[index ~/ 2],
+                  floatingActionButtonTypes[index],
                 ),
                 child: Text(
-                  screenNames[index ~/ 2],
+                  screenNames[index],
                 ),
               );
             },

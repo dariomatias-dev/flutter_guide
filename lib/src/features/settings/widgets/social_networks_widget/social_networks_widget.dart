@@ -18,17 +18,14 @@ class SocialNetworksWidget extends StatelessWidget {
         top: 32.0,
         bottom: 20.0,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Wrap(
+        direction: Axis.horizontal,
+        runSpacing: 16.0,
         children: List.generate(
-          socialNetworks.length * 2,
+          socialNetworks.length,
           (index) {
-            if (index % 2 == 1) {
-              return const SizedBox(width: 16.0);
-            }
-
             return SocialNetworkButtonWidget(
-              socialNetwork: socialNetworks[index ~/ 2],
+              socialNetwork: socialNetworks[index],
             );
           },
         ),

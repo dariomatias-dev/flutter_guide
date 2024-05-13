@@ -97,12 +97,8 @@ class ColorsSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenSample(
-      children: List.generate(colors.length * 2, (index) {
-        if (index % 2 == 0) {
-          return const SizedBox(height: 4.0);
-        }
-
-        final color = colors[index ~/ 2];
+      children: List.generate(colors.length, (index) {
+        final color = colors[index];
 
         return Text(
           'Color ${color.name}',
@@ -208,12 +204,8 @@ class FontSizesSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenSample(
-      children: List.generate(fontSizes.length * 2, (index) {
-        if (index % 2 == 0) {
-          return const SizedBox(height: 4.0);
-        }
-
-        final fontSize = fontSizes[index ~/ 2];
+      children: List.generate(fontSizes.length, (index) {
+        final fontSize = fontSizes[index];
 
         return Text(
           'Font Size $fontSize',
@@ -248,8 +240,10 @@ class ScreenSample extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Wrap(
+          direction: Axis.vertical,
+          spacing: 4.0,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: children,
         ),
       ),

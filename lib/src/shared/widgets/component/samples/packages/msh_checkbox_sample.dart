@@ -15,15 +15,12 @@ class MshCheckboxSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(mshCheckboxStyles.length * 2 - 1, (index) {
-            if (index % 2 == 1) {
-              return const SizedBox(height: 12.0);
-            }
-
+        child: Wrap(
+          direction: Axis.vertical,
+          spacing: 12.0,
+          children: List.generate(mshCheckboxStyles.length, (index) {
             return MshCheckboxItemSample(
-              style: mshCheckboxStyles[index ~/ 2],
+              style: mshCheckboxStyles[index],
             );
           }),
         ),
@@ -54,14 +51,16 @@ class _MshCheckboxItemSampleState extends State<MshCheckboxItemSample> {
       size: 32.0,
       style: widget.style,
       colorConfig: MSHColorConfig(
-        checkColor: (value) {
-          return Colors.blue;
-        },
-        borderColor: (value) {
+        checkColor: widget.style == MSHCheckboxStyle.stroke
+            ? (value) {
+                return Colors.blue;
+              }
+            : null,
+        tintColor: (value) {
           return Colors.blue;
         },
         fillColor: (value) {
-          return Colors.black.withOpacity(0.8);
+          return Colors.blue;
         },
       ),
       onChanged: (selected) {
