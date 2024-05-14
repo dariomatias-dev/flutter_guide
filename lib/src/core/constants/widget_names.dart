@@ -15,6 +15,7 @@ class WidgetNames {
   static const circularProgressIndicatorWidget = 'CircularProgressIndicator';
   static const clipOvalWidget = 'ClipOval';
   static const clipRRectWidget = 'ClipRRect';
+  static const colorFilteredWidget = 'ColorFiltered';
   static const columnWidget = 'Column';
   static const constrainedBoxWidget = 'ConstrainedBox';
   static const containerWidget = 'Container';

@@ -20,6 +20,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/circl
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/circularprogressindicator_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/clipoval_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cliprrect_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/colorfiltered_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/column_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/constrainedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/container_sample.dart';
@@ -171,6 +172,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.clipRRectWidget,
     icon: Icons.crop,
     sample: ClipRRectSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.colorFilteredWidget,
+    icon: Icons.brush,
+    videoId: 'F7Cll22Dno8',
+    sample: ColorFilteredSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
