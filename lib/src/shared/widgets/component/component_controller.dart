@@ -40,6 +40,6 @@ class ComponentController {
         : null;
 
     filePath =
-        'lib/src/shared/widgets/component/samples${_componentType.name}s/${_componentName.toLowerCase()}_sample.dart';
+        'lib/src/shared/widgets/component/samples/${_componentType == ComponentType.widget ? 'widgets' : 'packages'}/${_componentName.toLowerCase()}_sample.dart';
   }
 }

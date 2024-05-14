@@ -27,6 +27,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/conta
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoalertdialog.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoslider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dismissible_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/drawer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dropdownbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/elevatedbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/expanded_sample.dart';
@@ -221,6 +222,13 @@ const widgets = <WidgetModel>[
     videoId: 'iEMgjrfuc58',
     sample: DismissibleSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.drawerWidget,
+    icon: Icons.menu,
+    videoId: 'WRj86iHihgY',
+    sample: DrawerSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.dropdownButtonWidget,
