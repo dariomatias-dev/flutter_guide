@@ -5,15 +5,107 @@ class IconButtonSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
-        child: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.favorite,
-          ),
+        child: Wrap(
+          spacing: 12.0,
+          children: <Widget>[
+            FavoriteButtonWidget(),
+            SettingButtonWidget(),
+          ],
         ),
       ),
+    );
+  }
+}
+
+class FavoriteButtonWidget extends StatefulWidget {
+  const FavoriteButtonWidget({super.key});
+
+  @override
+  State<FavoriteButtonWidget> createState() => _FavoriteButtonWidgetState();
+}
+
+class _FavoriteButtonWidgetState extends State<FavoriteButtonWidget> {
+  bool _isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final icon = _isFavorite ? Icons.favorite : Icons.favorite_border;
+
+    return Wrap(
+      direction: Axis.vertical,
+      spacing: 4.0,
+      children: <Widget>[
+        IconButton(
+          onPressed: () {
+            setState(() {
+              _isFavorite = !_isFavorite;
+            });
+          },
+          icon: Icon(
+            icon,
+          ),
+        ),
+        IconButton(
+          onPressed: null,
+          icon: Icon(
+            icon,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class SettingButtonWidget extends StatefulWidget {
+  const SettingButtonWidget({super.key});
+
+  @override
+  State<SettingButtonWidget> createState() => _SettingButtonWidgetState();
+}
+
+class _SettingButtonWidgetState extends State<SettingButtonWidget> {
+  bool _checked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final icon = _checked ? Icons.settings : Icons.settings_outlined;
+    final iconColor = _checked ? Colors.white : null;
+
+    return Wrap(
+      direction: Axis.vertical,
+      spacing: 4.0,
+      children: <Widget>[
+        IconButton(
+          onPressed: () {
+            setState(() {
+              _checked = !_checked;
+            });
+          },
+          style: ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll(
+              _checked ? Colors.blue : Colors.grey.shade200,
+            ),
+          ),
+          color: iconColor,
+          icon: Icon(
+            icon,
+          ),
+        ),
+        IconButton(
+          onPressed: null,
+          style: ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll(
+              Colors.grey.shade200,
+            ),
+          ),
+          color: iconColor,
+          icon: Icon(
+            icon,
+          ),
+        ),
+      ],
     );
   }
 }
