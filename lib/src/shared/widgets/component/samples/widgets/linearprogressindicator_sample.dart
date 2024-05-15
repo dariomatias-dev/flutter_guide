@@ -6,9 +6,47 @@ class LinearProgressIndicatorSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: LinearProgressIndicator(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          LinearProgressIndicator(),
+          SizedBox(height: 40.0),
+          LinearProgressSliderWidget(),
+        ],
       ),
+    );
+  }
+}
+
+class LinearProgressSliderWidget extends StatefulWidget {
+  const LinearProgressSliderWidget({super.key});
+
+  @override
+  State<LinearProgressSliderWidget> createState() =>
+      _CircularProgressSliderStateWidget();
+}
+
+class _CircularProgressSliderStateWidget
+    extends State<LinearProgressSliderWidget> {
+  double _value = 0.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        LinearProgressIndicator(
+          value: _value,
+          backgroundColor: Colors.black.withOpacity(0.2),
+        ),
+        Slider(
+          value: _value,
+          onChanged: (value) {
+            setState(() {
+              _value = value;
+            });
+          },
+        ),
+      ],
     );
   }
 }

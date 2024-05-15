@@ -9,20 +9,25 @@ class InputChipSample extends StatefulWidget {
 
 class _InputChipSampleState extends State<InputChipSample> {
   late List<int> _inputs;
-  int _selectedItemIndex = 0;
+  int _selectedItemValue = 0;
 
   void _selectInput(int index) {
     setState(() {
-      _selectedItemIndex = index;
+      _selectedItemValue = index;
     });
   }
 
   void _addInput() {
-    setState(() {
-      _inputs.add(
-        _inputs.length,
-      );
-    });
+    for (int index = 1; index <= 10; index++) {
+      if (!_inputs.contains(index)) {
+        _inputs.add(
+          index,
+        );
+        break;
+      }
+    }
+
+    setState(() {});
   }
 
   void _removeInput() {
@@ -73,8 +78,10 @@ class _InputChipSampleState extends State<InputChipSample> {
                   label: Text(
                     'Item ${_inputs[index]}',
                   ),
-                  selected: _selectedItemIndex == index,
-                  onSelected: (value) => _selectInput(index),
+                  selected: _selectedItemValue == _inputs[index],
+                  onSelected: (value) => _selectInput(
+                    _inputs[index],
+                  ),
                   onDeleted: () => _removeSelectedInput(index),
                 );
               }),
@@ -85,7 +92,7 @@ class _InputChipSampleState extends State<InputChipSample> {
               spacing: 6.0,
               children: [
                 ElevatedButton(
-                  onPressed: _inputs.length <= 10 ? _addInput : null,
+                  onPressed: _inputs.length < 10 ? _addInput : null,
                   child: const Text('Add'),
                 ),
                 ElevatedButton(
