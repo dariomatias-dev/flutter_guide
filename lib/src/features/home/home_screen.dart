@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:flutter_guide/src/core/enums/interface_type_enum.dart';
 
@@ -19,7 +20,34 @@ class HomeScreen extends StatelessWidget {
         ),
         child: ListView(
           children: <Widget>[
-            const SizedBox(height: 20.0),
+            CarouselSlider(
+              options: CarouselOptions(
+                height: 200.0,
+                autoPlay: true,
+                autoPlayInterval: const Duration(
+                  seconds: 4,
+                ),
+                viewportFraction: 0.8,
+                enlargeCenterPage: true,
+              ),
+              items: List.generate(5, (index) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(12.0),
+                  child: Image.asset(
+                    'assets/images/nature/image_${index + 1}.png',
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                );
+              }),
+            ),
+            const SizedBox(height: 12.0),
+            Divider(
+              color: Theme.of(context).brightness == Brightness.light
+                  ? Colors.grey.shade200
+                  : Colors.grey.shade800,
+            ),
+            const SizedBox(height: 12.0),
             BorderListTileItemWidget(
               title: 'UIs',
               icon: Icons.web,
