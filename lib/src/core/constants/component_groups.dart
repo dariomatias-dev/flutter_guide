@@ -8,7 +8,7 @@ const componentGroups = <ComponentGroupModel>[
   ComponentGroupModel(
     icon: Icons.crop_16_9,
     title: 'Buttons',
-    components: [
+    components: <String>[
       WidgetNames.elevatedButtonWidget,
       WidgetNames.iconButtonWidget,
     ],
@@ -16,7 +16,7 @@ const componentGroups = <ComponentGroupModel>[
   ComponentGroupModel(
     icon: Icons.chat_bubble_outline,
     title: 'Dialogs',
-    components: [
+    components: <String>[
       WidgetNames.alertDialogWidget,
       WidgetNames.simpleDialogWidget,
     ],
@@ -24,7 +24,7 @@ const componentGroups = <ComponentGroupModel>[
   ComponentGroupModel(
     icon: Icons.crop,
     title: 'Clips',
-    components: [
+    components: <String>[
       WidgetNames.clipOvalWidget,
       WidgetNames.clipRRectWidget,
     ],
@@ -32,7 +32,7 @@ const componentGroups = <ComponentGroupModel>[
   ComponentGroupModel(
     icon: Icons.text_fields,
     title: 'Texts',
-    components: [
+    components: <String>[
       WidgetNames.textWidget,
     ],
   ),

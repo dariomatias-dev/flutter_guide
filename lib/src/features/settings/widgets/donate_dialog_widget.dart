@@ -22,7 +22,9 @@ class DonateDialogWidget extends StatelessWidget {
         CustomDialog.button(
           text: 'Donate',
           textColor: Colors.white,
-          backgroundColor: Colors.yellow,
+          backgroundColor: Colors.yellow.withOpacity(
+            isLight ? 1.0 : 0.95,
+          ),
           onTap: () {
             openURL(
               () => context,
@@ -34,7 +36,7 @@ class DonateDialogWidget extends StatelessWidget {
           text: 'Cancel',
           textColor: Colors.grey[isLight ? 700 : 800]!,
           backgroundColor: Colors.white.withOpacity(
-            isLight ? 0.9 : 0.85,
+            isLight ? 0.9 : 0.95,
           ),
           onTap: () {
             overlayEntry?.remove();

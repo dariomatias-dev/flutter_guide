@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:flutter_guide/src/core/enums/interface_type_enum.dart';
 
 import 'package:flutter_guide/src/features/home/widgets/border_list_tile_item_widget.dart';
 import 'package:flutter_guide/src/features/home/widgets/component_groups/component_groups_widget.dart';
+import 'package:flutter_guide/src/features/home/widgets/project_showcase_carousel_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/interface_catalog_screen.dart';
 
@@ -20,27 +20,7 @@ class HomeScreen extends StatelessWidget {
         ),
         child: ListView(
           children: <Widget>[
-            CarouselSlider(
-              options: CarouselOptions(
-                height: 200.0,
-                autoPlay: true,
-                autoPlayInterval: const Duration(
-                  seconds: 4,
-                ),
-                viewportFraction: 0.8,
-                enlargeCenterPage: true,
-              ),
-              items: List.generate(5, (index) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(12.0),
-                  child: Image.asset(
-                    'assets/images/nature/image_${index + 1}.png',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                );
-              }),
-            ),
+            const ProjectShowcaseCarouselWidget(),
             const SizedBox(height: 12.0),
             Divider(
               color: Theme.of(context).brightness == Brightness.light

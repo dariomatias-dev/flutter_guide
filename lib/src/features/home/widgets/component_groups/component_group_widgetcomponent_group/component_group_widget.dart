@@ -47,7 +47,10 @@ class _ComponentGroupWidgetState extends State<ComponentGroupWidget> {
           icon: widget.componentGroup.icon,
           trailingWidgets: <Widget>[
             Icon(
-              isExpanded ? Icons.arrow_drop_down : Icons.arrow_right_sharp,
+              isExpanded
+                  ? Icons.keyboard_arrow_down_rounded
+                  : Icons.keyboard_arrow_right_rounded,
+              size: 20.0,
             ),
           ],
         ),
