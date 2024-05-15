@@ -19,6 +19,13 @@ class ColorFilteredSample extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
+                'Original',
+                style: _defaultTextStyle,
+              ),
+              Image.asset(
+                'assets/images/nature/image_1.png',
+              ),
+              Text(
                 'Difference',
                 style: _defaultTextStyle,
               ),

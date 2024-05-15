@@ -17,6 +17,12 @@ class AlertDialogSample extends StatelessWidget {
               },
               child: const Text('Ok'),
             ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Cancel'),
+            ),
           ],
         );
       },

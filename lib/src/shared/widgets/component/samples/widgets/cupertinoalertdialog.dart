@@ -5,18 +5,25 @@ class CupertinoAlertDialogSample extends StatelessWidget {
   const CupertinoAlertDialogSample({super.key});
 
   void _showAlertDialog(BuildContext context) {
-    showDialog(
+    showCupertinoDialog(
       context: context,
       builder: (context) {
         return CupertinoAlertDialog(
           title: const Text('Title'),
           content: const Text('Description'),
           actions: <Widget>[
-            TextButton(
+            CupertinoDialogAction(
               onPressed: () {
                 Navigator.pop(context);
               },
               child: const Text('Ok'),
+            ),
+            CupertinoDialogAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              isDestructiveAction: true,
+              child: const Text('Cancel'),
             ),
           ],
         );
