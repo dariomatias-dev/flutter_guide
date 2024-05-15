@@ -21,20 +21,47 @@ class _CheckboxSampleState extends State<CheckboxSample> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(2, (index) {
-          return Row(
+        children: <Widget>[
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Checkbox(
                 onChanged: (value) {
-                  updateSelectedOptions(index, value!);
+                  updateSelectedOptions(
+                    0,
+                    value!,
+                  );
                 },
-                value: _selectedOptions[index],
+                value: _selectedOptions[0],
               ),
-              Text('Item ${index + 1}'),
+              const Text('Item 1'),
             ],
-          );
-        }),
+          ),
+          const SizedBox(height: 4.0),
+          GestureDetector(
+            onTap: () {
+              updateSelectedOptions(
+                1,
+                !_selectedOptions[1],
+              );
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Checkbox(
+                  onChanged: (value) {
+                    updateSelectedOptions(
+                      1,
+                      value!,
+                    );
+                  },
+                  value: _selectedOptions[1],
+                ),
+                const Text('Item 2'),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
