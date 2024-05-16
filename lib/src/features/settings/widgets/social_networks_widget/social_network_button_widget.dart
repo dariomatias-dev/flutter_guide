@@ -12,7 +12,7 @@ class SocialNetworkButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        openURL(
+        openUrl(
           () => context,
           socialNetwork.url,
         );

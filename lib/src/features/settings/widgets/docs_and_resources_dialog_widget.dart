@@ -33,7 +33,7 @@ class DocsAndResourcesDialogWidget extends StatelessWidget {
 
           return ListTileItemWidget(
             onTap: () {
-              openURL(
+              openUrl(
                 () => context,
                 item.url,
               );

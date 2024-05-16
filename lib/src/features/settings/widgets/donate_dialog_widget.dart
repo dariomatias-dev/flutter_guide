@@ -26,7 +26,7 @@ class DonateDialogWidget extends StatelessWidget {
             isLight ? 1.0 : 0.95,
           ),
           onTap: () {
-            openURL(
+            openUrl(
               () => context,
               'https://www.buymeacoffee.com/dariomatias',
             );

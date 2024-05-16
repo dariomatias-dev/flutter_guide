@@ -59,7 +59,7 @@ class CardWidget extends StatelessWidget {
           IconButtonWidget(
             icon: FontAwesomeIcons.youtube,
             onTap: () {
-              openURL(
+              openUrl(
                 () => context,
                 'https://www.youtube.com/watch?v=${videoId!}',
               );

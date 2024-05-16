@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/theme/theme_controller.dart';
 
 import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/change_theme_button/theme_selector_dialog/theme_selector_dialog_widget.dart';
 
-import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
+import 'package:flutter_guide/src/shared/utils/show_custom_dialog.dart';
+import 'package:flutter_guide/src/shared/widgets/change_theme_button/theme_selector_dialog/theme_selector_dialog_widget.dart';
 
 class ChangeThemeButtonController {
   ChangeThemeButtonController({
@@ -16,7 +16,6 @@ class ChangeThemeButtonController {
   }
 
   late BuildContext _context;
-  final _customDialog = CustomDialog();
 
   late ThemeController _themeController;
   late ThemeMode _themeMode;
@@ -56,7 +55,7 @@ class ChangeThemeButtonController {
   }
 
   void showThemeSelectorDialog() {
-    _customDialog.showDialog(
+    showCustomDialog(
       context: _context,
       builder: (overlayEntry) {
         return ThemeSelectorDialogWidget(

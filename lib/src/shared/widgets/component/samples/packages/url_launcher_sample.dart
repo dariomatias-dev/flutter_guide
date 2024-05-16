@@ -16,7 +16,7 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
 
   BuildContext _getContext() => context;
 
-  Future<void> _openURL() async {
+  Future<void> _openUrl() async {
     if (_urlController.text.trim() == '') {
       _url = standardUrl;
     } else {
@@ -68,7 +68,7 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
             ),
             const SizedBox(height: 12.0),
             ElevatedButton(
-              onPressed: _openURL,
+              onPressed: _openUrl,
               child: const Text(
                 'Open',
               ),

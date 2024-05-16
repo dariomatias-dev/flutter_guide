@@ -50,7 +50,7 @@ class _ComponentScreenState extends State<ComponentScreen> {
         if (_controller.component.videoId != null)
           PopupMenuItem(
             onTap: () {
-              openURL(
+              openUrl(
                 () => context,
                 'https://www.youtube.com/watch?v=${_controller.component.videoId}',
               );

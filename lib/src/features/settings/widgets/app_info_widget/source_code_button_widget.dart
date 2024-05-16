@@ -14,7 +14,7 @@ class SourceCodeButtonWidget extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          openURL(
+          openUrl(
             () => context,
             'https://github.com/dariomatias-dev/flutter_guide',
           );

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'package:flutter_guide/src/shared/utils/show_custom_dialog.dart';
 import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
 
-Future<void> openURL(
+Future<void> openUrl(
   BuildContext Function() getContext,
   String url,
 ) async {
@@ -19,9 +20,7 @@ void showAlertDialog(
   BuildContext context,
   String url,
 ) async {
-  final customDialog = CustomDialog();
-
-  customDialog.showDialog(
+  showCustomDialog(
     context: context,
     builder: (overlayEntry) {
       return CustomDialog.dialog(
