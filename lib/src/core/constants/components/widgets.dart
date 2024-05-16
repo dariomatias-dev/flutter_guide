@@ -10,6 +10,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/align
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/animatedcontainer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/appbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backbutton_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backdropfilter_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/banner_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomnavigationbar_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/checkbox_sample.dart';
@@ -111,6 +112,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.backButtonWidget,
     icon: Icons.arrow_back,
     sample: BackButtonSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.backdropFilterWidget,
+    icon: Icons.opacity,
+    videoId: 'dYRs7Q1vfYI',
+    sample: BackdropFilterSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(

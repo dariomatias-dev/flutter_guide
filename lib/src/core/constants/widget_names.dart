@@ -5,6 +5,7 @@ class WidgetNames {
   static const animatedContainerWidget = 'AnimatedContainer';
   static const appBarWidget = 'AppBar';
   static const backButtonWidget = 'BackButton';
+  static const backdropFilterWidget = 'BackdropFilter';
   static const bannerWidget = 'Banner';
   static const bottomNavigationBarWidget = 'BottomNavigationBar';
   static const checkboxWidget = 'Checkbox';
