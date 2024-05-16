@@ -27,6 +27,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/const
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/container_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoalertdialog.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoslider_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/decoratedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dismissible_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/drawer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dropdownbutton_sample.dart';
@@ -119,7 +120,7 @@ const widgets = <WidgetModel>[
     icon: Icons.opacity,
     videoId: 'dYRs7Q1vfYI',
     sample: BackdropFilterSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.bannerWidget,
@@ -223,6 +224,12 @@ const widgets = <WidgetModel>[
     videoId: 'ufb4gIPDmEs',
     sample: CupertinoSliderSample(),
     category: WidgetCategory.cupertino,
+  ),
+  WidgetModel(
+    name: WidgetNames.decoratedBoxWidget,
+    icon: Icons.image,
+    sample: DecoratedBoxSample(),
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.dismissibleWidget,
