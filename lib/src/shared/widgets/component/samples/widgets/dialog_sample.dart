@@ -8,45 +8,61 @@ class DialogSample extends StatefulWidget {
 }
 
 class _DialogSampleState extends State<DialogSample> {
+  Widget get _defaultDialogContent => Padding(
+        padding: const EdgeInsets.all(28.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const Text(
+              'Title',
+              style: TextStyle(
+                fontSize: 24.0,
+              ),
+            ),
+            const SizedBox(height: 12.0),
+            const Text('Description'),
+            const SizedBox(height: 4.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Ok'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Cancel'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+
   void _showBasicDialog() {
     showDialog(
       context: context,
       builder: (context) {
         return Dialog(
-          child: Padding(
-            padding: const EdgeInsets.all(28.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const Text(
-                  'Title',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                  ),
-                ),
-                const SizedBox(height: 12.0),
-                const Text('Description'),
-                const SizedBox(height: 4.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text('Ok'),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text('Cancel'),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+          child: _defaultDialogContent,
+        );
+      },
+    );
+  }
+
+  void _showFullScreenDialog() {
+    showDialog(
+      context: context,
+      useSafeArea: false,
+      builder: (context) {
+        return Dialog.fullscreen(
+          child: SafeArea(
+            child: _defaultDialogContent,
           ),
         );
       },
@@ -57,12 +73,18 @@ class _DialogSampleState extends State<DialogSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Wrap(
+          spacing: 12.0,
+          direction: Axis.vertical,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: <Widget>[
             ElevatedButton(
               onPressed: _showBasicDialog,
               child: const Text('Basic Dialog'),
+            ),
+            ElevatedButton(
+              onPressed: _showFullScreenDialog,
+              child: const Text('Full Screen Dialog'),
             ),
           ],
         ),
