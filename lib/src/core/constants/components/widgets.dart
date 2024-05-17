@@ -46,6 +46,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/inter
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/linearprogressindicator_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listtile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listview_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/navigationbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/navigationrail_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/opacity_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/pageview_sample.dart';
@@ -350,6 +351,13 @@ const widgets = <WidgetModel>[
     videoId: 'KJpkjHGiI5A',
     sample: ListViewSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.navigationBarWidget,
+    icon: Icons.view_carousel,
+    videoId: 'DVGYddFaLv0',
+    sample: NavigationBarSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.navigationRailWidget,

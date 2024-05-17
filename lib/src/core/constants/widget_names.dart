@@ -41,6 +41,7 @@ class WidgetNames {
   static const linearProgressIndicatorWidget = 'LinearProgressIndicator';
   static const listTileWidget = 'ListTile';
   static const listViewWidget = 'ListView';
+  static const navigationBarWidget = 'NavigationBar';
   static const navigationRailWidget = 'NavigationRail';
   static const opacityWidget = 'Opacity';
   static const pageViewWidget = 'PageView';
