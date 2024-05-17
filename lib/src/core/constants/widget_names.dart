@@ -23,6 +23,7 @@ class WidgetNames {
   static const cupertinoAlertDialogWidget = 'CupertinoAlertDialog';
   static const cupertinoSliderWidget = 'CupertinoSlider';
   static const decoratedBoxWidget = 'DecoratedBox';
+  static const dialogWidget = 'Dialog';
   static const dismissibleWidget = 'Dismissible';
   static const drawerWidget = 'Drawer';
   static const dropdownButtonWidget = 'DropdownButton';
