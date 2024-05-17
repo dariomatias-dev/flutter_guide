@@ -60,6 +60,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/segme
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/selectabletext_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/simpledialog_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/singlechildscrollview_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/sizedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/slider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/stack_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switch_sample.dart';
@@ -439,6 +440,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.singleChildScrollViewWidget,
     icon: Icons.swap_vert,
     sample: SingleChildScrollViewSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.sizedBoxWidget,
+    icon: Icons.crop_square,
+    videoId: 'EHPu_DzRfqA',
+    sample: SizedBoxSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(

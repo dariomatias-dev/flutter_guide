@@ -55,6 +55,7 @@ class WidgetNames {
   static const selectableTextWidget = 'SelectableText';
   static const simpleDialogWidget = 'SimpleDialog';
   static const singleChildScrollViewWidget = 'SingleChildScrollView';
+  static const sizedBoxWidget = 'SizedBox';
   static const sliderWidget = 'Slider';
   static const stackWidget = 'Stack';
   static const switchWidget = 'Switch';
