@@ -64,6 +64,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/simpl
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/singlechildscrollview_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/sizedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/slider_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/snackbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/stack_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switch_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switchlisttile_sample.dart';
@@ -469,6 +470,13 @@ const widgets = <WidgetModel>[
     icon: Icons.tune,
     videoId: 'ufb4gIPDmEs',
     sample: SliderSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.snackBarWidget,
+    icon: Icons.info_outline,
+    videoId: 'zpO6n_oZWw0',
+    sample: SnackBarSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(

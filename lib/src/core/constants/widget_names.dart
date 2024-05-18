@@ -59,6 +59,7 @@ class WidgetNames {
   static const singleChildScrollViewWidget = 'SingleChildScrollView';
   static const sizedBoxWidget = 'SizedBox';
   static const sliderWidget = 'Slider';
+  static const snackBarWidget = 'SnackBar';
   static const stackWidget = 'Stack';
   static const switchWidget = 'Switch';
   static const switchListTileWidget = 'SwitchListTile';
