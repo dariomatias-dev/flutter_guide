@@ -8,17 +8,39 @@ class SnackBarSample extends StatefulWidget {
 }
 
 class _SnackBarSampleState extends State<SnackBarSample> {
-  ScaffoldFeatureController? scaffoldFeatureController;
-  void _showSnackBar() {
+  void _showBasicSnackBar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Product saved to favorites list.'),
+      ),
+    );
+  }
+
+  void _showInteractiveSnackBar() {
     final snackBar = SnackBar(
       action: SnackBarAction(
         label: 'Ok',
         onPressed: () {},
       ),
-      content: const Text('SnackBar'),
+      content: const Text('Email successfully archived.'),
     );
 
-    scaffoldFeatureController = ScaffoldMessenger.of(context).showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
+      snackBar,
+    );
+  }
+
+  void _showFloatingSnackBar() {
+    final snackBar = SnackBar(
+      action: SnackBarAction(
+        label: 'Ok',
+        onPressed: () {},
+      ),
+      content: const Text('No internet connection.'),
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(
       snackBar,
     );
   }
@@ -27,9 +49,24 @@ class _SnackBarSampleState extends State<SnackBarSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-          onPressed: _showSnackBar,
-          child: const Text('Show SnackBar'),
+        child: Wrap(
+          spacing: 16.0,
+          direction: Axis.vertical,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: _showBasicSnackBar,
+              child: const Text('Show Basic SnackBar'),
+            ),
+            ElevatedButton(
+              onPressed: _showInteractiveSnackBar,
+              child: const Text('Show Interactive SnackBar'),
+            ),
+            ElevatedButton(
+              onPressed: _showFloatingSnackBar,
+              child: const Text('Show Floating SnackBar'),
+            ),
+          ],
         ),
       ),
     );
