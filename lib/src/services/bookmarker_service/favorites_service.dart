@@ -89,18 +89,18 @@ class FavoritesService {
   }
 
   void _showSnackbar(BuildContext context) {
-    ScaffoldFeatureController<SnackBar, SnackBarClosedReason>? snackBar;
-
-    snackBar = ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(_snackBarMessage),
-        action: SnackBarAction(
-          label: 'Ok',
-          onPressed: () {
-            snackBar?.close();
-          },
-        ),
+    final snackBar = SnackBar(
+      content: Text(
+        _snackBarMessage,
       ),
+      action: SnackBarAction(
+        label: 'Ok',
+        onPressed: () {},
+      ),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      snackBar,
     );
   }
 }
