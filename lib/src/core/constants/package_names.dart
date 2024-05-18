@@ -1,4 +1,5 @@
 class PackageNames {
+  static const awesomeSnackbarContentPackage = 'awesome_snackbar_content';
   static const batteryPlusPackage = 'battery_plus';
   static const carouselSliderPackage = 'carousel_slider';
   static const circularCountdownTimerPackage = 'circular_countdown_timer';
