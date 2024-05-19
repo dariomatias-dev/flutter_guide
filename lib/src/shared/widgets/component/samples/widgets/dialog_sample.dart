@@ -69,6 +69,67 @@ class _DialogSampleState extends State<DialogSample> {
     );
   }
 
+  void _showDialogWithImage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(24.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/nature/image_2.png',
+                ),
+                Container(
+                  padding: const EdgeInsets.only(
+                    top: 12.0,
+                    right: 20.0,
+                    bottom: 20.0,
+                    left: 20.0,
+                  ),
+                  color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const Text(
+                        'Crimson Forest',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const Text(
+                        'Discover the enchanting Red Forest! Visit today and lose yourself in a sea of breathtaking crimson foliage. Your adventure awaits!',
+                        style: TextStyle(
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      const SizedBox(height: 12.0),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.redAccent.shade700,
+                        ),
+                        child: const Text(
+                          'Access',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,6 +146,10 @@ class _DialogSampleState extends State<DialogSample> {
             ElevatedButton(
               onPressed: _showFullScreenDialog,
               child: const Text('Full Screen Dialog'),
+            ),
+            ElevatedButton(
+              onPressed: _showDialogWithImage,
+              child: const Text('Dialog With Image'),
             ),
           ],
         ),
