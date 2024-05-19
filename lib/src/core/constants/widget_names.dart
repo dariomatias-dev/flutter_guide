@@ -46,6 +46,7 @@ class WidgetNames {
   static const navigationBarWidget = 'NavigationBar';
   static const navigationRailWidget = 'NavigationRail';
   static const opacityWidget = 'Opacity';
+  static const outlinedButtonWidget = 'OutlinedButton';
   static const pageViewWidget = 'PageView';
   static const placeholderWidget = 'Placeholder';
   static const popupMenuButtonWidget = 'PopupMenuButton';

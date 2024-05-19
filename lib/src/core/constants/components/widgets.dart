@@ -51,6 +51,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listv
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/navigationbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/navigationrail_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/opacity_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/outlinedbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/pageview_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/placeholder_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/popupmenubutton_sample.dart';
@@ -389,6 +390,12 @@ const widgets = <WidgetModel>[
     videoId: '9hltevOHQBw',
     sample: OpacitySample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.outlinedButtonWidget,
+    icon: Icons.crop_16_9,
+    sample: OutlinedButtonSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.pageViewWidget,
