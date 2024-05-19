@@ -25,6 +25,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/color
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/column_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/constrainedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/container_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoactivityindicator_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoalertdialog.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoslider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/decoratedbox_sample.dart';
@@ -215,6 +216,13 @@ const widgets = <WidgetModel>[
     videoId: 'c1xLMaTUWCY',
     sample: ContainerSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.cupertinoActivityIndicatorWidget,
+    icon: Icons.cached,
+    videoId: 'AENVH-ZqKDQ',
+    sample: CupertinoActivityIndicatorSample(),
+    category: WidgetCategory.cupertino,
   ),
   WidgetModel(
     name: WidgetNames.cupertinoAlertDialogWidget,

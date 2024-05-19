@@ -20,6 +20,7 @@ class WidgetNames {
   static const columnWidget = 'Column';
   static const constrainedBoxWidget = 'ConstrainedBox';
   static const containerWidget = 'Container';
+  static const cupertinoActivityIndicatorWidget = 'CupertinoActivityIndicator';
   static const cupertinoAlertDialogWidget = 'CupertinoAlertDialog';
   static const cupertinoSliderWidget = 'CupertinoSlider';
   static const decoratedBoxWidget = 'DecoratedBox';
