@@ -53,6 +53,7 @@ class WidgetNames {
   static const rangeSliderWidget = 'RangeSlider';
   static const richTextWidget = 'RichText';
   static const rowWidget = 'Row';
+  static const safeAreaWidget = 'SafeArea';
   static const segmentedButtonWidget = 'SegmentedButton';
   static const selectableTextWidget = 'SelectableText';
   static const simpleDialogWidget = 'SimpleDialog';

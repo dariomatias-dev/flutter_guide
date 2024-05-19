@@ -58,6 +58,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/radio
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/rangeslider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/richtext_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/row_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/safearea_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/segmentedbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/selectabletext_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/simpledialog_sample.dart';
@@ -431,6 +432,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.rowWidget,
     icon: Icons.view_week,
     sample: RowSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.safeAreaWidget,
+    icon: Icons.border_outer,
+    videoId: 'lkF0TQJO0bA',
+    sample: SafeAreaSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(
