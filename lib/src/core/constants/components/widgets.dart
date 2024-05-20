@@ -76,6 +76,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textf
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textformfield_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/togglebuttons_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/tooltip_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/valuelistenablebuilder_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/wrap_sample.dart';
 
 // Models
@@ -558,6 +559,13 @@ const widgets = <WidgetModel>[
     icon: Icons.view_week,
     videoId: 'z5iw2SeFx2M',
     sample: WrapSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.valueListenableBuilderWidget,
+    icon: Icons.transform,
+    videoId: 's-ZG-jS5QHQ',
+    sample: ValueListenableBuilderSample(),
     category: WidgetCategory.widgets,
   ),
 ];

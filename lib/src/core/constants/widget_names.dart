@@ -72,4 +72,5 @@ class WidgetNames {
   static const toggleButtonsWidget = 'ToggleButtons';
   static const tooltipWidget = 'Tooltip';
   static const wrapWidget = 'Wrap';
+  static const valueListenableBuilderWidget = 'ValueListenableBuilder';
 }
