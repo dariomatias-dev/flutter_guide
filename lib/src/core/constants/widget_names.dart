@@ -41,6 +41,7 @@ class WidgetNames {
   static const inputChipWidget = 'InputChip';
   static const interactiveViewerWidget = 'InteractiveViewer';
   static const linearProgressIndicatorWidget = 'LinearProgressIndicator';
+  static const listenableBuilderWidget = 'ListenableBuilder';
   static const listTileWidget = 'ListTile';
   static const listViewWidget = 'ListView';
   static const navigationBarWidget = 'NavigationBar';

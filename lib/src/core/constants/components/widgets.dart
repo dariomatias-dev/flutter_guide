@@ -46,6 +46,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/index
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/inputchip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/interactiveviewer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/linearprogressindicator_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listenablebuilder_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listtile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listview_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/navigationbar_sample.dart';
@@ -358,6 +359,12 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.material,
   ),
   WidgetModel(
+    name: WidgetNames.listenableBuilderWidget,
+    icon: Icons.transform,
+    sample: ListenableBuilderSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
     name: WidgetNames.listTileWidget,
     icon: Icons.list_alt,
     videoId: 'l8dj0yPBvgQ',
@@ -555,17 +562,17 @@ const widgets = <WidgetModel>[
     category: WidgetCategory.material,
   ),
   WidgetModel(
-    name: WidgetNames.wrapWidget,
-    icon: Icons.view_week,
-    videoId: 'z5iw2SeFx2M',
-    sample: WrapSample(),
-    category: WidgetCategory.widgets,
-  ),
-  WidgetModel(
     name: WidgetNames.valueListenableBuilderWidget,
     icon: Icons.transform,
     videoId: 's-ZG-jS5QHQ',
     sample: ValueListenableBuilderSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.wrapWidget,
+    icon: Icons.view_week,
+    videoId: 'z5iw2SeFx2M',
+    sample: WrapSample(),
     category: WidgetCategory.widgets,
   ),
 ];
