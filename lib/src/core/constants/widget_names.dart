@@ -65,6 +65,7 @@ class WidgetNames {
   static const sizedBoxWidget = 'SizedBox';
   static const sliderWidget = 'Slider';
   static const snackBarWidget = 'SnackBar';
+  static const spacerWidget = 'Spacer';
   static const stackWidget = 'Stack';
   static const switchWidget = 'Switch';
   static const switchListTileWidget = 'SwitchListTile';

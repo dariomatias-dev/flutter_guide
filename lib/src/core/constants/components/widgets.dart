@@ -70,6 +70,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/singl
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/sizedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/slider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/snackbar_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/spacer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/stack_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switch_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switchlisttile_sample.dart';
@@ -516,6 +517,13 @@ const widgets = <WidgetModel>[
     videoId: 'zpO6n_oZWw0',
     sample: SnackBarSample(),
     category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.spacerWidget,
+    icon: Icons.linear_scale,
+    videoId: '7FJgd7QN1zI',
+    sample: SpacerSample(),
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.stackWidget,
