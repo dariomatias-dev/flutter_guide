@@ -8,6 +8,7 @@ class WidgetNames {
   static const backdropFilterWidget = 'BackdropFilter';
   static const bannerWidget = 'Banner';
   static const bottomNavigationBarWidget = 'BottomNavigationBar';
+  static const centerWidget = 'Center';
   static const checkboxWidget = 'Checkbox';
   static const checkboxListTileWidget = 'CheckboxListTile';
   static const chipWidget = 'Chip';

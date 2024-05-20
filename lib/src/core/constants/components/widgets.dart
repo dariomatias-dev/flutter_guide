@@ -13,6 +13,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backb
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backdropfilter_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/banner_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomnavigationbar_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/center_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/checkbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/checkboxlisttile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/chip_sample.dart';
@@ -142,6 +143,12 @@ const widgets = <WidgetModel>[
     icon: Icons.view_carousel,
     sample: BottomNavigationBarSample(),
     category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.centerWidget,
+    icon: Icons.center_focus_strong_outlined,
+    sample: CenterSample(),
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.checkboxWidget,
