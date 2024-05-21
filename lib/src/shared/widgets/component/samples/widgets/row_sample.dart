@@ -6,6 +6,14 @@ const colors = <Color>[
   Colors.red,
 ];
 
+final rowItems = List.generate(colors.length, (index) {
+  return Container(
+    width: 50.0,
+    height: 50.0,
+    color: colors[index],
+  );
+});
+
 /// MainAxisAlignment
 class MainAxisAlignmentModel {
   const MainAxisAlignmentModel({
@@ -114,13 +122,7 @@ class _RowSampleState extends State<RowSample> {
           Row(
             mainAxisAlignment: _mainAxisAlignment,
             mainAxisSize: _mainAxisSize,
-            children: List.generate(colors.length, (index) {
-              return Container(
-                width: 50.0,
-                height: 50.0,
-                color: colors[index],
-              );
-            }),
+            children: rowItems,
           ),
         ],
       ),

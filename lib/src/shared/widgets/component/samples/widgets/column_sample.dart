@@ -6,6 +6,14 @@ const colors = <Color>[
   Colors.red,
 ];
 
+final columnItems = List.generate(colors.length, (index) {
+  return Container(
+    width: 50.0,
+    height: 50.0,
+    color: colors[index],
+  );
+});
+
 /// MainAxisAlignment
 class MainAxisAlignmentModel {
   const MainAxisAlignmentModel({
@@ -108,19 +116,15 @@ class _ColumnSampleState extends State<ColumnSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Align(
-        alignment: Alignment.topCenter,
-        child: Column(
-          mainAxisAlignment: _mainAxisAlignment,
-          mainAxisSize: _mainAxisSize,
-          children: List.generate(colors.length, (index) {
-            return Container(
-              width: 50.0,
-              height: 50.0,
-              color: colors[index],
-            );
-          }),
-        ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: _mainAxisAlignment,
+            mainAxisSize: _mainAxisSize,
+            children: columnItems,
+          ),
+        ],
       ),
       bottomNavigationBar: SizedBox(
         height: 180.0,
