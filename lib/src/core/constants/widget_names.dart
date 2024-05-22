@@ -40,6 +40,7 @@ class WidgetNames {
   static const iconButtonWidget = 'IconButton';
   static const imageWidget = 'Image';
   static const indexedStackWidget = 'IndexedStack';
+  static const inkWellWidget = 'InkWell';
   static const inputChipWidget = 'InputChip';
   static const interactiveViewerWidget = 'InteractiveViewer';
   static const linearProgressIndicatorWidget = 'LinearProgressIndicator';

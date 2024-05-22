@@ -45,6 +45,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/gridv
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/iconbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/image_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/indexedstack_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/ink_well_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/inputchip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/interactiveviewer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/linearprogressindicator_sample.dart';
@@ -352,6 +353,12 @@ const widgets = <WidgetModel>[
     videoId: '_O0PPD1Xfbk',
     sample: IndexedStackSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.inkWellWidget,
+    icon: Icons.touch_app_outlined,
+    sample: InkWellSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.inputChipWidget,
