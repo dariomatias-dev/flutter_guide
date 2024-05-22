@@ -13,6 +13,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backb
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backdropfilter_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/banner_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomnavigationbar_widget.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/card_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/center_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/checkbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/checkboxlisttile_sample.dart';
@@ -143,6 +144,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.bottomNavigationBarWidget,
     icon: Icons.view_carousel,
     sample: BottomNavigationBarSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.cardWidget,
+    icon: Icons.dashboard_outlined,
+    sample: CardSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
