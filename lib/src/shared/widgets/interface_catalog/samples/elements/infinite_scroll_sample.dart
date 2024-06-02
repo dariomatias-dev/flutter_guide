@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class InfiniteScrollSample extends StatefulWidget {
@@ -9,28 +11,33 @@ class InfiniteScrollSample extends StatefulWidget {
 
 class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
   bool _isLoading = false;
+  bool _hasMoreItems = false;
+
   final _scrollController = ScrollController();
   final _elements = [];
 
   void _onScroll() {
-    if (!_isLoading && _scrollController.position.atEdge) {
+    if (!_hasMoreItems && !_isLoading && _scrollController.position.atEdge) {
       if (_scrollController.position.pixels != 0) {
         _addElements();
       }
     }
   }
 
+  // Elements
   Future<void> _addElements() async {
-    _addElementLoading();
+    _addLoadingElement();
     _updateIsLoading();
 
     await Future.delayed(
       const Duration(seconds: 1),
     );
 
-    _removeElementLoading();
+    _removeLoadingElement();
 
     _createElements();
+
+    _hasMoreItems = Random().nextBool();
 
     _updateIsLoading();
   }
@@ -40,12 +47,20 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
       List.generate(20, (index) {
         return ListTile(
           title: Text('Item ${_elements.length + index + 1}'),
+          trailing: GestureDetector(
+            onTap: () {},
+            child: const Icon(
+              Icons.arrow_forward_ios_rounded,
+              size: 12.0,
+            ),
+          ),
         );
       }),
     );
   }
 
-  void _addElementLoading() {
+  // Loading Element
+  void _addLoadingElement() {
     _elements.add(
       const Padding(
         padding: EdgeInsets.symmetric(
@@ -61,10 +76,11 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
     );
   }
 
-  void _removeElementLoading() {
+  void _removeLoadingElement() {
     _elements.removeLast();
   }
 
+  // IsLoading
   void _updateIsLoading() {
     setState(() {
       _isLoading = !_isLoading;
@@ -90,13 +106,18 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        controller: _scrollController,
-        padding: EdgeInsets.zero,
-        itemCount: _elements.length,
-        itemBuilder: (context, index) {
-          return _elements[index];
-        },
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          scrollbars: false,
+        ),
+        child: ListView.builder(
+          controller: _scrollController,
+          padding: EdgeInsets.zero,
+          itemCount: _elements.length,
+          itemBuilder: (context, index) {
+            return _elements[index];
+          },
+        ),
       ),
     );
   }
