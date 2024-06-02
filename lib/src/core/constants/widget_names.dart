@@ -57,6 +57,7 @@ class WidgetNames {
   static const radioWidget = 'Radio';
   static const radioListTileWidget = 'RadioListTile';
   static const rangeSliderWidget = 'RangeSlider';
+  static const reorderableListViewWidget = 'ReorderableListView';
   static const richTextWidget = 'RichText';
   static const rowWidget = 'Row';
   static const safeAreaWidget = 'SafeArea';

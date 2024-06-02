@@ -62,6 +62,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/popup
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/radio_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/radiolisttile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/rangeslider_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/reorderablelistview_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/richtext_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/row_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/safearea_sample.dart';
@@ -464,6 +465,13 @@ const widgets = <WidgetModel>[
     icon: Icons.tune,
     videoId: 'ufb4gIPDmEs',
     sample: RangeSliderSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.reorderableListViewWidget,
+    icon: Icons.drag_handle,
+    videoId: '3fB1mxOsqJE',
+    sample: ReorderableListViewSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
