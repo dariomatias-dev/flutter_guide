@@ -10,32 +10,59 @@ class InfiniteScrollSample extends StatefulWidget {
 class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
   bool _isLoading = false;
   final _scrollController = ScrollController();
-  final _items = List.generate(20, (index) {
-    return index;
-  });
+  final _elements = [];
 
   void _onScroll() {
     if (!_isLoading && _scrollController.position.atEdge) {
       if (_scrollController.position.pixels != 0) {
-        _addItems();
+        _addElements();
       }
     }
   }
 
-  Future<void> _addItems() async {
+  Future<void> _addElements() async {
+    _addElementLoading();
     _updateIsLoading();
 
     await Future.delayed(
       const Duration(seconds: 1),
     );
 
-    _items.addAll(
-      List.generate(20, (index) {
-        return index + _items.length;
-      }),
-    );
+    _removeElementLoading();
+
+    _createElements();
 
     _updateIsLoading();
+  }
+
+  void _createElements() {
+    _elements.addAll(
+      List.generate(20, (index) {
+        return ListTile(
+          title: Text('Item ${_elements.length + index + 1}'),
+        );
+      }),
+    );
+  }
+
+  void _addElementLoading() {
+    _elements.add(
+      const Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: 12.0,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircularProgressIndicator(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _removeElementLoading() {
+    _elements.removeLast();
   }
 
   void _updateIsLoading() {
@@ -46,6 +73,7 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
 
   @override
   void initState() {
+    _createElements();
     _scrollController.addListener(_onScroll);
 
     super.initState();
@@ -62,28 +90,13 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: ListView.builder(
-              controller: _scrollController,
-              padding: EdgeInsets.zero,
-              itemCount: _items.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('Item ${index + 1}'),
-                );
-              },
-            ),
-          ),
-          if (_isLoading)
-            const Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 12.0,
-              ),
-              child: CircularProgressIndicator(),
-            ),
-        ],
+      body: ListView.builder(
+        controller: _scrollController,
+        padding: EdgeInsets.zero,
+        itemCount: _elements.length,
+        itemBuilder: (context, index) {
+          return _elements[index];
+        },
       ),
     );
   }
