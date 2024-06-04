@@ -52,6 +52,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/linea
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listenablebuilder_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listtile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listview_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/modal_bottom_sheet_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/navigationbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/navigationrail_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/opacity_sample.dart';
@@ -400,6 +401,12 @@ const widgets = <WidgetModel>[
     videoId: 'KJpkjHGiI5A',
     sample: ListViewSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.modalBottomSheetWidget,
+    icon: Icons.keyboard_arrow_up,
+    sample: ModalBottomSheetSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.navigationBarWidget,

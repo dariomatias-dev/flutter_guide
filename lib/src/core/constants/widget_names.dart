@@ -47,6 +47,7 @@ class WidgetNames {
   static const listenableBuilderWidget = 'ListenableBuilder';
   static const listTileWidget = 'ListTile';
   static const listViewWidget = 'ListView';
+  static const modalBottomSheetWidget = 'ModalBottomSheet';
   static const navigationBarWidget = 'NavigationBar';
   static const navigationRailWidget = 'NavigationRail';
   static const opacityWidget = 'Opacity';
