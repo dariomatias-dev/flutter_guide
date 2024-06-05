@@ -63,6 +63,7 @@ class WidgetNames {
   static const richTextWidget = 'RichText';
   static const rowWidget = 'Row';
   static const safeAreaWidget = 'SafeArea';
+  static const scaffoldWidget = 'Scaffold';
   static const segmentedButtonWidget = 'SegmentedButton';
   static const selectableTextWidget = 'SelectableText';
   static const simpleDialogWidget = 'SimpleDialog';

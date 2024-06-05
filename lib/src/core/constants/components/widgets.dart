@@ -68,6 +68,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/reord
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/richtext_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/row_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/safearea_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/scaffold_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/segmentedbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/selectabletext_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/simpledialog_sample.dart';
@@ -507,6 +508,13 @@ const widgets = <WidgetModel>[
     videoId: 'lkF0TQJO0bA',
     sample: SafeAreaSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.scaffoldWidget,
+    icon: Icons.dashboard,
+    videoId: '',
+    sample: ScaffoldSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.segmentedButtonWidget,
