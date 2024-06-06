@@ -25,6 +25,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/packages/load
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/salomon_bottom_bar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/shared_preferences_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/packages/side_sheet_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/smooth_page_indicator_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/toastification_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/url_launcher_sample.dart';
@@ -149,6 +150,11 @@ const packages = <PackageModel>[
     icon: Icons.storage,
     videoId: 'sa_U0jffQII',
     sample: SharedPreferencesSample(),
+  ),
+  PackageModel(
+    name: PackageNames.sideSheetPackage,
+    icon: Icons.view_sidebar_outlined,
+    sample: SideSheetSample(),
   ),
   PackageModel(
     name: PackageNames.smoothPageIndicatorPackage,
