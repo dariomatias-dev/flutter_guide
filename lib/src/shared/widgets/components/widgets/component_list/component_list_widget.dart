@@ -6,7 +6,7 @@ import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.da
 
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
 import 'package:flutter_guide/src/shared/widgets/card_widget/card_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/component_list/component_list_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/components/widgets/component_list/component_list_controller.dart';
 
 class ComponentListWidget extends StatefulWidget {
   const ComponentListWidget({
