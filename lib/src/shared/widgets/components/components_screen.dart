@@ -48,7 +48,7 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
               SearchFieldWidget(
                 componentType: widget.componentType,
                 onChange: (String value) {
-                  _controller.updateComponentList(value, () {
+                  _controller.searchComponents(value, () {
                     setState(() {});
                   });
                 },

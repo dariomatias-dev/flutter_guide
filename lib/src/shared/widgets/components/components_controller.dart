@@ -36,7 +36,7 @@ class ComponentsController {
     scrollController.addListener(_onScroll);
   }
 
-  void updateComponentList(
+  void searchComponents(
     String value,
     VoidCallback setStateCallback,
   ) {
@@ -56,7 +56,16 @@ class ComponentsController {
       _components = _standardComponents;
     }
 
-    setStateCallback();
+    final componentsLength = _components.length;
+
+    visibleItemsNotifier.setComponents(
+      _components.sublist(
+        0,
+        componentsLength >= visibleItemsIncreaseValue
+            ? visibleItemsIncreaseValue
+            : componentsLength,
+      ),
+    );
   }
 
   void _onScroll() {
