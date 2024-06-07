@@ -41,6 +41,7 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
           scrollbars: false,
         ),
         child: SingleChildScrollView(
+          controller: _controller.scrollController,
           child: Column(
             children: <Widget>[
               const SizedBox(height: 20.0),
@@ -53,9 +54,14 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
                 },
               ),
               const SizedBox(height: 12.0),
-              ComponentListWidget(
-                componentType: widget.componentType,
-                components: _controller.components,
+              ValueListenableBuilder(
+                valueListenable: _controller.visibleItemsNotifier,
+                builder: (context, value, child) {
+                  return ComponentListWidget(
+                    componentType: widget.componentType,
+                    components: value,
+                  );
+                },
               ),
             ],
           ),

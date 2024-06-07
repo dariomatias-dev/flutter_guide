@@ -20,6 +20,8 @@ class ComponentListController {
 
   final adInterval = 15;
 
+  final scrollController = ScrollController();
+
   late FavoritesService favoritesService;
   late FavoriteNotifier favoriteNotifier;
 
@@ -27,6 +29,7 @@ class ComponentListController {
     BuildContext context,
     ComponentType componentType,
   ) {
+
     final userPreferencesInheritedWidget =
         UserPreferencesInheritedWidget.of(context)!;
 

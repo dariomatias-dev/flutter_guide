@@ -47,6 +47,7 @@ class _ComponentListWidgetState extends State<ComponentListWidget> {
             (widget.components.length ~/ _controller.adInterval);
 
         return ListView.builder(
+          controller: _controller.scrollController,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: quantityOfItems,
