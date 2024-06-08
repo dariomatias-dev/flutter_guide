@@ -270,7 +270,7 @@ class _EmailsScreenAppBarWidgetState extends State<EmailsScreenAppBarWidget> {
   }
 }
 
-class ComposeEmailFloatingActionButtonWidget extends StatelessWidget {
+class ComposeEmailFloatingActionButtonWidget extends StatefulWidget {
   const ComposeEmailFloatingActionButtonWidget({
     super.key,
     required this.isLigth,
@@ -279,23 +279,170 @@ class ComposeEmailFloatingActionButtonWidget extends StatelessWidget {
   final bool isLigth;
 
   @override
+  State<ComposeEmailFloatingActionButtonWidget> createState() =>
+      _ComposeEmailFloatingActionButtonWidgetState();
+}
+
+class _ComposeEmailFloatingActionButtonWidgetState
+    extends State<ComposeEmailFloatingActionButtonWidget> {
+  InputDecoration _defaultInputDecoration({
+    String? hinText,
+  }) {
+    return InputDecoration(
+      contentPadding: _defaultPadding,
+      border: InputBorder.none,
+      isDense: true,
+      hintText: hinText,
+      hintStyle: _defaultTitleFieldTextStyle,
+    );
+  }
+
+  TextStyle get _defaultTitleFieldTextStyle => TextStyle(
+        color: Theme.of(context).colorScheme.secondary,
+        fontSize: 14.0,
+        fontWeight: FontWeight.w500,
+      );
+
+  EdgeInsets get _defaultPadding => const EdgeInsets.symmetric(
+        horizontal: 12.0,
+      );
+
+  @override
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
-      onPressed: () {},
+      onPressed: () {
+        showDialog(
+          context: context,
+          useSafeArea: false,
+          builder: (context) {
+            return Dialog.fullscreen(
+              child: SafeArea(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: _defaultPadding,
+                      child: Row(
+                        children: <Widget>[
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Icon(
+                              Icons.close,
+                              size: 20.0,
+                            ),
+                          ),
+                          const SizedBox(width: 20.0),
+                          const Text(
+                            'Compose an Email',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 12.0),
+                    CreateEmailTextFieldWidget(
+                      titleFieldTextStyle: _defaultTitleFieldTextStyle,
+                      inputDecoration: _defaultInputDecoration(),
+                      text: 'De',
+                    ),
+                    const CreateEmailDividirWidget(),
+                    CreateEmailTextFieldWidget(
+                      titleFieldTextStyle: _defaultTitleFieldTextStyle,
+                      inputDecoration: _defaultInputDecoration(),
+                      text: 'Para',
+                    ),
+                    const CreateEmailDividirWidget(),
+                    TextFormField(
+                      decoration: _defaultInputDecoration(
+                        hinText: 'Subject',
+                      ),
+                    ),
+                    const CreateEmailDividirWidget(),
+                    Expanded(
+                      child: TextFormField(
+                        maxLines: null,
+                        decoration: _defaultInputDecoration(
+                          hinText: 'Write Email',
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
       backgroundColor:
-          isLigth ? Colors.lightBlue.shade50 : Colors.lightBlue.shade900,
+          widget.isLigth ? Colors.lightBlue.shade50 : Colors.lightBlue.shade900,
       icon: Icon(
         Icons.edit_outlined,
-        color: isLigth ? Colors.lightBlue.shade900 : Colors.lightBlue.shade100,
+        color: widget.isLigth
+            ? Colors.lightBlue.shade900
+            : Colors.lightBlue.shade100,
         size: 20.0,
       ),
       label: Text(
         'Compose',
         style: TextStyle(
-          color:
-              isLigth ? Colors.lightBlue.shade900 : Colors.lightBlue.shade100,
+          color: widget.isLigth
+              ? Colors.lightBlue.shade900
+              : Colors.lightBlue.shade100,
         ),
       ),
+    );
+  }
+}
+
+class CreateEmailTextFieldWidget extends StatelessWidget {
+  const CreateEmailTextFieldWidget({
+    super.key,
+    required this.titleFieldTextStyle,
+    required this.inputDecoration,
+    required this.text,
+  });
+
+  final TextStyle titleFieldTextStyle;
+  final InputDecoration inputDecoration;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 12.0,
+      ),
+      child: Row(
+        children: <Widget>[
+          Text(
+            text,
+            style: titleFieldTextStyle,
+          ),
+          Expanded(
+            child: TextFormField(
+              decoration: inputDecoration,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CreateEmailDividirWidget extends StatelessWidget {
+  const CreateEmailDividirWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: 2.0,
+      ),
+      child: Divider(),
     );
   }
 }
