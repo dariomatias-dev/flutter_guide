@@ -89,8 +89,55 @@ class EmailsScreen extends StatefulWidget {
   State<EmailsScreen> createState() => _EmailsScreenState();
 }
 
+class EmailsNotifier extends ValueNotifier<List<EmailModel>> {
+  EmailsNotifier(super.value);
+
+  void setEmails(
+    List<EmailModel> emails,
+  ) {
+    value = emails;
+
+    notifyListeners();
+  }
+}
+
 class _EmailsScreenState extends State<EmailsScreen> {
   late bool _isLigth;
+
+  List<EmailModel> _emails = <EmailModel>[];
+
+  final _emailsNotifier = EmailsNotifier([]);
+
+  void _searchEmails(
+    String query,
+  ) {
+    if (query.trim() == '') {
+      _emailsNotifier.setEmails(_emails);
+      return;
+    }
+
+    query = query.trim().toLowerCase();
+
+    final results = <EmailModel>[];
+
+    for (EmailModel email in _emails) {
+      if (email.sender.toLowerCase().contains(query) ||
+          email.subject.toLowerCase().contains(query) ||
+          email.body.toLowerCase().contains(query)) {
+        results.add(email);
+      }
+    }
+
+    _emailsNotifier.setEmails(results);
+  }
+
+  @override
+  void initState() {
+    _emails = emails;
+    _emailsNotifier.setEmails(_emails);
+
+    super.initState();
+  }
 
   @override
   void didChangeDependencies() {
@@ -129,16 +176,23 @@ class _EmailsScreenState extends State<EmailsScreen> {
             ],
           ),
         ),
-        appBar: const EmailsScreenAppBarWidget(),
+        appBar: EmailsScreenAppBarWidget(
+          searchEmails: _searchEmails,
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 10.0,
           ),
-          child: ListView.builder(
-            itemCount: emails.length,
-            itemBuilder: (context, index) {
-              return EmailWidget(
-                email: emails[index],
+          child: ValueListenableBuilder(
+            valueListenable: _emailsNotifier,
+            builder: (context, value, child) {
+              return ListView.builder(
+                itemCount: value.length,
+                itemBuilder: (context, index) {
+                  return EmailWidget(
+                    email: value[index],
+                  );
+                },
               );
             },
           ),
@@ -151,12 +205,28 @@ class _EmailsScreenState extends State<EmailsScreen> {
   }
 }
 
-class EmailsScreenAppBarWidget extends StatelessWidget
+class EmailsScreenAppBarWidget extends StatefulWidget
     implements PreferredSizeWidget {
-  const EmailsScreenAppBarWidget({super.key});
+  const EmailsScreenAppBarWidget({
+    super.key,
+    required this.searchEmails,
+  });
+
+  final void Function(
+    String query,
+  ) searchEmails;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  State<EmailsScreenAppBarWidget> createState() =>
+      _EmailsScreenAppBarWidgetState();
+}
+
+class _EmailsScreenAppBarWidgetState extends State<EmailsScreenAppBarWidget> {
+  final _searchController = TextEditingController();
+  final _searchFocus = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -166,27 +236,32 @@ class EmailsScreenAppBarWidget extends StatelessWidget
           horizontal: 12.0,
         ),
         height: 40.0,
-        child: Expanded(
-          child: TextFormField(
-            decoration: InputDecoration(
-              prefixIcon: GestureDetector(
-                onTap: () {
-                  Scaffold.of(context).openDrawer();
-                },
-                child: const Icon(
-                  Icons.menu,
-                ),
+        child: TextFormField(
+          controller: _searchController,
+          focusNode: _searchFocus,
+          onEditingComplete: () {
+            widget.searchEmails(
+              _searchController.text,
+            );
+          },
+          decoration: InputDecoration(
+            prefixIcon: GestureDetector(
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+              child: const Icon(
+                Icons.menu,
               ),
-              filled: true,
-              fillColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-              contentPadding: const EdgeInsets.all(12.0),
-              isDense: true,
-              border: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(24.0),
-                ),
-                borderSide: BorderSide.none,
+            ),
+            filled: true,
+            fillColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+            contentPadding: const EdgeInsets.all(12.0),
+            isDense: true,
+            border: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(24.0),
               ),
+              borderSide: BorderSide.none,
             ),
           ),
         ),
