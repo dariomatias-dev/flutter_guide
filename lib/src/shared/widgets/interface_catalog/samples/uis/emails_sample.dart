@@ -57,17 +57,43 @@ final emails = <EmailModel>[
   ),
 ];
 
-class EmailsSample extends StatefulWidget {
+class EmailsSample extends StatelessWidget {
   const EmailsSample({super.key});
 
   @override
-  State<EmailsSample> createState() => _EmailsSampleState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10.0,
+        ),
+        child: ListView.builder(
+          itemCount: emails.length,
+          itemBuilder: (context, index) {
+            return EmailWidget(
+              email: emails[index],
+            );
+          },
+        ),
+      ),
+    );
+  }
 }
 
-class _EmailsSampleState extends State<EmailsSample> {
-  void _showModalBottomSheet(
-    Direction direction,
-  ) {
+class EmailWidget extends StatefulWidget {
+  const EmailWidget({
+    super.key,
+    required this.email,
+  });
+
+  final EmailModel email;
+
+  @override
+  State<EmailWidget> createState() => _EmailWidgetState();
+}
+
+class _EmailWidgetState extends State<EmailWidget> {
+  void _showModalBottomSheet() {
     showModalBottomSheet(
       context: context,
       builder: (context) {
@@ -78,114 +104,119 @@ class _EmailsSampleState extends State<EmailsSample> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return GestureDetector(
+      onLongPress: _showModalBottomSheet,
+      child: Container(
+        color: Theme.of(context).colorScheme.background,
         padding: const EdgeInsets.symmetric(
-          horizontal: 10.0,
+          vertical: 8.0,
         ),
-        child: EmailWidget(
-          email: emails.first,
+        child: Row(
+          children: <Widget>[
+            CircleAvatar(
+              backgroundColor: Colors.blue.shade100,
+              child: Icon(
+                Icons.person,
+                color: Colors.blue.shade400,
+                size: 32.0,
+              ),
+            ),
+            const SizedBox(width: 14.0),
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          widget.email.sender,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12.0),
+                      Text(
+                        '8:34 AM',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.secondary,
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          widget.email.subject,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          widget.email.body,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .secondary
+                                .withOpacity(0.5),
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12.0),
+                      const SaveEmailButtonWidget(),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
   }
 }
 
-class EmailWidget extends StatelessWidget {
-  const EmailWidget({
-    super.key,
-    required this.email,
-  });
+class SaveEmailButtonWidget extends StatefulWidget {
+  const SaveEmailButtonWidget({super.key});
 
-  final EmailModel email;
+  @override
+  State<SaveEmailButtonWidget> createState() => _SaveEmailButtonWidgetState();
+}
+
+class _SaveEmailButtonWidgetState extends State<SaveEmailButtonWidget> {
+  bool _isSave = false;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        CircleAvatar(
-          backgroundColor: Colors.blue.shade100,
-          child: Icon(
-            Icons.person,
-            color: Colors.blue.shade400,
-            size: 32.0,
-          ),
-        ),
-        const SizedBox(width: 14.0),
-        Expanded(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      email.sender,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 12.0),
-                  Text(
-                    '8:34 AM',
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.secondary,
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      email.subject,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      email.body,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary
-                            .withOpacity(0.5),
-                        fontSize: 12.0,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 12.0),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.star_border,
-                      size: 20.0,
-                      color: Theme.of(context)
-                          .colorScheme
-                          .secondary
-                          .withOpacity(0.5),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        )
-      ],
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _isSave = !_isSave;
+        });
+      },
+      child: Icon(
+        _isSave ? Icons.star : Icons.star_border,
+        size: 20.0,
+        color: _isSave
+            ? Colors.yellow.shade600
+            : Theme.of(context).colorScheme.secondary.withOpacity(0.5),
+      ),
     );
   }
 }
