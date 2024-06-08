@@ -106,36 +106,30 @@ class _EmailsScreenState extends State<EmailsScreen> {
           ? ThemeData.light()
           : ThemeData.dark(),
       child: Scaffold(
-        appBar: AppBar(
-          leading: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: const Icon(
-              Icons.arrow_back,
-            ),
-          ),
-          title: SizedBox(
-            height: 40.0,
-            child: Expanded(
-              child: TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor:
-                      Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                  contentPadding: const EdgeInsets.all(12.0),
-                  isDense: true,
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(24.0),
-                    ),
-                    borderSide: BorderSide.none,
+        drawer: Drawer(
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                child: Container(),
+              ),
+              const Divider(),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Back',
+                  style: TextStyle(
+                    color: Colors.red,
                   ),
                 ),
               ),
-            ),
+              const SizedBox(height: 12.0),
+            ],
           ),
         ),
+        appBar: const EmailsScreenAppBarWidget(),
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 10.0,
@@ -149,25 +143,82 @@ class _EmailsScreenState extends State<EmailsScreen> {
             },
           ),
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
-          backgroundColor:
-              _isLigth ? Colors.lightBlue.shade50 : Colors.lightBlue.shade900,
-          icon: Icon(
-            Icons.edit_outlined,
-            color: _isLigth
-                ? Colors.lightBlue.shade900
-                : Colors.lightBlue.shade100,
-            size: 20.0,
-          ),
-          label: Text(
-            'Compose',
-            style: TextStyle(
-              color: _isLigth
-                  ? Colors.lightBlue.shade900
-                  : Colors.lightBlue.shade100,
+        floatingActionButton: ComposeEmailFloatingActionButtonWidget(
+          isLigth: _isLigth,
+        ),
+      ),
+    );
+  }
+}
+
+class EmailsScreenAppBarWidget extends StatelessWidget
+    implements PreferredSizeWidget {
+  const EmailsScreenAppBarWidget({super.key});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          horizontal: 12.0,
+        ),
+        height: 40.0,
+        child: Expanded(
+          child: TextFormField(
+            decoration: InputDecoration(
+              prefixIcon: GestureDetector(
+                onTap: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                child: const Icon(
+                  Icons.menu,
+                ),
+              ),
+              filled: true,
+              fillColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+              contentPadding: const EdgeInsets.all(12.0),
+              isDense: true,
+              border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(24.0),
+                ),
+                borderSide: BorderSide.none,
+              ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class ComposeEmailFloatingActionButtonWidget extends StatelessWidget {
+  const ComposeEmailFloatingActionButtonWidget({
+    super.key,
+    required this.isLigth,
+  });
+
+  final bool isLigth;
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton.extended(
+      onPressed: () {},
+      backgroundColor:
+          isLigth ? Colors.lightBlue.shade50 : Colors.lightBlue.shade900,
+      icon: Icon(
+        Icons.edit_outlined,
+        color: isLigth ? Colors.lightBlue.shade900 : Colors.lightBlue.shade100,
+        size: 20.0,
+      ),
+      label: Text(
+        'Compose',
+        style: TextStyle(
+          color:
+              isLigth ? Colors.lightBlue.shade900 : Colors.lightBlue.shade100,
         ),
       ),
     );
