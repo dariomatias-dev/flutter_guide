@@ -315,64 +315,10 @@ class _ComposeEmailFloatingActionButtonWidgetState
           context: context,
           useSafeArea: false,
           builder: (context) {
-            return Dialog.fullscreen(
-              child: SafeArea(
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: _defaultPadding,
-                      child: Row(
-                        children: <Widget>[
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Icon(
-                              Icons.close,
-                              size: 20.0,
-                            ),
-                          ),
-                          const SizedBox(width: 20.0),
-                          const Text(
-                            'Compose an Email',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 12.0),
-                    CreateEmailTextFieldWidget(
-                      titleFieldTextStyle: _defaultTitleFieldTextStyle,
-                      inputDecoration: _defaultInputDecoration(),
-                      text: 'De',
-                    ),
-                    const CreateEmailDividirWidget(),
-                    CreateEmailTextFieldWidget(
-                      titleFieldTextStyle: _defaultTitleFieldTextStyle,
-                      inputDecoration: _defaultInputDecoration(),
-                      text: 'Para',
-                    ),
-                    const CreateEmailDividirWidget(),
-                    TextFormField(
-                      decoration: _defaultInputDecoration(
-                        hinText: 'Subject',
-                      ),
-                    ),
-                    const CreateEmailDividirWidget(),
-                    Expanded(
-                      child: TextFormField(
-                        maxLines: null,
-                        decoration: _defaultInputDecoration(
-                          hinText: 'Write Email',
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+            return CreateEmailWidget(
+              titleFieldTextStyle: _defaultTitleFieldTextStyle,
+              inputDecoration: _defaultInputDecoration,
+              padding: _defaultPadding,
             );
           },
         );
@@ -398,14 +344,139 @@ class _ComposeEmailFloatingActionButtonWidgetState
   }
 }
 
+class CreateEmailWidget extends StatefulWidget {
+  const CreateEmailWidget({
+    super.key,
+    required this.titleFieldTextStyle,
+    required this.inputDecoration,
+    required this.padding,
+  });
+
+  final TextStyle titleFieldTextStyle;
+  final InputDecoration Function({
+    String? hinText,
+  }) inputDecoration;
+  final EdgeInsets padding;
+
+  @override
+  State<CreateEmailWidget> createState() => _CreateEmailWidgetState();
+}
+
+class _CreateEmailWidgetState extends State<CreateEmailWidget> {
+  final _senderController = TextEditingController();
+  final _subjectController = TextEditingController();
+  final _bodyController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog.fullscreen(
+      child: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: widget.padding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          width: 24.0,
+                          height: 24.0,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Center(
+                            child: Icon(
+                              Icons.close,
+                              size: 20.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20.0),
+                      const Text(
+                        'Compose an Email',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      width: 24.0,
+                      height: 24.0,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.send_outlined,
+                          size: 18.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12.0),
+            CreateEmailTextFieldWidget(
+              controller: _senderController,
+              autoFocus: true,
+              titleFieldTextStyle: widget.titleFieldTextStyle,
+              inputDecoration: widget.inputDecoration(),
+              text: 'De',
+            ),
+            const CreateEmailDividirWidget(),
+            CreateEmailTextFieldWidget(
+              titleFieldTextStyle: widget.titleFieldTextStyle,
+              inputDecoration: widget.inputDecoration(),
+              text: 'Para',
+            ),
+            const CreateEmailDividirWidget(),
+            TextFormField(
+              controller: _subjectController,
+              decoration: widget.inputDecoration(
+                hinText: 'Subject',
+              ),
+            ),
+            const CreateEmailDividirWidget(),
+            Expanded(
+              child: TextFormField(
+                controller: _bodyController,
+                maxLines: null,
+                decoration: widget.inputDecoration(
+                  hinText: 'Write Email',
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class CreateEmailTextFieldWidget extends StatelessWidget {
   const CreateEmailTextFieldWidget({
     super.key,
+    this.controller,
+    this.autoFocus = false,
     required this.titleFieldTextStyle,
     required this.inputDecoration,
     required this.text,
   });
 
+  final TextEditingController? controller;
+  final bool autoFocus;
   final TextStyle titleFieldTextStyle;
   final InputDecoration inputDecoration;
   final String text;
@@ -424,6 +495,8 @@ class CreateEmailTextFieldWidget extends StatelessWidget {
           ),
           Expanded(
             child: TextFormField(
+              controller: controller,
+              autofocus: autoFocus,
               decoration: inputDecoration,
             ),
           ),
