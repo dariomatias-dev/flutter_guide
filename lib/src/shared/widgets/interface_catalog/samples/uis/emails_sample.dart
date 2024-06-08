@@ -24,36 +24,36 @@ final emails = <EmailModel>[
     sender: 'Rika',
     subject: 'Plans for re-opening the town',
     body:
-        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
+        'Hello team, We need to discuss the plans for re-opening the town. Please find attached the agenda for our upcoming meeting. Regards, Rika',
     date: DateTime.now(),
   ),
   EmailModel(
     sender: 'Julius',
-    subject: 'Plans for re-opening the town',
+    subject: 'Updates on upcoming event',
     body:
-        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
-    date: DateTime.now(),
+        'Hi everyone, Just a quick update on the event. We have confirmed the venue and finalized the guest list. More details to follow soon. Best, Julius',
+    date: DateTime(2024, 2, 19),
   ),
   EmailModel(
     sender: 'Fred',
-    subject: 'Plans for re-opening the town',
+    subject: 'Meeting agenda for next week',
     body:
-        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
-    date: DateTime.now(),
+        'Dear team, Please find attached the agenda for our meeting next week. Kindly review it beforehand. Regards, Fred',
+    date: DateTime(2024, 3, 12),
   ),
   EmailModel(
     sender: 'Rein',
-    subject: 'Plans for re-opening the town',
+    subject: 'Request for information',
     body:
-        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
-    date: DateTime.now(),
+        'Hello, I hope this email finds you well. Could you please provide me with the latest sales report? Thanks, Rein',
+    date: DateTime(2024, 3, 24),
   ),
   EmailModel(
     sender: 'Toren',
-    subject: 'Plans for re-opening the town',
+    subject: 'Reminder: Deadline approaching',
     body:
-        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
-    date: DateTime.now(),
+        'Hi there, Just a friendly reminder that the deadline for project submissions is approaching. Make sure to submit your work on time. Regards, Toren',
+    date: DateTime(2024, 5, 1),
   ),
 ];
 
@@ -447,6 +447,21 @@ class CreateEmailDividirWidget extends StatelessWidget {
   }
 }
 
+final months = <String>[
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
 class EmailWidget extends StatefulWidget {
   const EmailWidget({
     super.key,
@@ -460,6 +475,8 @@ class EmailWidget extends StatefulWidget {
 }
 
 class _EmailWidgetState extends State<EmailWidget> {
+  late String date;
+
   void _showModalBottomSheet() {
     showModalBottomSheet(
       context: context,
@@ -467,6 +484,23 @@ class _EmailWidgetState extends State<EmailWidget> {
         return const ModalBottomSheetWidget();
       },
     );
+  }
+
+  @override
+  void initState() {
+    final emailDate = widget.email.date;
+
+    final elapsedTime = DateTime.now().difference(
+      emailDate,
+    );
+
+    if (elapsedTime.inDays == 0) {
+      date = '${emailDate.hour}:${emailDate.minute}';
+    } else {
+      date = '${months[emailDate.month - 1]} ${emailDate.day}';
+    }
+
+    super.initState();
   }
 
   @override
@@ -507,7 +541,7 @@ class _EmailWidgetState extends State<EmailWidget> {
                       ),
                       const SizedBox(width: 12.0),
                       Text(
-                        '8:34 AM',
+                        date,
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.secondary,
                           fontSize: 12.0,
