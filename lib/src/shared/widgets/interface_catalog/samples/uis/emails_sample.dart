@@ -63,17 +63,111 @@ class EmailsSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10.0,
-        ),
-        child: ListView.builder(
-          itemCount: emails.length,
-          itemBuilder: (context, index) {
-            return EmailWidget(
-              email: emails[index],
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const EmailsScreen();
+                },
+              ),
             );
           },
+          child: const Text('Access Screen'),
+        ),
+      ),
+    );
+  }
+}
+
+class EmailsScreen extends StatefulWidget {
+  const EmailsScreen({super.key});
+
+  @override
+  State<EmailsScreen> createState() => _EmailsScreenState();
+}
+
+class _EmailsScreenState extends State<EmailsScreen> {
+  late bool _isLigth;
+
+  @override
+  void didChangeDependencies() {
+    _isLigth = Theme.of(context).brightness == Brightness.light;
+
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      data: Theme.of(context).brightness == Brightness.light
+          ? ThemeData.light()
+          : ThemeData.dark(),
+      child: Scaffold(
+        appBar: AppBar(
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(
+              Icons.arrow_back,
+            ),
+          ),
+          title: SizedBox(
+            height: 40.0,
+            child: Expanded(
+              child: TextFormField(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor:
+                      Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                  contentPadding: const EdgeInsets.all(12.0),
+                  isDense: true,
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(24.0),
+                    ),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10.0,
+          ),
+          child: ListView.builder(
+            itemCount: emails.length,
+            itemBuilder: (context, index) {
+              return EmailWidget(
+                email: emails[index],
+              );
+            },
+          ),
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {},
+          backgroundColor:
+              _isLigth ? Colors.lightBlue.shade50 : Colors.lightBlue.shade900,
+          icon: Icon(
+            Icons.edit_outlined,
+            color: _isLigth
+                ? Colors.lightBlue.shade900
+                : Colors.lightBlue.shade100,
+            size: 20.0,
+          ),
+          label: Text(
+            'Compose',
+            style: TextStyle(
+              color: _isLigth
+                  ? Colors.lightBlue.shade900
+                  : Colors.lightBlue.shade100,
+            ),
+          ),
         ),
       ),
     );
