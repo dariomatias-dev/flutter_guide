@@ -5,6 +5,58 @@ enum Direction {
   right,
 }
 
+class EmailModel {
+  const EmailModel({
+    required this.sender,
+    required this.subject,
+    required this.body,
+    required this.date,
+  });
+
+  final String sender;
+  final String subject;
+  final String body;
+  final DateTime date;
+}
+
+final emails = <EmailModel>[
+  EmailModel(
+    sender: 'Rika',
+    subject: 'Plans for re-opening the town',
+    body:
+        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
+    date: DateTime.now(),
+  ),
+  EmailModel(
+    sender: 'Julius',
+    subject: 'Plans for re-opening the town',
+    body:
+        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
+    date: DateTime.now(),
+  ),
+  EmailModel(
+    sender: 'Fred',
+    subject: 'Plans for re-opening the town',
+    body:
+        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
+    date: DateTime.now(),
+  ),
+  EmailModel(
+    sender: 'Rein',
+    subject: 'Plans for re-opening the town',
+    body:
+        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
+    date: DateTime.now(),
+  ),
+  EmailModel(
+    sender: 'Toren',
+    subject: 'Plans for re-opening the town',
+    body:
+        'Lorem ipsum, vb fvrts gtrhrd bgfrx szx nxr dhcttx ujfcujutu 6uuftj7cv',
+    date: DateTime.now(),
+  ),
+];
+
 class EmailsSample extends StatefulWidget {
   const EmailsSample({super.key});
 
@@ -27,16 +79,113 @@ class _EmailsSampleState extends State<EmailsSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            _showModalBottomSheet(
-              Direction.left,
-            );
-          },
-          child: const Text('Open Modal'),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10.0,
+        ),
+        child: EmailWidget(
+          email: emails.first,
         ),
       ),
+    );
+  }
+}
+
+class EmailWidget extends StatelessWidget {
+  const EmailWidget({
+    super.key,
+    required this.email,
+  });
+
+  final EmailModel email;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        CircleAvatar(
+          backgroundColor: Colors.blue.shade100,
+          child: Icon(
+            Icons.person,
+            color: Colors.blue.shade400,
+            size: 32.0,
+          ),
+        ),
+        const SizedBox(width: 14.0),
+        Expanded(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      email.sender,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12.0),
+                  Text(
+                    '8:34 AM',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      email.subject,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      email.body,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .secondary
+                            .withOpacity(0.5),
+                        fontSize: 12.0,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12.0),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      Icons.star_border,
+                      size: 20.0,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .secondary
+                          .withOpacity(0.5),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
