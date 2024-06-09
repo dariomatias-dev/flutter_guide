@@ -169,29 +169,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
           ? ThemeData.light()
           : ThemeData.dark(),
       child: Scaffold(
-        drawer: Drawer(
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Container(),
-              ),
-              const Divider(),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  'Back',
-                  style: TextStyle(
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 12.0),
-            ],
-          ),
-        ),
+        drawer: const EmailsScreenDrawerWidget(),
         appBar: EmailsScreenAppBarWidget(
           searchEmails: _searchEmails,
         ),
@@ -216,6 +194,90 @@ class _EmailsScreenState extends State<EmailsScreen> {
         floatingActionButton: ComposeEmailFloatingActionButtonWidget(
           isLigth: _isLigth,
           emailsNotifier: _emailsNotifier,
+        ),
+      ),
+    );
+  }
+}
+
+class EmailsScreenDrawerWidget extends StatelessWidget {
+  const EmailsScreenDrawerWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: SafeArea(
+        bottom: false,
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12.0,
+              ),
+              child: Row(
+                children: <Widget>[
+                  CircleAvatar(
+                    backgroundColor: Colors.lightBlue.shade100.withOpacity(0.4),
+                    child: const Icon(
+                      Icons.person_outline,
+                    ),
+                  ),
+                  const SizedBox(width: 8.0),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'User Name',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          height: 1.0,
+                        ),
+                      ),
+                      SizedBox(height: 2.0),
+                      Text(
+                        'emailexample@gmail.com',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          height: 1.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12.0),
+            ListTile(
+              onTap: () {},
+              leading: const Icon(
+                Icons.star_outline,
+                size: 20.0,
+              ),
+              title: const Text(
+                'With Star',
+                style: TextStyle(
+                  fontSize: 14.0,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            const Divider(),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Back',
+                style: TextStyle(
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            const SizedBox(height: 12.0),
+          ],
         ),
       ),
     );
