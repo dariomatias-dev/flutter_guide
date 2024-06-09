@@ -145,6 +145,41 @@ class _EmailsScreenState extends State<EmailsScreen> {
 
   final _emailsNotifier = EmailsNotifier([]);
 
+  void _showEmails() {
+    _setScreenEmails(emails);
+  }
+
+  void _showStarredEmails() {
+    final starredEmails = <EmailModel>[];
+    for (EmailModel email in _screenEmails) {
+      if (email.withStar) {
+        starredEmails.add(email);
+      }
+    }
+
+    _setScreenEmails(starredEmails);
+  }
+
+  void _removeEmail(
+    String emailId,
+  ) {
+    emails.removeWhere((email) {
+      return email.id == emailId;
+    });
+
+    if (emails.length == _screenEmails.length) {
+      _emailsNotifier.setEmails(emails);
+    } else {
+      _screenEmails.removeWhere((email) {
+        return email.id == emailId;
+      });
+
+      _emailsNotifier.setEmails(_screenEmails);
+    }
+
+    _emailsNotifier.setEmails(_screenEmails);
+  }
+
   void _setScreenEmails(
     List<EmailModel> value,
   ) {
@@ -198,6 +233,8 @@ class _EmailsScreenState extends State<EmailsScreen> {
           : ThemeData.dark(),
       child: Scaffold(
         drawer: EmailsScreenDrawerWidget(
+          showEmails: _showEmails,
+          showStarredEmails: _showStarredEmails,
           setScreenEmails: _setScreenEmails,
         ),
         appBar: EmailsScreenAppBarWidget(
@@ -215,6 +252,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
                 itemBuilder: (context, index) {
                   return EmailWidget(
                     email: value[index],
+                    removeEmail: _removeEmail,
                   );
                 },
               );
@@ -233,27 +271,16 @@ class _EmailsScreenState extends State<EmailsScreen> {
 class EmailsScreenDrawerWidget extends StatelessWidget {
   const EmailsScreenDrawerWidget({
     super.key,
+    required this.showEmails,
+    required this.showStarredEmails,
     required this.setScreenEmails,
   });
 
+  final VoidCallback showEmails;
+  final VoidCallback showStarredEmails;
   final void Function(
     List<EmailModel> value,
   ) setScreenEmails;
-
-  void _showEmails() {
-    setScreenEmails(emails);
-  }
-
-  void _showStarredEmails() {
-    final starredEmails = <EmailModel>[];
-    for (EmailModel email in emails) {
-      if (email.withStar) {
-        starredEmails.add(email);
-      }
-    }
-
-    setScreenEmails(starredEmails);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -304,7 +331,7 @@ class EmailsScreenDrawerWidget extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                _showEmails();
+                showEmails();
 
                 Navigator.pop(context);
               },
@@ -321,7 +348,7 @@ class EmailsScreenDrawerWidget extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                _showStarredEmails();
+                showStarredEmails();
 
                 Navigator.pop(context);
               },
@@ -766,9 +793,13 @@ class EmailWidget extends StatefulWidget {
   const EmailWidget({
     super.key,
     required this.email,
+    required this.removeEmail,
   });
 
   final EmailModel email;
+  final void Function(
+    String emailId,
+  ) removeEmail;
 
   @override
   State<EmailWidget> createState() => _EmailWidgetState();
@@ -781,7 +812,10 @@ class _EmailWidgetState extends State<EmailWidget> {
     showModalBottomSheet(
       context: context,
       builder: (context) {
-        return const ModalBottomSheetWidget();
+        return ModalBottomSheetWidget(
+          emailId: widget.email.id,
+          removeEmail: widget.removeEmail,
+        );
       },
     );
   }
@@ -949,13 +983,28 @@ class _SaveEmailButtonWidgetState extends State<SaveEmailButtonWidget> {
 }
 
 class ModalBottomSheetWidget extends StatefulWidget {
-  const ModalBottomSheetWidget({super.key});
+  const ModalBottomSheetWidget({
+    super.key,
+    required this.emailId,
+    required this.removeEmail,
+  });
+
+  final String emailId;
+  final void Function(
+    String emailId,
+  ) removeEmail;
 
   @override
   State<ModalBottomSheetWidget> createState() => _ModalBottomSheetWidgetState();
 }
 
 class _ModalBottomSheetWidgetState extends State<ModalBottomSheetWidget> {
+  void _removeEmail() {
+    widget.removeEmail(widget.emailId);
+
+    Navigator.pop(context);
+  }
+
   void _action() {
     Navigator.pop(context);
   }
@@ -964,9 +1013,9 @@ class _ModalBottomSheetWidgetState extends State<ModalBottomSheetWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 16.0,
+        top: 8.0,
         right: 12.0,
-        bottom: 20.0,
+        bottom: 12.0,
         left: 12.0,
       ),
       child: Column(
@@ -981,30 +1030,36 @@ class _ModalBottomSheetWidgetState extends State<ModalBottomSheetWidget> {
             ),
           ),
           const SizedBox(height: 24.0),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              ModalBottomSheetWidgetActionWidget(
-                action: _action,
-                icon: Icons.share_outlined,
-                text: 'Share',
-              ),
-              ModalBottomSheetWidgetActionWidget(
-                action: _action,
-                icon: Icons.add,
-                text: 'Add to',
-              ),
-              ModalBottomSheetWidgetActionWidget(
-                action: _action,
-                icon: Icons.delete_outline,
-                text: 'Trash',
-              ),
-              ModalBottomSheetWidgetActionWidget(
-                action: _action,
-                icon: Icons.archive_outlined,
-                text: 'Move to archive',
-              ),
-            ],
+          SizedBox(
+            height: 86.0,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ModalBottomSheetWidgetActionWidget(
+                  action: _action,
+                  icon: Icons.share_outlined,
+                  text: 'Share',
+                ),
+                const SizedBox(width: 8.0),
+                ModalBottomSheetWidgetActionWidget(
+                  action: _action,
+                  icon: Icons.add,
+                  text: 'Add to',
+                ),
+                const SizedBox(width: 8.0),
+                ModalBottomSheetWidgetActionWidget(
+                  action: _removeEmail,
+                  icon: Icons.delete_outline,
+                  text: 'Trash',
+                ),
+                const SizedBox(width: 8.0),
+                ModalBottomSheetWidgetActionWidget(
+                  action: _action,
+                  icon: Icons.archive_outlined,
+                  text: 'Move to archive',
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -1029,22 +1084,30 @@ class ModalBottomSheetWidgetActionWidget extends StatelessWidget {
     return Expanded(
       child: GestureDetector(
         onTap: action,
-        child: Column(
-          children: <Widget>[
-            Icon(
-              icon,
-              size: 24.0,
-            ),
-            const SizedBox(height: 8.0),
-            Text(
-              text,
-              maxLines: 2,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 12.0,
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            vertical: 8.0,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Column(
+            children: <Widget>[
+              Icon(
+                icon,
+                size: 24.0,
               ),
-            ),
-          ],
+              const SizedBox(height: 8.0),
+              Text(
+                text,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 12.0,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
