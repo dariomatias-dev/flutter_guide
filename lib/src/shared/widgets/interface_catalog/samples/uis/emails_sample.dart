@@ -9,12 +9,14 @@ enum Direction {
 class EmailModel {
   const EmailModel({
     required this.sender,
+    required this.to,
     required this.subject,
     required this.body,
     required this.date,
   });
 
   final String sender;
+  final String to;
   final String subject;
   final String body;
   final DateTime date;
@@ -23,38 +25,43 @@ class EmailModel {
 final emails = <EmailModel>[
   EmailModel(
     sender: 'Rika',
+    to: 'team@townplanning.com',
     subject: 'Plans for re-opening the town',
     body:
         'Hello team, We need to discuss the plans for re-opening the town. Please find attached the agenda for our upcoming meeting. Regards, Rika',
-    date: DateTime.now(),
+    date: DateTime(2024, 06, 01),
   ),
   EmailModel(
     sender: 'Julius',
+    to: 'staff@eventmanagement.com',
     subject: 'Updates on upcoming event',
     body:
         'Hi everyone, Just a quick update on the event. We have confirmed the venue and finalized the guest list. More details to follow soon. Best, Julius',
-    date: DateTime(2024, 2, 19),
+    date: DateTime(2024, 5, 07),
   ),
   EmailModel(
     sender: 'Fred',
+    to: 'team@corporate.com',
     subject: 'Meeting agenda for next week',
     body:
         'Dear team, Please find attached the agenda for our meeting next week. Kindly review it beforehand. Regards, Fred',
-    date: DateTime(2024, 3, 12),
-  ),
-  EmailModel(
-    sender: 'Rein',
-    subject: 'Request for information',
-    body:
-        'Hello, I hope this email finds you well. Could you please provide me with the latest sales report? Thanks, Rein',
     date: DateTime(2024, 3, 24),
   ),
   EmailModel(
+    sender: 'Rein',
+    to: 'reports@salesdepartment.com',
+    subject: 'Request for information',
+    body:
+        'Hello, I hope this email finds you well. Could you please provide me with the latest sales report? Thanks, Rein',
+    date: DateTime(2024, 3, 12),
+  ),
+  EmailModel(
     sender: 'Toren',
+    to: 'submissions@projectmanagement.com',
     subject: 'Reminder: Deadline approaching',
     body:
         'Hi there, Just a friendly reminder that the deadline for project submissions is approaching. Make sure to submit your work on time. Regards, Toren',
-    date: DateTime(2024, 5, 1),
+    date: DateTime(2024, 2, 19),
   ),
 ];
 
@@ -83,15 +90,16 @@ class EmailsSample extends StatelessWidget {
   }
 }
 
-class EmailsScreen extends StatefulWidget {
-  const EmailsScreen({super.key});
-
-  @override
-  State<EmailsScreen> createState() => _EmailsScreenState();
-}
-
 class EmailsNotifier extends ValueNotifier<List<EmailModel>> {
   EmailsNotifier(super.value);
+
+  void addEmail(
+    EmailModel email,
+  ) {
+    value.insert(0, email);
+
+    notifyListeners();
+  }
 
   void setEmails(
     List<EmailModel> emails,
@@ -100,6 +108,13 @@ class EmailsNotifier extends ValueNotifier<List<EmailModel>> {
 
     notifyListeners();
   }
+}
+
+class EmailsScreen extends StatefulWidget {
+  const EmailsScreen({super.key});
+
+  @override
+  State<EmailsScreen> createState() => _EmailsScreenState();
 }
 
 class _EmailsScreenState extends State<EmailsScreen> {
@@ -200,6 +215,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
         ),
         floatingActionButton: ComposeEmailFloatingActionButtonWidget(
           isLigth: _isLigth,
+          emailsNotifier: _emailsNotifier,
         ),
       ),
     );
@@ -275,9 +291,11 @@ class ComposeEmailFloatingActionButtonWidget extends StatefulWidget {
   const ComposeEmailFloatingActionButtonWidget({
     super.key,
     required this.isLigth,
+    required this.emailsNotifier,
   });
 
   final bool isLigth;
+  final EmailsNotifier emailsNotifier;
 
   @override
   State<ComposeEmailFloatingActionButtonWidget> createState() =>
@@ -320,6 +338,7 @@ class _ComposeEmailFloatingActionButtonWidgetState
               titleFieldTextStyle: _defaultTitleFieldTextStyle,
               inputDecoration: _defaultInputDecoration,
               padding: _defaultPadding,
+              emailsNotifier: widget.emailsNotifier,
             );
           },
         );
@@ -351,6 +370,7 @@ class CreateEmailWidget extends StatefulWidget {
     required this.titleFieldTextStyle,
     required this.inputDecoration,
     required this.padding,
+    required this.emailsNotifier,
   });
 
   final TextStyle titleFieldTextStyle;
@@ -358,6 +378,7 @@ class CreateEmailWidget extends StatefulWidget {
     String? hinText,
   }) inputDecoration;
   final EdgeInsets padding;
+  final EmailsNotifier emailsNotifier;
 
   @override
   State<CreateEmailWidget> createState() => _CreateEmailWidgetState();
@@ -372,7 +393,18 @@ class _CreateEmailWidgetState extends State<CreateEmailWidget> {
   final _bodyController = TextEditingController();
 
   void _submitForm() {
-    if (_formKey.currentState!.validate()) {}
+    if (_formKey.currentState!.validate()) {
+      final email = EmailModel(
+        sender: _senderController.text,
+        to: _toController.text,
+        subject: _subjectController.text,
+        body: _bodyController.text,
+        date: DateTime.now(),
+      );
+
+      widget.emailsNotifier.addEmail(email);
+      Navigator.pop(context);
+    }
   }
 
   @override
