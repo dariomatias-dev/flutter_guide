@@ -10,13 +10,14 @@ enum Direction {
 const uuid = Uuid();
 
 class EmailModel {
-  const EmailModel({
+  EmailModel({
     required this.id,
     required this.sender,
     required this.to,
     required this.subject,
     required this.body,
     required this.date,
+    required this.withStar,
   });
 
   final String id;
@@ -25,6 +26,11 @@ class EmailModel {
   final String subject;
   final String body;
   final DateTime date;
+  bool withStar;
+
+  void toggleWithStar() {
+    withStar = !withStar;
+  }
 }
 
 final emails = <EmailModel>[
@@ -36,6 +42,7 @@ final emails = <EmailModel>[
     body:
         'Hello team, We need to discuss the plans for re-opening the town. Please find attached the agenda for our upcoming meeting. Regards, Rika',
     date: DateTime(2024, 06, 01),
+    withStar: false,
   ),
   EmailModel(
     id: uuid.v4(),
@@ -45,6 +52,7 @@ final emails = <EmailModel>[
     body:
         'Hi everyone, Just a quick update on the event. We have confirmed the venue and finalized the guest list. More details to follow soon. Best, Julius',
     date: DateTime(2024, 5, 07),
+    withStar: true,
   ),
   EmailModel(
     id: uuid.v4(),
@@ -54,6 +62,7 @@ final emails = <EmailModel>[
     body:
         'Dear team, Please find attached the agenda for our meeting next week. Kindly review it beforehand. Regards, Fred',
     date: DateTime(2024, 3, 24),
+    withStar: false,
   ),
   EmailModel(
     id: uuid.v4(),
@@ -63,6 +72,7 @@ final emails = <EmailModel>[
     body:
         'Hello, I hope this email finds you well. Could you please provide me with the latest sales report? Thanks, Rein',
     date: DateTime(2024, 3, 12),
+    withStar: false,
   ),
   EmailModel(
     id: uuid.v4(),
@@ -72,6 +82,7 @@ final emails = <EmailModel>[
     body:
         'Hi there, Just a friendly reminder that the deadline for project submissions is approaching. Make sure to submit your work on time. Regards, Toren',
     date: DateTime(2024, 2, 19),
+    withStar: true,
   ),
 ];
 
@@ -130,15 +141,13 @@ class EmailsScreen extends StatefulWidget {
 class _EmailsScreenState extends State<EmailsScreen> {
   late bool _isLigth;
 
-  List<EmailModel> _emails = <EmailModel>[];
-
   final _emailsNotifier = EmailsNotifier([]);
 
   void _searchEmails(
     String query,
   ) {
     if (query.trim() == '') {
-      _emailsNotifier.setEmails(_emails);
+      _emailsNotifier.setEmails(emails);
       return;
     }
 
@@ -146,7 +155,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
 
     final results = <EmailModel>[];
 
-    for (EmailModel email in _emails) {
+    for (EmailModel email in emails) {
       if (email.sender.toLowerCase().contains(query) ||
           email.subject.toLowerCase().contains(query) ||
           email.body.toLowerCase().contains(query)) {
@@ -154,13 +163,12 @@ class _EmailsScreenState extends State<EmailsScreen> {
       }
     }
 
-    _emailsNotifier.setEmails(results);
+    _emailsNotifier.setEmails(emails);
   }
 
   @override
   void initState() {
-    _emails = emails;
-    _emailsNotifier.setEmails(_emails);
+    _emailsNotifier.setEmails(emails);
 
     super.initState();
   }
@@ -179,7 +187,9 @@ class _EmailsScreenState extends State<EmailsScreen> {
           ? ThemeData.light()
           : ThemeData.dark(),
       child: Scaffold(
-        drawer: const EmailsScreenDrawerWidget(),
+        drawer: EmailsScreenDrawerWidget(
+          emailsNotifier: _emailsNotifier,
+        ),
         appBar: EmailsScreenAppBarWidget(
           searchEmails: _searchEmails,
         ),
@@ -211,7 +221,27 @@ class _EmailsScreenState extends State<EmailsScreen> {
 }
 
 class EmailsScreenDrawerWidget extends StatelessWidget {
-  const EmailsScreenDrawerWidget({super.key});
+  const EmailsScreenDrawerWidget({
+    super.key,
+    required this.emailsNotifier,
+  });
+
+  final EmailsNotifier emailsNotifier;
+
+  void _showEmails() {
+    emailsNotifier.setEmails(emails);
+  }
+
+  void _showStarredEmails() {
+    final starredEmails = <EmailModel>[];
+    for (EmailModel email in emails) {
+      if (email.withStar) {
+        starredEmails.add(email);
+      }
+    }
+
+    emailsNotifier.setEmails(starredEmails);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -262,6 +292,8 @@ class EmailsScreenDrawerWidget extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
+                _showEmails();
+
                 Navigator.pop(context);
               },
               leading: const Icon(
@@ -277,6 +309,8 @@ class EmailsScreenDrawerWidget extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
+                _showStarredEmails();
+
                 Navigator.pop(context);
               },
               leading: const Icon(
@@ -493,9 +527,11 @@ class _CreateEmailWidgetState extends State<CreateEmailWidget> {
         subject: _subjectController.text,
         body: _bodyController.text,
         date: DateTime.now(),
+        withStar: false,
       );
 
-      widget.emailsNotifier.addEmail(email);
+      emails.insert(0, email);
+      widget.emailsNotifier.setEmails(emails);
       Navigator.pop(context);
     }
   }
@@ -832,7 +868,9 @@ class _EmailWidgetState extends State<EmailWidget> {
                         ),
                       ),
                       const SizedBox(width: 12.0),
-                      const SaveEmailButtonWidget(),
+                      SaveEmailButtonWidget(
+                        email: widget.email,
+                      ),
                     ],
                   ),
                 ],
@@ -846,27 +884,51 @@ class _EmailWidgetState extends State<EmailWidget> {
 }
 
 class SaveEmailButtonWidget extends StatefulWidget {
-  const SaveEmailButtonWidget({super.key});
+  const SaveEmailButtonWidget({
+    super.key,
+    required this.email,
+  });
+
+  final EmailModel email;
 
   @override
   State<SaveEmailButtonWidget> createState() => _SaveEmailButtonWidgetState();
 }
 
 class _SaveEmailButtonWidgetState extends State<SaveEmailButtonWidget> {
-  bool _isSave = false;
+  late bool _isStarred;
+
+  void _setIsStarred() {
+    _isStarred = widget.email.withStar;
+  }
+
+  @override
+  void didUpdateWidget(covariant SaveEmailButtonWidget oldWidget) {
+    _setIsStarred();
+
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void initState() {
+    _setIsStarred();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          _isSave = !_isSave;
-        });
+        _isStarred = !_isStarred;
+        widget.email.toggleWithStar();
+
+        setState(() {});
       },
       child: Icon(
-        _isSave ? Icons.star : Icons.star_border,
+        _isStarred ? Icons.star : Icons.star_border,
         size: 20.0,
-        color: _isSave
+        color: _isStarred
             ? Colors.yellow.shade600
             : Theme.of(context).colorScheme.secondary.withOpacity(0.5),
       ),
