@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:validatorless/validatorless.dart';
 
 enum Direction {
   left,
@@ -363,9 +364,25 @@ class CreateEmailWidget extends StatefulWidget {
 }
 
 class _CreateEmailWidgetState extends State<CreateEmailWidget> {
+  final _formKey = GlobalKey<FormState>();
+
   final _senderController = TextEditingController();
+  final _toController = TextEditingController();
   final _subjectController = TextEditingController();
   final _bodyController = TextEditingController();
+
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {}
+  }
+
+  @override
+  void dispose() {
+    _toController.dispose();
+    _subjectController.dispose();
+    _bodyController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -409,7 +426,7 @@ class _CreateEmailWidgetState extends State<CreateEmailWidget> {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: _submitForm,
                     child: Container(
                       width: 24.0,
                       height: 24.0,
@@ -428,36 +445,66 @@ class _CreateEmailWidgetState extends State<CreateEmailWidget> {
               ),
             ),
             const SizedBox(height: 12.0),
-            CreateEmailTextFieldWidget(
-              controller: _senderController,
-              autoFocus: true,
-              titleFieldTextStyle: widget.titleFieldTextStyle,
-              inputDecoration: widget.inputDecoration(),
-              text: 'De',
-            ),
-            const CreateEmailDividirWidget(),
-            CreateEmailTextFieldWidget(
-              titleFieldTextStyle: widget.titleFieldTextStyle,
-              inputDecoration: widget.inputDecoration(),
-              text: 'Para',
-            ),
-            const CreateEmailDividirWidget(),
-            TextFormField(
-              controller: _subjectController,
-              decoration: widget.inputDecoration(
-                hinText: 'Subject',
-              ),
-            ),
-            const CreateEmailDividirWidget(),
             Expanded(
-              child: TextFormField(
-                controller: _bodyController,
-                maxLines: null,
-                decoration: widget.inputDecoration(
-                  hinText: 'Write Email',
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: <Widget>[
+                    CreateEmailTextFieldWidget(
+                      controller: _senderController,
+                      autoFocus: true,
+                      titleFieldTextStyle: widget.titleFieldTextStyle,
+                      inputDecoration: widget.inputDecoration(),
+                      text: 'De',
+                      validator: Validatorless.multiple([
+                        Validatorless.required('Required field'),
+                        Validatorless.min(10, 'Minimum 10 characters'),
+                        Validatorless.max(30, 'Maximum 30 characters'),
+                      ]),
+                    ),
+                    const CreateEmailDividirWidget(),
+                    CreateEmailTextFieldWidget(
+                      controller: _toController,
+                      titleFieldTextStyle: widget.titleFieldTextStyle,
+                      inputDecoration: widget.inputDecoration(),
+                      text: 'Para',
+                      validator: Validatorless.multiple([
+                        Validatorless.required('Required field'),
+                        Validatorless.min(10, 'Minimum 10 characters'),
+                        Validatorless.max(30, 'Maximum 30 characters'),
+                      ]),
+                    ),
+                    const CreateEmailDividirWidget(),
+                    TextFormField(
+                      controller: _subjectController,
+                      decoration: widget.inputDecoration(
+                        hinText: 'Subject',
+                      ),
+                      validator: Validatorless.multiple([
+                        Validatorless.required('Required field'),
+                        Validatorless.min(10, 'Minimum 10 characters'),
+                        Validatorless.max(50, 'Maximum 50 characters'),
+                      ]),
+                    ),
+                    const CreateEmailDividirWidget(),
+                    Expanded(
+                      child: TextFormField(
+                        controller: _bodyController,
+                        maxLines: null,
+                        decoration: widget.inputDecoration(
+                          hinText: 'Write Email',
+                        ),
+                        validator: Validatorless.multiple([
+                          Validatorless.required('Required field'),
+                          Validatorless.min(10, 'Minimum 10 characters'),
+                          Validatorless.max(200, 'Maximum 200 characters'),
+                        ]),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -468,18 +515,22 @@ class _CreateEmailWidgetState extends State<CreateEmailWidget> {
 class CreateEmailTextFieldWidget extends StatelessWidget {
   const CreateEmailTextFieldWidget({
     super.key,
-    this.controller,
+    required this.controller,
     this.autoFocus = false,
     required this.titleFieldTextStyle,
     required this.inputDecoration,
     required this.text,
+    required this.validator,
   });
 
-  final TextEditingController? controller;
+  final TextEditingController controller;
   final bool autoFocus;
   final TextStyle titleFieldTextStyle;
   final InputDecoration inputDecoration;
   final String text;
+  final String? Function(
+    String? value,
+  )? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -488,6 +539,7 @@ class CreateEmailTextFieldWidget extends StatelessWidget {
         left: 12.0,
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
             text,
@@ -498,6 +550,7 @@ class CreateEmailTextFieldWidget extends StatelessWidget {
               controller: controller,
               autofocus: autoFocus,
               decoration: inputDecoration,
+              validator: validator,
             ),
           ),
         ],
