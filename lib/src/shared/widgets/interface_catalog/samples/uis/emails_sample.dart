@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 import 'package:validatorless/validatorless.dart';
 
 enum Direction {
@@ -6,8 +7,11 @@ enum Direction {
   right,
 }
 
+const uuid = Uuid();
+
 class EmailModel {
   const EmailModel({
+    required this.id,
     required this.sender,
     required this.to,
     required this.subject,
@@ -15,6 +19,7 @@ class EmailModel {
     required this.date,
   });
 
+  final String id;
   final String sender;
   final String to;
   final String subject;
@@ -24,6 +29,7 @@ class EmailModel {
 
 final emails = <EmailModel>[
   EmailModel(
+    id: uuid.v4(),
     sender: 'Rika',
     to: 'team@townplanning.com',
     subject: 'Plans for re-opening the town',
@@ -32,6 +38,7 @@ final emails = <EmailModel>[
     date: DateTime(2024, 06, 01),
   ),
   EmailModel(
+    id: uuid.v4(),
     sender: 'Julius',
     to: 'staff@eventmanagement.com',
     subject: 'Updates on upcoming event',
@@ -40,6 +47,7 @@ final emails = <EmailModel>[
     date: DateTime(2024, 5, 07),
   ),
   EmailModel(
+    id: uuid.v4(),
     sender: 'Fred',
     to: 'team@corporate.com',
     subject: 'Meeting agenda for next week',
@@ -48,6 +56,7 @@ final emails = <EmailModel>[
     date: DateTime(2024, 3, 24),
   ),
   EmailModel(
+    id: uuid.v4(),
     sender: 'Rein',
     to: 'reports@salesdepartment.com',
     subject: 'Request for information',
@@ -56,6 +65,7 @@ final emails = <EmailModel>[
     date: DateTime(2024, 3, 12),
   ),
   EmailModel(
+    id: uuid.v4(),
     sender: 'Toren',
     to: 'submissions@projectmanagement.com',
     subject: 'Reminder: Deadline approaching',
@@ -246,9 +256,29 @@ class EmailsScreenDrawerWidget extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 12.0),
+            const SizedBox(height: 8.0),
+            const Divider(
+              height: 12.0,
+            ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
+              leading: const Icon(
+                Icons.inbox,
+                size: 20.0,
+              ),
+              title: const Text(
+                'Main',
+                style: TextStyle(
+                  fontSize: 14.0,
+                ),
+              ),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.pop(context);
+              },
               leading: const Icon(
                 Icons.star_outline,
                 size: 20.0,
@@ -457,6 +487,7 @@ class _CreateEmailWidgetState extends State<CreateEmailWidget> {
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       final email = EmailModel(
+        id: uuid.v4(),
         sender: _senderController.text,
         to: _toController.text,
         subject: _subjectController.text,
@@ -471,6 +502,7 @@ class _CreateEmailWidgetState extends State<CreateEmailWidget> {
 
   @override
   void dispose() {
+    _senderController.dispose();
     _toController.dispose();
     _subjectController.dispose();
     _bodyController.dispose();
