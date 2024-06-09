@@ -141,13 +141,22 @@ class EmailsScreen extends StatefulWidget {
 class _EmailsScreenState extends State<EmailsScreen> {
   late bool _isLigth;
 
+  late List<EmailModel> _screenEmails;
+
   final _emailsNotifier = EmailsNotifier([]);
+
+  void _setScreenEmails(
+    List<EmailModel> value,
+  ) {
+    _screenEmails = value;
+    _emailsNotifier.setEmails(value);
+  }
 
   void _searchEmails(
     String query,
   ) {
     if (query.trim() == '') {
-      _emailsNotifier.setEmails(emails);
+      _emailsNotifier.setEmails(_screenEmails);
       return;
     }
 
@@ -155,7 +164,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
 
     final results = <EmailModel>[];
 
-    for (EmailModel email in emails) {
+    for (EmailModel email in _screenEmails) {
       if (email.sender.toLowerCase().contains(query) ||
           email.subject.toLowerCase().contains(query) ||
           email.body.toLowerCase().contains(query)) {
@@ -163,12 +172,13 @@ class _EmailsScreenState extends State<EmailsScreen> {
       }
     }
 
-    _emailsNotifier.setEmails(emails);
+    _emailsNotifier.setEmails(results);
   }
 
   @override
   void initState() {
-    _emailsNotifier.setEmails(emails);
+    _screenEmails = emails;
+    _emailsNotifier.setEmails(_screenEmails);
 
     super.initState();
   }
@@ -188,7 +198,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
           : ThemeData.dark(),
       child: Scaffold(
         drawer: EmailsScreenDrawerWidget(
-          emailsNotifier: _emailsNotifier,
+          setScreenEmails: _setScreenEmails,
         ),
         appBar: EmailsScreenAppBarWidget(
           searchEmails: _searchEmails,
@@ -223,13 +233,15 @@ class _EmailsScreenState extends State<EmailsScreen> {
 class EmailsScreenDrawerWidget extends StatelessWidget {
   const EmailsScreenDrawerWidget({
     super.key,
-    required this.emailsNotifier,
+    required this.setScreenEmails,
   });
 
-  final EmailsNotifier emailsNotifier;
+  final void Function(
+    List<EmailModel> value,
+  ) setScreenEmails;
 
   void _showEmails() {
-    emailsNotifier.setEmails(emails);
+    setScreenEmails(emails);
   }
 
   void _showStarredEmails() {
@@ -240,7 +252,7 @@ class EmailsScreenDrawerWidget extends StatelessWidget {
       }
     }
 
-    emailsNotifier.setEmails(starredEmails);
+    setScreenEmails(starredEmails);
   }
 
   @override
