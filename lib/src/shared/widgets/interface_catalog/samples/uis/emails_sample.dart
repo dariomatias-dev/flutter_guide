@@ -597,6 +597,16 @@ class _CreateEmailWidgetState extends State<CreateEmailWidget> {
       widget.emailsNotifier.setEmails(emails);
       Navigator.pop(context);
       widget.showEmails();
+
+      final snackBar = SnackBar(
+        action: SnackBarAction(
+          label: 'Ok',
+          onPressed: () {},
+        ),
+        content: const Text('Email sent'),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 
@@ -835,6 +845,19 @@ class EmailWidget extends StatefulWidget {
 class _EmailWidgetState extends State<EmailWidget> {
   late String date;
 
+  void _navigateToEmailScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return EmailScreen(
+            email: widget.email,
+          );
+        },
+      ),
+    );
+  }
+
   void _showModalBottomSheet() {
     showModalBottomSheet(
       context: context,
@@ -867,6 +890,7 @@ class _EmailWidgetState extends State<EmailWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: _navigateToEmailScreen,
       onLongPress: _showModalBottomSheet,
       child: Container(
         color: Theme.of(context).colorScheme.background,
@@ -1140,6 +1164,51 @@ class ModalBottomSheetWidgetActionWidget extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class EmailScreen extends StatelessWidget {
+  const EmailScreen({
+    super.key,
+    required this.email,
+  });
+
+  final EmailModel email;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.delete_outline,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.star_outline,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.archive_outlined,
+            ),
+          ),
+        ],
       ),
     );
   }
