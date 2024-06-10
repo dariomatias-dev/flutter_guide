@@ -131,6 +131,11 @@ class EmailsNotifier extends ValueNotifier<List<EmailModel>> {
   }
 }
 
+enum Screen {
+  main,
+  withStar,
+}
+
 class EmailsScreen extends StatefulWidget {
   const EmailsScreen({super.key});
 
@@ -139,6 +144,7 @@ class EmailsScreen extends StatefulWidget {
 }
 
 class _EmailsScreenState extends State<EmailsScreen> {
+  Screen screen = Screen.main;
   late bool _isLigth;
 
   late List<EmailModel> _screenEmails;
@@ -146,10 +152,14 @@ class _EmailsScreenState extends State<EmailsScreen> {
   final _emailsNotifier = EmailsNotifier([]);
 
   void _showEmails() {
+    screen = Screen.main;
+
     _setScreenEmails(emails);
   }
 
   void _showStarredEmails() {
+    screen = Screen.withStar;
+
     final starredEmails = <EmailModel>[];
     for (EmailModel email in _screenEmails) {
       if (email.withStar) {
@@ -238,6 +248,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
           setScreenEmails: _setScreenEmails,
         ),
         appBar: EmailsScreenAppBarWidget(
+          isLigth: _isLigth,
           searchEmails: _searchEmails,
         ),
         body: Padding(
@@ -253,6 +264,8 @@ class _EmailsScreenState extends State<EmailsScreen> {
                   return EmailWidget(
                     email: value[index],
                     removeEmail: _removeEmail,
+                    updateScreen:
+                        screen == Screen.withStar ? _showStarredEmails : () {},
                   );
                 },
               );
@@ -262,6 +275,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
         floatingActionButton: ComposeEmailFloatingActionButtonWidget(
           isLigth: _isLigth,
           emailsNotifier: _emailsNotifier,
+          showEmails: _showEmails,
         ),
       ),
     );
@@ -296,9 +310,10 @@ class EmailsScreenDrawerWidget extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
-                    backgroundColor: Colors.lightBlue.shade100.withOpacity(0.4),
-                    child: const Icon(
+                    backgroundColor: Colors.lightBlue.withOpacity(0.1),
+                    child: Icon(
                       Icons.person_outline,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   const SizedBox(width: 8.0),
@@ -391,9 +406,11 @@ class EmailsScreenAppBarWidget extends StatefulWidget
     implements PreferredSizeWidget {
   const EmailsScreenAppBarWidget({
     super.key,
+    required this.isLigth,
     required this.searchEmails,
   });
 
+  final bool isLigth;
   final void Function(
     String query,
   ) searchEmails;
@@ -436,7 +453,9 @@ class _EmailsScreenAppBarWidgetState extends State<EmailsScreenAppBarWidget> {
               ),
             ),
             filled: true,
-            fillColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+            fillColor: widget.isLigth
+                ? Colors.grey.withOpacity(0.24)
+                : Colors.blue.withOpacity(0.025),
             contentPadding: const EdgeInsets.all(12.0),
             isDense: true,
             border: const OutlineInputBorder(
@@ -457,10 +476,12 @@ class ComposeEmailFloatingActionButtonWidget extends StatefulWidget {
     super.key,
     required this.isLigth,
     required this.emailsNotifier,
+    required this.showEmails,
   });
 
   final bool isLigth;
   final EmailsNotifier emailsNotifier;
+  final VoidCallback showEmails;
 
   @override
   State<ComposeEmailFloatingActionButtonWidget> createState() =>
@@ -504,6 +525,7 @@ class _ComposeEmailFloatingActionButtonWidgetState
               inputDecoration: _defaultInputDecoration,
               padding: _defaultPadding,
               emailsNotifier: widget.emailsNotifier,
+              showEmails: widget.showEmails,
             );
           },
         );
@@ -536,6 +558,7 @@ class CreateEmailWidget extends StatefulWidget {
     required this.inputDecoration,
     required this.padding,
     required this.emailsNotifier,
+    required this.showEmails,
   });
 
   final TextStyle titleFieldTextStyle;
@@ -544,6 +567,7 @@ class CreateEmailWidget extends StatefulWidget {
   }) inputDecoration;
   final EdgeInsets padding;
   final EmailsNotifier emailsNotifier;
+  final VoidCallback showEmails;
 
   @override
   State<CreateEmailWidget> createState() => _CreateEmailWidgetState();
@@ -572,6 +596,7 @@ class _CreateEmailWidgetState extends State<CreateEmailWidget> {
       emails.insert(0, email);
       widget.emailsNotifier.setEmails(emails);
       Navigator.pop(context);
+      widget.showEmails();
     }
   }
 
@@ -794,12 +819,14 @@ class EmailWidget extends StatefulWidget {
     super.key,
     required this.email,
     required this.removeEmail,
+    required this.updateScreen,
   });
 
   final EmailModel email;
   final void Function(
     String emailId,
   ) removeEmail;
+  final VoidCallback updateScreen;
 
   @override
   State<EmailWidget> createState() => _EmailWidgetState();
@@ -916,6 +943,7 @@ class _EmailWidgetState extends State<EmailWidget> {
                       const SizedBox(width: 12.0),
                       SaveEmailButtonWidget(
                         email: widget.email,
+                        updateScreen: widget.updateScreen,
                       ),
                     ],
                   ),
@@ -933,9 +961,11 @@ class SaveEmailButtonWidget extends StatefulWidget {
   const SaveEmailButtonWidget({
     super.key,
     required this.email,
+    required this.updateScreen,
   });
 
   final EmailModel email;
+  final VoidCallback updateScreen;
 
   @override
   State<SaveEmailButtonWidget> createState() => _SaveEmailButtonWidgetState();
@@ -968,6 +998,7 @@ class _SaveEmailButtonWidgetState extends State<SaveEmailButtonWidget> {
       onTap: () {
         _isStarred = !_isStarred;
         widget.email.toggleWithStar();
+        widget.updateScreen();
 
         setState(() {});
       },
