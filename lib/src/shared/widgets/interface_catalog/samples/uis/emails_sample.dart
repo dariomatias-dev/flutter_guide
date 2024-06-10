@@ -129,6 +129,10 @@ class EmailsNotifier extends ValueNotifier<List<EmailModel>> {
 
     notifyListeners();
   }
+
+  void updateEmail() {
+    notifyListeners();
+  }
 }
 
 enum Screen {
@@ -177,16 +181,9 @@ class _EmailsScreenState extends State<EmailsScreen> {
       return email.id == emailId;
     });
 
-    if (emails.length == _screenEmails.length) {
-      _emailsNotifier.setEmails(emails);
-    } else {
-      _screenEmails.removeWhere((email) {
-        return email.id == emailId;
-      });
-
-      _emailsNotifier.setEmails(_screenEmails);
-    }
-
+    _screenEmails.removeWhere((email) {
+      return email.id == emailId;
+    });
     _emailsNotifier.setEmails(_screenEmails);
   }
 
@@ -266,6 +263,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
                     removeEmail: _removeEmail,
                     updateScreen:
                         screen == Screen.withStar ? _showStarredEmails : () {},
+                    emailsNotifier: _emailsNotifier,
                   );
                 },
               );
@@ -830,6 +828,7 @@ class EmailWidget extends StatefulWidget {
     required this.email,
     required this.removeEmail,
     required this.updateScreen,
+    required this.emailsNotifier,
   });
 
   final EmailModel email;
@@ -837,6 +836,7 @@ class EmailWidget extends StatefulWidget {
     String emailId,
   ) removeEmail;
   final VoidCallback updateScreen;
+  final EmailsNotifier emailsNotifier;
 
   @override
   State<EmailWidget> createState() => _EmailWidgetState();
@@ -852,6 +852,8 @@ class _EmailWidgetState extends State<EmailWidget> {
         builder: (context) {
           return EmailScreen(
             email: widget.email,
+            emailsNotifier: widget.emailsNotifier,
+            removeEmail: widget.removeEmail,
           );
         },
       ),
@@ -1169,13 +1171,48 @@ class ModalBottomSheetWidgetActionWidget extends StatelessWidget {
   }
 }
 
-class EmailScreen extends StatelessWidget {
+class EmailScreen extends StatefulWidget {
   const EmailScreen({
     super.key,
     required this.email,
+    required this.emailsNotifier,
+    required this.removeEmail,
   });
 
   final EmailModel email;
+  final EmailsNotifier emailsNotifier;
+  final void Function(
+    String emailId,
+  ) removeEmail;
+
+  @override
+  State<EmailScreen> createState() => _EmailScreenState();
+}
+
+class _EmailScreenState extends State<EmailScreen> {
+  final _isStarredNotifier = ValueNotifier(false);
+
+  void _deleteEmail() {
+    widget.removeEmail(
+      widget.email.id,
+    );
+
+    Navigator.pop(context);
+  }
+
+  void _starEmail() {
+    _isStarredNotifier.value = !_isStarredNotifier.value;
+
+    widget.email.toggleWithStar();
+    widget.emailsNotifier.updateEmail();
+  }
+
+  @override
+  void initState() {
+    _isStarredNotifier.value = widget.email.withStar;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -1191,16 +1228,22 @@ class EmailScreen extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: _deleteEmail,
             icon: const Icon(
               Icons.delete_outline,
             ),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.star_outline,
-            ),
+          ValueListenableBuilder(
+            valueListenable: _isStarredNotifier,
+            builder: (context, value, child) {
+              return IconButton(
+                onPressed: _starEmail,
+                icon: Icon(
+                  value ? Icons.star : Icons.star_border,
+                  color: value ? Colors.yellow.shade600 : null,
+                ),
+              );
+            },
           ),
           IconButton(
             onPressed: () {},
@@ -1218,7 +1261,7 @@ class EmailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              email.subject,
+              widget.email.subject,
               style: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.w500,
@@ -1226,7 +1269,7 @@ class EmailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             Text(
-              email.body,
+              widget.email.body,
             ),
             const SizedBox(height: 32.0),
             const SizedBox(
