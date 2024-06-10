@@ -1210,6 +1210,84 @@ class EmailScreen extends StatelessWidget {
           ),
         ],
       ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 12.0,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              email.subject,
+              style: const TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            Text(
+              email.body,
+            ),
+            const SizedBox(height: 32.0),
+            const SizedBox(
+              height: 76.0,
+              child: Row(
+                children: <Widget>[
+                  EmailScreenActionWidget(
+                    icon: Icons.keyboard_arrow_left_rounded,
+                    title: 'Responder',
+                  ),
+                  SizedBox(width: 6.0),
+                  EmailScreenActionWidget(
+                    icon: Icons.keyboard_double_arrow_left_rounded,
+                    title: 'Responder a todos',
+                  ),
+                  SizedBox(width: 6.0),
+                  EmailScreenActionWidget(
+                    icon: Icons.keyboard_arrow_right_rounded,
+                    title: 'Encaminhar',
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class EmailScreenActionWidget extends StatelessWidget {
+  const EmailScreenActionWidget({
+    super.key,
+    required this.icon,
+    required this.title,
+  });
+
+  final IconData icon;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 1.2,
+          ),
+          borderRadius: BorderRadius.circular(28.0),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(icon),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
