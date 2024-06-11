@@ -48,6 +48,50 @@ class UserModel {
   }
 }
 
+class CommentModel {
+  const CommentModel({
+    required this.name,
+    required this.email,
+    required this.body,
+  });
+
+  final String name;
+  final String email;
+  final String body;
+
+  factory CommentModel.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    return CommentModel(
+      name: json['name'],
+      email: json['email'],
+      body: json['body'],
+    );
+  }
+}
+
+class TodoModel {
+  const TodoModel({
+    required this.userId,
+    required this.title,
+    required this.completed,
+  });
+
+  final int userId;
+  final String title;
+  final bool completed;
+
+  factory TodoModel.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    return TodoModel(
+      userId: json['userId'],
+      title: json['title'],
+      completed: json['completed'],
+    );
+  }
+}
+
 class ConfiguringDioSample extends StatefulWidget {
   const ConfiguringDioSample({super.key});
 
@@ -66,18 +110,49 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
 
   final _client = DioClient().client;
 
-  Future<List<UserModel>> _fetchUsers() async {
-    final response = await _client.get('/users');
+  Future<List> _fetchData() async {
+    try {
+      String path = '/';
 
-    final users = <UserModel>[];
+      if (_resourceType == ResourceType.users) {
+        path += 'users';
+      } else if (_resourceType == ResourceType.comments) {
+        path += 'posts/1/comments';
+      } else if (_resourceType == ResourceType.todos) {
+        path += 'todos';
+      }
 
-    for (Map<String, dynamic> result in response.data) {
-      users.add(
-        UserModel.fromJson(result),
-      );
+      final response = await _client.get(path);
+
+      final results = [];
+
+      final responseData = response.data as List;
+
+      for (int i = 0; i < responseData.length; i++) {
+        final result = responseData[i];
+
+        dynamic data;
+        if (_resourceType == ResourceType.users) {
+          data = UserModel.fromJson(result);
+        } else if (_resourceType == ResourceType.comments) {
+          data = CommentModel.fromJson(result);
+        } else if (_resourceType == ResourceType.todos) {
+          data = TodoModel.fromJson(result);
+        }
+
+        results.add(
+          data,
+        );
+
+        if (i == 19) {
+          break;
+        }
+      }
+
+      return results;
+    } catch (err) {
+      return [];
     }
-
-    return users;
   }
 
   @override
@@ -96,7 +171,7 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
                   value: _resourceType,
                   items: List.generate(_resourceTypes.length, (index) {
                     final resourceType = _resourceTypes[index];
-              
+
                     return DropdownMenuItem(
                       value: resourceType,
                       child: Text(resourceType.name),
@@ -113,7 +188,7 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
           ),
           Expanded(
             child: FutureBuilder(
-              future: _fetchUsers(),
+              future: _fetchData(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -127,27 +202,71 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
 
                 final data = snapshot.data!;
 
-                return ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(context).copyWith(
-                    scrollbars: false,
-                  ),
-                  child: ListView.builder(
-                    itemCount: data.length,
-                    itemBuilder: (context, index) {
-                      final user = data[index];
+                if (_resourceType == ResourceType.users) {
+                  return ScrollConfiguration(
+                    behavior: ScrollConfiguration.of(context).copyWith(
+                      scrollbars: false,
+                    ),
+                    child: ListView.builder(
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        final element = data[index] as UserModel;
 
-                      return ListTile(
-                        leading: const CircleAvatar(
-                          child: Icon(
-                            Icons.person_outline,
+                        return ListTile(
+                          leading: const CircleAvatar(
+                            child: Icon(
+                              Icons.person_outline,
+                            ),
                           ),
-                        ),
-                        title: Text(user.username),
-                        subtitle: Text(user.name),
-                      );
-                    },
-                  ),
-                );
+                          title: Text(element.username),
+                          subtitle: Text(element.name),
+                        );
+                      },
+                    ),
+                  );
+                } else if (_resourceType == ResourceType.comments) {
+                  return ScrollConfiguration(
+                    behavior: ScrollConfiguration.of(context).copyWith(
+                      scrollbars: false,
+                    ),
+                    child: ListView.separated(
+                      itemCount: data.length,
+                      separatorBuilder: (context, index) {
+                        return const Divider();
+                      },
+                      itemBuilder: (context, index) {
+                        final element = data[index] as CommentModel;
+
+                        return ListTile(
+                          title: Text(element.name),
+                          subtitle: Text(element.email),
+                        );
+                      },
+                    ),
+                  );
+                } else if (_resourceType == ResourceType.todos) {
+                  return ScrollConfiguration(
+                    behavior: ScrollConfiguration.of(context).copyWith(
+                      scrollbars: false,
+                    ),
+                    child: ListView.separated(
+                      itemCount: data.length,
+                      separatorBuilder: (context, index) {
+                        return const Divider();
+                      },
+                      itemBuilder: (context, index) {
+                        final element = data[index] as TodoModel;
+
+                        return ListTile(
+                          title: Text(element.title),
+                          subtitle: Text(element.completed.toString()),
+                        );
+                      },
+                    ),
+                  );
+                }
+
+                return Container();
               },
             ),
           ),
