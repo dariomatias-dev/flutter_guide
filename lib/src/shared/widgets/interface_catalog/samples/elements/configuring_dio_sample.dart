@@ -110,38 +110,67 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
 
   final _client = DioClient().client;
 
-  Future<List> _fetchData() async {
+  Widget getUserListTile(dynamic value) {
+    final user = UserModel.fromJson(value);
+
+    return ListTile(
+      leading: const CircleAvatar(
+        child: Icon(
+          Icons.person_outline,
+        ),
+      ),
+      title: Text(user.username),
+      subtitle: Text(user.name),
+    );
+  }
+
+  Widget getCommentListTile(dynamic value) {
+    final comment = CommentModel.fromJson(value);
+
+    return ListTile(
+      title: Text(comment.name),
+      subtitle: Text(comment.email),
+    );
+  }
+
+  Widget getTodoListTile(dynamic value) {
+    final todo = TodoModel.fromJson(value);
+
+    return ListTile(
+      title: Text(todo.title),
+      subtitle: Text(todo.completed.toString()),
+    );
+  }
+
+  Future<List<Widget>> _fetchData() async {
     try {
       String path = '/';
+      Widget Function(
+        dynamic data,
+      ) getListTile;
 
       if (_resourceType == ResourceType.users) {
         path += 'users';
+        getListTile = getUserListTile;
       } else if (_resourceType == ResourceType.comments) {
         path += 'posts/1/comments';
-      } else if (_resourceType == ResourceType.todos) {
+        getListTile = getCommentListTile;
+      } else {
         path += 'todos';
+        getListTile = getTodoListTile;
       }
 
       final response = await _client.get(path);
 
-      final results = [];
+      final results = <Widget>[];
 
       final responseData = response.data as List;
 
       for (int i = 0; i < responseData.length; i++) {
-        final result = responseData[i];
-
-        dynamic data;
-        if (_resourceType == ResourceType.users) {
-          data = UserModel.fromJson(result);
-        } else if (_resourceType == ResourceType.comments) {
-          data = CommentModel.fromJson(result);
-        } else if (_resourceType == ResourceType.todos) {
-          data = TodoModel.fromJson(result);
-        }
-
         results.add(
-          data,
+          getListTile(
+            responseData[i],
+          ),
         );
 
         if (i == 19) {
@@ -202,71 +231,17 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
 
                 final data = snapshot.data!;
 
-                if (_resourceType == ResourceType.users) {
-                  return ScrollConfiguration(
-                    behavior: ScrollConfiguration.of(context).copyWith(
-                      scrollbars: false,
-                    ),
-                    child: ListView.builder(
-                      itemCount: data.length,
-                      itemBuilder: (context, index) {
-                        final element = data[index] as UserModel;
-
-                        return ListTile(
-                          leading: const CircleAvatar(
-                            child: Icon(
-                              Icons.person_outline,
-                            ),
-                          ),
-                          title: Text(element.username),
-                          subtitle: Text(element.name),
-                        );
-                      },
-                    ),
-                  );
-                } else if (_resourceType == ResourceType.comments) {
-                  return ScrollConfiguration(
-                    behavior: ScrollConfiguration.of(context).copyWith(
-                      scrollbars: false,
-                    ),
-                    child: ListView.separated(
-                      itemCount: data.length,
-                      separatorBuilder: (context, index) {
-                        return const Divider();
-                      },
-                      itemBuilder: (context, index) {
-                        final element = data[index] as CommentModel;
-
-                        return ListTile(
-                          title: Text(element.name),
-                          subtitle: Text(element.email),
-                        );
-                      },
-                    ),
-                  );
-                } else if (_resourceType == ResourceType.todos) {
-                  return ScrollConfiguration(
-                    behavior: ScrollConfiguration.of(context).copyWith(
-                      scrollbars: false,
-                    ),
-                    child: ListView.separated(
-                      itemCount: data.length,
-                      separatorBuilder: (context, index) {
-                        return const Divider();
-                      },
-                      itemBuilder: (context, index) {
-                        final element = data[index] as TodoModel;
-
-                        return ListTile(
-                          title: Text(element.title),
-                          subtitle: Text(element.completed.toString()),
-                        );
-                      },
-                    ),
-                  );
-                }
-
-                return Container();
+                return ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(context).copyWith(
+                    scrollbars: false,
+                  ),
+                  child: ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      return data[index];
+                    },
+                  ),
+                );
               },
             ),
           ),
