@@ -308,10 +308,11 @@ class EmailsScreenDrawerWidget extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
-                    backgroundColor: Colors.lightBlue.withOpacity(0.1),
+                    backgroundColor: Theme.of(context).colorScheme.onBackground,
                     child: Icon(
-                      Icons.person_outline,
-                      color: Theme.of(context).colorScheme.secondary,
+                      Icons.person,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      size: 32.0,
                     ),
                   ),
                   const SizedBox(width: 8.0),
@@ -451,9 +452,8 @@ class _EmailsScreenAppBarWidgetState extends State<EmailsScreenAppBarWidget> {
               ),
             ),
             filled: true,
-            fillColor: widget.isLigth
-                ? Colors.grey.withOpacity(0.24)
-                : Colors.blue.withOpacity(0.025),
+            fillColor:
+                Theme.of(context).colorScheme.onBackground.withOpacity(0.12),
             contentPadding: const EdgeInsets.all(12.0),
             isDense: true,
             border: const OutlineInputBorder(
@@ -528,21 +528,16 @@ class _ComposeEmailFloatingActionButtonWidgetState
           },
         );
       },
-      backgroundColor:
-          widget.isLigth ? Colors.lightBlue.shade50 : Colors.lightBlue.shade900,
+      backgroundColor: Theme.of(context).colorScheme.onBackground,
       icon: Icon(
         Icons.edit_outlined,
-        color: widget.isLigth
-            ? Colors.lightBlue.shade900
-            : Colors.lightBlue.shade100,
+        color: Theme.of(context).colorScheme.onPrimary,
         size: 20.0,
       ),
       label: Text(
         'Compose',
         style: TextStyle(
-          color: widget.isLigth
-              ? Colors.lightBlue.shade900
-              : Colors.lightBlue.shade100,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
       ),
     );
@@ -902,10 +897,10 @@ class _EmailWidgetState extends State<EmailWidget> {
         child: Row(
           children: <Widget>[
             CircleAvatar(
-              backgroundColor: Colors.blue.shade100,
+              backgroundColor: Theme.of(context).colorScheme.onBackground,
               child: Icon(
                 Icons.person,
-                color: Colors.blue.shade400,
+                color: Theme.of(context).colorScheme.onPrimary,
                 size: 32.0,
               ),
             ),
@@ -1216,84 +1211,89 @@ class _EmailScreenState extends State<EmailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios_new_rounded,
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            onPressed: _deleteEmail,
-            icon: const Icon(
-              Icons.delete_outline,
-            ),
-          ),
-          ValueListenableBuilder(
-            valueListenable: _isStarredNotifier,
-            builder: (context, value, child) {
-              return IconButton(
-                onPressed: _starEmail,
-                icon: Icon(
-                  value ? Icons.star : Icons.star_border,
-                  color: value ? Colors.yellow.shade600 : null,
-                ),
-              );
+    return Theme(
+      data: Theme.of(context).brightness == Brightness.light
+          ? ThemeData.light()
+          : ThemeData.dark(),
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
             },
-          ),
-          IconButton(
-            onPressed: () {},
             icon: const Icon(
-              Icons.archive_outlined,
+              Icons.arrow_back_ios_new_rounded,
             ),
           ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 12.0,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              widget.email.subject,
-              style: const TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.w500,
+          actions: <Widget>[
+            IconButton(
+              onPressed: _deleteEmail,
+              icon: const Icon(
+                Icons.delete_outline,
               ),
             ),
-            const SizedBox(height: 8.0),
-            Text(
-              widget.email.body,
+            ValueListenableBuilder(
+              valueListenable: _isStarredNotifier,
+              builder: (context, value, child) {
+                return IconButton(
+                  onPressed: _starEmail,
+                  icon: Icon(
+                    value ? Icons.star : Icons.star_border,
+                    color: value ? Colors.yellow.shade600 : null,
+                  ),
+                );
+              },
             ),
-            const SizedBox(height: 32.0),
-            const SizedBox(
-              height: 76.0,
-              child: Row(
-                children: <Widget>[
-                  EmailScreenActionWidget(
-                    icon: Icons.keyboard_arrow_left_rounded,
-                    title: 'Responder',
-                  ),
-                  SizedBox(width: 6.0),
-                  EmailScreenActionWidget(
-                    icon: Icons.keyboard_double_arrow_left_rounded,
-                    title: 'Responder a todos',
-                  ),
-                  SizedBox(width: 6.0),
-                  EmailScreenActionWidget(
-                    icon: Icons.keyboard_arrow_right_rounded,
-                    title: 'Encaminhar',
-                  ),
-                ],
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.archive_outlined,
               ),
-            )
+            ),
           ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 12.0,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                widget.email.subject,
+                style: const TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              Text(
+                widget.email.body,
+              ),
+              const SizedBox(height: 32.0),
+              const SizedBox(
+                height: 76.0,
+                child: Row(
+                  children: <Widget>[
+                    EmailScreenActionWidget(
+                      icon: Icons.keyboard_arrow_left_rounded,
+                      title: 'Responder',
+                    ),
+                    SizedBox(width: 6.0),
+                    EmailScreenActionWidget(
+                      icon: Icons.keyboard_double_arrow_left_rounded,
+                      title: 'Responder a todos',
+                    ),
+                    SizedBox(width: 6.0),
+                    EmailScreenActionWidget(
+                      icon: Icons.keyboard_arrow_right_rounded,
+                      title: 'Encaminhar',
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -1316,6 +1316,7 @@ class EmailScreenActionWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
+            color: Theme.of(context).colorScheme.onSurface,
             width: 1.2,
           ),
           borderRadius: BorderRadius.circular(28.0),
