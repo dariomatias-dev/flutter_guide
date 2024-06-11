@@ -20,6 +20,12 @@ class DioClient {
   Dio get client => dio;
 }
 
+enum ResourceType {
+  users,
+  comments,
+  todos,
+}
+
 class UserModel {
   const UserModel({
     required this.name,
@@ -50,6 +56,14 @@ class ConfiguringDioSample extends StatefulWidget {
 }
 
 class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
+  ResourceType _resourceType = ResourceType.users;
+
+  final _resourceTypes = [
+    ResourceType.users,
+    ResourceType.comments,
+    ResourceType.todos,
+  ];
+
   final _client = DioClient().client;
 
   Future<List<UserModel>> _fetchUsers() async {
@@ -69,43 +83,75 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder(
-        future: _fetchUsers(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.hasError || snapshot.data == null) {
-            return const Center(
-              child: Text('Ocorreu um erro ao obter dados'),
-            );
-          }
-
-          final data = snapshot.data!;
-
-          return ScrollConfiguration(
-            behavior: ScrollConfiguration.of(context).copyWith(
-              scrollbars: false,
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 8.0,
             ),
-            child: ListView.builder(
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                final user = data[index];
-            
-                return ListTile(
-                  leading: const CircleAvatar(
-                    child: Icon(
-                      Icons.person_outline,
-                    ),
+            child: Align(
+              alignment: Alignment.center,
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton(
+                  value: _resourceType,
+                  items: List.generate(_resourceTypes.length, (index) {
+                    final resourceType = _resourceTypes[index];
+              
+                    return DropdownMenuItem(
+                      value: resourceType,
+                      child: Text(resourceType.name),
+                    );
+                  }),
+                  onChanged: (value) {
+                    setState(() {
+                      _resourceType = value!;
+                    });
+                  },
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: FutureBuilder(
+              future: _fetchUsers(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasError || snapshot.data == null) {
+                  return const Center(
+                    child: Text('Ocorreu um erro ao obter dados'),
+                  );
+                }
+
+                final data = snapshot.data!;
+
+                return ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(context).copyWith(
+                    scrollbars: false,
                   ),
-                  title: Text(user.username),
-                  subtitle: Text(user.name),
+                  child: ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      final user = data[index];
+
+                      return ListTile(
+                        leading: const CircleAvatar(
+                          child: Icon(
+                            Icons.person_outline,
+                          ),
+                        ),
+                        title: Text(user.username),
+                        subtitle: Text(user.name),
+                      );
+                    },
+                  ),
                 );
               },
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }
