@@ -40,6 +40,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dropd
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/elevatedbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/expanded_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/expansiontile_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/filledbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/filterchip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/floatingactionbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/futurebuilder_sample.dart';
@@ -324,6 +325,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.expansionTileWidget,
     icon: Icons.keyboard_arrow_down_rounded,
     sample: ExpansionTileSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.filledButtonWidget,
+    icon: Icons.crop_16_9,
+    sample: FilledButtonSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(

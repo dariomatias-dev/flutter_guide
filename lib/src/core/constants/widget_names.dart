@@ -35,6 +35,7 @@ class WidgetNames {
   static const elevatedButtonWidget = 'ElevatedButton';
   static const expandedWidget = 'Expanded';
   static const expansionTileWidget = 'ExpansionTile';
+  static const filledButtonWidget = 'FilledButton';
   static const filterChipWidget = 'FilterChip';
   static const floatingActionButtonWidget = 'FloatingActionButton';
   static const futureBuilderWidget = 'FutureBuilder';
