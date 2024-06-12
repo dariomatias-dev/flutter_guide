@@ -7,6 +7,7 @@ class WidgetNames {
   static const backButtonWidget = 'BackButton';
   static const backdropFilterWidget = 'BackdropFilter';
   static const bannerWidget = 'Banner';
+  static const bottomAppBarWidget = 'BottomAppBar';
   static const bottomNavigationBarWidget = 'BottomNavigationBar';
   static const bottomSheetWidget = 'BottomSheet';
   static const cardWidget = 'Card';

@@ -12,6 +12,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/appba
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backdropfilter_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/banner_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomappbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomnavigationbar_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomsheet_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/card_sample.dart';
@@ -144,6 +145,12 @@ const widgets = <WidgetModel>[
     icon: Icons.flag,
     sample: BannerSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.bottomAppBarWidget,
+    icon: Icons.view_carousel,
+    sample: BottomAppBarSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.bottomNavigationBarWidget,
