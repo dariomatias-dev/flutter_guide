@@ -7,9 +7,19 @@ class OutlinedButtonSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: OutlinedButton(
-          onPressed: () {},
-          child: const Text('Click Me'),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            OutlinedButton(
+              onPressed: () {},
+              child: const Text('Enabled'),
+            ),
+            const SizedBox(width: 12.0),
+            const OutlinedButton(
+              onPressed: null,
+              child: Text('Disabled'),
+            ),
+          ],
         ),
       ),
     );
