@@ -7,9 +7,19 @@ class ElevatedButtonSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {},
-          child: const Text('Button'),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Enabled'),
+            ),
+            const SizedBox(width: 12.0),
+            const ElevatedButton(
+              onPressed: null,
+              child: Text('Disabled'),
+            ),
+          ],
         ),
       ),
     );
