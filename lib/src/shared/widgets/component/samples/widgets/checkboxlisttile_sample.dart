@@ -8,7 +8,7 @@ class CheckboxListTileSample extends StatefulWidget {
 }
 
 class _CheckboxListTileSampleState extends State<CheckboxListTileSample> {
-  final _selectedOptions = List.filled(5, false);
+  final _selectedOptions = List.filled(3, false);
 
   void updateSelectedOptions(int index, bool newValue) {
     setState(() {
@@ -21,17 +21,34 @@ class _CheckboxListTileSampleState extends State<CheckboxListTileSample> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: List.generate(_selectedOptions.length, (index) {
-          return CheckboxListTile(
-            value: _selectedOptions[index],
-            title: Text('Checkbox $index'),
-            onChanged: (value) => updateSelectedOptions(
-              index,
-              value!,
-            ),
-          );
-        }),
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: List.generate(_selectedOptions.length, (index) {
+              return CheckboxListTile(
+                value: _selectedOptions[index],
+                title: Text('Checkbox $index'),
+                onChanged: (value) => updateSelectedOptions(
+                  index,
+                  value!,
+                ),
+              );
+            }),
+          ),
+          const SizedBox(height: 12.0),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: List.generate(_selectedOptions.length, (index) {
+              return CheckboxListTile(
+                value: _selectedOptions[index],
+                title: Text('Checkbox $index'),
+                onChanged: null,
+              );
+            }),
+          ),
+        ],
       ),
     );
   }

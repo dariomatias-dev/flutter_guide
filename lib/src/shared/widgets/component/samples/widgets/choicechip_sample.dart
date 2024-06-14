@@ -14,19 +14,35 @@ class _ChoiceChipSampleState extends State<ChoiceChipSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Wrap(
-          spacing: 6.0,
-          children: List.generate(3, (index) {
-            return ChoiceChip(
-              label: Text('Item ${index + 1}'),
-              selected: _selectedItemIndex == index,
-              onSelected: (value) {
-                setState(() {
-                  _selectedItemIndex = index;
-                });
-              },
-            );
-          }),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Wrap(
+              spacing: 6.0,
+              children: List.generate(3, (index) {
+                return ChoiceChip(
+                  label: Text('Item ${index + 1}'),
+                  selected: _selectedItemIndex == index,
+                  onSelected: (value) {
+                    setState(() {
+                      _selectedItemIndex = index;
+                    });
+                  },
+                );
+              }),
+            ),
+            const SizedBox(height: 12.0),
+            Wrap(
+              spacing: 6.0,
+              children: List.generate(3, (index) {
+                return ChoiceChip(
+                  label: Text('Item ${index + 1}'),
+                  selected: _selectedItemIndex == index,
+                  onSelected: null,
+                );
+              }),
+            ),
+          ],
         ),
       ),
     );
