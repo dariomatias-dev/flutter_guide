@@ -64,6 +64,23 @@ class _FilterChipSampleState extends State<FilterChipSample> {
                   );
                 }),
               ),
+              const SizedBox(height: 8.0),
+              Wrap(
+                spacing: 6.0,
+                runSpacing: 6.0,
+                alignment: WrapAlignment.center,
+                children: List.generate(programmingLanguages.length, (index) {
+                  final programmingLanguage = programmingLanguages[index];
+
+                  return FilterChip(
+                    label: Text(programmingLanguage),
+                    selected: _selectedProgrammingLanguages.contains(
+                      programmingLanguage,
+                    ),
+                    onSelected: null,
+                  );
+                }),
+              ),
               const SizedBox(height: 20.0),
               if (_selectedProgrammingLanguages.isNotEmpty)
                 RichText(

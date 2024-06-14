@@ -108,7 +108,9 @@ class _DialogSampleState extends State<DialogSample> {
                       ),
                       const SizedBox(height: 12.0),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.redAccent.shade700,
                         ),

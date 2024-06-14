@@ -7,11 +7,11 @@ class LinearProgressIndicatorSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           LinearProgressIndicator(),
-          SizedBox(height: 40.0),
-          LinearProgressSliderWidget(),
+          Expanded(
+            child: LinearProgressSliderWidget(),
+          ),
         ],
       ),
     );
@@ -33,6 +33,7 @@ class _CircularProgressSliderStateWidget
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         LinearProgressIndicator(
           value: _value,

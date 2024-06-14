@@ -6,7 +6,8 @@ class DrawerSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+      ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -52,6 +53,20 @@ class DrawerSample extends StatelessWidget {
               onTap: () {},
             ),
           ],
+        ),
+      ),
+      body: Center(
+        child: Builder(
+          builder: (context) {
+            return ElevatedButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              child: const Text(
+                'Open Drawer',
+              ),
+            );
+          }
         ),
       ),
     );
