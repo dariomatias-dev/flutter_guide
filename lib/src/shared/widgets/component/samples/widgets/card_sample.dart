@@ -5,10 +5,11 @@ class CardSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Card(
-          child: Padding(
+          color: Colors.grey.shade200,
+          child: const Padding(
             padding: EdgeInsets.symmetric(
               vertical: 120.0,
               horizontal: 80.0,

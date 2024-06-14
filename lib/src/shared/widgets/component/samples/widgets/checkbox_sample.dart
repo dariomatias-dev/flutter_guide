@@ -35,31 +35,56 @@ class _CheckboxSampleState extends State<CheckboxSample> {
                 value: _selectedOptions[0],
               ),
               const Text('Item 1'),
+              const SizedBox(width: 12.0),
+              Checkbox(
+                onChanged: null,
+                value: _selectedOptions[0],
+              ),
+              const Text('Item 1'),
             ],
           ),
           const SizedBox(height: 4.0),
-          GestureDetector(
-            onTap: () {
-              updateSelectedOptions(
-                1,
-                !_selectedOptions[1],
-              );
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Checkbox(
-                  onChanged: (value) {
-                    updateSelectedOptions(
-                      1,
-                      value!,
-                    );
-                  },
-                  value: _selectedOptions[1],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  updateSelectedOptions(
+                    1,
+                    !_selectedOptions[1],
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Checkbox(
+                      onChanged: (value) {
+                        updateSelectedOptions(
+                          1,
+                          value!,
+                        );
+                      },
+                      value: _selectedOptions[1],
+                    ),
+                    const Text('Item 2'),
+                  ],
                 ),
-                const Text('Item 2'),
-              ],
-            ),
+              ),
+              const SizedBox(width: 12.0),
+              GestureDetector(
+                onTap: null,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Checkbox(
+                      onChanged: null,
+                      value: _selectedOptions[1],
+                    ),
+                    const Text('Item 2'),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),
