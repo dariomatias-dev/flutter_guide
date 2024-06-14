@@ -68,7 +68,7 @@ class FloatingActionButtonSample extends StatelessWidget {
   }
 }
 
-class FloatingActionButtonScreen extends StatelessWidget {
+class FloatingActionButtonScreen extends StatefulWidget {
   const FloatingActionButtonScreen({
     super.key,
     required this.floatingActionButtonType,
@@ -76,27 +76,36 @@ class FloatingActionButtonScreen extends StatelessWidget {
 
   final FloatingActionButtonType floatingActionButtonType;
 
+  @override
+  State<FloatingActionButtonScreen> createState() =>
+      _FloatingActionButtonScreenState();
+}
+
+class _FloatingActionButtonScreenState
+    extends State<FloatingActionButtonScreen> {
+  final _isEnabledNotifier = ValueNotifier(true);
+
   Widget getFloatingActionButton() {
-    switch (floatingActionButtonType) {
+    switch (widget.floatingActionButtonType) {
       case FloatingActionButtonType.extended:
         return FloatingActionButton.extended(
+          onPressed: _isEnabledNotifier.value ? () {} : null,
           icon: const Icon(Icons.add),
           label: const Text('Add'),
-          onPressed: () {},
         );
       case FloatingActionButtonType.large:
         return FloatingActionButton.large(
-          onPressed: () {},
+          onPressed: _isEnabledNotifier.value ? () {} : null,
           child: const Icon(Icons.add),
         );
       case FloatingActionButtonType.small:
         return FloatingActionButton.small(
-          onPressed: () {},
+          onPressed: _isEnabledNotifier.value ? () {} : null,
           child: const Icon(Icons.add),
         );
       default:
         return FloatingActionButton(
-          onPressed: () {},
+          onPressed: _isEnabledNotifier.value ? () {} : null,
           child: const Icon(Icons.add),
         );
     }
@@ -104,8 +113,6 @@ class FloatingActionButtonScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final floatingActionButton = getFloatingActionButton();
-
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: Colors.white,
@@ -118,6 +125,20 @@ class FloatingActionButtonScreen extends StatelessWidget {
             size: 20.0,
           ),
         ),
+        title: ValueListenableBuilder(
+          valueListenable: _isEnabledNotifier,
+          builder: (context, value, child) {
+            return ElevatedButton(
+              onPressed: () {
+                _isEnabledNotifier.value = !value;
+              },
+              child: Text(
+                value ? 'Disable' : 'Enable',
+              ),
+            );
+          },
+        ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -128,7 +149,12 @@ class FloatingActionButtonScreen extends StatelessWidget {
           }),
         ),
       ),
-      floatingActionButton: floatingActionButton,
+      floatingActionButton: ValueListenableBuilder(
+        valueListenable: _isEnabledNotifier,
+        builder: (context, value, child) {
+          return getFloatingActionButton();
+        },
+      ),
     );
   }
 }
