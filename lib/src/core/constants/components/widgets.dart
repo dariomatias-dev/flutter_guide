@@ -48,7 +48,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/gridv
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/iconbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/image_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/indexedstack_sample.dart';
-import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/ink_well_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/inkwell_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/inputchip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/interactiveviewer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/linearprogressindicator_sample.dart';
