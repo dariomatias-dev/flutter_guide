@@ -31,15 +31,31 @@ class _RadioSampleState extends State<RadioSample> {
             padding: const EdgeInsets.symmetric(
               horizontal: 20.0,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(5, (index) {
-                return Radio(
-                  value: index,
-                  groupValue: _radioIndex,
-                  onChanged: _updateRadioIndex,
-                );
-              }),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(5, (index) {
+                    return Radio(
+                      value: index,
+                      groupValue: _radioIndex,
+                      onChanged: _updateRadioIndex,
+                    );
+                  }),
+                ),
+                const SizedBox(height: 12.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(5, (index) {
+                    return Radio(
+                      value: index,
+                      groupValue: _radioIndex,
+                      onChanged: null,
+                    );
+                  }),
+                ),
+              ],
             ),
           ),
         ],

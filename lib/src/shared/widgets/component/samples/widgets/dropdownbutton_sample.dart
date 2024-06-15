@@ -16,16 +16,20 @@ class _DropdownButtonSampleState extends State<DropdownButtonSample> {
     });
   }
 
-  DropdownButton get _dropdownButton => DropdownButton(
-        value: _value,
-        items: List.generate(5, (index) {
-          return DropdownMenuItem(
-            value: index + 1,
-            child: Text('Item ${index + 1}'),
-          );
-        }),
-        onChanged: updateValue,
-      );
+  DropdownButton _dropdownButton({
+    bool disabled = false,
+  }) {
+    return DropdownButton(
+      value: _value,
+      items: List.generate(5, (index) {
+        return DropdownMenuItem(
+          value: index + 1,
+          child: Text('Item ${index + 1}'),
+        );
+      }),
+      onChanged: disabled ? null : updateValue,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +39,33 @@ class _DropdownButtonSampleState extends State<DropdownButtonSample> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-                'Standard DropdownButton',
+              'Standard DropdownButton',
             ),
-            _dropdownButton,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _dropdownButton(),
+                const SizedBox(width: 12.0),
+                _dropdownButton(disabled: true),
+              ],
+            ),
             const SizedBox(height: 20.0),
             const Text(
               'DropdownButton without underline',
             ),
-            DropdownButtonHideUnderline(
-              child: _dropdownButton,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                DropdownButtonHideUnderline(
+                  child: _dropdownButton(),
+                ),
+                const SizedBox(width: 12.0),
+                DropdownButtonHideUnderline(
+                  child: _dropdownButton(
+                    disabled: true,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
