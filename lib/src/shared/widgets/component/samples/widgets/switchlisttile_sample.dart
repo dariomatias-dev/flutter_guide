@@ -8,7 +8,7 @@ class SwitchListTileSample extends StatefulWidget {
 }
 
 class _SwitchListTileSampleState extends State<SwitchListTileSample> {
-  final _selectedOptions = List.filled(5, false);
+  final _selectedOptions = List.filled(3, false);
 
   void _updateSelectedOptions(int index, bool newValue) {
     setState(() {
@@ -21,16 +21,26 @@ class _SwitchListTileSampleState extends State<SwitchListTileSample> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(_selectedOptions.length, (index) {
-          return SwitchListTile(
-            title: Text('Switch $index'),
-            value: _selectedOptions[index],
-            onChanged: (value) => _updateSelectedOptions(
-              index,
-              value,
-            ),
-          );
-        }),
+        children: <Widget>[
+          ...List.generate(_selectedOptions.length, (index) {
+            return SwitchListTile(
+              title: Text('Switch $index'),
+              value: _selectedOptions[index],
+              onChanged: (value) => _updateSelectedOptions(
+                index,
+                value,
+              ),
+            );
+          }),
+          const SizedBox(height: 12.0),
+          ...List.generate(_selectedOptions.length, (index) {
+            return SwitchListTile(
+              title: Text('Switch $index'),
+              value: _selectedOptions[index],
+              onChanged: null,
+            );
+          }),
+        ],
       ),
     );
   }
