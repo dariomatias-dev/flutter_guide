@@ -1,33 +1,5 @@
 import 'package:flutter/material.dart';
 
-class SegmentedButtonSample extends StatelessWidget {
-  const SegmentedButtonSample({super.key});
-
-  TextStyle get _defaultTextStyle => const TextStyle(
-        fontSize: 12.0,
-      );
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ChoosePeriodWidget(
-              defaultTextStyle: _defaultTextStyle,
-            ),
-            const SizedBox(height: 20.0),
-            ChooseColorsWidget(
-              defaultTextStyle: _defaultTextStyle,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class PeriodModel {
   const PeriodModel({
     required this.name,
@@ -57,12 +29,98 @@ const periods = <PeriodModel>[
   ),
 ];
 
+enum Color {
+  blue,
+  green,
+  red,
+}
+
+final colors = <Color>[
+  Color.red,
+  Color.blue,
+  Color.green,
+];
+
+class SegmentedButtonSample extends StatefulWidget {
+  const SegmentedButtonSample({super.key});
+
+  @override
+  State<SegmentedButtonSample> createState() => _SegmentedButtonSampleState();
+}
+
+class _SegmentedButtonSampleState extends State<SegmentedButtonSample> {
+  final _periodSelected = ValueNotifier(periods.first);
+  final _colorSelected = ValueNotifier(
+    <Color>{colors.first},
+  );
+
+  TextStyle get _defaultTextStyle => const TextStyle(
+        fontSize: 12.0,
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ValueListenableBuilder(
+              valueListenable: _periodSelected,
+              builder: (context, value, child) {
+                return Column(
+                  children: <Widget>[
+                    ChoosePeriodWidget(
+                      periodSelected: _periodSelected,
+                      defaultTextStyle: _defaultTextStyle,
+                    ),
+                    const SizedBox(height: 12.0),
+                    ChoosePeriodWidget(
+                      periodSelected: _periodSelected,
+                      disabled: true,
+                      defaultTextStyle: _defaultTextStyle,
+                    ),
+                  ],
+                );
+              },
+            ),
+            const SizedBox(height: 24.0),
+            ValueListenableBuilder(
+              valueListenable: _colorSelected,
+              builder: (context, value, child) {
+                return Column(
+                  children: <Widget>[
+                    ChooseColorsWidget(
+                      colorSelected: _colorSelected,
+                      defaultTextStyle: _defaultTextStyle,
+                    ),
+                    const SizedBox(height: 12.0),
+                    ChooseColorsWidget(
+                      colorSelected: _colorSelected,
+                      disabled: true,
+                      defaultTextStyle: _defaultTextStyle,
+                    ),
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class ChoosePeriodWidget extends StatefulWidget {
   const ChoosePeriodWidget({
     super.key,
+    required this.periodSelected,
+    this.disabled = false,
     required this.defaultTextStyle,
   });
 
+  final ValueNotifier<PeriodModel> periodSelected;
+  final bool disabled;
   final TextStyle defaultTextStyle;
 
   @override
@@ -70,8 +128,6 @@ class ChoosePeriodWidget extends StatefulWidget {
 }
 
 class _ChoosePeriodStateWidget extends State<ChoosePeriodWidget> {
-  PeriodModel _selected = periods.first;
-
   @override
   Widget build(BuildContext context) {
     return SegmentedButton<PeriodModel>(
@@ -89,34 +145,26 @@ class _ChoosePeriodStateWidget extends State<ChoosePeriodWidget> {
           ),
         );
       }),
-      selected: <PeriodModel>{_selected},
-      onSelectionChanged: (value) {
-        setState(() {
-          _selected = value.first;
-        });
-      },
+      selected: <PeriodModel>{widget.periodSelected.value},
+      onSelectionChanged: widget.disabled
+          ? null
+          : (value) {
+              widget.periodSelected.value = value.first;
+            },
     );
   }
 }
 
-enum Color {
-  blue,
-  green,
-  red,
-}
-
-final colors = <Color>[
-  Color.red,
-  Color.blue,
-  Color.green,
-];
-
 class ChooseColorsWidget extends StatefulWidget {
   const ChooseColorsWidget({
     super.key,
+    required this.colorSelected,
+    this.disabled = false,
     required this.defaultTextStyle,
   });
 
+  final ValueNotifier<Set<Color>> colorSelected;
+  final bool disabled;
   final TextStyle defaultTextStyle;
 
   @override
@@ -124,8 +172,6 @@ class ChooseColorsWidget extends StatefulWidget {
 }
 
 class _ChooseColorsWidgetState extends State<ChooseColorsWidget> {
-  Set<Color> _colors = <Color>{colors.first};
-
   @override
   Widget build(BuildContext context) {
     return SegmentedButton<Color>(
@@ -140,12 +186,12 @@ class _ChooseColorsWidgetState extends State<ChooseColorsWidget> {
           ),
         );
       }),
-      selected: _colors,
-      onSelectionChanged: (value) {
-        setState(() {
-          _colors = value;
-        });
-      },
+      selected: widget.colorSelected.value,
+      onSelectionChanged: widget.disabled
+          ? null
+          : (value) {
+              widget.colorSelected.value = value;
+            },
       multiSelectionEnabled: true,
     );
   }
