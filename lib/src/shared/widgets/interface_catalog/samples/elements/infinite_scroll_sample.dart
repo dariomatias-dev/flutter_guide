@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class InfiniteScrollSample extends StatefulWidget {
@@ -10,14 +8,87 @@ class InfiniteScrollSample extends StatefulWidget {
 }
 
 class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
+  final _infiniteScrollController = InfiniteScrollController();
+  static const maxItemsPerPage = 20;
+
+  Future<List<Widget>> _loadData(
+    int pageKey,
+  ) async {
+    await Future.delayed(
+      const Duration(
+        seconds: 2,
+      ),
+    );
+
+    _infiniteScrollController.isListEnd = true;
+
+    return List.generate(maxItemsPerPage, (index) {
+      return ListTile(
+        title: Text('Item ${maxItemsPerPage * pageKey + index + 1}'),
+        trailing: GestureDetector(
+          onTap: () {},
+          child: const Icon(
+            Icons.arrow_forward_ios_rounded,
+            size: 12.0,
+          ),
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: InfiniteScrollWidget(
+        infiniteScrollController: _infiniteScrollController,
+        loadData: _loadData,
+      ),
+    );
+  }
+}
+
+class InfiniteScrollController extends ValueNotifier<bool> {
+  InfiniteScrollController() : super(false);
+
+  bool _isListEnd = false;
+
+  bool get isListEnd => _isListEnd;
+
+  set isListEnd(bool value) {
+    _isListEnd = value;
+
+    notifyListeners();
+  }
+}
+
+class InfiniteScrollWidget extends StatefulWidget {
+  const InfiniteScrollWidget({
+    super.key,
+    this.infiniteScrollController,
+    this.loadingElement,
+    required this.loadData,
+  });
+
+  final InfiniteScrollController? infiniteScrollController;
+  final Widget? loadingElement;
+  final Future<List<Widget>> Function(
+    int pageKey,
+  ) loadData;
+
+  @override
+  State<InfiniteScrollWidget> createState() => _InfiniteScrollWidgetState();
+}
+
+class _InfiniteScrollWidgetState extends State<InfiniteScrollWidget> {
+  int _pageKey = 0;
   bool _isLoading = false;
-  bool _hasMoreItems = false;
+  bool _isListEnd = false;
 
   final _scrollController = ScrollController();
   final _elements = [];
 
   void _onScroll() {
-    if (!_hasMoreItems && !_isLoading && _scrollController.position.atEdge) {
+    if (!_isListEnd && !_isLoading && _scrollController.position.atEdge) {
       if (_scrollController.position.pixels != 0) {
         _addElements();
       }
@@ -29,50 +100,30 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
     _addLoadingElement();
     _updateIsLoading();
 
-    await Future.delayed(
-      const Duration(seconds: 1),
-    );
+    final newElements = await widget.loadData(_pageKey);
+    _pageKey++;
 
     _removeLoadingElement();
-
-    _createElements();
-
-    _hasMoreItems = Random().nextBool();
+    _elements.addAll(newElements);
 
     _updateIsLoading();
-  }
-
-  void _createElements() {
-    _elements.addAll(
-      List.generate(20, (index) {
-        return ListTile(
-          title: Text('Item ${_elements.length + index + 1}'),
-          trailing: GestureDetector(
-            onTap: () {},
-            child: const Icon(
-              Icons.arrow_forward_ios_rounded,
-              size: 12.0,
-            ),
-          ),
-        );
-      }),
-    );
   }
 
   // Loading Element
   void _addLoadingElement() {
     _elements.add(
-      const Padding(
-        padding: EdgeInsets.symmetric(
-          vertical: 12.0,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CircularProgressIndicator(),
-          ],
-        ),
-      ),
+      widget.loadingElement ??
+          const Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 16.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                CircularProgressIndicator(),
+              ],
+            ),
+          ),
     );
   }
 
@@ -89,7 +140,11 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
 
   @override
   void initState() {
-    _createElements();
+    widget.infiniteScrollController?.addListener(() {
+      _isListEnd = !_isListEnd;
+    });
+
+    _addElements();
     _scrollController.addListener(_onScroll);
 
     super.initState();
@@ -105,19 +160,17 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(
-          scrollbars: false,
-        ),
-        child: ListView.builder(
-          controller: _scrollController,
-          padding: EdgeInsets.zero,
-          itemCount: _elements.length,
-          itemBuilder: (context, index) {
-            return _elements[index];
-          },
-        ),
+    return ScrollConfiguration(
+      behavior: ScrollConfiguration.of(context).copyWith(
+        scrollbars: false,
+      ),
+      child: ListView.builder(
+        controller: _scrollController,
+        padding: EdgeInsets.zero,
+        itemCount: _elements.length,
+        itemBuilder: (context, index) {
+          return _elements[index];
+        },
       ),
     );
   }
