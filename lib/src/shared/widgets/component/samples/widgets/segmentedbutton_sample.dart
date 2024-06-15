@@ -28,6 +28,35 @@ class SegmentedButtonSample extends StatelessWidget {
   }
 }
 
+class PeriodModel {
+  const PeriodModel({
+    required this.name,
+    required this.iconData,
+  });
+
+  final String name;
+  final IconData iconData;
+}
+
+const periods = <PeriodModel>[
+  PeriodModel(
+    name: 'Day',
+    iconData: Icons.calendar_view_day,
+  ),
+  PeriodModel(
+    name: 'Week',
+    iconData: Icons.calendar_view_week,
+  ),
+  PeriodModel(
+    name: 'Month',
+    iconData: Icons.calendar_view_month,
+  ),
+  PeriodModel(
+    name: 'Year',
+    iconData: Icons.calendar_today,
+  ),
+];
+
 class ChoosePeriodWidget extends StatefulWidget {
   const ChoosePeriodWidget({
     super.key,
@@ -41,54 +70,26 @@ class ChoosePeriodWidget extends StatefulWidget {
 }
 
 class _ChoosePeriodStateWidget extends State<ChoosePeriodWidget> {
-  String _selected = 'day';
+  PeriodModel _selected = periods.first;
 
   @override
   Widget build(BuildContext context) {
-    return SegmentedButton<String>(
-      segments: <ButtonSegment<String>>[
-        ButtonSegment<String>(
-          value: 'day',
-          icon: const Icon(
-            Icons.calendar_view_day,
+    return SegmentedButton<PeriodModel>(
+      segments: List.generate(periods.length, (index) {
+        final period = periods[index];
+
+        return ButtonSegment<PeriodModel>(
+          value: period,
+          icon: Icon(
+            period.iconData,
           ),
           label: Text(
-            'Day',
+            period.name,
             style: widget.defaultTextStyle,
           ),
-        ),
-        ButtonSegment<String>(
-          value: 'week',
-          icon: const Icon(
-            Icons.calendar_view_week,
-          ),
-          label: Text(
-            'Week',
-            style: widget.defaultTextStyle,
-          ),
-        ),
-        ButtonSegment<String>(
-          value: 'month',
-          icon: const Icon(
-            Icons.calendar_view_month,
-          ),
-          label: Text(
-            'Month',
-            style: widget.defaultTextStyle,
-          ),
-        ),
-        ButtonSegment<String>(
-          value: 'year',
-          icon: const Icon(
-            Icons.calendar_today,
-          ),
-          label: Text(
-            'Year',
-            style: widget.defaultTextStyle,
-          ),
-        ),
-      ],
-      selected: <String>{_selected},
+        );
+      }),
+      selected: <PeriodModel>{_selected},
       onSelectionChanged: (value) {
         setState(() {
           _selected = value.first;
@@ -99,10 +100,16 @@ class _ChoosePeriodStateWidget extends State<ChoosePeriodWidget> {
 }
 
 enum Color {
-  red,
-  green,
   blue,
+  green,
+  red,
 }
+
+final colors = <Color>[
+  Color.red,
+  Color.blue,
+  Color.green,
+];
 
 class ChooseColorsWidget extends StatefulWidget {
   const ChooseColorsWidget({
@@ -117,34 +124,22 @@ class ChooseColorsWidget extends StatefulWidget {
 }
 
 class _ChooseColorsWidgetState extends State<ChooseColorsWidget> {
-  Set<Color> _colors = <Color>{Color.red};
+  Set<Color> _colors = <Color>{colors.first};
 
   @override
   Widget build(BuildContext context) {
     return SegmentedButton<Color>(
-      segments: <ButtonSegment<Color>>[
-        ButtonSegment<Color>(
-          value: Color.red,
+      segments: List.generate(colors.length, (index) {
+        final color = colors[index];
+
+        return ButtonSegment<Color>(
+          value: color,
           label: Text(
-            'Red',
+            '${color.name[0].toUpperCase()}${color.name.substring(1)}',
             style: widget.defaultTextStyle,
           ),
-        ),
-        ButtonSegment<Color>(
-          value: Color.green,
-          label: Text(
-            'Green',
-            style: widget.defaultTextStyle,
-          ),
-        ),
-        ButtonSegment<Color>(
-          value: Color.blue,
-          label: Text(
-            'Blue',
-            style: widget.defaultTextStyle,
-          ),
-        ),
-      ],
+        );
+      }),
       selected: _colors,
       onSelectionChanged: (value) {
         setState(() {
