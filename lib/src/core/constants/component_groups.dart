@@ -9,16 +9,16 @@ const componentGroups = <ComponentGroupModel>[
     icon: Icons.crop_16_9,
     title: 'Buttons',
     components: <String>[
-      WidgetNames.elevatedButtonWidget,
-      WidgetNames.iconButtonWidget,
+      WidgetNames.elevatedButtonMaterial,
+      WidgetNames.iconButtonMaterial,
     ],
   ),
   ComponentGroupModel(
     icon: Icons.chat_bubble_outline,
     title: 'Dialogs',
     components: <String>[
-      WidgetNames.alertDialogWidget,
-      WidgetNames.simpleDialogWidget,
+      WidgetNames.alertDialogMaterial,
+      WidgetNames.simpleDialogMaterial,
     ],
   ),
   ComponentGroupModel(
