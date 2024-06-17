@@ -31,6 +31,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/const
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/container_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoactivityindicator_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoalertdialog.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinobutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoslider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/decoratedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dialog_sample.dart';
@@ -266,6 +267,12 @@ const widgets = <WidgetModel>[
     icon: Icons.chat_bubble_outline,
     videoId: '75CsnyRXf5I',
     sample: CupertinoAlertDialogSample(),
+    category: WidgetCategory.cupertino,
+  ),
+  WidgetModel(
+    name: WidgetNames.cupertinoButtonWidget,
+    icon: Icons.crop_16_9,
+    sample: CupertinoButtonSample(),
     category: WidgetCategory.cupertino,
   ),
   WidgetModel(
