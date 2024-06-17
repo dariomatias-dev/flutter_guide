@@ -27,6 +27,7 @@ class WidgetNames {
   static const cupertinoActivityIndicatorWidget = 'CupertinoActivityIndicator';
   static const cupertinoAlertDialogWidget = 'CupertinoAlertDialog';
   static const cupertinoButtonWidget = 'CupertinoButton';
+  static const cupertinoListTileWidget = 'CupertinoListTile';
   static const cupertinoSliderWidget = 'CupertinoSlider';
   static const decoratedBoxWidget = 'DecoratedBox';
   static const dialogWidget = 'Dialog';

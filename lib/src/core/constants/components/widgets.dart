@@ -32,6 +32,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/conta
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoactivityindicator_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoalertdialog.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinobutton_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinolisttile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoslider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/decoratedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dialog_sample.dart';
@@ -273,6 +274,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.cupertinoButtonWidget,
     icon: Icons.crop_16_9,
     sample: CupertinoButtonSample(),
+    category: WidgetCategory.cupertino,
+  ),
+  WidgetModel(
+    name: WidgetNames.cupertinoListTileWidget,
+    icon: Icons.list_alt,
+    sample: CupertinoListTileSample(),
     category: WidgetCategory.cupertino,
   ),
   WidgetModel(
