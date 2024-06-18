@@ -2,6 +2,7 @@ import 'package:flutter_guide/src/shared/models/component_summary_mode/component
 
 part 'package_infos_model.dart';
 part 'widget_infos_model.dart';
+part 'function_infos_model.dart';
 
 class ComponentInfosModel {
   const ComponentInfosModel({

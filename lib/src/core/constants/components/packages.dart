@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/constants/package_names.dart';
 
+// Models
+import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
+import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
+
 // Samples
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/awesomesnackbarcontent_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/battery_plus_sample.dart';
@@ -30,10 +34,6 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/packages/smoo
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/toastification_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/url_launcher_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/uuid_sample.dart';
-
-// Models
-import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
-import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
 
 const packages = <PackageModel>[
   PackageModel(

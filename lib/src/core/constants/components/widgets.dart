@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/core/constants/widget_names.dart';
 import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
+// Models
+import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
+import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
+import 'package:flutter_guide/src/shared/models/widget_infos_model/component_infos_model.dart';
+
 // Samples
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/actionchip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/alertdialog_sample.dart';
@@ -14,7 +19,6 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backd
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/banner_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomappbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomnavigationbar_widget.dart';
-import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomsheet_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/card_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/center_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/checkbox_sample.dart';
@@ -58,7 +62,6 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/linea
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listenablebuilder_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listtile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/listview_sample.dart';
-import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/modal_bottom_sheet_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/navigationbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/navigationrail_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/opacity_sample.dart';
@@ -92,11 +95,6 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/toggl
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/tooltip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/valuelistenablebuilder_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/wrap_sample.dart';
-
-// Models
-import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
-import 'package:flutter_guide/src/shared/models/component_summary_mode/component_summary_mode.dart';
-import 'package:flutter_guide/src/shared/models/widget_infos_model/component_infos_model.dart';
 
 const widgets = <WidgetModel>[
   WidgetModel(
@@ -160,12 +158,6 @@ const widgets = <WidgetModel>[
     name: WidgetNames.bottomNavigationBarMaterial,
     icon: Icons.view_carousel,
     sample: BottomNavigationBarSample(),
-    category: WidgetCategory.material,
-  ),
-  WidgetModel(
-    name: WidgetNames.bottomSheetMaterial,
-    icon: Icons.keyboard_arrow_up,
-    sample: BottomSheetSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
@@ -444,12 +436,6 @@ const widgets = <WidgetModel>[
     videoId: 'KJpkjHGiI5A',
     sample: ListViewSample(),
     category: WidgetCategory.widgets,
-  ),
-  WidgetModel(
-    name: WidgetNames.modalBottomSheetMaterial,
-    icon: Icons.keyboard_arrow_up,
-    sample: ModalBottomSheetSample(),
-    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.navigationBarMaterial,

@@ -9,7 +9,6 @@ class WidgetNames {
   static const bannerWidget = 'Banner';
   static const bottomAppBarMaterial = 'BottomAppBar';
   static const bottomNavigationBarMaterial = 'BottomNavigationBar';
-  static const bottomSheetMaterial = 'BottomSheet';
   static const cardMaterial = 'Card';
   static const centerWidget = 'Center';
   static const checkboxMaterial = 'Checkbox';
@@ -54,7 +53,6 @@ class WidgetNames {
   static const listenableBuilderWidget = 'ListenableBuilder';
   static const listTileMaterial = 'ListTile';
   static const listViewWidget = 'ListView';
-  static const modalBottomSheetMaterial = 'ModalBottomSheet';
   static const navigationBarMaterial = 'NavigationBar';
   static const navigationRailMaterial = 'NavigationRail';
   static const opacityWidget = 'Opacity';

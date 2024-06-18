@@ -4,6 +4,7 @@ import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 part 'package_summary_model.dart';
 part 'widget_summary_model.dart';
+part 'function_summary_model.dart';
 
 class ComponentSummaryModel {
   const ComponentSummaryModel({
