@@ -37,6 +37,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cuper
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoalertdialog.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinobutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinolisttile_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinonavigationbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinopagescaffold_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoslider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/decoratedbox_sample.dart';
@@ -273,6 +274,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.cupertinoListTileCupertino,
     icon: Icons.list_alt,
     sample: CupertinoListTileSample(),
+    category: WidgetCategory.cupertino,
+  ),
+  WidgetModel(
+    name: WidgetNames.cupertinoNavigationBarCupertino,
+    icon: Icons.menu,
+    sample: CupertinoNavigationBarSample(),
     category: WidgetCategory.cupertino,
   ),
   WidgetModel(
