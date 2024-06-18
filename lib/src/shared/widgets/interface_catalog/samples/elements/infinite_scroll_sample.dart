@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-typedef LoadDatatype = Future<List<Widget>> Function(
+typedef LoadDatatype = Future<List<Color>> Function(
   int pageKey, {
   Axis scrollDirection,
 });
@@ -32,7 +32,7 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
     );
   }
 
-  Future<List<Widget>> _loadData(
+  Future<List<Color>> _loadData(
     int pageKey, {
     Axis scrollDirection = Axis.vertical,
   }) async {
@@ -47,15 +47,11 @@ class _InfiniteScrollSampleState extends State<InfiniteScrollSample> {
     final isVertical = scrollDirection == Axis.vertical;
 
     return List.generate(isVertical ? 10 : 6, (index) {
-      return Container(
-        width: isVertical ? null : MediaQuery.sizeOf(context).width * 0.6,
-        height: 100.0,
-        color: Color.fromARGB(
-          255,
-          random.nextInt(255),
-          random.nextInt(255),
-          random.nextInt(255),
-        ),
+      return Color.fromARGB(
+        255,
+        random.nextInt(255),
+        random.nextInt(255),
+        random.nextInt(255),
       );
     });
   }
@@ -126,9 +122,11 @@ class InfiniteListingVerticallyScreen extends StatelessWidget {
         ),
         body: InfiniteScrollWidget(
           controller: controller,
-          loadData: (pageKey) {
-            return loadData(
-              pageKey,
+          loadData: loadData,
+          itemBuilder: (value) {
+            return Container(
+              height: 100.0,
+              color: value,
             );
           },
         ),
@@ -176,6 +174,12 @@ class InfiniteListingHorizontallyScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                 );
               },
+              itemBuilder: (value) {
+                return Container(
+                  height: 100.0,
+                  color: value,
+                );
+              },
             ),
           ),
         ),
@@ -198,60 +202,86 @@ class InfiniteScrollController extends ValueNotifier<bool> {
   }
 }
 
-class InfiniteScrollWidget extends StatefulWidget {
+class InfiniteScrollWidget<T> extends StatefulWidget {
   const InfiniteScrollWidget({
     super.key,
     this.controller,
     this.scrollDirection = Axis.vertical,
-    this.loadingElement,
+    this.padding,
+    this.loadingWidget,
     required this.loadData,
+    this.separatorBuilder,
+    required this.itemBuilder,
   });
 
   final InfiniteScrollController? controller;
   final Axis scrollDirection;
-  final Widget? loadingElement;
-  final Future<List<Widget>> Function(
+  final EdgeInsetsGeometry? padding;
+  final Widget? loadingWidget;
+  final Future<List<T>> Function(
     int pageKey,
   ) loadData;
+  final Widget Function(
+    BuildContext context,
+    int index,
+  )? separatorBuilder;
+  final Widget Function(
+    T value,
+  ) itemBuilder;
 
   @override
   State<InfiniteScrollWidget> createState() => _InfiniteScrollWidgetState();
 }
 
-class _InfiniteScrollWidgetState extends State<InfiniteScrollWidget> {
+class _InfiniteScrollWidgetState<T> extends State<InfiniteScrollWidget> {
   int _pageKey = 0;
   bool _isLoading = false;
   bool _isListEnd = false;
 
   final _scrollController = ScrollController();
-  final _elements = [];
+  final _items = [];
 
   void _onScroll() {
     if (!_isListEnd && !_isLoading && _scrollController.position.atEdge) {
       if (_scrollController.position.pixels != 0) {
-        _addElements();
+        _addItems();
       }
     }
   }
 
-  // Elements
-  Future<void> _addElements() async {
-    _addLoadingElement();
+  // Items
+  Future<void> _addItems() async {
+    _addLoadingWidget();
     _updateIsLoading();
 
-    final newElements = await widget.loadData(_pageKey);
+    final newItems = await widget.loadData(_pageKey);
     _pageKey++;
 
-    _removeLoadingElement();
-    _elements.addAll(newElements);
+    _removeLoadingWidget();
+
+    final items = _generateItems(newItems);
+    _items.addAll(items);
 
     _updateIsLoading();
   }
 
-  // Loading Element
-  void _addLoadingElement() {
-    _elements.add(
-      widget.loadingElement ??
+  List<Widget> _generateItems(
+    List<dynamic> newItems,
+  ) {
+    final items = <Widget>[];
+    for (dynamic newItem in newItems) {
+      items.add(
+        widget.itemBuilder(newItem),
+      );
+    }
+
+    return items;
+  }
+
+  // Loading Widget
+  void _addLoadingWidget() {
+    _items.add(
+      widget.loadingWidget ??
           const Padding(
             padding: EdgeInsets.all(16.0),
             child: Row(
@@ -264,8 +294,8 @@ class _InfiniteScrollWidgetState extends State<InfiniteScrollWidget> {
     );
   }
 
-  void _removeLoadingElement() {
-    _elements.removeLast();
+  void _removeLoadingWidget() {
+    _items.removeLast();
   }
 
   // IsLoading
@@ -283,7 +313,7 @@ class _InfiniteScrollWidgetState extends State<InfiniteScrollWidget> {
       }
     });
 
-    _addElements();
+    _addItems();
     _scrollController.addListener(_onScroll);
 
     super.initState();
@@ -303,13 +333,17 @@ class _InfiniteScrollWidgetState extends State<InfiniteScrollWidget> {
       behavior: ScrollConfiguration.of(context).copyWith(
         scrollbars: false,
       ),
-      child: ListView.builder(
+      child: ListView.separated(
         controller: _scrollController,
         scrollDirection: widget.scrollDirection,
-        padding: EdgeInsets.zero,
-        itemCount: _elements.length,
+        padding: widget.padding,
+        itemCount: _items.length,
+        separatorBuilder: widget.separatorBuilder ??
+            (context, index) {
+              return Container();
+            },
         itemBuilder: (context, index) {
-          return _elements[index];
+          return _items[index];
         },
       ),
     );
