@@ -9,7 +9,7 @@ class CupertinoNavigationBarSample extends StatelessWidget {
       navigationBar: const CupertinoNavigationBar(
         middle: Text('Title'),
         trailing: Icon(
-          CupertinoIcons.ellipsis_vertical,
+          CupertinoIcons.bell,
           size: 24.0,
         ),
       ),
