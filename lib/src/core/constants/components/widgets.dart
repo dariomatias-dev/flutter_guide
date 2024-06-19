@@ -14,6 +14,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/alert
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/align_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/animatedcontainer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/appbar_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/autocomplete_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backdropfilter_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/banner_sample.dart';
@@ -128,6 +129,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.appBarMaterial,
     icon: Icons.menu,
     sample: AppBarSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.autocompleteMaterial,
+    icon: Icons.search,
+    videoId: '-Nny8kzW380',
+    sample: AutocompleteSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
