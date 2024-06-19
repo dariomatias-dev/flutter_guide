@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class InkWellButtonWidget extends StatelessWidget {
   const InkWellButtonWidget({
     super.key,
-    required this.onTap,
+    this.onTap,
     required this.borderRadius,
     this.backgroundColor,
     required this.child,
   });
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final double borderRadius;
   final Color? backgroundColor;
   final Widget child;

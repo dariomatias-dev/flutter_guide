@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_guide/src/shared/widgets/ink_well_button_widget.dart';
 
 class ListTileItemWidget extends StatelessWidget {
   const ListTileItemWidget({
     super.key,
-    required this.onTap,
+    this.onTap,
     required this.title,
     this.icon,
     this.openInBrowser = false,
@@ -13,7 +14,7 @@ class ListTileItemWidget extends StatelessWidget {
     this.trailingWidgets,
   });
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final String title;
   final IconData? icon;
   final bool openInBrowser;
@@ -44,13 +45,20 @@ class ListTileItemWidget extends StatelessWidget {
                       if (icon != null)
                         Icon(
                           icon,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .primary
+                              .withOpacity(onTap == null ? 0.5 : 1.0),
                           size: 20.0,
                         ),
                       const SizedBox(width: 12.0),
                       Text(
                         title,
-                        style: const TextStyle(
+                        style: TextStyle(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .primary
+                              .withOpacity(onTap == null ? 0.6 : 1.0),
                           fontSize: 14.0,
                         ),
                       ),
@@ -63,7 +71,10 @@ class ListTileItemWidget extends StatelessWidget {
                   if (openInBrowser)
                     Icon(
                       Icons.open_in_new_rounded,
-                      color: Theme.of(context).colorScheme.tertiary,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(onTap == null ? 0.5 : 1.0),
                       size: 18.0,
                     ),
                   if (trailingWidgets != null) ...trailingWidgets!,

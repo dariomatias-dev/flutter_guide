@@ -45,21 +45,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onTap: _controller.showDocsAndResourcesDialog,
               ),
               const SelectLanguageWidget(),
-              ListTileItemWidget(
+              const ListTileItemWidget(
                 title: 'My Website',
                 icon: Icons.public,
                 openInBrowser: true,
-                onTap: () {},
+                onTap: null,
               ),
               ListTileItemWidget(
                 title: 'Buy Me a Coffee',
                 icon: Icons.local_cafe_outlined,
                 onTap: _controller.showDonateDialog,
               ),
-              ListTileItemWidget(
+              const ListTileItemWidget(
                 title: 'About',
                 icon: Icons.info_outline,
-                onTap: () {},
+                onTap: null,
               ),
               const SocialNetworksWidget(),
             ],
