@@ -96,6 +96,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textf
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/togglebuttons_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/tooltip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/valuelistenablebuilder_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/visibility_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/wrap_sample.dart';
 
 const widgets = <WidgetModel>[
@@ -660,6 +661,12 @@ const widgets = <WidgetModel>[
     icon: Icons.transform,
     videoId: 's-ZG-jS5QHQ',
     sample: ValueListenableBuilderSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.visibilityWidget,
+    icon: Icons.visibility_outlined,
+    sample: VisibilitySample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(

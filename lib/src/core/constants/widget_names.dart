@@ -86,6 +86,7 @@ class WidgetNames {
   static const textFormFieldMaterial = 'TextFormField';
   static const toggleButtonsMaterial = 'ToggleButtons';
   static const tooltipMaterial = 'Tooltip';
-  static const wrapWidget = 'Wrap';
   static const valueListenableBuilderWidget = 'ValueListenableBuilder';
+  static const visibilityWidget = 'Visibility';
+  static const wrapWidget = 'Wrap';
 }
