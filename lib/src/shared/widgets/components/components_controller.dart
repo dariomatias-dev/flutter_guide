@@ -80,7 +80,7 @@ class ComponentsController {
     final visibleItemsLength = visibleItemsNotifier.value.length;
     final componentsLength = _components.length;
 
-    if (visibleItemsLength != _components.length) {
+    if (visibleItemsLength != componentsLength) {
       final visibleItemsIncrease =
           visibleItemsLength + visibleItemsIncreaseValue;
 
