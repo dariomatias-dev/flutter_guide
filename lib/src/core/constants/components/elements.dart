@@ -5,6 +5,7 @@ import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/eleme
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/infinite_grid_view_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/loading_button_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/loading_dialog_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/loading_screen_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/pagination_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/password_field_sample.dart';
 
@@ -42,5 +43,9 @@ const elements = <InterfaceModel>[
   InterfaceModel(
     name: 'Loading Dialog',
     component: LoadingDialogSample(),
+  ),
+  InterfaceModel(
+    name: 'Loading Screen',
+    component: LoadingScreenSample(),
   ),
 ];

@@ -54,14 +54,9 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
                 },
               ),
               const SizedBox(height: 12.0),
-              ValueListenableBuilder(
-                valueListenable: _controller.visibleItemsNotifier,
-                builder: (context, value, child) {
-                  return ComponentListWidget(
-                    componentType: widget.componentType,
-                    components: value,
-                  );
-                },
+              ComponentListWidget(
+                componentType: widget.componentType,
+                visibleItemsNotifier: _controller.visibleItemsNotifier,
               ),
             ],
           ),
