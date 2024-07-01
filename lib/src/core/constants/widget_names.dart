@@ -46,6 +46,7 @@ class WidgetNames {
   static const futureBuilderWidget = 'FutureBuilder';
   static const gridViewWidget = 'GridView';
   static const iconButtonMaterial = 'IconButton';
+  static const ignorePointerWidget = 'IgnorePointer';
   static const imageWidget = 'Image';
   static const indexedStackWidget = 'IndexedStack';
   static const inkWellMaterial = 'InkWell';

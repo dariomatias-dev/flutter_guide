@@ -55,6 +55,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/float
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/futurebuilder_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/gridview_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/iconbutton_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/ignorepointer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/image_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/indexedstack_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/inkwell_sample.dart';
@@ -392,6 +393,13 @@ const widgets = <WidgetModel>[
     icon: Icons.crop_16_9,
     sample: IconButtonSample(),
     category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.ignorePointerWidget,
+    icon: Icons.block,
+    videoId: 'qV9pqHWxYgI',
+    sample: IgnorePointerSample(),
+    category: WidgetCategory.widgets,
   ),
   WidgetModel(
     name: WidgetNames.imageWidget,

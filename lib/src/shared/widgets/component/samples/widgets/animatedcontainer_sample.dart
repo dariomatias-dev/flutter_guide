@@ -52,6 +52,13 @@ class _AnimatedContainerSampleState extends State<AnimatedContainerSample> {
   }
 
   @override
+  void dispose() {
+    _periodicTime?.cancel();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
