@@ -11,6 +11,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/packages/awes
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/battery_plus_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/carousel_slider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/circular_countdown_timer_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/packages/device_info_plus_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/dio_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/dotted_border_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/flutter_rating_bar_sample.dart';
@@ -55,6 +56,11 @@ const packages = <PackageModel>[
     name: PackageNames.circularCountdownTimerPackage,
     icon: Icons.hourglass_empty,
     sample: CircularCountdownTimerSample(),
+  ),
+  PackageModel(
+    name: PackageNames.deviceInfoPlusPackage,
+    icon: Icons.devices_rounded,
+    sample: DeviceInfoPlusSample(),
   ),
   PackageModel(
     name: PackageNames.dioPackage,

@@ -3,6 +3,7 @@ class PackageNames {
   static const batteryPlusPackage = 'battery_plus';
   static const carouselSliderPackage = 'carousel_slider';
   static const circularCountdownTimerPackage = 'circular_countdown_timer';
+  static const deviceInfoPlusPackage = 'device_info_plus';
   static const dioPackage = 'dio';
   static const dottedBorderPackage = 'dotted_border';
   static const flutterRatingBarPackage = 'flutter_rating_bar';
