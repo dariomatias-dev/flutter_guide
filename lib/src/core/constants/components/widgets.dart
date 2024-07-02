@@ -12,6 +12,7 @@ import 'package:flutter_guide/src/shared/models/widget_infos_model/component_inf
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/actionchip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/alertdialog_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/align_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/animatedalign_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/animatedcontainer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/appbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/autocomplete_sample.dart';
@@ -119,6 +120,13 @@ const widgets = <WidgetModel>[
     icon: Icons.center_focus_strong,
     videoId: 'g2E7yl3MwMk',
     sample: AlignSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.animatedAlignWidget,
+    icon: Icons.center_focus_strong,
+    videoId: 'g2E7yl3MwMk',
+    sample: AnimatedAlignSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(

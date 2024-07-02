@@ -2,6 +2,7 @@ class WidgetNames {
   static const actionChipMaterial = 'ActionChip';
   static const alertDialogMaterial = 'AlertDialog';
   static const alignWidget = 'Align';
+  static const animatedAlignWidget = 'AnimatedAlign';
   static const animatedContainerWidget = 'AnimatedContainer';
   static const appBarMaterial = 'AppBar';
   static const autocompleteMaterial = 'Autocomplete';
