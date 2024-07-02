@@ -1,5 +1,6 @@
 // Elements
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/configuring_dio_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/custom_dropdown_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/custom_popup_menu_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/gaps_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/infinite_grid_view_sample.dart';
@@ -15,6 +16,10 @@ const elements = <InterfaceModel>[
   InterfaceModel(
     name: 'Custom Popup Menu',
     component: CustomPopupMenuSample(),
+  ),
+  InterfaceModel(
+    name: 'Custom Dropdown Sample',
+    component: CustomDropdownSample(),
   ),
   InterfaceModel(
     name: 'Gaps',
