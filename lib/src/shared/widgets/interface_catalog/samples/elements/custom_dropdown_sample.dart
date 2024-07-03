@@ -51,9 +51,9 @@ class CustomDropdownSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 12.0,
         ),
         child: Center(
@@ -63,16 +63,19 @@ class CustomDropdownSample extends StatelessWidget {
               DropdownButtonWidget(
                 title: 'Days of the Week',
                 options: daysOfWeek,
+                onChange: (value) {},
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               DropdownButtonWidget(
                 title: 'Months of the Year',
                 options: monthsOfYear,
+                onChange: (value) {},
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               DropdownButtonWidget(
                 title: 'Cities of the World',
                 options: worldCities,
+                onChange: (value) {},
               ),
             ],
           ),
@@ -87,10 +90,14 @@ class DropdownButtonWidget extends StatefulWidget {
     super.key,
     required this.title,
     required this.options,
+    required this.onChange,
   });
 
   final String title;
   final List<String> options;
+  final void Function(
+    String value,
+  ) onChange;
 
   @override
   State<DropdownButtonWidget> createState() => _DropdownButtonWidgetState();
@@ -127,6 +134,8 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
           topPadding: topPadding,
           options: widget.options,
           onChange: (value) {
+            widget.onChange(value);
+
             _selectedValue = value;
           },
         );
