@@ -14,6 +14,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/alert
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/align_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/animatedalign_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/animatedcontainer_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/animatedopacity_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/appbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/autocomplete_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backbutton_sample.dart';
@@ -133,6 +134,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.animatedContainerWidget,
     icon: Icons.animation,
     sample: AnimatedContainerSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.animatedOpacityWidget,
+    icon: Icons.opacity,
+    videoId: 'QZAvjqOqiLY',
+    sample: AnimatedOpacitySample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(

@@ -4,6 +4,7 @@ class WidgetNames {
   static const alignWidget = 'Align';
   static const animatedAlignWidget = 'AnimatedAlign';
   static const animatedContainerWidget = 'AnimatedContainer';
+  static const animatedOpacityWidget = 'AnimatedOpacity';
   static const appBarMaterial = 'AppBar';
   static const autocompleteMaterial = 'Autocomplete';
   static const backButtonMaterial = 'BackButton';
