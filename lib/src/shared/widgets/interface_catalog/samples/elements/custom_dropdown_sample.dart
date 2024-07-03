@@ -1,14 +1,33 @@
 import 'package:flutter/material.dart';
 
-const daysOfWeek = <String>[
+class MenuOptionModel<T> {
+  const MenuOptionModel({
+    required this.value,
+    required this.name,
+  });
+
+  final T value;
+  final String name;
+}
+
+const daysOfWeekNames = <String>[
   'Monday',
   'Tuesday',
   'Wednesday',
   'Thursday',
   'Friday',
+  'Saturday',
+  'Sunday',
 ];
 
-const monthsOfYear = <String>[
+final daysOfWeek = List.generate(daysOfWeekNames.length, (index) {
+  return MenuOptionModel(
+    value: index,
+    name: daysOfWeekNames[index],
+  );
+});
+
+const monthsOfYearNames = <String>[
   'January',
   'February',
   'March',
@@ -23,7 +42,14 @@ const monthsOfYear = <String>[
   'December'
 ];
 
-const worldCities = <String>[
+final monthsOfYear = List.generate(monthsOfYearNames.length, (index) {
+  return MenuOptionModel(
+    value: index + 1,
+    name: monthsOfYearNames[index],
+  );
+});
+
+const worldCitiesNames = <String>[
   'New York',
   'Los Angeles',
   'London',
@@ -45,6 +71,15 @@ const worldCities = <String>[
   'São Paulo',
   'Bangkok',
 ];
+
+final worldCities = List.generate(worldCitiesNames.length, (index) {
+  final worldCitiesName = worldCitiesNames[index];
+
+  return MenuOptionModel(
+    value: worldCitiesName.toLowerCase().replaceAll(' ', '_'),
+    name: worldCitiesNames[index],
+  );
+});
 
 class CustomDropdownSample extends StatelessWidget {
   const CustomDropdownSample({super.key});
@@ -94,9 +129,9 @@ class DropdownButtonWidget extends StatefulWidget {
   });
 
   final String title;
-  final List<String> options;
+  final List<MenuOptionModel> options;
   final void Function(
-    String value,
+    MenuOptionModel value,
   ) onChange;
 
   @override
@@ -108,7 +143,7 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
 
   OverlayEntry? _overlayEntry;
   bool _isOpen = false;
-  String? _selectedValue;
+  MenuOptionModel? _selectedValue;
 
   BorderRadius get _defaultBorderRadius => BorderRadius.circular(20.0);
 
@@ -179,7 +214,7 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
-              _selectedValue ?? widget.title,
+              _selectedValue?.name ?? widget.title,
             ),
             Icon(
               _isOpen
@@ -208,9 +243,9 @@ class MenuWidget extends StatefulWidget {
   final BoxShadow boxShadow;
   final BorderRadius borderRadius;
   final double topPadding;
-  final List<String> options;
+  final List<MenuOptionModel> options;
   final void Function(
-    String value,
+    MenuOptionModel value,
   ) onChange;
 
   @override
@@ -294,7 +329,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 vertical: 8.0,
                               ),
                               width: double.infinity,
-                              child: Text(option),
+                              child: Text(option.name),
                             ),
                           );
                         }),
