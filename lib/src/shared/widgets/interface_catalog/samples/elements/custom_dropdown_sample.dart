@@ -81,8 +81,30 @@ final worldCities = List.generate(worldCitiesNames.length, (index) {
   );
 });
 
-class CustomDropdownSample extends StatelessWidget {
+class CustomDropdownSample extends StatefulWidget {
   const CustomDropdownSample({super.key});
+
+  @override
+  State<CustomDropdownSample> createState() => _CustomDropdownSampleState();
+}
+
+class _CustomDropdownSampleState extends State<CustomDropdownSample> {
+  void _showSnackBar(
+    String fieldName,
+    String optionName,
+  ) {
+    final snackBar = SnackBar(
+      content: Text('$fieldName: $optionName'),
+      action: SnackBarAction(
+        onPressed: () {},
+        label: 'Ok',
+      ),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      snackBar,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,19 +120,34 @@ class CustomDropdownSample extends StatelessWidget {
               DropdownButtonWidget(
                 title: 'Days of the Week',
                 options: daysOfWeek,
-                onChange: (value) {},
+                onChange: (value) {
+                  _showSnackBar(
+                    'Days of the Week',
+                    value.name,
+                  );
+                },
               ),
               const SizedBox(height: 16.0),
               DropdownButtonWidget(
                 title: 'Months of the Year',
                 options: monthsOfYear,
-                onChange: (value) {},
+                onChange: (value) {
+                  _showSnackBar(
+                    'Months of the Year',
+                    value.name,
+                  );
+                },
               ),
               const SizedBox(height: 16.0),
               DropdownButtonWidget(
                 title: 'Cities of the World',
                 options: worldCities,
-                onChange: (value) {},
+                onChange: (value) {
+                  _showSnackBar(
+                    'Cities of the World',
+                    value.name,
+                  );
+                },
               ),
             ],
           ),
