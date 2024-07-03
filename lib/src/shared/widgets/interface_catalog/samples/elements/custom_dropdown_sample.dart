@@ -184,7 +184,7 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
   }
 }
 
-class MenuWidget extends StatelessWidget {
+class MenuWidget extends StatefulWidget {
   const MenuWidget({
     super.key,
     required this.removeMenu,
@@ -205,14 +205,42 @@ class MenuWidget extends StatelessWidget {
   ) onChange;
 
   @override
+  State<MenuWidget> createState() => _MenuWidgetState();
+}
+
+class _MenuWidgetState extends State<MenuWidget> {
+  double _opacity = 0.0;
+
+  Future<void> _update() async {
+    await Future.delayed(
+      const Duration(
+        milliseconds: 10,
+      ),
+    );
+
+    setState(() {
+      _opacity = 1.0;
+    });
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _update();
+    });
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: removeMenu,
+      onTap: widget.removeMenu,
       child: Material(
         color: Colors.transparent,
         child: Padding(
           padding: EdgeInsets.only(
-            top: topPadding,
+            top: widget.topPadding,
             right: 12.0,
             left: 12.0,
           ),
@@ -220,41 +248,48 @@ class MenuWidget extends StatelessWidget {
             children: <Widget>[
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight:
-                      MediaQuery.sizeOf(context).height - topPadding - 40.0,
+                  maxHeight: MediaQuery.sizeOf(context).height -
+                      widget.topPadding -
+                      40.0,
                 ),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 6.0,
+                child: AnimatedOpacity(
+                  opacity: _opacity,
+                  duration: const Duration(
+                    milliseconds: 100,
                   ),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: borderRadius,
-                    boxShadow: <BoxShadow>[
-                      boxShadow,
-                    ],
-                  ),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: List.generate(options.length, (index) {
-                        final option = options[index];
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 6.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: widget.borderRadius,
+                      boxShadow: <BoxShadow>[
+                        widget.boxShadow,
+                      ],
+                    ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: List.generate(widget.options.length, (index) {
+                          final option = widget.options[index];
 
-                        return GestureDetector(
-                          onTap: () {
-                            removeMenu();
-                            onChange(option);
-                          },
-                          child: Container(
-                            color: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12.0,
-                              vertical: 8.0,
+                          return GestureDetector(
+                            onTap: () {
+                              widget.removeMenu();
+                              widget.onChange(option);
+                            },
+                            child: Container(
+                              color: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0,
+                                vertical: 8.0,
+                              ),
+                              width: double.infinity,
+                              child: Text(option),
                             ),
-                            width: double.infinity,
-                            child: Text(option),
-                          ),
-                        );
-                      }),
+                          );
+                        }),
+                      ),
                     ),
                   ),
                 ),
