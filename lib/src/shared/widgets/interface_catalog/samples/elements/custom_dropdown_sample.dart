@@ -120,65 +120,15 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
 
     _overlayEntry = OverlayEntry(
       builder: (context) {
-        return GestureDetector(
-          onTap: _removeMenu,
-          child: Material(
-            color: Colors.transparent,
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: topPadding,
-                right: 12.0,
-                left: 12.0,
-              ),
-              child: Column(
-                children: <Widget>[
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxHeight:
-                          MediaQuery.sizeOf(context).height - topPadding - 40.0,
-                    ),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 6.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: _defaultBorderRadius,
-                        boxShadow: <BoxShadow>[
-                          _boxShadow,
-                        ],
-                      ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children:
-                              List.generate(widget.options.length, (index) {
-                            final option = widget.options[index];
-
-                            return GestureDetector(
-                              onTap: () {
-                                _selectedValue = option;
-                                _removeMenu();
-                              },
-                              child: Container(
-                                color: Colors.white,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12.0,
-                                  vertical: 8.0,
-                                ),
-                                width: double.infinity,
-                                child: Text(option),
-                              ),
-                            );
-                          }),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
-          ),
+        return MenuWidget(
+          removeMenu: _removeMenu,
+          boxShadow: _boxShadow,
+          borderRadius: _defaultBorderRadius,
+          topPadding: topPadding,
+          options: widget.options,
+          onChange: (value) {
+            _selectedValue = value;
+          },
         );
       },
     );
@@ -228,6 +178,90 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
                   : Icons.keyboard_arrow_down_rounded,
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class MenuWidget extends StatelessWidget {
+  const MenuWidget({
+    super.key,
+    required this.removeMenu,
+    required this.boxShadow,
+    required this.borderRadius,
+    required this.topPadding,
+    required this.options,
+    required this.onChange,
+  });
+
+  final VoidCallback removeMenu;
+  final BoxShadow boxShadow;
+  final BorderRadius borderRadius;
+  final double topPadding;
+  final List<String> options;
+  final void Function(
+    String value,
+  ) onChange;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: removeMenu,
+      child: Material(
+        color: Colors.transparent,
+        child: Padding(
+          padding: EdgeInsets.only(
+            top: topPadding,
+            right: 12.0,
+            left: 12.0,
+          ),
+          child: Column(
+            children: <Widget>[
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight:
+                      MediaQuery.sizeOf(context).height - topPadding - 40.0,
+                ),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 6.0,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: borderRadius,
+                    boxShadow: <BoxShadow>[
+                      boxShadow,
+                    ],
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: List.generate(options.length, (index) {
+                        final option = options[index];
+
+                        return GestureDetector(
+                          onTap: () {
+                            removeMenu();
+                            onChange(option);
+                          },
+                          child: Container(
+                            color: Colors.white,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12.0,
+                              vertical: 8.0,
+                            ),
+                            width: double.infinity,
+                            child: Text(option),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                ),
+              ),
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );
