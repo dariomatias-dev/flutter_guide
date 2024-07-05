@@ -43,7 +43,7 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
         decoration: InputDecoration(
           filled: true,
           fillColor: Theme.of(context).brightness == Brightness.light
-              ? Colors.grey.shade200
+              ? Colors.grey.shade300.withOpacity(0.8)
               : FlutterGuideColors.darkNeutral200.withOpacity(0.8),
           prefixIcon: Icon(
             Icons.search,

@@ -47,44 +47,54 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
         builder: (context, value, child) {
           _controller.favoritesService.getWidgets();
 
-          return ScrollInfinity<ComponentModel?>(
-            maxItems: 18,
-            header: Column(
-              children: <Widget>[
-                const SizedBox(height: 20.0),
-                SearchFieldWidget(
-                  componentType: widget.componentType,
-                  onChange: (String value) {
-                    _controller.searchComponents(value, () {
-                      setState(() {});
-                    });
-                  },
-                ),
-                const SizedBox(height: 12.0),
-              ],
-            ),
-            interval: _controller.adInterval,
-            loadData: (pageIndex) async {
-              return <ComponentModel>[];
-            },
-            itemBuilder: (value, index) {
-              if (value == null) {
-                return const SizedBox(
-                  height: 44.0,
-                  child: Placeholder(),
-                );
+          return ValueListenableBuilder(
+            valueListenable: _controller.initialItemsNotifier,
+            builder: (context, value, child) {
+              if (value.isEmpty) {
+                return Container();
               }
 
-              return SizedBox(
-                height: 44.0,
-                child: CardWidget(
-                  componentType: widget.componentType,
-                  icon: value.icon,
-                  componentName: value.name,
-                  videoId: value.videoId,
-                  favoritesService: _controller.favoritesService,
-                  favoriteNotifier: _controller.favoriteNotifier,
+              return ScrollInfinity<ComponentModel?>(
+                maxItems: 18,
+                header: Column(
+                  children: <Widget>[
+                    const SizedBox(height: 20.0),
+                    SearchFieldWidget(
+                      componentType: widget.componentType,
+                      onChange: (String value) {
+                        _controller.searchComponents(value, () {
+                          setState(() {});
+                        });
+                      },
+                    ),
+                    const SizedBox(height: 12.0),
+                  ],
                 ),
+                disableInitialRequest: true,
+                initialPageIndex: 1,
+                initialItems: value,
+                interval: _controller.adInterval,
+                loadData: _controller.loadData,
+                itemBuilder: (value, index) {
+                  if (value == null) {
+                    return const SizedBox(
+                      height: 44.0,
+                      child: Placeholder(),
+                    );
+                  }
+
+                  return SizedBox(
+                    height: 44.0,
+                    child: CardWidget(
+                      componentType: widget.componentType,
+                      icon: value.icon,
+                      componentName: value.name,
+                      videoId: value.videoId,
+                      favoritesService: _controller.favoritesService,
+                      favoriteNotifier: _controller.favoriteNotifier,
+                    ),
+                  );
+                },
               );
             },
           );

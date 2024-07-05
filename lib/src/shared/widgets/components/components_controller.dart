@@ -8,9 +8,9 @@ import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.da
 import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.dart';
 
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
-import 'package:flutter_guide/src/shared/widgets/components/visible_items_notifier.dart';
+import 'package:flutter_guide/src/shared/widgets/components/initial_items_notifier.dart';
 
-const visibleItemsIncreaseValue = 18;
+const maxItems = 18;
 
 class ComponentsController {
   ComponentsController({
@@ -30,17 +30,15 @@ class ComponentsController {
   late FavoritesService favoritesService;
   late FavoriteNotifier favoriteNotifier;
 
-  late List<ComponentModel> _components;
-
-  final visibleItemsNotifier = VisibleItemsNotifier([]);
-
   late List<ComponentModel> _standardComponents;
+  late List<ComponentModel> _components;
+  final initialItemsNotifier = InitialItemsNotifier([]);
 
-  void _init(
+  Future<void> _init(
     BuildContext context,
     ComponentType componentType,
     List<ComponentModel> elements,
-  ) {
+  ) async {
     _standardComponents = elements;
     _components = _standardComponents;
 
@@ -54,6 +52,10 @@ class ComponentsController {
     favoritesService = componentType == ComponentType.widget
         ? userPreferencesInheritedWidget.favoriteWidgetsService
         : userPreferencesInheritedWidget.favoritePackagesService;
+
+    initialItemsNotifier.setComponents(
+      await loadData(0),
+    );
   }
 
   void searchComponents(
@@ -78,32 +80,26 @@ class ComponentsController {
 
     final componentsLength = _components.length;
 
-    visibleItemsNotifier.setComponents(
+    initialItemsNotifier.setComponents(
       _components.sublist(
         0,
-        componentsLength >= visibleItemsIncreaseValue
-            ? visibleItemsIncreaseValue
-            : componentsLength,
+        componentsLength > maxItems ? maxItems : componentsLength,
       ),
     );
   }
 
-  void addComponents() {
-    final visibleItemsLength = visibleItemsNotifier.value.length;
+  Future<List<ComponentModel>> loadData(
+    int pageIndex,
+  ) async {
+    final startIndex = pageIndex * maxItems;
+    final endIndex = startIndex + maxItems;
     final componentsLength = _components.length;
 
-    if (visibleItemsLength != componentsLength) {
-      final visibleItemsIncrease =
-          visibleItemsLength + visibleItemsIncreaseValue;
-
-      visibleItemsNotifier.addComponents(
-        _components.sublist(
-          visibleItemsLength,
-          visibleItemsLength >= componentsLength
-              ? visibleItemsIncrease
-              : visibleItemsLength + (componentsLength - visibleItemsLength),
-        ),
-      );
-    }
+    return _components.sublist(
+      pageIndex * maxItems,
+      endIndex > componentsLength
+          ? componentsLength - startIndex + startIndex
+          : endIndex,
+    );
   }
 }
