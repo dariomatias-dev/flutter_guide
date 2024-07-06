@@ -11,17 +11,30 @@ class SearchFieldWidget extends StatefulWidget {
     super.key,
     required this.componentType,
     required this.onChange,
+    required this.searchClear,
   });
 
   final ComponentType componentType;
-  final void Function(String value) onChange;
+  final void Function(
+    String value,
+  ) onChange;
+  final VoidCallback searchClear;
 
   @override
   State<SearchFieldWidget> createState() => _SearchFieldWidgetState();
 }
 
 class _SearchFieldWidgetState extends State<SearchFieldWidget> {
-  final _controller = SearchFieldController();
+  late SearchFieldController _controller;
+
+  @override
+  void didChangeDependencies() {
+    _controller = SearchFieldController(
+      searchClear: widget.searchClear,
+    );
+
+    super.didChangeDependencies();
+  }
 
   @override
   void dispose() {
@@ -49,6 +62,14 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
             Icons.search,
             color: Theme.of(context).colorScheme.tertiary,
             size: 20.0,
+          ),
+          suffixIcon: GestureDetector(
+            onTap: _controller.searchFieldClear,
+            child: Icon(
+              Icons.close,
+              color: Theme.of(context).colorScheme.tertiary,
+              size: 20.0,
+            ),
           ),
           hintText:
               '${widget.componentType == ComponentType.widget ? 'Widget' : 'Package'}...',

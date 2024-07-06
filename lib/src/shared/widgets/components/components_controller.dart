@@ -58,6 +58,14 @@ class ComponentsController {
     );
   }
 
+  Future<void> searchClear() async {
+    _components = _standardComponents;
+
+    initialItemsNotifier.setComponents(
+      await loadData(0),
+    );
+  }
+
   void searchComponents(
     String value,
     VoidCallback setStateCallback,

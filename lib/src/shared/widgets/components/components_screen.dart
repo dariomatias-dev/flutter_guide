@@ -50,12 +50,7 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
           return ValueListenableBuilder(
             valueListenable: _controller.initialItemsNotifier,
             builder: (context, value, child) {
-              if (value.isEmpty) {
-                return Container();
-              }
-
               return ScrollInfinity<ComponentModel?>(
-                maxItems: 18,
                 header: Column(
                   children: <Widget>[
                     const SizedBox(height: 20.0),
@@ -66,10 +61,12 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
                           setState(() {});
                         });
                       },
+                      searchClear: _controller.searchClear,
                     ),
                     const SizedBox(height: 12.0),
                   ],
                 ),
+                maxItems: 18,
                 disableInitialRequest: true,
                 initialPageIndex: 1,
                 initialItems: value,
