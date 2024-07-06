@@ -200,6 +200,7 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
     _overlayEntry = OverlayEntry(
       builder: (context) {
         return MenuWidget(
+          selectedOption: _selectedValue,
           removeMenu: _removeMenu,
           boxShadow: _boxShadow,
           borderRadius: _defaultBorderRadius,
@@ -241,7 +242,9 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
           horizontal: 12.0,
         ),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).brightness == Brightness.light
+              ? Colors.white
+              : Colors.grey.shade900,
           borderRadius: _defaultBorderRadius,
           boxShadow: <BoxShadow>[
             _boxShadow,
@@ -269,6 +272,7 @@ class MenuWidget extends StatefulWidget {
   const MenuWidget({
     super.key,
     required this.removeMenu,
+    this.selectedOption,
     required this.boxShadow,
     required this.borderRadius,
     required this.topPadding,
@@ -277,6 +281,7 @@ class MenuWidget extends StatefulWidget {
   });
 
   final VoidCallback removeMenu;
+  final MenuOptionModel? selectedOption;
   final BoxShadow boxShadow;
   final BorderRadius borderRadius;
   final double topPadding;
@@ -290,6 +295,9 @@ class MenuWidget extends StatefulWidget {
 }
 
 class _MenuWidgetState extends State<MenuWidget> {
+  bool _isLight = true;
+  Color? _defaultBackgroundColor;
+  Color? _selectedBackgroundColor;
   double _opacity = 0.0;
 
   Future<void> _update() async {
@@ -307,6 +315,11 @@ class _MenuWidgetState extends State<MenuWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _isLight = Theme.of(context).brightness == Brightness.light;
+      _defaultBackgroundColor = _isLight ? Colors.white : Colors.grey.shade900;
+      _selectedBackgroundColor =
+          _isLight ? Colors.grey.shade300.withOpacity(0.8) : Colors.black12;
+
       _update();
     });
 
@@ -339,37 +352,50 @@ class _MenuWidgetState extends State<MenuWidget> {
                     milliseconds: 100,
                   ),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 6.0,
-                    ),
                     decoration: BoxDecoration(
-                      color: Colors.white,
                       borderRadius: widget.borderRadius,
                       boxShadow: <BoxShadow>[
                         widget.boxShadow,
                       ],
                     ),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: List.generate(widget.options.length, (index) {
-                          final option = widget.options[index];
+                    child: ClipRRect(
+                      borderRadius: widget.borderRadius,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 6.0,
+                        ),
+                        decoration: BoxDecoration(
+                          color: _defaultBackgroundColor,
+                        ),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children:
+                                List.generate(widget.options.length, (index) {
+                              final option = widget.options[index];
 
-                          return GestureDetector(
-                            onTap: () {
-                              widget.removeMenu();
-                              widget.onChange(option);
-                            },
-                            child: Container(
-                              color: Colors.white,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12.0,
-                                vertical: 8.0,
-                              ),
-                              width: double.infinity,
-                              child: Text(option.name),
-                            ),
-                          );
-                        }),
+                              final selected =
+                                  option.value == widget.selectedOption?.value;
+
+                              return GestureDetector(
+                                onTap: () {
+                                  widget.removeMenu();
+                                  widget.onChange(option);
+                                },
+                                child: Container(
+                                  color: selected
+                                      ? _selectedBackgroundColor
+                                      : _defaultBackgroundColor,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12.0,
+                                    vertical: 8.0,
+                                  ),
+                                  width: double.infinity,
+                                  child: Text(option.name),
+                                ),
+                              );
+                            }),
+                          ),
+                        ),
                       ),
                     ),
                   ),
