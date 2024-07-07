@@ -6,6 +6,7 @@ class PackageNames {
   static const deviceInfoPlusPackage = 'device_info_plus';
   static const dioPackage = 'dio';
   static const dottedBorderPackage = 'dotted_border';
+  static const flutterChatBubblePackage = 'flutter_chat_bubble';
   static const flutterRatingBarPackage = 'flutter_rating_bar';
   static const flutterSlidablePackage = 'flutter_slidable';
   static const flutterSpinkitPackage = 'flutter_spinkit';
