@@ -78,9 +78,11 @@ class InfinetGridViewSampleState extends State<InfiniteGridViewSample> {
 
   // IsLoading
   void _updateIsLoading() {
-    setState(() {
-      _isLoading = !_isLoading;
-    });
+    if (mounted) {
+      setState(() {
+        _isLoading = !_isLoading;
+      });
+    }
   }
 
   @override

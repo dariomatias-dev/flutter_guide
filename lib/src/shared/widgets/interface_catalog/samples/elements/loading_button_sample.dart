@@ -61,9 +61,9 @@ class _LoadingButtonSampleState extends State<LoadingButtonSample> {
             seconds: 2,
           ),
           () {
-            setState(() {
-              _isSuccess = null;
-            });
+            _isSuccess = null;
+
+            _updateScreen();
           },
         );
       },
@@ -71,9 +71,15 @@ class _LoadingButtonSampleState extends State<LoadingButtonSample> {
   }
 
   void _updateIsLoading() {
-    setState(() {
-      _isLoading = !_isLoading;
-    });
+    _isLoading = !_isLoading;
+
+    _updateScreen();
+  }
+
+  void _updateScreen() {
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
