@@ -47,6 +47,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cuper
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/decoratedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dialog_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dismissible_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/divider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/drawer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dropdownbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/elevatedbutton_sample.dart';
@@ -346,6 +347,13 @@ const widgets = <WidgetModel>[
     videoId: 'iEMgjrfuc58',
     sample: DismissibleSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.dividerMaterial,
+    icon: Icons.remove,
+    videoId: '_liUC641Nmk',
+    sample: DividerSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.drawerMaterial,

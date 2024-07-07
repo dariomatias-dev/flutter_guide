@@ -38,6 +38,7 @@ class WidgetNames {
   static const decoratedBoxWidget = 'DecoratedBox';
   static const dialogMaterial = 'Dialog';
   static const dismissibleMaterial = 'Dismissible';
+  static const dividerMaterial = 'Divider';
   static const drawerMaterial = 'Drawer';
   static const dropdownButtonMaterial = 'DropdownButton';
   static const elevatedButtonMaterial = 'ElevatedButton';
