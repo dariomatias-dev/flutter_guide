@@ -42,6 +42,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cuper
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinolisttile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinonavigationbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinopagescaffold_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoradio_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoslider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/decoratedbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/dialog_sample.dart';
@@ -312,6 +313,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.cupertinoPageScaffoldCupertino,
     icon: Icons.dashboard,
     sample: CupertinoPageScaffoldSample(),
+    category: WidgetCategory.cupertino,
+  ),
+  WidgetModel(
+    name: WidgetNames.cupertinoRadioCupertino,
+    icon: Icons.radio_button_checked,
+    sample: CupertinoRadioSample(),
     category: WidgetCategory.cupertino,
   ),
   WidgetModel(

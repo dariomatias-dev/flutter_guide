@@ -33,6 +33,7 @@ class WidgetNames {
   static const cupertinoListTileCupertino = 'CupertinoListTile';
   static const cupertinoNavigationBarCupertino = 'CupertinoNavigationBar';
   static const cupertinoPageScaffoldCupertino = 'CupertinoPageScaffold';
+  static const cupertinoRadioCupertino = 'CupertinoRadio';
   static const cupertinoSliderCupertino = 'CupertinoSlider';
   static const decoratedBoxWidget = 'DecoratedBox';
   static const dialogMaterial = 'Dialog';
