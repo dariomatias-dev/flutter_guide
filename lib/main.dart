@@ -24,15 +24,18 @@ Future<void> main() async {
     sharedPreferences,
   );
 
+  // Notifiers
   final favoriteWidgetNotifier = FavoriteWidgetNotifier('');
   final favoritePackageNotifier = FavoritePackageNotifier('');
   FavoriteNotifier getFavoriteNotifier(
     ComponentType componentType,
-  ) =>
-      componentType == ComponentType.widget
-          ? favoriteWidgetNotifier
-          : favoritePackageNotifier;
+  ) {
+    return componentType == ComponentType.widget
+        ? favoriteWidgetNotifier
+        : favoritePackageNotifier;
+  }
 
+  // Services
   final favoritePackagesService = FavoritePackagesService(
     sharedPreferences: sharedPreferences,
   );
@@ -41,10 +44,11 @@ Future<void> main() async {
   );
   FavoritesService getFavoritesService(
     ComponentType componentType,
-  ) =>
-      componentType == ComponentType.widget
-          ? favoriteWidgetsService
-          : favoritePackagesService;
+  ) {
+    return componentType == ComponentType.widget
+        ? favoriteWidgetsService
+        : favoritePackagesService;
+  }
 
   final widgetInfos = getWidgetInfos();
 

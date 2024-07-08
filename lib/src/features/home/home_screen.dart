@@ -6,6 +6,7 @@ import 'package:flutter_guide/src/features/home/widgets/border_list_tile_item_wi
 import 'package:flutter_guide/src/features/home/widgets/component_groups/component_groups_widget.dart';
 import 'package:flutter_guide/src/features/home/widgets/project_showcase_carousel_widget.dart';
 
+import 'package:flutter_guide/src/shared/utils/navigate_to.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/interface_catalog_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -32,13 +33,12 @@ class HomeScreen extends StatelessWidget {
               title: 'UIs',
               icon: Icons.web,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) {
-                    return const InterfaceCatalogScreen(
-                      elementType: InterfaceTypeEnum.ui,
-                    );
-                  },
-                ));
+                navigateTo(
+                  context,
+                  const InterfaceCatalogScreen(
+                    elementType: InterfaceTypeEnum.ui,
+                  ),
+                );
               },
             ),
             const SizedBox(height: 8.0),
@@ -46,13 +46,12 @@ class HomeScreen extends StatelessWidget {
               title: 'Elements',
               icon: Icons.list_alt,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) {
-                    return const InterfaceCatalogScreen(
-                      elementType: InterfaceTypeEnum.element,
-                    );
-                  },
-                ));
+                navigateTo(
+                  context,
+                  const InterfaceCatalogScreen(
+                    elementType: InterfaceTypeEnum.element,
+                  ),
+                );
               },
             ),
             const SizedBox(height: 20.0),

@@ -31,7 +31,12 @@ class _MainScreenState extends State<MainScreen> {
       body: bottomAppBarScreens[_controller.screenIndex].screen,
       bottomNavigationBar: BottomNavigationBarWidget(
         screenIndex: _controller.screenIndex,
-        updateScreenIndex: updateScreenIndex,
+        updateScreenIndex: (value) {
+          _controller.updateScreenIndex(
+            () => setState(() {}),
+            value,
+          );
+        },
       ),
     );
   }

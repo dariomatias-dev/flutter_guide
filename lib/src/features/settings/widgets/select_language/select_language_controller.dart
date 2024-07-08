@@ -48,10 +48,10 @@ class SelectLanguageController {
     BuildContext context,
     VoidCallback setStateCallback,
   ) {
-    final RenderBox button = context.findRenderObject() as RenderBox;
-    final RenderBox overlay =
+    final button = context.findRenderObject() as RenderBox;
+    final overlay =
         Overlay.of(context).context.findRenderObject()! as RenderBox;
-    final RelativeRect position = RelativeRect.fromRect(
+    final position = RelativeRect.fromRect(
       Rect.fromPoints(
         button.localToGlobal(
           button.size.topRight(Offset.zero),

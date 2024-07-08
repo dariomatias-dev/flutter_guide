@@ -8,6 +8,8 @@ class SourceCodeButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
+
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 36.0,
@@ -22,11 +24,11 @@ class SourceCodeButtonWidget extends StatelessWidget {
         borderRadius: borderRadius,
         overlayColor: MaterialStatePropertyAll(
           Colors.blue.withOpacity(
-            Theme.of(context).brightness == Brightness.light ? 0.06 : 0.11,
+            isLight ? 0.06 : 0.11,
           ),
         ),
         hoverColor: Colors.blue.withOpacity(
-          Theme.of(context).brightness == Brightness.light ? 0.055 : 0.105,
+          isLight ? 0.055 : 0.105,
         ),
         child: Ink(
           width: double.infinity,
@@ -38,7 +40,7 @@ class SourceCodeButtonWidget extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: Colors.blue.withOpacity(
-                Theme.of(context).brightness == Brightness.light ? 0.05 : 0.1,
+                isLight ? 0.05 : 0.1,
               ),
               borderRadius: borderRadius,
             ),
