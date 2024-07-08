@@ -41,6 +41,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cuper
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinobutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinolisttile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinonavigationbar_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinonavigationbarbackbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinopagescaffold_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoradio_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/cupertinoslider_sample.dart';
@@ -308,6 +309,12 @@ const widgets = <WidgetModel>[
     name: WidgetNames.cupertinoNavigationBarCupertino,
     icon: Icons.menu,
     sample: CupertinoNavigationBarSample(),
+    category: WidgetCategory.cupertino,
+  ),
+  WidgetModel(
+    name: WidgetNames.cupertinoNavigationBarBackButtonCupertino,
+    icon: Icons.arrow_back_ios_new_rounded,
+    sample: CupertinoNavigationBarBackButtonSample(),
     category: WidgetCategory.cupertino,
   ),
   WidgetModel(
