@@ -88,6 +88,7 @@ class WidgetNames {
   static const switchWidget = 'Switch';
   static const switchListTileMaterial = 'SwitchListTile';
   static const textWidget = 'Text';
+  static const textButtonMaterial = 'TextButton';
   static const textFieldMaterial = 'TextField';
   static const textFormFieldMaterial = 'TextFormField';
   static const toggleButtonsMaterial = 'ToggleButtons';

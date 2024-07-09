@@ -97,6 +97,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/stack
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switch_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switchlisttile_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/text_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textfield_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textformfield_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/togglebuttons_sample.dart';
@@ -675,6 +676,12 @@ const widgets = <WidgetModel>[
     icon: Icons.text_fields,
     sample: TextSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.textButtonMaterial,
+    icon: Icons.text_fields,
+    sample: TextButtonSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.textFieldMaterial,
