@@ -90,16 +90,76 @@ class ChatScreenSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const ChatScreen();
+                },
+              ),
+            );
+          },
+          child: const Text(
+            'Show Chat Screen',
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ChatScreen extends StatefulWidget {
+  const ChatScreen({super.key});
+
+  @override
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  final _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _scrollController.jumpTo(
+        _scrollController.position.maxScrollExtent,
+      );
+    });
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final maxWidth = MediaQuery.sizeOf(context).width * 0.8;
 
     return Scaffold(
+      appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+          ),
+        ),
+        title: const Text('Chat'),
+      ),
       body: ListView.separated(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 12.0,
+        controller: _scrollController,
+        padding: const EdgeInsets.only(
+          top: 12.0,
+          right: 12.0,
+          bottom: 40.0,
+          left: 12.0,
         ),
         itemCount: messages.length,
         separatorBuilder: (context, index) {
-          return const SizedBox(height: 20.0);
+          return const SizedBox(height: 22.0);
         },
         itemBuilder: (context, index) {
           final message = messages[index];
@@ -120,16 +180,20 @@ class ChatScreenSample extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: isMessageSent ? Colors.blue : Colors.white,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(isMessageSent ? 20.0 : 0.0),
-                    topRight: Radius.circular(isMessageSent ? 0.0 : 20.0),
+                    topLeft: Radius.circular(
+                      isMessageSent ? 20.0 : 0.0,
+                    ),
+                    topRight: Radius.circular(
+                      isMessageSent ? 0.0 : 20.0,
+                    ),
                     bottomRight: const Radius.circular(20.0),
                     bottomLeft: const Radius.circular(20.0),
                   ),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                      blurRadius: 6.0,
-                      spreadRadius: 6.0,
-                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 8.0,
+                      spreadRadius: 8.0,
+                      color: Colors.black.withOpacity(0.115),
                       offset: const Offset(1.0, 1.0),
                     ),
                   ],
