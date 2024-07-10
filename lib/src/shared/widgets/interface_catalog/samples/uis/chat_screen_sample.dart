@@ -1,6 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+class ItemsNotifier extends ValueNotifier<List<Widget>> {
+  ItemsNotifier(
+    super._value,
+  );
+
+  void add(
+    Widget item,
+  ) {
+    value.add(item);
+
+    notifyListeners();
+  }
+
+  void addAll(
+    List<Widget> item,
+  ) {
+    value.addAll(item);
+
+    notifyListeners();
+  }
+}
+
 enum MessageStatus {
   send,
   receiver,
@@ -139,11 +161,44 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final _scrollController = ScrollController();
+  final _messageFocus = FocusNode();
+  final _messageController = TextEditingController();
 
-  final _items = ValueNotifier<List<Widget>>([]);
+  final _items = ItemsNotifier([]);
+
+  double get _maxWidth => MediaQuery.sizeOf(context).width * 0.8;
+
+  SizedBox get _space => const SizedBox(
+        height: 16.0,
+      );
+
+  void _addItem() {
+    final text = _messageController.text.trim();
+    final message = MessageModel(
+      text: text,
+      status: MessageStatus.send,
+      sentDate: DateTime.now(),
+    );
+
+    final items = <Widget>[];
+
+    if (_items.value.last is! SizedBox) {
+      items.add(_space);
+    }
+
+    items.add(
+      MessageWidget(
+        isMessageSent: message.status == MessageStatus.send,
+        maxWidth: _maxWidth,
+        message: message,
+      ),
+    );
+
+    _items.addAll(items);
+  }
 
   void _generateItems() {
-    final maxWidth = MediaQuery.sizeOf(context).width * 0.8;
+    final maxWidth = _maxWidth;
 
     final items = <Widget>[];
     final itemsLength = items.length;
@@ -205,11 +260,7 @@ class _ChatScreenState extends State<ChatScreen> {
       );
 
       if (i + 1 != itemsLength) {
-        items.add(
-          const SizedBox(
-            height: 20.0,
-          ),
-        );
+        items.add(_space);
       }
     }
 
@@ -231,8 +282,10 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void dispose() {
-    _items.dispose();
     _scrollController.dispose();
+    _messageFocus.dispose();
+    _messageController.dispose();
+    _items.dispose();
 
     super.dispose();
   }
@@ -251,23 +304,67 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         title: const Text('Chat'),
       ),
-      body: ValueListenableBuilder(
-        valueListenable: _items,
-        builder: (context, value, child) {
-          return ListView.builder(
-            controller: _scrollController,
-            padding: const EdgeInsets.only(
-              top: 12.0,
-              right: 12.0,
-              bottom: 40.0,
-              left: 12.0,
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: ValueListenableBuilder(
+              valueListenable: _items,
+              builder: (context, value, child) {
+                WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                  _scrollController.animateTo(
+                    _scrollController.position.maxScrollExtent,
+                    duration: const Duration(
+                      milliseconds: 300,
+                    ),
+                    curve: Curves.linear,
+                  );
+                });
+
+                return ListView.builder(
+                  controller: _scrollController,
+                  padding: const EdgeInsets.all(12.0),
+                  itemCount: _items.value.length,
+                  itemBuilder: (context, index) {
+                    return value[index];
+                  },
+                );
+              },
             ),
-            itemCount: _items.value.length,
-            itemBuilder: (context, index) {
-              return value[index];
-            },
-          );
-        },
+          ),
+          Container(
+            color: Colors.grey.shade300,
+            padding: const EdgeInsets.symmetric(
+              vertical: 16.0,
+              horizontal: 8.0,
+            ),
+            child: SizedBox(
+              height: 40.0,
+              child: TextFormField(
+                focusNode: _messageFocus,
+                controller: _messageController,
+                autofocus: true,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.grey.shade100,
+                  hintText: 'Type a message',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(28.0),
+                    borderSide: BorderSide.none,
+                  ),
+                  isDense: true,
+                ),
+                onFieldSubmitted: (value) {
+                  if (value.trim() != '') {
+                    _addItem();
+
+                    _messageController.clear();
+                    _messageFocus.requestFocus();
+                  }
+                },
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
