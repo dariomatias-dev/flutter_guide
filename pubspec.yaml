@@ -68,6 +68,7 @@ dependencies:
   device_info_plus: ^10.1.0
   scroll_infinity: ^0.3.3
   flutter_chat_bubble: ^2.0.2
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

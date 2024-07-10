@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 enum MessageStatus {
   send,
@@ -7,81 +8,98 @@ enum MessageStatus {
 
 class MessageModel {
   const MessageModel({
-    required this.message,
+    required this.text,
     required this.status,
+    required this.sentDate,
   });
 
-  final String message;
+  final String text;
   final MessageStatus status;
+  final DateTime sentDate;
 }
 
-const messages = <MessageModel>[
+final messages = <MessageModel>[
   MessageModel(
-    message: "Hello there!",
+    text: "Hello there!",
     status: MessageStatus.send,
+    sentDate: DateTime(2024, 1, 1, 9, 0),
   ),
   MessageModel(
-    message: "Hi, how are you?",
+    text: "Hi, how are you?",
     status: MessageStatus.receiver,
+    sentDate: DateTime(2024, 1, 1, 9, 1),
   ),
   MessageModel(
-    message: "I'm doing great, thanks!",
+    text: "I'm doing great, thanks!",
     status: MessageStatus.send,
+    sentDate: DateTime(2024, 1, 1, 9, 2),
   ),
   MessageModel(
-    message: "That's good to hear!",
+    text: "That's good to hear!",
     status: MessageStatus.receiver,
+    sentDate: DateTime(2024, 1, 1, 9, 3),
   ),
   MessageModel(
-    message: "Did you finish the project we were working on?",
+    text: "Did you finish the project we were working on?",
     status: MessageStatus.send,
+    sentDate: DateTime(2024, 1, 1, 9, 4),
   ),
   MessageModel(
-    message: "Yes, I just sent you the final version. Check your email.",
+    text: "Yes, I just sent you the final version. Check your email.",
     status: MessageStatus.receiver,
+    sentDate: DateTime(2024, 1, 1, 9, 5),
   ),
   MessageModel(
-    message: "Great! I'll take a look at it now.",
+    text: "Great! I'll take a look at it now.",
     status: MessageStatus.send,
+    sentDate: DateTime(2024, 1, 1, 9, 6),
   ),
   MessageModel(
-    message: "Let me know if you have any feedback or need any changes.",
+    text: "Let me know if you have any feedback or need any changes.",
     status: MessageStatus.receiver,
+    sentDate: DateTime(2024, 1, 1, 9, 7),
   ),
   MessageModel(
-    message:
-        "Sure, will do. By the way, do you have any plans for the weekend?",
+    text: "Sure, will do. By the way, do you have any plans for the weekend?",
     status: MessageStatus.send,
+    sentDate: DateTime(2024, 1, 1, 9, 8),
   ),
   MessageModel(
-    message: "Not yet. I was thinking about going hiking. What about you?",
+    text: "Not yet. I was thinking about going hiking. What about you?",
     status: MessageStatus.receiver,
+    sentDate: DateTime(2024, 1, 1, 9, 9),
   ),
   MessageModel(
-    message: "That sounds fun! I might join you if that's okay.",
+    text: "That sounds fun! I might join you if that's okay.",
     status: MessageStatus.send,
+    sentDate: DateTime(2024, 1, 1, 9, 10),
   ),
   MessageModel(
-    message: "Of course! The more, the merrier. I'll send you the details.",
+    text: "Of course! The more, the merrier. I'll send you the details.",
     status: MessageStatus.receiver,
+    sentDate: DateTime(2024, 1, 1, 9, 11),
   ),
   MessageModel(
-    message: "Awesome! Looking forward to it.",
+    text: "Awesome! Looking forward to it.",
     status: MessageStatus.send,
+    sentDate: DateTime(2024, 1, 1, 9, 12),
   ),
   MessageModel(
-    message:
+    text:
         "By the way, did you see the new movie that came out last week? It's getting great reviews.",
     status: MessageStatus.receiver,
+    sentDate: DateTime(2024, 1, 1, 9, 13),
   ),
   MessageModel(
-    message:
+    text:
         "No, I haven't had the chance yet. Maybe we can watch it after the hike.",
     status: MessageStatus.send,
+    sentDate: DateTime(2024, 1, 1, 9, 14),
   ),
   MessageModel(
-    message: "Sounds like a plan! I'll book the tickets.",
+    text: "Sounds like a plan! I'll book the tickets.",
     status: MessageStatus.receiver,
+    sentDate: DateTime(2024, 1, 1, 9, 15),
   ),
 ];
 
@@ -165,49 +183,92 @@ class _ChatScreenState extends State<ChatScreen> {
           final message = messages[index];
           final isMessageSent = message.status == MessageStatus.send;
 
-          return Align(
-            alignment:
-                isMessageSent ? Alignment.centerRight : Alignment.centerLeft,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxWidth: maxWidth,
+          return MessageWidget(
+            isMessageSent: isMessageSent,
+            maxWidth: maxWidth,
+            message: message,
+          );
+        },
+      ),
+    );
+  }
+}
+
+class MessageWidget extends StatelessWidget {
+  const MessageWidget({
+    super.key,
+    required this.isMessageSent,
+    required this.maxWidth,
+    required this.message,
+  });
+
+  final bool isMessageSent;
+  final double maxWidth;
+  final MessageModel message;
+
+  String get formatDate {
+    final dateFormat = DateFormat('MM/dd/yyyy HH:mm');
+
+    return dateFormat.format(
+      message.sentDate,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: isMessageSent ? Alignment.centerRight : Alignment.centerLeft,
+      child: Column(
+        crossAxisAlignment:
+            isMessageSent ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        children: <Widget>[
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: maxWidth,
+            ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12.0,
+                vertical: 8.0,
               ),
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12.0,
-                  vertical: 8.0,
-                ),
-                decoration: BoxDecoration(
-                  color: isMessageSent ? Colors.blue : Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(
-                      isMessageSent ? 20.0 : 0.0,
-                    ),
-                    topRight: Radius.circular(
-                      isMessageSent ? 0.0 : 20.0,
-                    ),
-                    bottomRight: const Radius.circular(20.0),
-                    bottomLeft: const Radius.circular(20.0),
+              decoration: BoxDecoration(
+                color: isMessageSent ? Colors.blue : Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(
+                    isMessageSent ? 20.0 : 0.0,
                   ),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      blurRadius: 8.0,
-                      spreadRadius: 8.0,
-                      color: Colors.black.withOpacity(0.115),
-                      offset: const Offset(1.0, 1.0),
-                    ),
-                  ],
-                ),
-                child: Text(
-                  message.message,
-                  style: TextStyle(
-                    color: isMessageSent ? Colors.white : Colors.black,
+                  topRight: Radius.circular(
+                    isMessageSent ? 0.0 : 20.0,
                   ),
+                  bottomRight: const Radius.circular(20.0),
+                  bottomLeft: const Radius.circular(20.0),
+                ),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    blurRadius: 8.0,
+                    spreadRadius: 8.0,
+                    color: Colors.black.withOpacity(0.115),
+                    offset: const Offset(1.0, 1.0),
+                  ),
+                ],
+              ),
+              child: Text(
+                message.text,
+                style: TextStyle(
+                  color: isMessageSent ? Colors.white : Colors.black,
                 ),
               ),
             ),
-          );
-        },
+          ),
+          const SizedBox(height: 2.0),
+          Text(
+            formatDate,
+            style: TextStyle(
+              fontSize: 12.0,
+              color: Colors.grey.shade600,
+            ),
+          ),
+        ],
       ),
     );
   }
