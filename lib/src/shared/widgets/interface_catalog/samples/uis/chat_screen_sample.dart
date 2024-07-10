@@ -32,74 +32,74 @@ final messages = <MessageModel>[
   MessageModel(
     text: "I'm doing great, thanks!",
     status: MessageStatus.send,
-    sentDate: DateTime(2024, 1, 1, 9, 2),
+    sentDate: DateTime(2024, 1, 2, 11, 16),
   ),
   MessageModel(
     text: "That's good to hear!",
     status: MessageStatus.receiver,
-    sentDate: DateTime(2024, 1, 1, 9, 3),
+    sentDate: DateTime(2024, 1, 2, 11, 20),
   ),
   MessageModel(
     text: "Did you finish the project we were working on?",
     status: MessageStatus.send,
-    sentDate: DateTime(2024, 1, 1, 9, 4),
+    sentDate: DateTime(2024, 1, 2, 11, 23),
   ),
   MessageModel(
     text: "Yes, I just sent you the final version. Check your email.",
     status: MessageStatus.receiver,
-    sentDate: DateTime(2024, 1, 1, 9, 5),
+    sentDate: DateTime(2024, 1, 3, 6, 39),
   ),
   MessageModel(
     text: "Great! I'll take a look at it now.",
     status: MessageStatus.send,
-    sentDate: DateTime(2024, 1, 1, 9, 6),
+    sentDate: DateTime(2024, 1, 3, 6, 41),
   ),
   MessageModel(
     text: "Let me know if you have any feedback or need any changes.",
     status: MessageStatus.receiver,
-    sentDate: DateTime(2024, 1, 1, 9, 7),
+    sentDate: DateTime(2024, 1, 3, 6, 49),
   ),
   MessageModel(
     text: "Sure, will do. By the way, do you have any plans for the weekend?",
     status: MessageStatus.send,
-    sentDate: DateTime(2024, 1, 1, 9, 8),
+    sentDate: DateTime(2024, 1, 3, 6, 52),
   ),
   MessageModel(
     text: "Not yet. I was thinking about going hiking. What about you?",
     status: MessageStatus.receiver,
-    sentDate: DateTime(2024, 1, 1, 9, 9),
+    sentDate: DateTime(2024, 1, 4, 8, 17),
   ),
   MessageModel(
     text: "That sounds fun! I might join you if that's okay.",
     status: MessageStatus.send,
-    sentDate: DateTime(2024, 1, 1, 9, 10),
+    sentDate: DateTime(2024, 1, 4, 8, 22),
   ),
   MessageModel(
     text: "Of course! The more, the merrier. I'll send you the details.",
     status: MessageStatus.receiver,
-    sentDate: DateTime(2024, 1, 1, 9, 11),
+    sentDate: DateTime(2024, 1, 4, 8, 29),
   ),
   MessageModel(
     text: "Awesome! Looking forward to it.",
     status: MessageStatus.send,
-    sentDate: DateTime(2024, 1, 1, 9, 12),
+    sentDate: DateTime(2024, 1, 5, 4, 1),
   ),
   MessageModel(
     text:
         "By the way, did you see the new movie that came out last week? It's getting great reviews.",
     status: MessageStatus.receiver,
-    sentDate: DateTime(2024, 1, 1, 9, 13),
+    sentDate: DateTime(2024, 1, 5, 4, 7),
   ),
   MessageModel(
     text:
         "No, I haven't had the chance yet. Maybe we can watch it after the hike.",
     status: MessageStatus.send,
-    sentDate: DateTime(2024, 1, 1, 9, 14),
+    sentDate: DateTime(2024, 1, 6, 20, 37),
   ),
   MessageModel(
     text: "Sounds like a plan! I'll book the tickets.",
     status: MessageStatus.receiver,
-    sentDate: DateTime(2024, 1, 1, 9, 15),
+    sentDate: DateTime(2024, 1, 6, 20, 45),
   ),
 ];
 
@@ -140,21 +140,105 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final _scrollController = ScrollController();
 
+  final _items = ValueNotifier<List<Widget>>([]);
+
+  void _generateItems() {
+    final maxWidth = MediaQuery.sizeOf(context).width * 0.8;
+
+    final items = <Widget>[];
+    final itemsLength = items.length;
+    DateTime? currentDate;
+
+    for (var i = 0; i < messages.length; i++) {
+      final message = messages[i];
+      final isMessageSent = message.status == MessageStatus.send;
+      final sentDate = message.sentDate;
+
+      if (!(currentDate?.year == sentDate.year &&
+          currentDate?.month == sentDate.month &&
+          currentDate?.day == sentDate.day)) {
+        currentDate = sentDate;
+
+        final dateFormat = DateFormat('MM/dd/yyyy');
+        final date = dateFormat.format(currentDate);
+
+        if (items.isNotEmpty) {
+          items.removeLast();
+        }
+
+        items.add(
+          Align(
+            alignment: Alignment.center,
+            child: Container(
+              margin: const EdgeInsets.only(
+                top: 24.0,
+                bottom: 28.0,
+              ),
+              padding: const EdgeInsets.symmetric(
+                vertical: 4.0,
+                horizontal: 6.0,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8.0),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    blurRadius: 8.0,
+                    spreadRadius: 8.0,
+                    color: Colors.black.withOpacity(0.115),
+                    offset: const Offset(1.0, 1.0),
+                  ),
+                ],
+              ),
+              child: Text(date),
+            ),
+          ),
+        );
+      }
+
+      items.add(
+        MessageWidget(
+          isMessageSent: isMessageSent,
+          maxWidth: maxWidth,
+          message: message,
+        ),
+      );
+
+      if (i + 1 != itemsLength) {
+        items.add(
+          const SizedBox(
+            height: 20.0,
+          ),
+        );
+      }
+    }
+
+    _items.value = items;
+  }
+
   @override
-  void initState() {
+  void didChangeDependencies() {
+    _generateItems();
+
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _scrollController.jumpTo(
         _scrollController.position.maxScrollExtent,
       );
     });
 
-    super.initState();
+    super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    _items.dispose();
+    _scrollController.dispose();
+
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final maxWidth = MediaQuery.sizeOf(context).width * 0.8;
-
     return Scaffold(
       appBar: AppBar(
         leading: GestureDetector(
@@ -167,26 +251,21 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         title: const Text('Chat'),
       ),
-      body: ListView.separated(
-        controller: _scrollController,
-        padding: const EdgeInsets.only(
-          top: 12.0,
-          right: 12.0,
-          bottom: 40.0,
-          left: 12.0,
-        ),
-        itemCount: messages.length,
-        separatorBuilder: (context, index) {
-          return const SizedBox(height: 22.0);
-        },
-        itemBuilder: (context, index) {
-          final message = messages[index];
-          final isMessageSent = message.status == MessageStatus.send;
-
-          return MessageWidget(
-            isMessageSent: isMessageSent,
-            maxWidth: maxWidth,
-            message: message,
+      body: ValueListenableBuilder(
+        valueListenable: _items,
+        builder: (context, value, child) {
+          return ListView.builder(
+            controller: _scrollController,
+            padding: const EdgeInsets.only(
+              top: 12.0,
+              right: 12.0,
+              bottom: 40.0,
+              left: 12.0,
+            ),
+            itemCount: _items.value.length,
+            itemBuilder: (context, index) {
+              return value[index];
+            },
           );
         },
       ),
@@ -207,7 +286,7 @@ class MessageWidget extends StatelessWidget {
   final MessageModel message;
 
   String get formatDate {
-    final dateFormat = DateFormat('MM/dd/yyyy HH:mm');
+    final dateFormat = DateFormat('HH:mm');
 
     return dateFormat.format(
       message.sentDate,
@@ -219,6 +298,7 @@ class MessageWidget extends StatelessWidget {
     return Align(
       alignment: isMessageSent ? Alignment.centerRight : Alignment.centerLeft,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment:
             isMessageSent ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: <Widget>[
@@ -256,16 +336,24 @@ class MessageWidget extends StatelessWidget {
                 message.text,
                 style: TextStyle(
                   color: isMessageSent ? Colors.white : Colors.black,
+                  fontSize: 14.0,
+                  height: 1.0,
                 ),
               ),
             ),
           ),
           const SizedBox(height: 2.0),
-          Text(
-            formatDate,
-            style: TextStyle(
-              fontSize: 12.0,
-              color: Colors.grey.shade600,
+          Padding(
+            padding: EdgeInsets.only(
+              right: isMessageSent ? 2.0 : 0.0,
+              left: isMessageSent ? 0.0 : 2.0,
+            ),
+            child: Text(
+              formatDate,
+              style: TextStyle(
+                fontSize: 12.0,
+                color: Colors.grey.shade600,
+              ),
             ),
           ),
         ],
