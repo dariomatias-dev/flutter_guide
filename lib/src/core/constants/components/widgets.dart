@@ -19,6 +19,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/appba
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/autocomplete_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/backdropfilter_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/badge_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/banner_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomappbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/bottomnavigationbar_widget.dart';
@@ -171,6 +172,12 @@ const widgets = <WidgetModel>[
     icon: Icons.opacity,
     videoId: 'dYRs7Q1vfYI',
     sample: BackdropFilterSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.badgeMaterial,
+    icon: Icons.badge_outlined,
+    sample: BadgeSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(

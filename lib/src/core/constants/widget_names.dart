@@ -9,6 +9,7 @@ class WidgetNames {
   static const autocompleteMaterial = 'Autocomplete';
   static const backButtonMaterial = 'BackButton';
   static const backdropFilterWidget = 'BackdropFilter';
+  static const badgeMaterial = 'Badge';
   static const bannerWidget = 'Banner';
   static const bottomAppBarMaterial = 'BottomAppBar';
   static const bottomNavigationBarMaterial = 'BottomNavigationBar';
@@ -32,7 +33,8 @@ class WidgetNames {
   static const cupertinoButtonCupertino = 'CupertinoButton';
   static const cupertinoListTileCupertino = 'CupertinoListTile';
   static const cupertinoNavigationBarCupertino = 'CupertinoNavigationBar';
-  static const cupertinoNavigationBarBackButtonCupertino = 'CupertinoNavigationBarBackButton';
+  static const cupertinoNavigationBarBackButtonCupertino =
+      'CupertinoNavigationBarBackButton';
   static const cupertinoPageScaffoldCupertino = 'CupertinoPageScaffold';
   static const cupertinoRadioCupertino = 'CupertinoRadio';
   static const cupertinoSliderCupertino = 'CupertinoSlider';
