@@ -234,7 +234,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 horizontal: 6.0,
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(8.0),
                 boxShadow: <BoxShadow>[
                   BoxShadow(
@@ -292,79 +292,90 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: const Icon(
-            Icons.arrow_back_ios_new_rounded,
+    return Theme(
+      data: Theme.of(context).brightness == Brightness.light
+          ? ThemeData.light()
+          : ThemeData.dark(),
+      child: Scaffold(
+        appBar: AppBar(
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(
+              Icons.arrow_back_ios_new_rounded,
+            ),
           ),
+          title: const Text('Chat'),
         ),
-        title: const Text('Chat'),
-      ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: ValueListenableBuilder(
-              valueListenable: _items,
-              builder: (context, value, child) {
-                WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                  _scrollController.animateTo(
-                    _scrollController.position.maxScrollExtent,
-                    duration: const Duration(
-                      milliseconds: 300,
-                    ),
-                    curve: Curves.linear,
+        body: Column(
+          children: <Widget>[
+            Expanded(
+              child: ValueListenableBuilder(
+                valueListenable: _items,
+                builder: (context, value, child) {
+                  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                    _scrollController.animateTo(
+                      _scrollController.position.maxScrollExtent,
+                      duration: const Duration(
+                        milliseconds: 300,
+                      ),
+                      curve: Curves.linear,
+                    );
+                  });
+
+                  return ListView.builder(
+                    controller: _scrollController,
+                    padding: const EdgeInsets.all(12.0),
+                    itemCount: _items.value.length,
+                    itemBuilder: (context, index) {
+                      return value[index];
+                    },
                   );
-                });
-
-                return ListView.builder(
-                  controller: _scrollController,
-                  padding: const EdgeInsets.all(12.0),
-                  itemCount: _items.value.length,
-                  itemBuilder: (context, index) {
-                    return value[index];
-                  },
-                );
-              },
-            ),
-          ),
-          Container(
-            color: Colors.grey.shade300,
-            padding: const EdgeInsets.symmetric(
-              vertical: 16.0,
-              horizontal: 8.0,
-            ),
-            child: SizedBox(
-              height: 40.0,
-              child: TextFormField(
-                focusNode: _messageFocus,
-                controller: _messageController,
-                autofocus: true,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.grey.shade100,
-                  hintText: 'Type a message',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(28.0),
-                    borderSide: BorderSide.none,
-                  ),
-                  isDense: true,
-                ),
-                onFieldSubmitted: (value) {
-                  if (value.trim() != '') {
-                    _addItem();
-
-                    _messageController.clear();
-                    _messageFocus.requestFocus();
-                  }
                 },
               ),
             ),
-          )
-        ],
+            Container(
+              color: Theme.of(context).colorScheme.onSecondary,
+              padding: const EdgeInsets.symmetric(
+                vertical: 16.0,
+                horizontal: 8.0,
+              ),
+              child: SizedBox(
+                height: 40.0,
+                child: TextFormField(
+                  focusNode: _messageFocus,
+                  controller: _messageController,
+                  autofocus: true,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.grey.shade900,
+                    hintText: 'Type a message...',
+                    hintStyle: TextStyle(
+                      color: Colors.grey.shade600,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    isDense: true,
+                  ),
+                  onFieldSubmitted: (value) {
+                    if (value.trim() != '') {
+                      _addItem();
+
+                      _messageController.clear();
+                      _messageFocus.requestFocus();
+                    }
+                  },
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -409,7 +420,9 @@ class MessageWidget extends StatelessWidget {
                 vertical: 8.0,
               ),
               decoration: BoxDecoration(
-                color: isMessageSent ? Colors.blue : Colors.white,
+                color: isMessageSent
+                    ? Colors.blue
+                    : Theme.of(context).indicatorColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(
                     isMessageSent ? 20.0 : 0.0,
