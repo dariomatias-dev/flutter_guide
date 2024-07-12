@@ -8,85 +8,67 @@ class CheckboxSample extends StatefulWidget {
 }
 
 class _CheckboxSampleState extends State<CheckboxSample> {
-  final _selectedOptions = [false, false];
-
-  void updateSelectedOptions(int index, bool newValue) {
-    setState(() {
-      _selectedOptions[index] = newValue;
-    });
-  }
+  bool _selected = false;
+  bool? _selectedWithTristate = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Checkbox(
-                onChanged: (value) {
-                  updateSelectedOptions(
-                    0,
-                    value!,
-                  );
-                },
-                value: _selectedOptions[0],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'Two States',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
               ),
-              const Text('Item 1'),
-              const SizedBox(width: 12.0),
-              Checkbox(
-                onChanged: null,
-                value: _selectedOptions[0],
-              ),
-              const Text('Item 1'),
-            ],
-          ),
-          const SizedBox(height: 4.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  updateSelectedOptions(
-                    1,
-                    !_selectedOptions[1],
-                  );
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Checkbox(
-                      onChanged: (value) {
-                        updateSelectedOptions(
-                          1,
-                          value!,
-                        );
-                      },
-                      value: _selectedOptions[1],
-                    ),
-                    const Text('Item 2'),
-                  ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Checkbox(
+                  onChanged: (value) {
+                    setState(() {
+                      _selected = value!;
+                    });
+                  },
+                  value: _selected,
                 ),
-              ),
-              const SizedBox(width: 12.0),
-              GestureDetector(
-                onTap: null,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Checkbox(
-                      onChanged: null,
-                      value: _selectedOptions[1],
-                    ),
-                    const Text('Item 2'),
-                  ],
+                Checkbox(
+                  onChanged: null,
+                  value: _selected,
                 ),
+              ],
+            ),
+            const SizedBox(height: 12.0),
+            const Text(
+              'Three States',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
               ),
-            ],
-          ),
-        ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Checkbox(
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedWithTristate = value;
+                    });
+                  },
+                  tristate: true,
+                  value: _selectedWithTristate,
+                ),
+                Checkbox(
+                  onChanged: null,
+                  tristate: true,
+                  value: _selectedWithTristate,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
