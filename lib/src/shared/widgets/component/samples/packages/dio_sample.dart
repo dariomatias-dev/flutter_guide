@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 class UserModel {
   const UserModel({
@@ -12,32 +13,61 @@ class UserModel {
   final String lastName;
   final String email;
 
-  factory UserModel.toMap(Map<String, dynamic> map) {
+  factory UserModel.fromMap(
+    Map<String, dynamic> json,
+  ) {
     return UserModel(
-      firstName: map['firstname'],
-      lastName: map['lastname'],
-      email: map['email'],
+      firstName: json['firstname'],
+      lastName: json['lastname'],
+      email: json['email'],
     );
   }
 }
 
 const url = 'https://jsonplaceholder.org/users';
-final dio = Dio();
 
-class DioSample extends StatelessWidget {
+class DioSample extends StatefulWidget {
   const DioSample({super.key});
 
-  Future<List<UserModel>> _getUsers() async {
-    final response = await dio.get(url);
+  @override
+  State<DioSample> createState() => _DioSampleState();
+}
 
-    final results = response.data as List;
+class _DioSampleState extends State<DioSample> {
+  final _dio = Dio();
+  final _logger = Logger();
 
-    final users = <UserModel>[];
-    for (dynamic result in results) {
-      users.add(UserModel.toMap(result));
+  Future<List<UserModel>?> _getUsers() async {
+    try {
+      final response = await _dio.get(url);
+
+      final results = response.data as List;
+
+      final users = <UserModel>[];
+      for (dynamic result in results) {
+        users.add(
+          UserModel.fromMap(result),
+        );
+      }
+
+      return users;
+    } catch (err, stackTrace) {
+      _logger.e(
+        'Error Log',
+        error: err,
+        stackTrace: stackTrace,
+      );
+
+      return null;
     }
+  }
 
-    return users;
+  @override
+  void dispose() {
+    _dio.close();
+    _logger.close();
+
+    super.dispose();
   }
 
   @override
@@ -50,7 +80,7 @@ class DioSample extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (snapshot.hasError) {
+          } else if (snapshot.hasError || snapshot.data == null) {
             return const Center(
               child: Text(
                 'Error fetching data.',
