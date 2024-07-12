@@ -8,13 +8,8 @@ class CheckboxListTileSample extends StatefulWidget {
 }
 
 class _CheckboxListTileSampleState extends State<CheckboxListTileSample> {
-  final _selectedOptions = List.filled(3, false);
-
-  void updateSelectedOptions(int index, bool newValue) {
-    setState(() {
-      _selectedOptions[index] = newValue;
-    });
-  }
+  bool _selected = false;
+  bool? _selectedWithTristate = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,31 +17,36 @@ class _CheckboxListTileSampleState extends State<CheckboxListTileSample> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: List.generate(_selectedOptions.length, (index) {
-              return CheckboxListTile(
-                value: _selectedOptions[index],
-                title: Text('Checkbox $index'),
-                onChanged: (value) => updateSelectedOptions(
-                  index,
-                  value!,
-                ),
-              );
-            }),
+          CheckboxListTile(
+            value: _selected,
+            title: const Text('Two States'),
+            onChanged: (value) {
+              setState(() {
+                _selected = !_selected;
+              });
+            },
           ),
-          const SizedBox(height: 12.0),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: List.generate(_selectedOptions.length, (index) {
-              return CheckboxListTile(
-                value: _selectedOptions[index],
-                title: Text('Checkbox $index'),
-                onChanged: null,
-              );
-            }),
+          CheckboxListTile(
+            value: _selected,
+            title: const Text('Two States'),
+            onChanged: null,
+          ),
+          const SizedBox(height: 20.0),
+          CheckboxListTile(
+            value: _selectedWithTristate,
+            title: const Text('Three States'),
+            tristate: true,
+            onChanged: (value) {
+              setState(() {
+                _selectedWithTristate = value;
+              });
+            },
+          ),
+          CheckboxListTile(
+            value: _selectedWithTristate,
+            title: const Text('Three States'),
+            tristate: true,
+            onChanged: null,
           ),
         ],
       ),
