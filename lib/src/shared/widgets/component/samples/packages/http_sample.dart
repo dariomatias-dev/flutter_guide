@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
 
 class UserModel {
   const UserModel({
@@ -14,32 +15,62 @@ class UserModel {
   final String lastName;
   final String email;
 
-  factory UserModel.toMap(Map<String, dynamic> map) {
+  factory UserModel.fromMap(
+    Map<String, dynamic> json,
+  ) {
     return UserModel(
-      firstName: map['firstname'],
-      lastName: map['lastname'],
-      email: map['email'],
+      firstName: json['firstname'],
+      lastName: json['lastname'],
+      email: json['email'],
     );
   }
 }
 
-class HttpSample extends StatelessWidget {
+class HttpSample extends StatefulWidget {
   const HttpSample({super.key});
 
-  Future<List<UserModel>> _getUsers() async {
-    final url = Uri.parse(
-      'https://jsonplaceholder.org/users',
-    );
-    final response = await http.get(url);
+  @override
+  State<HttpSample> createState() => _HttpSampleState();
+}
 
-    final results = json.decode(response.body) as List;
+class _HttpSampleState extends State<HttpSample> {
+  final _logger = Logger();
 
-    final users = <UserModel>[];
-    for (dynamic result in results) {
-      users.add(UserModel.toMap(result));
+  Future<List<UserModel>?> _getUsers() async {
+    try {
+      final url = Uri.parse(
+        'https://jsonplaceholder.org/users',
+      );
+      final response = await http.get(url);
+
+      final results = json.decode(
+        response.body,
+      ) as List;
+
+      final users = <UserModel>[];
+      for (var result in results) {
+        users.add(
+          UserModel.fromMap(result),
+        );
+      }
+
+      return users;
+    } catch (err, stackTrace) {
+      _logger.e(
+        'Error Log',
+        error: err,
+        stackTrace: stackTrace,
+      );
+
+      return null;
     }
+  }
 
-    return users;
+  @override
+  void dispose() {
+    _logger.close();
+
+    super.dispose();
   }
 
   @override
@@ -52,7 +83,7 @@ class HttpSample extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (snapshot.hasError) {
+          } else if (snapshot.data == null) {
             return const Center(
               child: Text(
                 'Error fetching data.',
@@ -71,8 +102,12 @@ class HttpSample extends StatelessWidget {
                 leading: const Icon(
                   Icons.person_outline_rounded,
                 ),
-                title: Text('${user.firstName} ${user.lastName}'),
-                subtitle: Text(user.email),
+                title: Text(
+                  '${user.firstName} ${user.lastName}',
+                ),
+                subtitle: Text(
+                  user.email,
+                ),
               );
             },
           );
