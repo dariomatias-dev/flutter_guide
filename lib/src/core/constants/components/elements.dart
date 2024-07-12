@@ -3,6 +3,7 @@ import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/eleme
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/custom_dropdown_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/custom_popup_menu_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/gaps_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/image_loader_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/infinite_grid_view_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/loading_button_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/loading_dialog_sample.dart';
@@ -52,5 +53,9 @@ const elements = <InterfaceModel>[
   InterfaceModel(
     name: 'Loading Screen',
     component: LoadingScreenSample(),
+  ),
+  InterfaceModel(
+    name: 'Image Loader',
+    component: ImageLoaderSample(),
   ),
 ];
