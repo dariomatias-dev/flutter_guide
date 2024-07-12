@@ -79,7 +79,9 @@ class _ToastificationSampleState extends State<ToastificationSample> {
       context: context,
       type: _toastificationType,
       title: const Text('Message'),
-      autoCloseDuration: const Duration(seconds: 10),
+      autoCloseDuration: const Duration(
+        seconds: 10,
+      ),
       style: _toastificationStyle,
     );
   }

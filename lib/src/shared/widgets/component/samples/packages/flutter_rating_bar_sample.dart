@@ -10,7 +10,7 @@ class FlutterRatingBarSample extends StatefulWidget {
 
 class _FlutterRatingBarSampleState extends State<FlutterRatingBarSample> {
   Axis _direction = Axis.horizontal;
-  bool allowHalfRating = true;
+  bool _allowHalfRating = true;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _FlutterRatingBarSampleState extends State<FlutterRatingBarSample> {
               itemPadding: const EdgeInsets.symmetric(
                 horizontal: 4.0,
               ),
-              allowHalfRating: allowHalfRating,
+              allowHalfRating: _allowHalfRating,
               itemBuilder: (context, index) {
                 return const Icon(
                   Icons.star,
@@ -62,13 +62,13 @@ class _FlutterRatingBarSampleState extends State<FlutterRatingBarSample> {
               trailing: Transform.scale(
                 scale: 0.8,
                 child: Switch(
-                  value: allowHalfRating,
+                  value: _allowHalfRating,
                   onChanged: (value) {},
                 ),
               ),
               onTap: () {
                 setState(() {
-                  allowHalfRating = !allowHalfRating;
+                  _allowHalfRating = !_allowHalfRating;
                 });
               },
             ),

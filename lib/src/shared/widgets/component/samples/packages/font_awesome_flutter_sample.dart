@@ -20,8 +20,10 @@ class FontAwesomeFlutterSample extends StatelessWidget {
           spacing: 20.0,
           direction: Axis.vertical,
           crossAxisAlignment: WrapCrossAlignment.center,
-          children:  List.generate(icons.length, (index) {
-            return FaIcon(icons[index]);
+          children: List.generate(icons.length, (index) {
+            return FaIcon(
+              icons[index],
+            );
           }),
         ),
       ),

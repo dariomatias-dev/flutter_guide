@@ -64,7 +64,6 @@ class UuidSample extends StatefulWidget {
 
 class _UuidSampleState extends State<UuidSample> {
   int _uuidVersionIndex = 0;
-
   String _uuid = '';
 
   void _generateUuid() {
@@ -97,7 +96,9 @@ class _UuidSampleState extends State<UuidSample> {
 
                   return DropdownMenuItem(
                     value: index,
-                    child: Text('Version ${uuidVersion.version}'),
+                    child: Text(
+                      'Version ${uuidVersion.version}',
+                    ),
                   );
                 }),
                 onChanged: (value) {

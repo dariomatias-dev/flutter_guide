@@ -47,7 +47,7 @@ class FlutterSlidableSample extends StatelessWidget {
             ),
             FlutterSlidableDividir(),
             FlutterSlidableTemplate(
-              title: 'Flutter Slidable With Start e End Actions',
+              title: 'Flutter Slidable With Start And End Actions',
               startActions: actions,
               endActions: actions,
             ),

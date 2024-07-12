@@ -45,7 +45,9 @@ class _SideSheetSampleState extends State<SideSheetSample> {
                   Direction.left,
                 );
               },
-              child: const Text('Open Left Side Sheet'),
+              child: const Text(
+                'Open Left Side Sheet',
+              ),
             ),
             const SizedBox(height: 12.0),
             ElevatedButton(
@@ -54,7 +56,9 @@ class _SideSheetSampleState extends State<SideSheetSample> {
                   Direction.ritght,
                 );
               },
-              child: const Text('Open Right Side Sheet'),
+              child: const Text(
+                'Open Right Side Sheet',
+              ),
             ),
           ],
         ),

@@ -10,9 +10,10 @@ class SharedPreferencesSample extends StatefulWidget {
 }
 
 class _SharedPreferencesSampleState extends State<SharedPreferencesSample> {
-  SharedPreferences? _sharedPreferences;
-  final _fieldController = TextEditingController();
   static const _fieldKey = 'value';
+  final _fieldController = TextEditingController();
+
+  SharedPreferences? _sharedPreferences;
   String? _value;
 
   Future<void> _initSharedPreferences() async {
@@ -50,6 +51,14 @@ class _SharedPreferencesSampleState extends State<SharedPreferencesSample> {
     _initSharedPreferences();
 
     super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    _fieldController.dispose();
+    _sharedPreferences?.clear();
+
+    super.dispose();
   }
 
   @override

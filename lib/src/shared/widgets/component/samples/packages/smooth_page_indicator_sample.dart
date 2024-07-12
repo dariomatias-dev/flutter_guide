@@ -198,6 +198,13 @@ class _SmoothPageIndicatorSampleState extends State<SmoothPageIndicatorSample> {
   );
 
   @override
+  void dispose() {
+    _pageViewController.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(

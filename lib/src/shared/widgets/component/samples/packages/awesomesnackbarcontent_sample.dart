@@ -1,5 +1,5 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 
 class AwesomeSnackBarModel {
   const AwesomeSnackBarModel({
@@ -105,7 +105,9 @@ class _AwesomeSnackbarContentSampleState
 
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
-      ..showSnackBar(awesomeSnackBar);
+      ..showSnackBar(
+        awesomeSnackBar,
+      );
   }
 
   void _showAwesomeMaterialBanner() {
@@ -119,14 +121,16 @@ class _AwesomeSnackbarContentSampleState
         contentType: _awesomeMaterialBanner.contentType,
         inMaterialBanner: true,
       ),
-      actions: const [
+      actions: const <Widget>[
         SizedBox.shrink(),
       ],
     );
 
     ScaffoldMessenger.of(context)
       ..hideCurrentMaterialBanner()
-      ..showMaterialBanner(awesomeMaterialBanner);
+      ..showMaterialBanner(
+        awesomeMaterialBanner,
+      );
   }
 
   @override
@@ -138,7 +142,9 @@ class _AwesomeSnackbarContentSampleState
           children: <Widget>[
             ElevatedButton(
               onPressed: _showAwesomeSnackBar,
-              child: const Text('Show Awesome SnackBar'),
+              child: const Text(
+                'Show Awesome SnackBar',
+              ),
             ),
             const SizedBox(height: 8.0),
             DropdownButtonHideUnderline(
@@ -149,7 +155,9 @@ class _AwesomeSnackbarContentSampleState
 
                   return DropdownMenuItem<AwesomeSnackBarModel>(
                     value: awesomeSnackBar,
-                    child: Text(awesomeSnackBar.title),
+                    child: Text(
+                      awesomeSnackBar.title,
+                    ),
                   );
                 }),
                 onChanged: (value) {
@@ -162,7 +170,9 @@ class _AwesomeSnackbarContentSampleState
             const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: _showAwesomeMaterialBanner,
-              child: const Text('Show Awesome Material Banner'),
+              child: const Text(
+                'Show Awesome Material Banner',
+              ),
             ),
             const SizedBox(height: 8.0),
             DropdownButtonHideUnderline(
@@ -173,7 +183,9 @@ class _AwesomeSnackbarContentSampleState
 
                   return DropdownMenuItem<AwesomeMaterialBannerModel>(
                     value: awesomeMaterialBanner,
-                    child: Text(awesomeMaterialBanner.title),
+                    child: Text(
+                      awesomeMaterialBanner.title,
+                    ),
                   );
                 }),
                 onChanged: (value) {

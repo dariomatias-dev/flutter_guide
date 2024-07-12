@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+const standardUrl = 'https://pub.dev/';
+
 class UrlLauncherSample extends StatefulWidget {
   const UrlLauncherSample({super.key});
 
   @override
   State<UrlLauncherSample> createState() => _UrlLauncherSampleState();
 }
-
-const standardUrl = 'https://pub.dev/';
 
 class _UrlLauncherSampleState extends State<UrlLauncherSample> {
   final _urlController = TextEditingController();
@@ -17,11 +17,7 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
   BuildContext _getContext() => context;
 
   Future<void> _openUrl() async {
-    if (_urlController.text.trim() == '') {
-      _url = standardUrl;
-    } else {
-      _url = _urlController.text;
-    }
+    _url = _urlController.text.trim() == '' ? standardUrl : _urlController.text;
 
     if (!_url.startsWith('https://') || !await launchUrl(Uri.parse(_url))) {
       showDialog(
@@ -29,7 +25,9 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
         builder: (context) {
           return AlertDialog(
             title: const Text('Error'),
-            content: Text('Unable to open the link: $_url'),
+            content: Text(
+              'Unable to open the link: $_url',
+            ),
             actions: <Widget>[
               TextButton(
                 onPressed: () {
@@ -42,6 +40,13 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
         },
       );
     }
+  }
+
+  @override
+  void dispose() {
+    _urlController.dispose();
+
+    super.dispose();
   }
 
   @override

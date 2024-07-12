@@ -11,20 +11,21 @@ class InfiniteScrollPaginationSample extends StatefulWidget {
 
 class _InfiniteScrollPaginationSampleState
     extends State<InfiniteScrollPaginationSample> {
-  int _page = 0;
+  static const _pageSize = 20;
   final _controller = PagingController(
     firstPageKey: 0,
   );
-  int quantityOfItems = 0;
-  static const _pageSize = 20;
+
+  int _page = 0;
+  int _quantityOfItems = 0;
 
   Future<void> _fecthNumberOfItems() async {
     await Future.delayed(
       const Duration(seconds: 3),
       () {
         final items = List.generate(_pageSize, (index) {
-          quantityOfItems++;
-          return quantityOfItems;
+          _quantityOfItems++;
+          return _quantityOfItems;
         });
         _page++;
 
@@ -40,6 +41,13 @@ class _InfiniteScrollPaginationSampleState
     });
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+
+    super.dispose();
   }
 
   @override

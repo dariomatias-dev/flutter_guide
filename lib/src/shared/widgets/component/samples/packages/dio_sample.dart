@@ -44,7 +44,7 @@ class _DioSampleState extends State<DioSample> {
       final results = response.data as List;
 
       final users = <UserModel>[];
-      for (dynamic result in results) {
+      for (var result in results) {
         users.add(
           UserModel.fromMap(result),
         );
