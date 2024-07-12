@@ -1,30 +1,49 @@
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-class ImageLoaderSample extends StatelessWidget {
+class ImageLoaderSample extends StatefulWidget {
   const ImageLoaderSample({super.key});
 
+  @override
+  State<ImageLoaderSample> createState() => _ImageLoaderSampleState();
+}
+
+class _ImageLoaderSampleState extends State<ImageLoaderSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(8.0),
-          width: 160.0,
-          height: 160.0,
-          decoration: const BoxDecoration(
-            color: Colors.blue,
-            shape: BoxShape.circle,
-          ),
-          child: const Center(
-            child: ImageLoader(
-              url:
-                  'https://camo.githubusercontent.com/8ca355b5c8a6df04ea30294e513b38128c214075013df41d95609ccd1a745c91/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f636d732d73746f726167652d6275636b65742f36653139666565366234376233366361363133662e706e67',
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              width: 160.0,
+              height: 160.0,
+              decoration: const BoxDecoration(
+                color: Colors.blue,
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: ImageLoader(
+                  key: GlobalKey(),
+                  url:
+                      'https://camo.githubusercontent.com/8ca355b5c8a6df04ea30294e513b38128c214075013df41d95609ccd1a745c91/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f636d732d73746f726167652d6275636b65742f36653139666565366234376233366361363133662e706e67',
+                ),
+              ),
             ),
-          ),
+            const SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {});
+              },
+              child: const Text('Update'),
+            ),
+          ],
         ),
       ),
     );
@@ -51,6 +70,8 @@ class _ImageLoaderState extends State<ImageLoader> {
   );
   final _logger = Logger();
 
+  final _random = Random();
+
   Future<Uint8List> _loader() async {
     try {
       final response = await _dio.get(
@@ -62,6 +83,10 @@ class _ImageLoaderState extends State<ImageLoader> {
           seconds: 1,
         ),
       );
+
+      if (_random.nextInt(3) == 0) {
+        throw Exception();
+      }
 
       return Uint8List.fromList(
         response.data,
@@ -97,6 +122,9 @@ class _ImageLoaderState extends State<ImageLoader> {
         } else if (snapshot.hasError || snapshot.data == null) {
           return const Text(
             'Error loading image.',
+            style: TextStyle(
+              color: Colors.white,
+            ),
           );
         }
 
