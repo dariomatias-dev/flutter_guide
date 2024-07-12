@@ -8,7 +8,7 @@ class SwitchListTileSample extends StatefulWidget {
 }
 
 class _SwitchListTileSampleState extends State<SwitchListTileSample> {
-  final _selectedOptions = List.filled(3, false);
+  final _selectedOptions = List.filled(2, false);
 
   void _updateSelectedOptions(int index, bool newValue) {
     setState(() {
@@ -26,6 +26,13 @@ class _SwitchListTileSampleState extends State<SwitchListTileSample> {
             return SwitchListTile(
               title: Text('Switch $index'),
               value: _selectedOptions[index],
+              thumbIcon: index == 1
+                  ? MaterialStatePropertyAll(
+                      Icon(
+                        _selectedOptions[1] ? Icons.check : Icons.close,
+                      ),
+                    )
+                  : null,
               onChanged: (value) => _updateSelectedOptions(
                 index,
                 value,
@@ -37,6 +44,13 @@ class _SwitchListTileSampleState extends State<SwitchListTileSample> {
             return SwitchListTile(
               title: Text('Switch $index'),
               value: _selectedOptions[index],
+              thumbIcon: index == 1
+                  ? MaterialStatePropertyAll(
+                      Icon(
+                        _selectedOptions[1] ? Icons.check : Icons.close,
+                      ),
+                    )
+                  : null,
               onChanged: null,
             );
           }),

@@ -28,8 +28,20 @@ class _SwitchSampleState extends State<SwitchSample> {
                     });
                   },
                 ),
-                const SizedBox(width: 12.0),
-                Text('Enabled: $_isEnabled')
+                const SizedBox(width: 8.0),
+                Switch(
+                  value: _isEnabled,
+                  thumbIcon: MaterialStatePropertyAll(
+                    Icon(
+                      _isEnabled ? Icons.check : Icons.close,
+                    ),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _isEnabled = !_isEnabled;
+                    });
+                  },
+                ),
               ],
             ),
             const SizedBox(height: 12.0),
@@ -40,8 +52,16 @@ class _SwitchSampleState extends State<SwitchSample> {
                   value: _isEnabled,
                   onChanged: null,
                 ),
-                const SizedBox(width: 12.0),
-                Text('Enabled: $_isEnabled')
+                const SizedBox(width: 8.0),
+                Switch(
+                  value: _isEnabled,
+                  thumbIcon: MaterialStatePropertyAll(
+                    Icon(
+                      _isEnabled ? Icons.check : Icons.close,
+                    ),
+                  ),
+                  onChanged: null,
+                ),
               ],
             ),
           ],
