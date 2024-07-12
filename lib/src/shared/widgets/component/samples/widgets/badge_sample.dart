@@ -14,12 +14,24 @@ class _BadgeSampleState extends State<BadgeSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Badge(
-          isLabelVisible: _isVisible,
-          label: const Text('99'),
-          child: const Icon(
-            Icons.email,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Badge(
+              isLabelVisible: _isVisible,
+              child: const Icon(
+                Icons.settings_outlined,
+              ),
+            ),
+            const SizedBox(width: 24.0),
+            Badge(
+              isLabelVisible: _isVisible,
+              label: const Text('99'),
+              child: const Icon(
+                Icons.email_outlined,
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
