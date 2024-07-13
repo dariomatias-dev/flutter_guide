@@ -36,7 +36,9 @@ class _ChoiceChipSampleState extends State<ChoiceChipSample> {
               spacing: 6.0,
               children: List.generate(3, (index) {
                 return ChoiceChip(
-                  label: Text('Item ${index + 1}'),
+                  label: Text(
+                    'Item ${index + 1}',
+                  ),
                   selected: _selectedItemIndex == index,
                   onSelected: null,
                 );

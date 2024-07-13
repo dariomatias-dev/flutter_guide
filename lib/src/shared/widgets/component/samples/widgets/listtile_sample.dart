@@ -13,14 +13,18 @@ class ListTileSample extends StatelessWidget {
             leading: Icon(Icons.info),
             title: Text('Title'),
             subtitle: Text('Subtitle'),
-            trailing: Icon(Icons.arrow_right),
+            trailing: Icon(
+              Icons.arrow_right,
+            ),
           ),
           ListTile(
             onTap: () {},
             leading: const Icon(Icons.info),
             title: const Text('Title'),
             subtitle: const Text('Subtitle'),
-            trailing: const Icon(Icons.arrow_right),
+            trailing: const Icon(
+              Icons.arrow_right,
+            ),
           ),
         ],
       ),

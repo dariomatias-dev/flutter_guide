@@ -83,10 +83,12 @@ class _AlignSampleState extends State<AlignSample> {
                 value: _alignment,
                 items: List.generate(alignments.length, (index) {
                   final alignment = alignments[index];
-              
+
                   return DropdownMenuItem(
                     value: alignment,
-                    child: Text(alignment.name),
+                    child: Text(
+                      alignment.name,
+                    ),
                   );
                 }),
                 onChanged: (value) {

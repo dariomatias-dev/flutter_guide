@@ -15,7 +15,7 @@ class NavigationRailSample extends StatefulWidget {
 
 class _NavigationRailSampleState extends State<NavigationRailSample> {
   int _selectedIndex = 0;
-  String screen = screens.first;
+  String _screen = screens.first;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _NavigationRailSampleState extends State<NavigationRailSample> {
           NavigationRail(
             selectedIndex: _selectedIndex,
             onDestinationSelected: (value) {
-              screen = screens[value];
+              _screen = screens[value];
               _selectedIndex = value;
 
               setState(() {});
@@ -52,7 +52,7 @@ class _NavigationRailSampleState extends State<NavigationRailSample> {
           Expanded(
             child: Center(
               child: Text(
-                screen,
+                _screen,
               ),
             ),
           ),

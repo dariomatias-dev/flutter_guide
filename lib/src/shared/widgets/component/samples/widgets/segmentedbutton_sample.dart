@@ -145,7 +145,9 @@ class _ChoosePeriodStateWidget extends State<ChoosePeriodWidget> {
           ),
         );
       }),
-      selected: <PeriodModel>{widget.periodSelected.value},
+      selected: <PeriodModel>{
+        widget.periodSelected.value,
+      },
       onSelectionChanged: widget.disabled
           ? null
           : (value) {

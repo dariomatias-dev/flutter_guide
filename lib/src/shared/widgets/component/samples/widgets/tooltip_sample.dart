@@ -14,7 +14,9 @@ class TooltipSample extends StatelessWidget {
               message: 'Share',
               child: IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.share_outlined),
+                icon: const Icon(
+                  Icons.share_outlined,
+                ),
               ),
             ),
             const SizedBox(width: 8.0),
@@ -22,7 +24,9 @@ class TooltipSample extends StatelessWidget {
               message: 'Information',
               child: IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.info_outline),
+                icon: const Icon(
+                  Icons.info_outline,
+                ),
               ),
             ),
             const SizedBox(width: 8.0),
@@ -30,7 +34,9 @@ class TooltipSample extends StatelessWidget {
               message: 'Success',
               child: IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.check_circle_outline),
+                icon: const Icon(
+                  Icons.check_circle_outline,
+                ),
               ),
             ),
             const SizedBox(width: 8.0),
@@ -38,7 +44,9 @@ class TooltipSample extends StatelessWidget {
               message: 'Help',
               child: IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.help_outline),
+                icon: const Icon(
+                  Icons.help_outline,
+                ),
               ),
             ),
             const SizedBox(width: 8.0),
@@ -46,7 +54,9 @@ class TooltipSample extends StatelessWidget {
               message: 'Settings',
               child: IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.settings_outlined),
+                icon: const Icon(
+                  Icons.settings_outlined,
+                ),
               ),
             ),
           ],

@@ -24,7 +24,7 @@ const screenNames = [
 class FloatingActionButtonSample extends StatelessWidget {
   const FloatingActionButtonSample({super.key});
 
-  void onPressed(
+  void _onPressed(
     BuildContext context,
     FloatingActionButtonType floatingActionButtonType,
   ) {
@@ -52,7 +52,7 @@ class FloatingActionButtonSample extends StatelessWidget {
             floatingActionButtonTypes.length,
             (index) {
               return ElevatedButton(
-                onPressed: () => onPressed(
+                onPressed: () => _onPressed(
                   context,
                   floatingActionButtonTypes[index],
                 ),
@@ -85,7 +85,7 @@ class _FloatingActionButtonScreenState
     extends State<FloatingActionButtonScreen> {
   final _isEnabledNotifier = ValueNotifier(true);
 
-  Widget getFloatingActionButton() {
+  Widget _getFloatingActionButton() {
     switch (widget.floatingActionButtonType) {
       case FloatingActionButtonType.extended:
         return FloatingActionButton.extended(
@@ -144,7 +144,9 @@ class _FloatingActionButtonScreenState
         child: Column(
           children: List.generate(20, (index) {
             return ListTile(
-              title: Text('Title ${index + 1}'),
+              title: Text(
+                'Title ${index + 1}',
+              ),
             );
           }),
         ),
@@ -152,7 +154,7 @@ class _FloatingActionButtonScreenState
       floatingActionButton: ValueListenableBuilder(
         valueListenable: _isEnabledNotifier,
         builder: (context, value, child) {
-          return getFloatingActionButton();
+          return _getFloatingActionButton();
         },
       ),
     );

@@ -41,11 +41,15 @@ class _BottomNavigationBarSampleState extends State<BottomNavigationBarSample> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(
+              Icons.person,
+            ),
             label: 'Profile',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(
+              Icons.settings,
+            ),
             label: 'Settings',
           ),
         ],

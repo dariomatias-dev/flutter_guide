@@ -11,7 +11,9 @@ class _SnackBarSampleState extends State<SnackBarSample> {
   void _showBasicSnackBar() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('Product saved to favorites list.'),
+        content: Text(
+          'Product saved to favorites list.',
+        ),
       ),
     );
   }
@@ -22,7 +24,9 @@ class _SnackBarSampleState extends State<SnackBarSample> {
         label: 'Ok',
         onPressed: () {},
       ),
-      content: const Text('Email successfully archived.'),
+      content: const Text(
+        'Email successfully archived.',
+      ),
     );
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -36,7 +40,9 @@ class _SnackBarSampleState extends State<SnackBarSample> {
         label: 'Ok',
         onPressed: () {},
       ),
-      content: const Text('No internet connection.'),
+      content: const Text(
+        'No internet connection.',
+      ),
       behavior: SnackBarBehavior.floating,
     );
 
@@ -56,15 +62,21 @@ class _SnackBarSampleState extends State<SnackBarSample> {
           children: <Widget>[
             ElevatedButton(
               onPressed: _showBasicSnackBar,
-              child: const Text('Show Basic SnackBar'),
+              child: const Text(
+                'Show Basic SnackBar',
+              ),
             ),
             ElevatedButton(
               onPressed: _showInteractiveSnackBar,
-              child: const Text('Show Interactive SnackBar'),
+              child: const Text(
+                'Show Interactive SnackBar',
+              ),
             ),
             ElevatedButton(
               onPressed: _showFloatingSnackBar,
-              child: const Text('Show Floating SnackBar'),
+              child: const Text(
+                'Show Floating SnackBar',
+              ),
             ),
           ],
         ),

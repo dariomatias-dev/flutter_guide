@@ -11,7 +11,9 @@ class ExpansionTileSample extends StatelessWidget {
           title: const Text('Title'),
           children: List.generate(3, (index) {
             return ListTile(
-              title: Text('Content ${index + 1}'),
+              title: Text(
+                'Content ${index + 1}',
+              ),
             );
           }),
         ),

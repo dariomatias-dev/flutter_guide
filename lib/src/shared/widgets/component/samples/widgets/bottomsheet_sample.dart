@@ -10,7 +10,7 @@ class BottomSheetSample extends StatefulWidget {
 class _BottomSheetSampleState extends State<BottomSheetSample> {
   final _isOpen = ValueNotifier(false);
 
-  PersistentBottomSheetController? persistentBottomSheetController;
+  PersistentBottomSheetController? _persistentBottomSheetController;
 
   void _bottomSheetHandle() {
     _isOpen.value ? _closeBottomSheet() : _showBottomSheet();
@@ -19,7 +19,7 @@ class _BottomSheetSampleState extends State<BottomSheetSample> {
   void _showBottomSheet() {
     _isOpen.value = !_isOpen.value;
 
-    persistentBottomSheetController = showBottomSheet(
+    _persistentBottomSheetController = showBottomSheet(
       context: context,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
@@ -40,22 +40,30 @@ class _BottomSheetSampleState extends State<BottomSheetSample> {
             const SizedBox(height: 4.0),
             ListTile(
               onTap: _closeBottomSheet,
-              leading: const Icon(Icons.share),
+              leading: const Icon(
+                Icons.share,
+              ),
               title: const Text('Share'),
             ),
             ListTile(
               onTap: _closeBottomSheet,
-              leading: const Icon(Icons.link),
+              leading: const Icon(
+                Icons.link,
+              ),
               title: const Text('Copy Link'),
             ),
             ListTile(
               onTap: _closeBottomSheet,
-              leading: const Icon(Icons.edit_outlined),
+              leading: const Icon(
+                Icons.edit_outlined,
+              ),
               title: const Text('Edit'),
             ),
             ListTile(
               onTap: _closeBottomSheet,
-              leading: const Icon(Icons.delete_outline),
+              leading: const Icon(
+                Icons.delete_outline,
+              ),
               title: const Text('Delete'),
             ),
           ],
@@ -63,13 +71,13 @@ class _BottomSheetSampleState extends State<BottomSheetSample> {
       },
     );
 
-    persistentBottomSheetController?.closed.then((value) {
+    _persistentBottomSheetController?.closed.then((value) {
       _isOpen.value = !_isOpen.value;
     });
   }
 
   void _closeBottomSheet() {
-    persistentBottomSheetController?.close();
+    _persistentBottomSheetController?.close();
   }
 
   @override

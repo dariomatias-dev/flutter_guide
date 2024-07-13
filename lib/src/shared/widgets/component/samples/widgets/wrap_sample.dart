@@ -48,7 +48,9 @@ class _WrapSampleState extends State<WrapSample> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Horizontal space of: ${(_spacing * 100).floor()}'),
+            Text(
+              'Horizontal space of: ${(_spacing * 100).floor()}',
+            ),
             Slider(
               value: _spacing,
               divisions: 10,
@@ -58,7 +60,9 @@ class _WrapSampleState extends State<WrapSample> {
                 });
               },
             ),
-            Text('Vertical space of: ${(_runSpacing * 100).floor()}'),
+            Text(
+              'Vertical space of: ${(_runSpacing * 100).floor()}',
+            ),
             Slider(
               value: _runSpacing,
               divisions: 10,

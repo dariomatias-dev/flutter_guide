@@ -117,7 +117,9 @@ class SingleChildScrollViewTemplate extends StatelessWidget {
         Column(
           children: List.generate(100, (index) {
             return ListTile(
-              title: Text('Item ${index + 1}'),
+              title: Text(
+                'Item ${index + 1}',
+              ),
             );
           }),
         ),

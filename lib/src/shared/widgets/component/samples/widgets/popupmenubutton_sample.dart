@@ -11,7 +11,9 @@ class PopupMenuButtonSample extends StatelessWidget {
           itemBuilder: (context) {
             return List.generate(5, (index) {
               return PopupMenuItem(
-                child: Text('Item ${index + 1}'),
+                child: Text(
+                  'Item ${index + 1}',
+                ),
               );
             });
           },

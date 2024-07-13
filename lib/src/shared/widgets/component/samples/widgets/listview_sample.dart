@@ -10,7 +10,9 @@ class ListViewSample extends StatelessWidget {
         itemCount: 30,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text('Item $index'),
+            title: Text(
+              'Item $index',
+            ),
           );
         },
       ),

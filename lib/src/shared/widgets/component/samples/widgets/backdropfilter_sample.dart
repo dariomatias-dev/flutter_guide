@@ -47,7 +47,9 @@ class _BackdropFilterSampleState extends State<BackdropFilterSample> {
         height: 140.0,
         child: Column(
           children: <Widget>[
-            Text('SigmaX: ${_sigmaX.floor()}'),
+            Text(
+              'SigmaX: ${_sigmaX.floor()}',
+            ),
             Slider(
               value: _sigmaX / 100,
               divisions: 10,
@@ -57,7 +59,9 @@ class _BackdropFilterSampleState extends State<BackdropFilterSample> {
                 });
               },
             ),
-            Text('SigmaY: ${_sigmaY.floor()}'),
+            Text(
+              'SigmaY: ${_sigmaY.floor()}',
+            ),
             Slider(
               value: _sigmaY / 100,
               divisions: 10,

@@ -6,7 +6,9 @@ class DismissibleSample extends StatelessWidget {
   ListTile get _listTile => const ListTile(
         title: Text('Title'),
         subtitle: Text('Subtitle'),
-        trailing: Icon(Icons.swap_horiz),
+        trailing: Icon(
+          Icons.swap_horiz,
+        ),
       );
 
   @override

@@ -42,7 +42,9 @@ class _SwitchListTileSampleState extends State<SwitchListTileSample> {
           const SizedBox(height: 12.0),
           ...List.generate(_selectedOptions.length, (index) {
             return SwitchListTile(
-              title: Text('Switch $index'),
+              title: Text(
+                'Switch $index',
+              ),
               value: _selectedOptions[index],
               thumbIcon: index == 1
                   ? MaterialStatePropertyAll(

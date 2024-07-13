@@ -31,7 +31,9 @@ class RadioListTileSampleState extends State<RadioListTileSample> {
             return RadioListTile(
               value: index,
               groupValue: _radioIndex,
-              title: Text('Radio $index'),
+              title: Text(
+                'Radio $index',
+              ),
               onChanged: _updateRadioIndex,
             );
           }),
@@ -40,7 +42,9 @@ class RadioListTileSampleState extends State<RadioListTileSample> {
             return RadioListTile(
               value: index,
               groupValue: _radioIndex,
-              title: Text('Radio $index'),
+              title: Text(
+                'Radio $index',
+              ),
               onChanged: null,
             );
           }),

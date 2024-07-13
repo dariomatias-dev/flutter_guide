@@ -26,8 +26,12 @@ class _ReorderableListViewSampleState extends State<ReorderableListViewSample> {
           itemBuilder: (context, index) {
             return ListTile(
               key: Key('$index'),
-              title: Text('Item ${_items[index] + 1}'),
-              trailing: const Icon(Icons.drag_handle),
+              title: Text(
+                'Item ${_items[index] + 1}',
+              ),
+              trailing: const Icon(
+                Icons.drag_handle,
+              ),
             );
           },
           onReorder: (oldIndex, newIndex) {

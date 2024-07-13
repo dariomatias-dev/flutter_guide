@@ -28,21 +28,27 @@ class _TextSampleState extends State<TextSample> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                navigateTo(const ColorsSample());
+                navigateTo(
+                  const ColorsSample(),
+                );
               },
               child: const Text('Colors'),
             ),
             const SizedBox(height: 8.0),
             ElevatedButton(
               onPressed: () {
-                navigateTo(const FontWeightsSample());
+                navigateTo(
+                  const FontWeightsSample(),
+                );
               },
               child: const Text('Font Weights'),
             ),
             const SizedBox(height: 8.0),
             ElevatedButton(
               onPressed: () {
-                navigateTo(const FontSizesSample());
+                navigateTo(
+                  const FontSizesSample(),
+                );
               },
               child: const Text('Font Sizes'),
             ),

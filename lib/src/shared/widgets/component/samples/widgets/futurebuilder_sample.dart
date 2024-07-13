@@ -8,7 +8,7 @@ class FutureBuilderSample extends StatefulWidget {
 }
 
 class _FutureBuilderSampleState extends State<FutureBuilderSample> {
-  Future<int> getItemCount() async {
+  Future<int> _getItemCount() async {
     return Future.delayed(
       const Duration(
         seconds: 3,
@@ -23,7 +23,7 @@ class _FutureBuilderSampleState extends State<FutureBuilderSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: getItemCount(),
+        future: _getItemCount(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
@@ -35,7 +35,9 @@ class _FutureBuilderSampleState extends State<FutureBuilderSample> {
             itemCount: snapshot.data,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text('Item ${index + 1}'),
+                title: Text(
+                  'Item ${index + 1}',
+                ),
               );
             },
           );

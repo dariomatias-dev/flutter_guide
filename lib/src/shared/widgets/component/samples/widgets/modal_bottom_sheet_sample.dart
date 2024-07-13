@@ -45,14 +45,18 @@ class _ModalBottomSheetSampleState extends State<ModalBottomSheetSample> {
               onTap: () {
                 Navigator.pop(context);
               },
-              leading: const Icon(Icons.edit_outlined),
+              leading: const Icon(
+                Icons.edit_outlined,
+              ),
               title: const Text('Edit'),
             ),
             ListTile(
               onTap: () {
                 Navigator.pop(context);
               },
-              leading: const Icon(Icons.delete_outline),
+              leading: const Icon(
+                Icons.delete_outline,
+              ),
               title: const Text('Delete'),
             ),
           ],

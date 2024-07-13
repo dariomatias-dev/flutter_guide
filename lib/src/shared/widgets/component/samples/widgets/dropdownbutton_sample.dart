@@ -10,7 +10,7 @@ class DropdownButtonSample extends StatefulWidget {
 class _DropdownButtonSampleState extends State<DropdownButtonSample> {
   int _value = 1;
 
-  void updateValue(dynamic value) {
+  void _updateValue(dynamic value) {
     setState(() {
       _value = value;
     });
@@ -24,10 +24,12 @@ class _DropdownButtonSampleState extends State<DropdownButtonSample> {
       items: List.generate(5, (index) {
         return DropdownMenuItem(
           value: index + 1,
-          child: Text('Item ${index + 1}'),
+          child: Text(
+            'Item ${index + 1}',
+          ),
         );
       }),
-      onChanged: disabled ? null : updateValue,
+      onChanged: disabled ? null : _updateValue,
     );
   }
 
