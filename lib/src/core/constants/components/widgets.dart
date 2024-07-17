@@ -102,6 +102,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/text_
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textfield_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textformfield_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/material_banner_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/togglebuttons_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/tooltip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/valuelistenablebuilder_sample.dart';
@@ -109,6 +110,12 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/visib
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/wrap_sample.dart';
 
 const widgets = <WidgetModel>[
+  WidgetModel(
+    name: WidgetNames.materialBannerMaterial,
+    icon: Icons.flag_outlined,
+    sample: MaterialBannerSample(),
+    category: WidgetCategory.material,
+  ),
   WidgetModel(
     name: WidgetNames.actionChipMaterial,
     icon: Icons.label_outline,

@@ -63,6 +63,7 @@ class WidgetNames {
   static const listenableBuilderWidget = 'ListenableBuilder';
   static const listTileMaterial = 'ListTile';
   static const listViewWidget = 'ListView';
+  static const materialBannerMaterial = 'MaterialBanner';
   static const menuAnchorMaterial = 'MenuAnchor';
   static const navigationBarMaterial = 'NavigationBar';
   static const navigationRailMaterial = 'NavigationRail';
