@@ -39,7 +39,9 @@ class _LoadingDialogSampleState extends State<LoadingDialogSample> {
       body: Center(
         child: ElevatedButton(
           onPressed: _showLoading,
-          child: const Text('Show Loading'),
+          child: const Text(
+            'Show Loading',
+          ),
         ),
       ),
     );

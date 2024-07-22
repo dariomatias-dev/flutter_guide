@@ -111,12 +111,6 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/wrap_
 
 const widgets = <WidgetModel>[
   WidgetModel(
-    name: WidgetNames.materialBannerMaterial,
-    icon: Icons.flag_outlined,
-    sample: MaterialBannerSample(),
-    category: WidgetCategory.material,
-  ),
-  WidgetModel(
     name: WidgetNames.actionChipMaterial,
     icon: Icons.label_outline,
     sample: ActionchipSample(),
@@ -514,6 +508,12 @@ const widgets = <WidgetModel>[
     videoId: 'KJpkjHGiI5A',
     sample: ListViewSample(),
     category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.materialBannerMaterial,
+    icon: Icons.flag_outlined,
+    sample: MaterialBannerSample(),
+    category: WidgetCategory.material,
   ),
   WidgetModel(
     name: WidgetNames.menuAnchorMaterial,

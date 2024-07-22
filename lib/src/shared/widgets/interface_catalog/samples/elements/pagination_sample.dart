@@ -16,7 +16,9 @@ class _PaginationSampleState extends State<PaginationSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Page ${_selectedPageIndex + 1}'),
+        child: Text(
+          'Page ${_selectedPageIndex + 1}',
+        ),
       ),
       bottomNavigationBar: SizedBox(
         height: 40.0,

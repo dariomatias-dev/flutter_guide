@@ -14,7 +14,7 @@ class InfinetGridViewSampleState extends State<InfiniteGridViewSample> {
   bool _hasMoreItems = false;
 
   final _scrollController = ScrollController();
-  final _elements = [];
+  final _elements = <Widget>[];
 
   void _onScroll() {
     if (!_isLoading && !_hasMoreItems && _scrollController.position.atEdge) {
@@ -87,7 +87,9 @@ class InfinetGridViewSampleState extends State<InfiniteGridViewSample> {
 
   @override
   void initState() {
-    _scrollController.addListener(_onScroll);
+    _scrollController.addListener(
+      _onScroll,
+    );
 
     super.initState();
   }
@@ -101,7 +103,9 @@ class InfinetGridViewSampleState extends State<InfiniteGridViewSample> {
 
   @override
   void dispose() {
-    _scrollController.removeListener(_onScroll);
+    _scrollController.removeListener(
+      _onScroll,
+    );
     _scrollController.dispose();
 
     super.dispose();

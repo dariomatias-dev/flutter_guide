@@ -113,7 +113,9 @@ class CcustoPpopuMmenSsampleState extends State<CustomPopupMenuSample> {
       ),
     );
 
-    Overlay.of(context).insert(_overlayEntry!);
+    Overlay.of(context).insert(
+      _overlayEntry!,
+    );
   }
 
   void _removeOverlay() {
@@ -147,7 +149,9 @@ class CcustoPpopuMmenSsampleState extends State<CustomPopupMenuSample> {
 
                   return DropdownMenuItem(
                     value: alignment.value,
-                    child: Text(alignment.name),
+                    child: Text(
+                      alignment.name,
+                    ),
                   );
                 }),
                 onChanged: (value) {
