@@ -69,7 +69,6 @@ class _ImageLoaderState extends State<ImageLoader> {
     ),
   );
   final _logger = Logger();
-
   final _random = Random();
 
   Future<Uint8List> _loader() async {

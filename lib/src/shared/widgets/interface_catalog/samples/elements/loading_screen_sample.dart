@@ -27,7 +27,9 @@ class _LoadingScreenSampleState extends State<LoadingScreenSample> {
       },
     );
 
-    Overlay.of(context).insert(_overlayEntry!);
+    Overlay.of(context).insert(
+      _overlayEntry!,
+    );
 
     await Future.delayed(
       const Duration(
@@ -44,7 +46,9 @@ class _LoadingScreenSampleState extends State<LoadingScreenSample> {
       body: Center(
         child: ElevatedButton(
           onPressed: _showLoading,
-          child: const Text('Show Loading'),
+          child: const Text(
+            'Show Loading',
+          ),
         ),
       ),
     );

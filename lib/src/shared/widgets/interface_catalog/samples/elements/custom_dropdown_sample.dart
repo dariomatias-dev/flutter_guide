@@ -94,7 +94,9 @@ class _CustomDropdownSampleState extends State<CustomDropdownSample> {
     String optionName,
   ) {
     final snackBar = SnackBar(
-      content: Text('$fieldName: $optionName'),
+      content: Text(
+        '$fieldName: $optionName',
+      ),
       action: SnackBarAction(
         onPressed: () {},
         label: 'Ok',
@@ -215,7 +217,9 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
       },
     );
 
-    Overlay.of(context).insert(_overlayEntry!);
+    Overlay.of(context).insert(
+      _overlayEntry!,
+    );
   }
 
   void _removeMenu() {
@@ -390,7 +394,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     vertical: 8.0,
                                   ),
                                   width: double.infinity,
-                                  child: Text(option.name),
+                                  child: Text(
+                                    option.name,
+                                  ),
                                 ),
                               );
                             }),

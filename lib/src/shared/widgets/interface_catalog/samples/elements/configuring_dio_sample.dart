@@ -9,6 +9,8 @@ class DioClient {
 
   late Dio dio;
 
+  Dio get client => dio;
+
   DioClient._internal() {
     dio = Dio(
       BaseOptions(
@@ -16,8 +18,6 @@ class DioClient {
       ),
     );
   }
-
-  Dio get client => dio;
 }
 
 enum ResourceType {
@@ -102,7 +102,7 @@ class ConfiguringDioSample extends StatefulWidget {
 class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
   ResourceType _resourceType = ResourceType.users;
 
-  final _resourceTypes = [
+  final _resourceTypes = <ResourceType>[
     ResourceType.users,
     ResourceType.comments,
     ResourceType.todos,
@@ -128,8 +128,12 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
     final comment = CommentModel.fromJson(value);
 
     return ListTile(
-      title: Text(comment.name),
-      subtitle: Text(comment.email),
+      title: Text(
+        comment.name,
+      ),
+      subtitle: Text(
+        comment.email,
+      ),
     );
   }
 
@@ -137,8 +141,12 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
     final todo = TodoModel.fromJson(value);
 
     return ListTile(
-      title: Text(todo.title),
-      subtitle: Text(todo.completed.toString()),
+      title: Text(
+        todo.title,
+      ),
+      subtitle: Text(
+        todo.completed.toString(),
+      ),
     );
   }
 
@@ -173,14 +181,12 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
           ),
         );
 
-        if (i == 19) {
-          break;
-        }
+        if (i == 19) break;
       }
 
       return results;
     } catch (err) {
-      return [];
+      return <Widget>[];
     }
   }
 
