@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:device_preview/device_preview.dart';
 
 import 'package:flutter_guide/src/flutter_guide_app.dart';
 
@@ -53,28 +52,23 @@ Future<void> main() async {
   final widgetInfos = getWidgetInfos();
 
   runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) {
-        return UserPreferencesInheritedWidget(
+    UserPreferencesInheritedWidget(
+      themeController: themeController,
+      favoriteWidgetNotifier: favoriteWidgetNotifier,
+      favoritePackageNotifier: favoritePackageNotifier,
+      getFavoriteNotifier: getFavoriteNotifier,
+      favoriteWidgetsService: favoriteWidgetsService,
+      favoritePackagesService: favoritePackagesService,
+      getFavoritesService: getFavoritesService,
+      sharedPreferences: sharedPreferences,
+      child: ComponentsMapInheritedWidget(
+        widgetsMap: widgetInfos.samples,
+        packagesMap: packagesMap(),
+        widgetNames: widgetInfos.componentNames,
+        child: FlutterGuideApp(
           themeController: themeController,
-          favoriteWidgetNotifier: favoriteWidgetNotifier,
-          favoritePackageNotifier: favoritePackageNotifier,
-          getFavoriteNotifier: getFavoriteNotifier,
-          favoriteWidgetsService: favoriteWidgetsService,
-          favoritePackagesService: favoritePackagesService,
-          getFavoritesService: getFavoritesService,
-          sharedPreferences: sharedPreferences,
-          child: ComponentsMapInheritedWidget(
-            widgetsMap: widgetInfos.samples,
-            packagesMap: packagesMap(),
-            widgetNames: widgetInfos.componentNames,
-            child: FlutterGuideApp(
-              themeController: themeController,
-            ),
-          ),
-        );
-      },
+        ),
+      ),
     ),
   );
 }

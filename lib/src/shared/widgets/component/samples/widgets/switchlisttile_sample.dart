@@ -27,7 +27,7 @@ class _SwitchListTileSampleState extends State<SwitchListTileSample> {
               title: Text('Switch $index'),
               value: _selectedOptions[index],
               thumbIcon: index == 1
-                  ? MaterialStatePropertyAll(
+                  ? WidgetStatePropertyAll(
                       Icon(
                         _selectedOptions[1] ? Icons.check : Icons.close,
                       ),
@@ -47,7 +47,7 @@ class _SwitchListTileSampleState extends State<SwitchListTileSample> {
               ),
               value: _selectedOptions[index],
               thumbIcon: index == 1
-                  ? MaterialStatePropertyAll(
+                  ? WidgetStatePropertyAll(
                       Icon(
                         _selectedOptions[1] ? Icons.check : Icons.close,
                       ),

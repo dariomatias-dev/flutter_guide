@@ -22,7 +22,7 @@ class SourceCodeButtonWidget extends StatelessWidget {
           );
         },
         borderRadius: borderRadius,
-        overlayColor: MaterialStatePropertyAll(
+        overlayColor: WidgetStatePropertyAll(
           Colors.blue.withOpacity(
             isLight ? 0.06 : 0.11,
           ),

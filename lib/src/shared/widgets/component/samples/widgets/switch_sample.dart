@@ -31,7 +31,7 @@ class _SwitchSampleState extends State<SwitchSample> {
                 const SizedBox(width: 8.0),
                 Switch(
                   value: _isEnabled,
-                  thumbIcon: MaterialStatePropertyAll(
+                  thumbIcon: WidgetStatePropertyAll(
                     Icon(
                       _isEnabled ? Icons.check : Icons.close,
                     ),
@@ -55,7 +55,7 @@ class _SwitchSampleState extends State<SwitchSample> {
                 const SizedBox(width: 8.0),
                 Switch(
                   value: _isEnabled,
-                  thumbIcon: MaterialStatePropertyAll(
+                  thumbIcon: WidgetStatePropertyAll(
                     Icon(
                       _isEnabled ? Icons.check : Icons.close,
                     ),

@@ -18,7 +18,7 @@ class InkWellButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      overlayColor: MaterialStatePropertyAll(
+      overlayColor: WidgetStatePropertyAll(
         Colors.blue.withOpacity(0.05),
       ),
       hoverColor: Colors.blue.withOpacity(0.05),

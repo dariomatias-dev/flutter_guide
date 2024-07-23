@@ -84,7 +84,7 @@ class _SettingButtonWidgetState extends State<SettingButtonWidget> {
             });
           },
           style: ButtonStyle(
-            backgroundColor: MaterialStatePropertyAll(
+            backgroundColor: WidgetStatePropertyAll(
               _checked ? Colors.blue : Colors.grey.shade200,
             ),
           ),
@@ -96,7 +96,7 @@ class _SettingButtonWidgetState extends State<SettingButtonWidget> {
         IconButton(
           onPressed: null,
           style: ButtonStyle(
-            backgroundColor: MaterialStatePropertyAll(
+            backgroundColor: WidgetStatePropertyAll(
               Colors.grey.shade200,
             ),
           ),

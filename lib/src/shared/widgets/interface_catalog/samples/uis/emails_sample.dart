@@ -308,7 +308,7 @@ class EmailsScreenDrawerWidget extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
-                    backgroundColor: Theme.of(context).colorScheme.onBackground,
+                    backgroundColor: Theme.of(context).colorScheme.onSurface,
                     child: Icon(
                       Icons.person,
                       color: Theme.of(context).colorScheme.onPrimary,
@@ -453,7 +453,7 @@ class _EmailsScreenAppBarWidgetState extends State<EmailsScreenAppBarWidget> {
             ),
             filled: true,
             fillColor:
-                Theme.of(context).colorScheme.onBackground.withOpacity(0.12),
+                Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
             contentPadding: const EdgeInsets.all(12.0),
             isDense: true,
             border: const OutlineInputBorder(
@@ -528,7 +528,7 @@ class _ComposeEmailFloatingActionButtonWidgetState
           },
         );
       },
-      backgroundColor: Theme.of(context).colorScheme.onBackground,
+      backgroundColor: Theme.of(context).colorScheme.onSurface,
       icon: Icon(
         Icons.edit_outlined,
         color: Theme.of(context).colorScheme.onPrimary,
@@ -890,14 +890,14 @@ class _EmailWidgetState extends State<EmailWidget> {
       onTap: _navigateToEmailScreen,
       onLongPress: _showModalBottomSheet,
       child: Container(
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
         padding: const EdgeInsets.symmetric(
           vertical: 8.0,
         ),
         child: Row(
           children: <Widget>[
             CircleAvatar(
-              backgroundColor: Theme.of(context).colorScheme.onBackground,
+              backgroundColor: Theme.of(context).colorScheme.onSurface,
               child: Icon(
                 Icons.person,
                 color: Theme.of(context).colorScheme.onPrimary,

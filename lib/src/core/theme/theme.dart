@@ -8,7 +8,7 @@ ThemeData ligthMode = ThemeData(
     primary: FlutterGuideColors.darkNeutral50,
     secondary: FlutterGuideColors.blue100.withOpacity(0.5),
     tertiary: Colors.grey.shade800,
-    background: Colors.white,
+    surface: Colors.white,
   ),
 );
 
@@ -18,6 +18,6 @@ ThemeData darkMode = ThemeData(
     primary: FlutterGuideColors.ligthBlue200,
     secondary: FlutterGuideColors.darkNeutral,
     tertiary: Colors.grey,
-    background: FlutterGuideColors.darkNeutral50,
+    surface: FlutterGuideColors.darkNeutral50,
   ),
 );
