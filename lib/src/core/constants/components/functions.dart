@@ -28,8 +28,9 @@ const functions = <FunctionModel>[
 ];
 
 FunctionInfosModel getFunctionInfos() {
-  List<String> functionNames = [];
+  final functionNames = <String>[];
   Map<String, FunctionSummaryModel> samples = {};
+  
   for (FunctionModel function in functions) {
     functionNames.add(function.name);
 

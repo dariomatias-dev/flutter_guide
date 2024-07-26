@@ -15,7 +15,7 @@ class ThemeController extends ValueNotifier {
   ) {
     sharedPreferences = sharedPreferencesInstance;
 
-    final theme = sharedPreferences.getString("theme");
+    final theme = sharedPreferences.getString('theme');
 
     if (theme == ThemeMode.light.name) {
       themeMode = ThemeMode.light;

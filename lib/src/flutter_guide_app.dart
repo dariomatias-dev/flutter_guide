@@ -19,7 +19,7 @@ class FlutterGuideApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: "Flutter Guide",
+          title: 'Flutter Guide',
           routes: flutterGuideRoutes,
           themeMode: themeController.themeMode,
           theme: ligthMode,

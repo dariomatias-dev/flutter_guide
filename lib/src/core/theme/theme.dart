@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/flutter_guide_colors.dart';
 
-ThemeData ligthMode = ThemeData(
+final ligthMode = ThemeData(
   brightness: Brightness.light,
   colorScheme: ColorScheme.light(
     primary: FlutterGuideColors.darkNeutral50,
@@ -12,7 +12,7 @@ ThemeData ligthMode = ThemeData(
   ),
 );
 
-ThemeData darkMode = ThemeData(
+final darkMode = ThemeData(
   brightness: Brightness.dark,
   colorScheme: const ColorScheme.dark(
     primary: FlutterGuideColors.ligthBlue200,

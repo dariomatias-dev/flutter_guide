@@ -194,6 +194,7 @@ const packages = <PackageModel>[
 
 Map<String, PackageSummaryModel> packagesMap() {
   Map<String, PackageSummaryModel> samples = {};
+  
   for (PackageModel package in packages) {
     samples[package.name] = PackageSummaryModel(
       name: package.name,

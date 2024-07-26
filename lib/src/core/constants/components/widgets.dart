@@ -753,10 +753,13 @@ const widgets = <WidgetModel>[
 ];
 
 WidgetInfosModel getWidgetInfos() {
-  List<String> widgetNames = [];
+  final widgetNames = <String>[];
   Map<String, WidgetSummaryModel> samples = {};
+
   for (WidgetModel widget in widgets) {
-    widgetNames.add(widget.name);
+    widgetNames.add(
+      widget.name,
+    );
 
     samples[widget.name] = WidgetSummaryModel(
       name: widget.name,
