@@ -8,6 +8,7 @@ import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.da
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
 import 'package:flutter_guide/src/shared/widgets/card_widget/card_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/components/components_controller.dart';
+import 'package:flutter_guide/src/shared/widgets/components/widgets/ad_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/components/widgets/search_field_widget/search_field_widget.dart';
 
 class ComponentsScreen extends StatefulWidget {
@@ -74,10 +75,7 @@ class _ComponentsScreenState extends State<ComponentsScreen> {
                 loadData: _controller.loadData,
                 itemBuilder: (value, index) {
                   if (value == null) {
-                    return const SizedBox(
-                      height: 44.0,
-                      child: Placeholder(),
-                    );
+                    return const AdItemWidget();
                   }
 
                   return SizedBox(

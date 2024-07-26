@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/flutter_guide_app.dart';
@@ -16,6 +18,9 @@ import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
+
+  await dotenv.load(fileName: ".env");
 
   final themeController = ThemeController();
   final sharedPreferences = await SharedPreferences.getInstance();
