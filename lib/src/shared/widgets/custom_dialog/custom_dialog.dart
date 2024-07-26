@@ -13,26 +13,28 @@ class CustomDialog {
     double? spacingAction,
     required List<ActionButtonWidget> actions,
     required List<Widget> children,
-  }) =>
-      DialogWidget(
-        title: title,
-        description: description,
-        spacingAction: spacingAction ?? 8.0,
-        actions: actions,
-        descriptionTextAlign: descriptionTextAlign,
-        children: children,
-      );
+  }) {
+    return DialogWidget(
+      title: title,
+      description: description,
+      spacingAction: spacingAction ?? 8.0,
+      actions: actions,
+      descriptionTextAlign: descriptionTextAlign,
+      children: children,
+    );
+  }
 
   static ActionButtonWidget button({
     required String text,
     Color? backgroundColor,
     Color? textColor,
     required VoidCallback onTap,
-  }) =>
-      ActionButtonWidget(
-        text: text,
-        textColor: textColor,
-        backgroundColor: backgroundColor,
-        onTap: onTap,
-      );
+  }) {
+    return ActionButtonWidget(
+      text: text,
+      textColor: textColor,
+      backgroundColor: backgroundColor,
+      onTap: onTap,
+    );
+  }
 }

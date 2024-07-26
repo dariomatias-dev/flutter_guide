@@ -12,7 +12,7 @@ class AppInfoWidget extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset(
-            "assets/icons/flutter_icon.png",
+            'assets/icons/flutter_icon.png',
             width: 52.0,
             height: 52.0,
           ),

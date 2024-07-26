@@ -16,7 +16,9 @@ class ComponentSampleAppBarWidget extends StatefulWidget
   final List<PopupMenuEntry>? popupMenuItems;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight * 2);
+  Size get preferredSize => const Size.fromHeight(
+        kToolbarHeight * 2,
+      );
 
   @override
   State<ComponentSampleAppBarWidget> createState() =>

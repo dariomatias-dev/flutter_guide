@@ -49,7 +49,9 @@ class _SaveButtonWidgetState extends State<SaveButtonWidget> {
       child: ValueListenableBuilder(
         valueListenable: widget.favoriteNotifier,
         builder: (context, value, child) {
-          _controller.setSaved(widget.componentName);
+          _controller.setSaved(
+            widget.componentName,
+          );
 
           return Icon(
             _controller.saved ? Icons.bookmark : Icons.bookmark_border,

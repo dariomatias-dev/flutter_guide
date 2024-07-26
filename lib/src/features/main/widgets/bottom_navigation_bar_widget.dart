@@ -10,7 +10,9 @@ class BottomNavigationBarWidget extends StatelessWidget {
   });
 
   final int screenIndex;
-  final void Function(int value) updateScreenIndex;
+  final void Function(
+    int value,
+  ) updateScreenIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -24,25 +26,25 @@ class BottomNavigationBarWidget extends StatelessWidget {
         SalomonBottomBarItem(
           unselectedColor: Theme.of(context).colorScheme.primary,
           icon: const Icon(Icons.home_outlined),
-          title: const Text("Home"),
+          title: const Text('Home'),
           selectedColor: Colors.blue,
         ),
         SalomonBottomBarItem(
           unselectedColor: Theme.of(context).colorScheme.primary,
           icon: const Icon(Icons.widgets_outlined),
-          title: const Text("Widgets"),
+          title: const Text('Widgets'),
           selectedColor: Colors.blue,
         ),
         SalomonBottomBarItem(
           unselectedColor: Theme.of(context).colorScheme.primary,
           icon: const Icon(Icons.archive_outlined),
-          title: const Text("Packages"),
+          title: const Text('Packages'),
           selectedColor: Colors.blue,
         ),
         SalomonBottomBarItem(
           unselectedColor: Theme.of(context).colorScheme.primary,
           icon: const Icon(Icons.settings_outlined),
-          title: const Text("Settings"),
+          title: const Text('Settings'),
           selectedColor: Colors.blue,
         ),
       ],

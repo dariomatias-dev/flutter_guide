@@ -22,6 +22,7 @@ class SaveButtonController {
   final FavoritesService _favoritesService;
 
   late bool saved;
+
   bool hasUpdatedButton = false;
 
   void _init(
@@ -40,10 +41,14 @@ class SaveButtonController {
       componentName,
     );
 
-    _favoriteNotifier.setValue(componentName);
+    _favoriteNotifier.setValue(
+      componentName,
+    );
   }
 
   void setSaved(String componentName) {
-    saved = _favoritesService.contains(componentName);
+    saved = _favoritesService.contains(
+      componentName,
+    );
   }
 }

@@ -41,7 +41,9 @@ class CodeTabController {
   ) async {
     final codeString = await file.readAsString();
 
-    await Highlighter.initialize(['dart', 'yaml']);
+    await Highlighter.initialize(
+      ['dart', 'yaml'],
+    );
 
     final theme = await (brightness == Brightness.light
         ? HighlighterTheme.loadLightTheme

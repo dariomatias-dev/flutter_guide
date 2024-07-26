@@ -26,13 +26,12 @@ class ComponentsController {
   }
 
   final adInterval = 15;
+  final initialItemsNotifier = InitialItemsNotifier([]);
 
   late FavoritesService favoritesService;
   late FavoriteNotifier favoriteNotifier;
-
   late List<ComponentModel> _standardComponents;
   late List<ComponentModel> _components;
-  final initialItemsNotifier = InitialItemsNotifier([]);
 
   Future<void> _init(
     BuildContext context,
