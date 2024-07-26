@@ -11,6 +11,7 @@ import 'package:flutter_guide/src/services/bookmarker_service/favorites_service.
 class UserPreferencesInheritedWidget extends InheritedWidget {
   const UserPreferencesInheritedWidget({
     super.key,
+    required this.appVersion,
     required this.themeController,
     required this.sharedPreferences,
     required this.favoriteWidgetNotifier,
@@ -21,6 +22,8 @@ class UserPreferencesInheritedWidget extends InheritedWidget {
     required this.getFavoritesService,
     required super.child,
   });
+
+  final String appVersion;
 
   final ThemeController themeController;
   final SharedPreferences sharedPreferences;

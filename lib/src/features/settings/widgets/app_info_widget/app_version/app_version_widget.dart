@@ -13,12 +13,13 @@ class _AppVersionWidgetState extends State<AppVersionWidget> {
   final _controller = AppVersionController();
 
   @override
-  void initState() {
-    _controller.getAppVersion(() {
-      setState(() {});
-    });
+  void didChangeDependencies() {
+    _controller.getAppVersion(
+      context,
+      () => setState(() {}),
+    );
 
-    super.initState();
+    super.didChangeDependencies();
   }
 
   @override

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/flutter_guide_app.dart';
@@ -22,6 +23,11 @@ Future<void> main() async {
 
   await dotenv.load(fileName: ".env");
 
+  // Version
+  final packageInfo = await PackageInfo.fromPlatform();
+  final appVersion = packageInfo.version;
+
+  // Theme
   final themeController = ThemeController();
   final sharedPreferences = await SharedPreferences.getInstance();
   themeController.initialize(
@@ -58,6 +64,7 @@ Future<void> main() async {
 
   runApp(
     UserPreferencesInheritedWidget(
+      appVersion: appVersion,
       themeController: themeController,
       favoriteWidgetNotifier: favoriteWidgetNotifier,
       favoritePackageNotifier: favoritePackageNotifier,

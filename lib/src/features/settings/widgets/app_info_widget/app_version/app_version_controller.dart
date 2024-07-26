@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
+
+import 'package:flutter_guide/src/providers/user_preferences_inherited_widget.dart';
 
 class AppVersionController {
-  String version = '--';
+  String version = '•.•.•';
 
   Future<void> getAppVersion(
+    BuildContext context,
     VoidCallback setStateCallback,
   ) async {
-    final packageInfo = await PackageInfo.fromPlatform();
-
-    version = packageInfo.version;
+    version = UserPreferencesInheritedWidget.of(context)!.appVersion;
 
     setStateCallback();
   }
