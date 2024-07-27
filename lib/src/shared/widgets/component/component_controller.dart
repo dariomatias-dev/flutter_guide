@@ -18,7 +18,7 @@ class ComponentController {
     _init();
   }
 
-  late String filePath;
+  String filePath = '';
   late ComponentSummaryModel component;
   late WidgetCategory? componentCategory;
 

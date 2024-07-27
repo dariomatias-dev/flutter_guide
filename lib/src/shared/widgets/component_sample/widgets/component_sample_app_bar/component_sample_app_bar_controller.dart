@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,15 +7,15 @@ class ComponentSampleAppBarController {
   ComponentSampleAppBarController({
     required this.getContext,
   }) {
-    _file = ComponentSampleScreenInheritedWidget.of(getContext())!.file;
+    _filePath = ComponentSampleScreenInheritedWidget.of(getContext())!.file;
   }
 
   final BuildContext Function() getContext;
 
-  late File _file;
+  late String _filePath;
 
   Future<void> copyCode() async {
-    final codeString = await _file.readAsString();
+    final codeString = await rootBundle.loadString(_filePath);
 
     Clipboard.setData(
       ClipboardData(text: codeString),

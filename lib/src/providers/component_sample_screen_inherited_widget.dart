@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 class ComponentSampleScreenInheritedWidget extends InheritedWidget {
@@ -9,7 +7,7 @@ class ComponentSampleScreenInheritedWidget extends InheritedWidget {
     required super.child,
   });
 
-  final File file;
+  final String file;
 
   static ComponentSampleScreenInheritedWidget? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<

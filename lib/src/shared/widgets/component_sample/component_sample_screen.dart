@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/providers/component_sample_screen_inherited_widget.dart';
@@ -33,7 +31,7 @@ class _ComponentSampleScreenState extends State<ComponentSampleScreen> {
         UserPreferencesInheritedWidget.of(context)!.themeController;
 
     return ComponentSampleScreenInheritedWidget(
-      file: File(widget.filePath),
+      file: widget.filePath,
       child: DefaultTabController(
         initialIndex: 0,
         length: 2,
