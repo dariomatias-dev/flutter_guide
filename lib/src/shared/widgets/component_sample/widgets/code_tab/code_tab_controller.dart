@@ -57,7 +57,9 @@ class CodeTabController {
         theme: theme,
       );
 
-      final highlightedCode = highlighter.highlight(codeString);
+      final highlightedCode = highlighter.highlight(
+        codeString,
+      );
 
       code = highlightedCode;
 

@@ -40,7 +40,8 @@ class _ComponentScreenState extends State<ComponentScreen> {
   Widget build(BuildContext context) {
     return ComponentSampleScreen(
       title: _controller.component.name,
-      filePath: _controller.filePath,
+      filePath:
+          'lib/src/shared/widgets/component/samples/${widget.componentType == ComponentType.widget ? 'widgets' : 'packages'}/${widget.componentName.toLowerCase()}_sample.dart',
       sample: _controller.component.sample,
       popupMenuItems: <PopupMenuEntry>[
         FavoritePopupMenuItemWidget(

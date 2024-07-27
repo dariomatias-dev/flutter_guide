@@ -42,12 +42,12 @@ class MessageModel {
 
 final messages = <MessageModel>[
   MessageModel(
-    text: "Hello there!",
+    text: 'Hello there!',
     status: MessageStatus.send,
     sentDate: DateTime(2024, 1, 1, 9, 0),
   ),
   MessageModel(
-    text: "Hi, how are you?",
+    text: 'Hi, how are you?',
     status: MessageStatus.receiver,
     sentDate: DateTime(2024, 1, 1, 9, 1),
   ),
@@ -62,12 +62,12 @@ final messages = <MessageModel>[
     sentDate: DateTime(2024, 1, 2, 11, 20),
   ),
   MessageModel(
-    text: "Did you finish the project we were working on?",
+    text: 'Did you finish the project we were working on?',
     status: MessageStatus.send,
     sentDate: DateTime(2024, 1, 2, 11, 23),
   ),
   MessageModel(
-    text: "Yes, I just sent you the final version. Check your email.",
+    text: 'Yes, I just sent you the final version. Check your email.',
     status: MessageStatus.receiver,
     sentDate: DateTime(2024, 1, 3, 6, 39),
   ),
@@ -77,17 +77,17 @@ final messages = <MessageModel>[
     sentDate: DateTime(2024, 1, 3, 6, 41),
   ),
   MessageModel(
-    text: "Let me know if you have any feedback or need any changes.",
+    text: 'Let me know if you have any feedback or need any changes.',
     status: MessageStatus.receiver,
     sentDate: DateTime(2024, 1, 3, 6, 49),
   ),
   MessageModel(
-    text: "Sure, will do. By the way, do you have any plans for the weekend?",
+    text: 'Sure, will do. By the way, do you have any plans for the weekend?',
     status: MessageStatus.send,
     sentDate: DateTime(2024, 1, 3, 6, 52),
   ),
   MessageModel(
-    text: "Not yet. I was thinking about going hiking. What about you?",
+    text: 'Not yet. I was thinking about going hiking. What about you?',
     status: MessageStatus.receiver,
     sentDate: DateTime(2024, 1, 4, 8, 17),
   ),
@@ -102,7 +102,7 @@ final messages = <MessageModel>[
     sentDate: DateTime(2024, 1, 4, 8, 29),
   ),
   MessageModel(
-    text: "Awesome! Looking forward to it.",
+    text: 'Awesome! Looking forward to it.',
     status: MessageStatus.send,
     sentDate: DateTime(2024, 1, 5, 4, 1),
   ),

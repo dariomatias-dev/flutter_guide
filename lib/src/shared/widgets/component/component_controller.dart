@@ -18,13 +18,12 @@ class ComponentController {
     _init();
   }
 
-  String filePath = '';
-  late ComponentSummaryModel component;
-  late WidgetCategory? componentCategory;
-
   final BuildContext _context;
   final ComponentType _componentType;
   final String _componentName;
+
+  late ComponentSummaryModel component;
+  late WidgetCategory? componentCategory;
 
   void _init() {
     final ComponentsMapInheritedWidget(
@@ -38,8 +37,5 @@ class ComponentController {
     componentCategory = _componentType == ComponentType.widget
         ? (component as WidgetSummaryModel).category
         : null;
-
-    filePath =
-        'lib/src/shared/widgets/component/samples/${_componentType == ComponentType.widget ? 'widgets' : 'packages'}/${_componentName.toLowerCase()}_sample.dart';
   }
 }

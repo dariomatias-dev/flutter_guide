@@ -99,7 +99,7 @@ class _FilterChipSampleState extends State<FilterChipSample> {
                       TextSpan(
                         text: _selectedProgrammingLanguages.reduce(
                           (value, element) {
-                            return "$element, $value";
+                            return '$element, $value';
                           },
                         ),
                       ),

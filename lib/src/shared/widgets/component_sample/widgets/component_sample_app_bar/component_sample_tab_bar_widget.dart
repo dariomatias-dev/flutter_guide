@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ComponentSampleTabBarWidget extends StatelessWidget implements PreferredSizeWidget {
+class ComponentSampleTabBarWidget extends StatelessWidget
+    implements PreferredSizeWidget {
   const ComponentSampleTabBarWidget({
     super.key,
     required this.currentTabIndexNotifier,
@@ -9,7 +10,9 @@ class ComponentSampleTabBarWidget extends StatelessWidget implements PreferredSi
   final ValueNotifier<int> currentTabIndexNotifier;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(
+        kToolbarHeight,
+      );
 
   @override
   Widget build(BuildContext context) {

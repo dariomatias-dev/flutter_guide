@@ -21,9 +21,9 @@ class SaveButtonController {
   final FavoriteNotifier _favoriteNotifier;
   final FavoritesService _favoritesService;
 
-  late bool saved;
-
   bool hasUpdatedButton = false;
+
+  late bool saved;
 
   void _init(
     BuildContext context,
