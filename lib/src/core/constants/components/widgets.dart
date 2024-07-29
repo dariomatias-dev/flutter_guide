@@ -98,6 +98,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/space
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/stack_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switch_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/switchlisttile_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/tabbar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/text_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textfield_sample.dart';
@@ -690,6 +691,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.switchListTileMaterial,
     icon: Icons.toggle_on,
     sample: SwitchListTileSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.tabBarSampleMaterial,
+    icon: Icons.view_module,
+    videoId: 'POtoEH-5l40',
+    sample: TabBarSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
