@@ -13,6 +13,7 @@ class FavoritesService {
   }) : _sharedPreferences = sharedPreferences {
     _componentTypeName =
         componentType == ComponentType.widget ? 'Widget' : 'Package';
+
     valueKey = 'saved_${_componentTypeName.toLowerCase()}s';
 
     getWidgets();
@@ -32,7 +33,9 @@ class FavoritesService {
   }
 
   bool contains(String componentName) {
-    return savedComponents.contains(componentName);
+    return savedComponents.contains(
+      componentName,
+    );
   }
 
   bool toggleWidgetState(
@@ -45,11 +48,13 @@ class FavoritesService {
       _saveComponent(
         componentName,
       );
+
       saved = true;
     } else {
       _removeComponent(
         componentName,
       );
+
       saved = false;
     }
 
@@ -70,7 +75,9 @@ class FavoritesService {
   ) {
     _snackBarMessage = '$_componentTypeName saved';
 
-    savedComponents.add(componentName);
+    savedComponents.add(
+      componentName,
+    );
   }
 
   void _removeComponent(
@@ -81,7 +88,9 @@ class FavoritesService {
     final items = <String>[];
     for (String savedWidget in savedComponents) {
       if (savedWidget != componentName) {
-        items.add(savedWidget);
+        items.add(
+          savedWidget,
+        );
       }
     }
 

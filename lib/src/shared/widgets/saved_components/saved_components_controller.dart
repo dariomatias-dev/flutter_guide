@@ -38,11 +38,11 @@ class SavedComponentsController {
 
     final UserPreferencesInheritedWidget(
       :getFavoriteNotifier,
-      :getFavoritesService
+      :getFavoriteService
     ) = UserPreferencesInheritedWidget.of(context)!;
 
     favoriteNotifier = getFavoriteNotifier(componentType);
-    _favoritesService = getFavoritesService(componentType);
+    _favoritesService = getFavoriteService(componentType);
 
     _groupOfComponents =
         componentType == ComponentType.widget ? widgets : packages;

@@ -32,11 +32,11 @@ class FavoritePopupMenuItemController {
   ) {
     final UserPreferencesInheritedWidget(
       :getFavoriteNotifier,
-      :getFavoritesService
+      :getFavoriteService
     ) = UserPreferencesInheritedWidget.of(context)!;
 
     favoriteNotifier = getFavoriteNotifier(componentType);
-    favoritesService = getFavoritesService(componentType);
+    favoritesService = getFavoriteService(componentType);
 
     saved = favoritesService.contains(componentName);
   }

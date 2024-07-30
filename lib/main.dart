@@ -21,7 +21,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
 
-  await dotenv.load(fileName: '.env');
+  await dotenv.load(
+    fileName: '.env',
+  );
 
   // Version
   final packageInfo = await PackageInfo.fromPlatform();
@@ -37,6 +39,7 @@ Future<void> main() async {
   // Notifiers
   final favoriteWidgetNotifier = FavoriteWidgetNotifier('');
   final favoritePackageNotifier = FavoritePackageNotifier('');
+
   FavoriteNotifier getFavoriteNotifier(
     ComponentType componentType,
   ) {
@@ -52,7 +55,8 @@ Future<void> main() async {
   final favoriteWidgetsService = FavoriteWidgetsService(
     sharedPreferences: sharedPreferences,
   );
-  FavoritesService getFavoritesService(
+
+  FavoritesService getFavoriteService(
     ComponentType componentType,
   ) {
     return componentType == ComponentType.widget
@@ -71,7 +75,7 @@ Future<void> main() async {
       getFavoriteNotifier: getFavoriteNotifier,
       favoriteWidgetsService: favoriteWidgetsService,
       favoritePackagesService: favoritePackagesService,
-      getFavoritesService: getFavoritesService,
+      getFavoriteService: getFavoriteService,
       sharedPreferences: sharedPreferences,
       child: ComponentsMapInheritedWidget(
         widgetsMap: widgetInfos.samples,

@@ -19,7 +19,7 @@ class UserPreferencesInheritedWidget extends InheritedWidget {
     required this.getFavoriteNotifier,
     required this.favoriteWidgetsService,
     required this.favoritePackagesService,
-    required this.getFavoritesService,
+    required this.getFavoriteService,
     required super.child,
   });
 
@@ -38,7 +38,7 @@ class UserPreferencesInheritedWidget extends InheritedWidget {
   final FavoritePackagesService favoritePackagesService;
   final FavoritesService Function(
     ComponentType componentType,
-  ) getFavoritesService;
+  ) getFavoriteService;
 
   static UserPreferencesInheritedWidget? of(BuildContext context) {
     return context

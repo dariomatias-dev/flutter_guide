@@ -10,6 +10,7 @@ class FavoriteNotifier extends ValueNotifier<String> {
 
   void setValue(String value) {
     super.value = value;
+
     notifyListeners();
   }
 }
