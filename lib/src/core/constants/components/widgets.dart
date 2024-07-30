@@ -59,6 +59,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/fille
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/filterchip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/floatingactionbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/futurebuilder_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/gesturedetector_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/gridview_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/iconbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/ignorepointer_sample.dart';
@@ -429,6 +430,13 @@ const widgets = <WidgetModel>[
     icon: Icons.hourglass_empty,
     videoId: 'zEdw_1B7JHY',
     sample: FutureBuilderSample(),
+    category: WidgetCategory.widgets,
+  ),
+  WidgetModel(
+    name: WidgetNames.gestureDetectorWidget,
+    icon: Icons.gesture,
+    videoId: 'WhVXkCFPmK4',
+    sample: GestureDetectorSample(),
     category: WidgetCategory.widgets,
   ),
   WidgetModel(

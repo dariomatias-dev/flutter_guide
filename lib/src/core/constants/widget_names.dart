@@ -51,6 +51,7 @@ class WidgetNames {
   static const filterChipMaterial = 'FilterChip';
   static const floatingActionButtonMaterial = 'FloatingActionButton';
   static const futureBuilderWidget = 'FutureBuilder';
+  static const gestureDetectorWidget = 'GestureDetector';
   static const gridViewWidget = 'GridView';
   static const iconButtonMaterial = 'IconButton';
   static const ignorePointerWidget = 'IgnorePointer';
