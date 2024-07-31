@@ -22,16 +22,18 @@ class ComponentGroupWidget extends StatefulWidget {
 }
 
 class _ComponentGroupWidgetState extends State<ComponentGroupWidget> {
+  bool isExpanded = false;
+
   late ComponentGroupController _controller;
 
   @override
   void didChangeDependencies() {
-    _controller = ComponentGroupController(context: context);
+    _controller = ComponentGroupController(
+      context: context,
+    );
 
     super.didChangeDependencies();
   }
-
-  bool isExpanded = false;
 
   @override
   Widget build(BuildContext context) {

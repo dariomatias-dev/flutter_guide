@@ -4,18 +4,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ThemeController extends ValueNotifier {
   ThemeController({
     this.themeMode = ThemeMode.system,
-  }) : super(themeMode);
+    required SharedPreferences sharedPreferences,
+  }) : super(themeMode) {
+    initialize(sharedPreferences);
+  }
 
   ThemeMode themeMode;
 
-  late SharedPreferences sharedPreferences;
+  late SharedPreferences _sharedPreferences;
 
-  ThemeController initialize(
+  void initialize(
     SharedPreferences sharedPreferencesInstance,
   ) {
-    sharedPreferences = sharedPreferencesInstance;
+    _sharedPreferences = sharedPreferencesInstance;
 
-    final theme = sharedPreferences.getString('theme');
+    final theme = _sharedPreferences.getString('theme');
 
     if (theme == ThemeMode.light.name) {
       themeMode = ThemeMode.light;
@@ -24,10 +27,6 @@ class ThemeController extends ValueNotifier {
     }
 
     notifyListeners();
-
-    return ThemeController(
-      themeMode: themeMode,
-    );
   }
 
   void setTheme(ThemeMode value) {
@@ -51,7 +50,7 @@ class ThemeController extends ValueNotifier {
   }
 
   void _saveTheme() async {
-    await sharedPreferences.setString(
+    await _sharedPreferences.setString(
       'theme',
       themeMode.name,
     );

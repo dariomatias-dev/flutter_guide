@@ -25,15 +25,14 @@ Future<void> main() async {
     fileName: '.env',
   );
 
-  // Version
+  final sharedPreferences = await SharedPreferences.getInstance();
+
+  // Application Version
   final packageInfo = await PackageInfo.fromPlatform();
-  final appVersion = packageInfo.version;
 
   // Theme
-  final themeController = ThemeController();
-  final sharedPreferences = await SharedPreferences.getInstance();
-  themeController.initialize(
-    sharedPreferences,
+  final themeController = ThemeController(
+    sharedPreferences: sharedPreferences,
   );
 
   // Notifiers
@@ -68,7 +67,8 @@ Future<void> main() async {
 
   runApp(
     UserPreferencesInheritedWidget(
-      appVersion: appVersion,
+      appVersion: packageInfo.version,
+      sharedPreferences: sharedPreferences,
       themeController: themeController,
       favoriteWidgetNotifier: favoriteWidgetNotifier,
       favoritePackageNotifier: favoritePackageNotifier,
@@ -76,7 +76,6 @@ Future<void> main() async {
       favoriteWidgetsService: favoriteWidgetsService,
       favoritePackagesService: favoritePackagesService,
       getFavoriteService: getFavoriteService,
-      sharedPreferences: sharedPreferences,
       child: ComponentsMapInheritedWidget(
         widgetsMap: widgetInfos.samples,
         packagesMap: packagesMap(),

@@ -44,13 +44,11 @@ class ComponentsController {
     final userPreferencesInheritedWidget =
         UserPreferencesInheritedWidget.of(context)!;
 
-    favoriteNotifier = componentType == ComponentType.widget
-        ? userPreferencesInheritedWidget.favoriteWidgetNotifier
-        : userPreferencesInheritedWidget.favoritePackageNotifier;
+    favoriteNotifier =
+        userPreferencesInheritedWidget.getFavoriteNotifier(componentType);
 
-    favoritesService = componentType == ComponentType.widget
-        ? userPreferencesInheritedWidget.favoriteWidgetsService
-        : userPreferencesInheritedWidget.favoritePackagesService;
+    favoritesService =
+        userPreferencesInheritedWidget.getFavoriteService(componentType);
 
     initialItemsNotifier.setComponents(
       await loadData(0),
