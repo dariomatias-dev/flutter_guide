@@ -98,6 +98,7 @@ class WidgetNames {
   static const textButtonMaterial = 'TextButton';
   static const textFieldMaterial = 'TextField';
   static const textFormFieldMaterial = 'TextFormField';
+  static const themeMaterial = 'Theme';
   static const toggleButtonsMaterial = 'ToggleButtons';
   static const tooltipMaterial = 'Tooltip';
   static const valueListenableBuilderWidget = 'ValueListenableBuilder';

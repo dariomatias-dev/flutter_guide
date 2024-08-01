@@ -106,6 +106,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textb
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textfield_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/textformfield_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/material_banner_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/theme_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/togglebuttons_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/tooltip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/valuelistenablebuilder_sample.dart';
@@ -738,6 +739,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.textFormFieldMaterial,
     icon: Icons.edit,
     sample: TextFormFieldSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.themeMaterial,
+    icon: Icons.color_lens_outlined,
+    videoId: 'oTvQDJOBXmM',
+    sample: ThemeSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
