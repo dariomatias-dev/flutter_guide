@@ -58,6 +58,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/expan
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/filledbutton_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/filterchip_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/floatingactionbutton_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/flutterlogo_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/futurebuilder_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/gesturedetector_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/widgets/gridview_sample.dart';
@@ -423,6 +424,13 @@ const widgets = <WidgetModel>[
     name: WidgetNames.floatingActionButtonMaterial,
     icon: Icons.add,
     sample: FloatingActionButtonSample(),
+    category: WidgetCategory.material,
+  ),
+  WidgetModel(
+    name: WidgetNames.flutterLogoMaterial,
+    icon: Icons.flutter_dash,
+    videoId: 'aAmP-WcI6dg',
+    sample: FlutterLogoSample(),
     category: WidgetCategory.material,
   ),
   WidgetModel(
