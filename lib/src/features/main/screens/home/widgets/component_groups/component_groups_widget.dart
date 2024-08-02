@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/constants/component_groups.dart';
 
-import 'package:flutter_guide/src/features/home/widgets/component_groups/component_group_widgetcomponent_group/component_group_widget.dart';
+import 'package:flutter_guide/src/features/main/screens/home/widgets/component_groups/component_group_widgetcomponent_group/component_group_widget.dart';
 
 class ComponentGroupsWidget extends StatelessWidget {
   const ComponentGroupsWidget({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/features/settings/widgets/app_info_widget/app_version/app_version_widget.dart';
-import 'package:flutter_guide/src/features/settings/widgets/app_info_widget/source_code_button_widget.dart';
+import 'package:flutter_guide/src/features/main/screens/settings/widgets/app_info_widget/app_version/app_version_widget.dart';
+import 'package:flutter_guide/src/features/main/screens/settings/widgets/app_info_widget/source_code_button_widget.dart';
 
 class AppInfoWidget extends StatelessWidget {
   const AppInfoWidget({super.key});

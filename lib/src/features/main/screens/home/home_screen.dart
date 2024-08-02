@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/interface_type_enum.dart';
 
-import 'package:flutter_guide/src/features/home/widgets/border_list_tile_item_widget.dart';
-import 'package:flutter_guide/src/features/home/widgets/component_groups/component_groups_widget.dart';
-import 'package:flutter_guide/src/features/home/widgets/project_showcase_carousel_widget.dart';
+import 'package:flutter_guide/src/features/main/screens/home/widgets/border_list_tile_item_widget.dart';
+import 'package:flutter_guide/src/features/main/screens/home/widgets/component_groups/component_groups_widget.dart';
+import 'package:flutter_guide/src/features/main/screens/home/widgets/project_showcase_carousel_widget.dart';
 
 import 'package:flutter_guide/src/shared/utils/navigate_to.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/interface_catalog_screen.dart';

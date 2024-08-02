@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/features/settings/settings_controller.dart';
-import 'package:flutter_guide/src/features/settings/widgets/app_info_widget/app_info_widget.dart';
-import 'package:flutter_guide/src/features/settings/widgets/select_language/select_language_widget.dart';
-import 'package:flutter_guide/src/features/settings/widgets/social_networks_widget/social_networks_widget.dart';
+import 'package:flutter_guide/src/features/main/screens/settings/settings_controller.dart';
+import 'package:flutter_guide/src/features/main/screens/settings/widgets/app_info_widget/app_info_widget.dart';
+import 'package:flutter_guide/src/features/main/screens/settings/widgets/select_language/select_language_widget.dart';
+import 'package:flutter_guide/src/features/main/screens/settings/widgets/social_networks_widget/social_networks_widget.dart';
 
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 

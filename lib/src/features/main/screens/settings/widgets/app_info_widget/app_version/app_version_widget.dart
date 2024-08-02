@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/features/settings/widgets/app_info_widget/app_version/app_version_controller.dart';
+import 'package:flutter_guide/src/features/main/screens/settings/widgets/app_info_widget/app_version/app_version_controller.dart';
 
 class AppVersionWidget extends StatefulWidget {
   const AppVersionWidget({super.key});
