@@ -45,7 +45,7 @@ class CodeTabController {
       final codeString = await rootBundle.loadString(filePath);
 
       await Highlighter.initialize(
-        ['dart', 'yaml'],
+        <String>['dart', 'yaml'],
       );
 
       final theme = await (brightness == Brightness.light

@@ -19,7 +19,10 @@ class _DottedBorderSampleState extends State<DottedBorderSample> {
       body: Center(
         child: DottedBorder(
           strokeWidth: _lineWidth,
-          dashPattern: [_lineSize, _spaceBetweenTheLines],
+          dashPattern: <double>[
+            _lineSize,
+            _spaceBetweenTheLines,
+          ],
           child: const SizedBox(
             width: 200.0,
             height: 300.0,

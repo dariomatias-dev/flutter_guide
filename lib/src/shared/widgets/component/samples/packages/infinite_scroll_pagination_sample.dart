@@ -45,6 +45,11 @@ class _InfiniteScrollPaginationSampleState
 
   @override
   void dispose() {
+    _controller.removePageRequestListener(
+      (pageKey) {
+        _fecthNumberOfItems();
+      },
+    );
     _controller.dispose();
 
     super.dispose();

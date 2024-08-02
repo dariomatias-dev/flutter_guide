@@ -12,7 +12,7 @@ class _MaterialBannerSampleState extends State<MaterialBannerSample> {
     ScaffoldMessenger.of(context).showMaterialBanner(
       MaterialBanner(
         content: const Text('Message'),
-        actions: [
+        actions: <TextButton>[
           TextButton(
             onPressed: () {
               ScaffoldMessenger.of(context).clearMaterialBanners();

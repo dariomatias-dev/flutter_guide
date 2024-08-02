@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
+import 'package:flutter_guide/src/shared/utils/open_url.dart';
 import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
 
 class DonateDialogWidget extends StatelessWidget {
@@ -43,7 +43,7 @@ class DonateDialogWidget extends StatelessWidget {
           },
         ),
       ],
-      children: [],
+      children: <Widget>[],
     );
   }
 }

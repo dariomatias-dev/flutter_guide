@@ -85,7 +85,7 @@ class _UuidSampleState extends State<UuidSample> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Text(_uuid),
             const SizedBox(height: 12.0),
             DropdownButtonHideUnderline(

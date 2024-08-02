@@ -16,12 +16,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final _controller = MainController();
 
-  void updateScreenIndex(int value) {
-    setState(() {
-      _controller.screenIndex = value;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

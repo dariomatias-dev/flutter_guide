@@ -7,14 +7,14 @@ enum FloatingActionButtonType {
   standard,
 }
 
-const floatingActionButtonTypes = [
+const floatingActionButtonTypes = <FloatingActionButtonType>[
   FloatingActionButtonType.standard,
   FloatingActionButtonType.extended,
   FloatingActionButtonType.large,
   FloatingActionButtonType.small,
 ];
 
-const screenNames = [
+const screenNames = <String>[
   'Standard',
   'Extended',
   'Large',

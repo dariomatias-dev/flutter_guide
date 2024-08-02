@@ -34,7 +34,7 @@ class _SalomonBottomBarSampleState extends State<SalomonBottomBarSample> {
       bottomNavigationBar: SalomonBottomBar(
         currentIndex: _screenIndex,
         onTap: _updateScreenIndex,
-        items: [
+        items: <SalomonBottomBarItem>[
           SalomonBottomBarItem(
             icon: const Icon(Icons.home),
             title: const Text('Home'),

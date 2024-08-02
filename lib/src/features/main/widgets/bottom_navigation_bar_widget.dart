@@ -2,6 +2,19 @@ import 'package:flutter/material.dart';
 
 import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
+const _icons = <IconData>[
+  Icons.home_outlined,
+  Icons.widgets_outlined,
+  Icons.archive_outlined,
+  Icons.settings_outlined,
+];
+const _names = <String>[
+  'Home',
+  'Widgets',
+  'Packages',
+  'Settings',
+];
+
 class BottomNavigationBarWidget extends StatelessWidget {
   const BottomNavigationBarWidget({
     super.key,
@@ -22,32 +35,16 @@ class BottomNavigationBarWidget extends StatelessWidget {
       onTap: (value) {
         updateScreenIndex(value);
       },
-      items: <SalomonBottomBarItem>[
-        SalomonBottomBarItem(
+      items: List.generate(_names.length, (index) {
+        return SalomonBottomBarItem(
           unselectedColor: Theme.of(context).colorScheme.primary,
-          icon: const Icon(Icons.home_outlined),
-          title: const Text('Home'),
+          icon: Icon(
+            _icons[index],
+          ),
+          title: Text(_names[index]),
           selectedColor: Colors.blue,
-        ),
-        SalomonBottomBarItem(
-          unselectedColor: Theme.of(context).colorScheme.primary,
-          icon: const Icon(Icons.widgets_outlined),
-          title: const Text('Widgets'),
-          selectedColor: Colors.blue,
-        ),
-        SalomonBottomBarItem(
-          unselectedColor: Theme.of(context).colorScheme.primary,
-          icon: const Icon(Icons.archive_outlined),
-          title: const Text('Packages'),
-          selectedColor: Colors.blue,
-        ),
-        SalomonBottomBarItem(
-          unselectedColor: Theme.of(context).colorScheme.primary,
-          icon: const Icon(Icons.settings_outlined),
-          title: const Text('Settings'),
-          selectedColor: Colors.blue,
-        ),
-      ],
+        );
+      }),
     );
   }
 }

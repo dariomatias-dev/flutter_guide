@@ -29,7 +29,7 @@ class FavoritesService {
   String _snackBarMessage = '';
 
   void getWidgets() {
-    savedComponents = _sharedPreferences.getStringList(valueKey) ?? [];
+    savedComponents = _sharedPreferences.getStringList(valueKey) ?? <String>[];
   }
 
   bool contains(String componentName) {

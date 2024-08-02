@@ -22,7 +22,7 @@ class ComponentGroupWidget extends StatefulWidget {
 }
 
 class _ComponentGroupWidgetState extends State<ComponentGroupWidget> {
-  bool isExpanded = false;
+  bool _isExpanded = false;
 
   late ComponentGroupController _controller;
 
@@ -42,21 +42,21 @@ class _ComponentGroupWidgetState extends State<ComponentGroupWidget> {
         ListTileItemWidget(
           onTap: () {
             setState(() {
-              isExpanded = !isExpanded;
+              _isExpanded = !_isExpanded;
             });
           },
           title: widget.componentGroup.title,
           icon: widget.componentGroup.icon,
           trailingWidgets: <Widget>[
             Icon(
-              isExpanded
+              _isExpanded
                   ? Icons.keyboard_arrow_down_rounded
                   : Icons.keyboard_arrow_right_rounded,
               size: 20.0,
             ),
           ],
         ),
-        if (isExpanded)
+        if (_isExpanded)
           Column(
             children: List.generate(
               widget.componentGroup.components.length,

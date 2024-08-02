@@ -94,7 +94,7 @@ class _InputChipSampleState extends State<InputChipSample> {
             Wrap(
               direction: Axis.horizontal,
               spacing: 6.0,
-              children: [
+              children: <ElevatedButton>[
                 ElevatedButton(
                   onPressed: _inputs.length < 10 ? _addInput : null,
                   child: const Text('Add'),

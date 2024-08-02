@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:msh_checkbox/msh_checkbox.dart';
 
-const mshCheckboxStyles = [
+const mshCheckboxStyles = <MSHCheckboxStyle>[
   MSHCheckboxStyle.stroke,
   MSHCheckboxStyle.fillFade,
   MSHCheckboxStyle.fillScaleCheck,

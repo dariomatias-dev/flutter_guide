@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-const actions = [
+const actions = <SlidableActionTemplate>[
   SlidableActionTemplate(
     backgroundColor: Colors.blue,
     icon: Icons.edit,
