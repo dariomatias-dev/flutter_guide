@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class CupertinoAlertDialogSample extends StatelessWidget {
   const CupertinoAlertDialogSample({super.key});
@@ -33,9 +32,9 @@ class CupertinoAlertDialogSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
+    return CupertinoPageScaffold(
+      child: Center(
+        child: CupertinoButton(
           onPressed: () => _showAlertDialog(context),
           child: const Text('Alert Dialog'),
         ),

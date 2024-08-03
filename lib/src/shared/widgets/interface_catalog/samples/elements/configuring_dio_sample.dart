@@ -100,8 +100,6 @@ class ConfiguringDioSample extends StatefulWidget {
 }
 
 class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
-  ResourceType _resourceType = ResourceType.users;
-
   final _resourceTypes = <ResourceType>[
     ResourceType.users,
     ResourceType.comments,
@@ -109,6 +107,8 @@ class _ConfiguringDioSampleState extends State<ConfiguringDioSample> {
   ];
 
   final _client = DioClient().client;
+
+  ResourceType _resourceType = ResourceType.users;
 
   Widget getUserListTile(dynamic value) {
     final user = UserModel.fromJson(value);

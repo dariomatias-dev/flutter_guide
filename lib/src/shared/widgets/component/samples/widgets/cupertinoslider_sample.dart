@@ -6,8 +6,8 @@ class CupertinoSliderSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ScrollConfiguration(
+    return CupertinoPageScaffold(
+      child: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(
           scrollbars: false,
         ),

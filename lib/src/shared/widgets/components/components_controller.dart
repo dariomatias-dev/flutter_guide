@@ -70,7 +70,7 @@ class ComponentsController {
     if (value.trim().isNotEmpty) {
       final items = <ComponentModel>[];
 
-      for (ComponentModel widget in _standardComponents) {
+      for (var widget in _standardComponents) {
         if (widget.name.toLowerCase().contains(
               value.toLowerCase(),
             )) {

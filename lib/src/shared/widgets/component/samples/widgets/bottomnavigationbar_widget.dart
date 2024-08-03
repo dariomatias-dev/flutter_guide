@@ -9,12 +9,13 @@ class BottomNavigationBarSample extends StatefulWidget {
 }
 
 class _BottomNavigationBarSampleState extends State<BottomNavigationBarSample> {
-  int _selectedOption = 0;
   final _options = <String>[
     'Home',
     'Profile',
     'Settings',
   ];
+
+  int _selectedOption = 0;
 
   void _updateSelectedOption(int value) {
     setState(() {

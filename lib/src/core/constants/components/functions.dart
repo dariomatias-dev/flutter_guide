@@ -31,7 +31,7 @@ FunctionInfosModel getFunctionInfos() {
   final functionNames = <String>[];
   Map<String, FunctionSummaryModel> samples = {};
   
-  for (FunctionModel function in functions) {
+  for (var function in functions) {
     functionNames.add(function.name);
 
     samples[function.name] = FunctionSummaryModel(

@@ -86,7 +86,7 @@ class FavoritesService {
     _snackBarMessage = '$_componentTypeName removed';
 
     final items = <String>[];
-    for (String savedWidget in savedComponents) {
+    for (var savedWidget in savedComponents) {
       if (savedWidget != componentName) {
         items.add(
           savedWidget,

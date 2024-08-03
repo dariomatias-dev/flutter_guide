@@ -148,12 +148,12 @@ class EmailsScreen extends StatefulWidget {
 }
 
 class _EmailsScreenState extends State<EmailsScreen> {
-  Screen screen = Screen.main;
-  late bool _isLigth;
-
-  late List<EmailModel> _screenEmails;
-
   final _emailsNotifier = EmailsNotifier([]);
+
+  Screen screen = Screen.main;
+
+  late bool _isLigth;
+  late List<EmailModel> _screenEmails;
 
   void _showEmails() {
     screen = Screen.main;
@@ -165,7 +165,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
     screen = Screen.withStar;
 
     final starredEmails = <EmailModel>[];
-    for (EmailModel email in _screenEmails) {
+    for (var email in _screenEmails) {
       if (email.withStar) {
         starredEmails.add(email);
       }
@@ -184,7 +184,9 @@ class _EmailsScreenState extends State<EmailsScreen> {
     _screenEmails.removeWhere((email) {
       return email.id == emailId;
     });
-    _emailsNotifier.setEmails(_screenEmails);
+    _emailsNotifier.setEmails(
+      _screenEmails,
+    );
   }
 
   void _setScreenEmails(
@@ -198,7 +200,10 @@ class _EmailsScreenState extends State<EmailsScreen> {
     String query,
   ) {
     if (query.trim() == '') {
-      _emailsNotifier.setEmails(_screenEmails);
+      _emailsNotifier.setEmails(
+        _screenEmails,
+      );
+
       return;
     }
 
@@ -206,7 +211,7 @@ class _EmailsScreenState extends State<EmailsScreen> {
 
     final results = <EmailModel>[];
 
-    for (EmailModel email in _screenEmails) {
+    for (var email in _screenEmails) {
       if (email.sender.toLowerCase().contains(query) ||
           email.subject.toLowerCase().contains(query) ||
           email.body.toLowerCase().contains(query)) {
@@ -220,7 +225,9 @@ class _EmailsScreenState extends State<EmailsScreen> {
   @override
   void initState() {
     _screenEmails = emails;
-    _emailsNotifier.setEmails(_screenEmails);
+    _emailsNotifier.setEmails(
+      _screenEmails,
+    );
 
     super.initState();
   }
@@ -488,6 +495,16 @@ class ComposeEmailFloatingActionButtonWidget extends StatefulWidget {
 
 class _ComposeEmailFloatingActionButtonWidgetState
     extends State<ComposeEmailFloatingActionButtonWidget> {
+  TextStyle get _defaultTitleFieldTextStyle => TextStyle(
+        color: Theme.of(context).colorScheme.secondary,
+        fontSize: 14.0,
+        fontWeight: FontWeight.w500,
+      );
+
+  EdgeInsets get _defaultPadding => const EdgeInsets.symmetric(
+        horizontal: 12.0,
+      );
+
   InputDecoration _defaultInputDecoration({
     String? hinText,
   }) {
@@ -499,16 +516,6 @@ class _ComposeEmailFloatingActionButtonWidgetState
       hintStyle: _defaultTitleFieldTextStyle,
     );
   }
-
-  TextStyle get _defaultTitleFieldTextStyle => TextStyle(
-        color: Theme.of(context).colorScheme.secondary,
-        fontSize: 14.0,
-        fontWeight: FontWeight.w500,
-      );
-
-  EdgeInsets get _defaultPadding => const EdgeInsets.symmetric(
-        horizontal: 12.0,
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -875,11 +882,9 @@ class _EmailWidgetState extends State<EmailWidget> {
       emailDate,
     );
 
-    if (elapsedTime.inDays == 0) {
-      date = '${emailDate.hour}:${emailDate.minute}';
-    } else {
-      date = '${months[emailDate.month - 1]} ${emailDate.day}';
-    }
+    date = elapsedTime.inDays == 0
+        ? '${emailDate.hour}:${emailDate.minute}'
+        : '${months[emailDate.month - 1]} ${emailDate.day}';
 
     super.initState();
   }
@@ -1018,6 +1023,7 @@ class _SaveEmailButtonWidgetState extends State<SaveEmailButtonWidget> {
     return GestureDetector(
       onTap: () {
         _isStarred = !_isStarred;
+
         widget.email.toggleWithStar();
         widget.updateScreen();
 
@@ -1052,7 +1058,9 @@ class ModalBottomSheetWidget extends StatefulWidget {
 
 class _ModalBottomSheetWidgetState extends State<ModalBottomSheetWidget> {
   void _removeEmail() {
-    widget.removeEmail(widget.emailId);
+    widget.removeEmail(
+      widget.emailId,
+    );
 
     Navigator.pop(context);
   }

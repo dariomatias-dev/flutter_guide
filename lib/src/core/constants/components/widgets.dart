@@ -788,7 +788,7 @@ WidgetInfosModel getWidgetInfos() {
   final widgetNames = <String>[];
   Map<String, WidgetSummaryModel> samples = {};
 
-  for (WidgetModel widget in widgets) {
+  for (var widget in widgets) {
     widgetNames.add(
       widget.name,
     );
