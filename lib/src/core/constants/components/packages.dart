@@ -9,6 +9,7 @@ import 'package:flutter_guide/src/shared/models/component_summary_mode/component
 // Samples
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/awesome_snackbar_content_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/battery_plus_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/packages/bottom_navy_bar_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/carousel_slider_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/circular_countdown_timer_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/device_info_plus_sample.dart';
@@ -47,6 +48,11 @@ const packages = <PackageModel>[
     name: PackageNames.batteryPlusPackage,
     icon: Icons.battery_std_rounded,
     sample: BatteryPlusSample(),
+  ),
+  PackageModel(
+    name: PackageNames.bottomNavyBarPackage,
+    icon: Icons.view_carousel,
+    sample: BottomNavyBarSample(),
   ),
   PackageModel(
     name: PackageNames.carouselSliderPackage,
@@ -194,7 +200,7 @@ const packages = <PackageModel>[
 
 Map<String, PackageSummaryModel> packagesMap() {
   Map<String, PackageSummaryModel> samples = {};
-  
+
   for (var package in packages) {
     samples[package.name] = PackageSummaryModel(
       name: package.name,
