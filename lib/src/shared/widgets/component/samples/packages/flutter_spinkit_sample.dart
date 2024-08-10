@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-const loaders = <Widget>[
+const _loaders = <Widget>[
   SpinKitRotatingPlain(
     color: Colors.blue,
   ),
@@ -110,9 +110,9 @@ class FlutterSpinkitSample extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: crossAxisCount,
           ),
-          itemCount: loaders.length,
+          itemCount: _loaders.length,
           itemBuilder: (context, index) {
-            return loaders[index];
+            return _loaders[index];
           },
         ),
       ),

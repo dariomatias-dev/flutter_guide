@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
-class UuidVersionModel {
-  const UuidVersionModel({
+class _UuidVersionModel {
+  const _UuidVersionModel({
     required this.version,
     required this.generator,
   });
@@ -11,46 +11,46 @@ class UuidVersionModel {
   final String Function() generator;
 }
 
-const uuid = Uuid();
+const _uuid = Uuid();
 
-final uuidVersions = <UuidVersionModel>[
-  UuidVersionModel(
+final uuidVersions = <_UuidVersionModel>[
+  _UuidVersionModel(
     version: 1,
     generator: () {
-      return uuid.v1();
+      return _uuid.v1();
     },
   ),
-  UuidVersionModel(
+  _UuidVersionModel(
     version: 4,
     generator: () {
-      return uuid.v4();
+      return _uuid.v4();
     },
   ),
-  UuidVersionModel(
+  _UuidVersionModel(
     version: 5,
     generator: () {
-      return uuid.v5(
+      return _uuid.v5(
         Uuid.NAMESPACE_URL,
         'https://flutter.dev',
       );
     },
   ),
-  UuidVersionModel(
+  _UuidVersionModel(
     version: 6,
     generator: () {
-      return uuid.v6();
+      return _uuid.v6();
     },
   ),
-  UuidVersionModel(
+  _UuidVersionModel(
     version: 7,
     generator: () {
-      return uuid.v7();
+      return _uuid.v7();
     },
   ),
-  UuidVersionModel(
+  _UuidVersionModel(
     version: 8,
     generator: () {
-      return uuid.v8();
+      return _uuid.v8();
     },
   ),
 ];

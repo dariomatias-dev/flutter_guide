@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:side_sheet/side_sheet.dart';
 
-enum Direction {
+enum _Direction {
   left,
   ritght,
 }
@@ -15,9 +15,9 @@ class SideSheetSample extends StatefulWidget {
 
 class _SideSheetSampleState extends State<SideSheetSample> {
   void _openSideSheet(
-    Direction direction,
+    _Direction direction,
   ) {
-    direction == Direction.left
+    direction == _Direction.left
         ? SideSheet.left(
             context: context,
             body: const Center(
@@ -42,7 +42,7 @@ class _SideSheetSampleState extends State<SideSheetSample> {
             ElevatedButton(
               onPressed: () {
                 _openSideSheet(
-                  Direction.left,
+                  _Direction.left,
                 );
               },
               child: const Text(
@@ -53,7 +53,7 @@ class _SideSheetSampleState extends State<SideSheetSample> {
             ElevatedButton(
               onPressed: () {
                 _openSideSheet(
-                  Direction.ritght,
+                  _Direction.ritght,
                 );
               },
               child: const Text(

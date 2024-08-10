@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-final pages = List.generate(10, (index) {
+final _pages = List.generate(10, (index) {
   return Container(
     height: 200.0,
     margin: const EdgeInsets.symmetric(
@@ -23,8 +23,8 @@ final pages = List.generate(10, (index) {
   );
 });
 
-class IndicatorEffectModel {
-  const IndicatorEffectModel({
+class _IndicatorEffectModel {
+  const _IndicatorEffectModel({
     required this.title,
     required this.effect,
   });
@@ -33,152 +33,152 @@ class IndicatorEffectModel {
   final IndicatorEffect effect;
 }
 
-final dotColor = Colors.grey.shade300;
-final activeDotColor = Colors.blue.shade400;
-const dotHeight = 12.0;
-const dotWidth = 12.0;
+final _dotColor = Colors.grey.shade300;
+final _activeDotColor = Colors.blue.shade400;
+const _dotHeight = 12.0;
+const _dotWidth = 12.0;
 
-final smoothPageIndicators = <IndicatorEffectModel>[
-  IndicatorEffectModel(
+final _smoothPageIndicators = <_IndicatorEffectModel>[
+  _IndicatorEffectModel(
     title: 'Worm',
     effect: WormEffect(
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Worm style = WormStyle.thin',
     effect: WormEffect(
       type: WormType.thin,
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Worm style = WormStyle.underground',
     effect: WormEffect(
       type: WormType.thinUnderground,
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Worm style = WormStyle.thinUnderground',
     effect: WormEffect(
       type: WormType.underground,
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Expanding Dots',
     effect: ExpandingDotsEffect(
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Jumping dot',
     effect: JumpingDotEffect(
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Jumping dot with vertical offset',
     effect: JumpingDotEffect(
       verticalOffset: 5.0,
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Scrolling Dots',
     effect: ScrollingDotsEffect(
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Slide',
     effect: SlideEffect(
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Slide style = SlideStyle.slideUnder',
     effect: SlideEffect(
       type: SlideType.slideUnder,
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Scale',
     effect: ScaleEffect(
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Swap',
     effect: SwapEffect(
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Swap type = SwapType.yRotation',
     effect: SwapEffect(
       type: SwapType.yRotation,
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Swap type = SwapType.zRotation',
     effect: SwapEffect(
       type: SwapType.zRotation,
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
-  IndicatorEffectModel(
+  _IndicatorEffectModel(
     title: 'Color Transition',
     effect: ColorTransitionEffect(
-      dotColor: dotColor,
-      activeDotColor: Colors.blue.shade400,
-      dotHeight: dotHeight,
-      dotWidth: dotWidth,
+      dotColor: _dotColor,
+      activeDotColor: _activeDotColor,
+      dotHeight: _dotHeight,
+      dotWidth: _dotWidth,
     ),
   ),
 ];
@@ -218,9 +218,9 @@ class _SmoothPageIndicatorSampleState extends State<SmoothPageIndicatorSample> {
               height: 200.0,
               child: PageView.builder(
                 controller: _pageViewController,
-                itemCount: pages.length,
+                itemCount: _pages.length,
                 itemBuilder: (context, index) {
-                  return pages[index];
+                  return _pages[index];
                 },
               ),
             ),
@@ -230,13 +230,13 @@ class _SmoothPageIndicatorSampleState extends State<SmoothPageIndicatorSample> {
                   scrollbars: false,
                 ),
                 child: ListView.builder(
-                  itemCount: smoothPageIndicators.length,
+                  itemCount: _smoothPageIndicators.length,
                   padding: const EdgeInsets.only(
                     top: 20.0,
                     bottom: 20.0,
                   ),
                   itemBuilder: (context, index) {
-                    final smoothPageIndicator = smoothPageIndicators[index];
+                    final smoothPageIndicator = _smoothPageIndicators[index];
 
                     return Column(
                       children: <Widget>[
@@ -246,7 +246,7 @@ class _SmoothPageIndicatorSampleState extends State<SmoothPageIndicatorSample> {
                         const SizedBox(height: 6.0),
                         SmoothPageIndicator(
                           controller: _pageViewController,
-                          count: pages.length,
+                          count: _pages.length,
                           effect: smoothPageIndicator.effect,
                         ),
                         const SizedBox(height: 16.0),

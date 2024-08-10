@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:msh_checkbox/msh_checkbox.dart';
 
-const mshCheckboxStyles = <MSHCheckboxStyle>[
+const _mshCheckboxStyles = <MSHCheckboxStyle>[
   MSHCheckboxStyle.stroke,
   MSHCheckboxStyle.fillFade,
   MSHCheckboxStyle.fillScaleCheck,
@@ -18,9 +18,9 @@ class MshCheckboxSample extends StatelessWidget {
         child: Wrap(
           direction: Axis.vertical,
           spacing: 12.0,
-          children: List.generate(mshCheckboxStyles.length, (index) {
+          children: List.generate(_mshCheckboxStyles.length, (index) {
             return MshCheckboxItemSample(
-              style: mshCheckboxStyles[index],
+              style: _mshCheckboxStyles[index],
             );
           }),
         ),

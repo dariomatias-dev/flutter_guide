@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const icons = <IconData>[
+const _icons = <IconData>[
   FontAwesomeIcons.camera,
   FontAwesomeIcons.user,
   FontAwesomeIcons.star,
@@ -20,9 +20,9 @@ class FontAwesomeFlutterSample extends StatelessWidget {
           spacing: 20.0,
           direction: Axis.vertical,
           crossAxisAlignment: WrapCrossAlignment.center,
-          children: List.generate(icons.length, (index) {
+          children: List.generate(_icons.length, (index) {
             return FaIcon(
-              icons[index],
+              _icons[index],
             );
           }),
         ),

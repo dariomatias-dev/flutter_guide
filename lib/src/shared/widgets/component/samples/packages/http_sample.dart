@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 
-class UserModel {
-  const UserModel({
+class _UserModel {
+  const _UserModel({
     required this.firstName,
     required this.lastName,
     required this.email,
@@ -15,10 +15,10 @@ class UserModel {
   final String lastName;
   final String email;
 
-  factory UserModel.fromMap(
+  factory _UserModel.fromMap(
     Map<String, dynamic> json,
   ) {
-    return UserModel(
+    return _UserModel(
       firstName: json['firstname'],
       lastName: json['lastname'],
       email: json['email'],
@@ -36,7 +36,7 @@ class HttpSample extends StatefulWidget {
 class _HttpSampleState extends State<HttpSample> {
   final _logger = Logger();
 
-  Future<List<UserModel>?> _getUsers() async {
+  Future<List<_UserModel>?> _getUsers() async {
     try {
       final url = Uri.parse(
         'https://jsonplaceholder.org/users',
@@ -47,10 +47,10 @@ class _HttpSampleState extends State<HttpSample> {
         response.body,
       ) as List;
 
-      final users = <UserModel>[];
+      final users = <_UserModel>[];
       for (var result in results) {
         users.add(
-          UserModel.fromMap(result),
+          _UserModel.fromMap(result),
         );
       }
 

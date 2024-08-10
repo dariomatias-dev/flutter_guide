@@ -1,43 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 
-const antDesignIcons = <IconData>[
+const _antDesignIcons = <IconData>[
   AntDesign.gitlab_fill,
   AntDesign.sketch_outline,
   AntDesign.alibaba_outline,
 ];
 
-const bootstrapIcons = <IconData>[
+const _bootstrapIcons = <IconData>[
   Bootstrap.google,
   Bootstrap.bootstrap,
   Bootstrap.github,
 ];
 
-const boxIcons = <IconData>[
+const _boxIcons = <IconData>[
   BoxIcons.bxl_apple,
   BoxIcons.bx_git_branch,
   BoxIcons.bxs_cookie,
 ];
 
-const brandIcons = <String>[
+const _brandIcons = <String>[
   Brands.icons8,
   Brands.the_big_bang_theory,
   Brands.android_studio,
 ];
 
-const clarityIcons = <IconData>[
+const _clarityIcons = <IconData>[
   Clarity.map_outline_badged,
   Clarity.application_solid,
   Clarity.camera_line,
 ];
 
-const evaIcons = <IconData>[
+const _evaIcons = <IconData>[
   EvaIcons.clipboard,
   EvaIcons.flash,
   EvaIcons.clipboard_outline,
 ];
 
-const flagIcons = <String>[
+const _flagIcons = <String>[
   Flags.india,
   Flags.united_kingdom,
   Flags.united_states_of_america,
@@ -62,9 +62,9 @@ class IconsPlusSample extends StatelessWidget {
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(antDesignIcons.length, (index) {
+                  children: List.generate(_antDesignIcons.length, (index) {
                     return Icon(
-                      antDesignIcons[index],
+                      _antDesignIcons[index],
                       size: 32.0,
                     );
                   }),
@@ -72,9 +72,9 @@ class IconsPlusSample extends StatelessWidget {
                 const SizedBox(height: 40.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(bootstrapIcons.length, (index) {
+                  children: List.generate(_bootstrapIcons.length, (index) {
                     return Icon(
-                      bootstrapIcons[index],
+                      _bootstrapIcons[index],
                       size: 26.0,
                     );
                   }),
@@ -82,9 +82,9 @@ class IconsPlusSample extends StatelessWidget {
                 const SizedBox(height: 40.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(boxIcons.length, (index) {
+                  children: List.generate(_boxIcons.length, (index) {
                     return Icon(
-                      boxIcons[index],
+                      _boxIcons[index],
                       size: 26.0,
                     );
                   }),
@@ -92,9 +92,9 @@ class IconsPlusSample extends StatelessWidget {
                 const SizedBox(height: 40.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(brandIcons.length, (index) {
+                  children: List.generate(_brandIcons.length, (index) {
                     return Brand(
-                      brandIcons[index],
+                      _brandIcons[index],
                       size: 26.0,
                     );
                   }),
@@ -102,9 +102,9 @@ class IconsPlusSample extends StatelessWidget {
                 const SizedBox(height: 40.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(clarityIcons.length, (index) {
+                  children: List.generate(_clarityIcons.length, (index) {
                     return Icon(
-                      clarityIcons[index],
+                      _clarityIcons[index],
                       size: 26.0,
                     );
                   }),
@@ -112,9 +112,9 @@ class IconsPlusSample extends StatelessWidget {
                 const SizedBox(height: 40.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(evaIcons.length, (index) {
+                  children: List.generate(_evaIcons.length, (index) {
                     return Icon(
-                      evaIcons[index],
+                      _evaIcons[index],
                       size: 26.0,
                     );
                   }),
@@ -122,9 +122,9 @@ class IconsPlusSample extends StatelessWidget {
                 const SizedBox(height: 40.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(flagIcons.length, (index) {
+                  children: List.generate(_flagIcons.length, (index) {
                     return Flag(
-                      flagIcons[index],
+                      _flagIcons[index],
                       size: 26.0,
                     );
                   }),

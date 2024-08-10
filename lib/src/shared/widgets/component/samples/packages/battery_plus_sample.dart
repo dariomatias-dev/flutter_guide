@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:battery_plus/battery_plus.dart';
 
-final battery = Battery();
+final _battery = Battery();
 
 class BatteryPlusSample extends StatefulWidget {
   const BatteryPlusSample({super.key});
@@ -16,13 +16,13 @@ class _BatteryPlusSampleState extends State<BatteryPlusSample> {
   BatteryState? _batteryState;
 
   Future<void> getBatteryInfos() async {
-    _batteryLevel = await battery.batteryLevel;
-    _isInBatterySaveMode = await battery.isInBatterySaveMode;
+    _batteryLevel = await _battery.batteryLevel;
+    _isInBatterySaveMode = await _battery.isInBatterySaveMode;
   }
 
   @override
   void initState() {
-    battery.onBatteryStateChanged.listen((BatteryState state) {
+    _battery.onBatteryStateChanged.listen((BatteryState state) {
       setState(() {
         _batteryState = state;
       });

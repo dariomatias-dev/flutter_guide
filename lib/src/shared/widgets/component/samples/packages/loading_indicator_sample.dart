@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
-const indicatorTypes = <Indicator>[
+const _indicatorTypes = <Indicator>[
   Indicator.audioEqualizer,
   Indicator.ballBeat,
   Indicator.ballClipRotate,
@@ -53,13 +53,13 @@ class LoadingIndicatorSample extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: crossAxisCount,
           ),
-          itemCount: indicatorTypes.length,
+          itemCount: _indicatorTypes.length,
           itemBuilder: (context, index) {
             return Center(
               child: SizedBox(
                 height: 48.0,
                 child: LoadingIndicator(
-                  indicatorType: indicatorTypes[index],
+                  indicatorType: _indicatorTypes[index],
                   colors: const <Color>[
                     Colors.blue,
                   ],

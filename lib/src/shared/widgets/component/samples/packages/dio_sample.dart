@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-class UserModel {
-  const UserModel({
+class _UserModel {
+  const _UserModel({
     required this.firstName,
     required this.lastName,
     required this.email,
@@ -13,10 +13,10 @@ class UserModel {
   final String lastName;
   final String email;
 
-  factory UserModel.fromMap(
+  factory _UserModel.fromMap(
     Map<String, dynamic> json,
   ) {
-    return UserModel(
+    return _UserModel(
       firstName: json['firstname'],
       lastName: json['lastname'],
       email: json['email'],
@@ -24,7 +24,7 @@ class UserModel {
   }
 }
 
-const url = 'https://jsonplaceholder.org/users';
+const _url = 'https://jsonplaceholder.org/users';
 
 class DioSample extends StatefulWidget {
   const DioSample({super.key});
@@ -37,16 +37,16 @@ class _DioSampleState extends State<DioSample> {
   final _dio = Dio();
   final _logger = Logger();
 
-  Future<List<UserModel>?> _getUsers() async {
+  Future<List<_UserModel>?> _getUsers() async {
     try {
-      final response = await _dio.get(url);
+      final response = await _dio.get(_url);
 
       final results = response.data as List;
 
-      final users = <UserModel>[];
+      final users = <_UserModel>[];
       for (var result in results) {
         users.add(
-          UserModel.fromMap(result),
+          _UserModel.fromMap(result),
         );
       }
 

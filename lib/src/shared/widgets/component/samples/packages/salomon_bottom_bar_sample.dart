@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
-const screenNames = <String>[
+const _screenNames = <String>[
   'Home',
   'Profile',
   'Settings',
@@ -28,7 +28,7 @@ class _SalomonBottomBarSampleState extends State<SalomonBottomBarSample> {
     return Scaffold(
       body: Center(
         child: Text(
-          screenNames[_screenIndex],
+          _screenNames[_screenIndex],
         ),
       ),
       bottomNavigationBar: SalomonBottomBar(

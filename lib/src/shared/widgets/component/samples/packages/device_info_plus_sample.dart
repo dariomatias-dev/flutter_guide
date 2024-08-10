@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 
-enum Device {
+enum _Device {
   android,
   ios,
   windows,
@@ -9,36 +9,36 @@ enum Device {
   linux,
 }
 
-class DeviceModel {
-  const DeviceModel({
+class _DeviceModel {
+  const _DeviceModel({
     required this.name,
     required this.device,
   });
 
   final String name;
-  final Device device;
+  final _Device device;
 }
 
-const devices = <DeviceModel>[
-  DeviceModel(
+const devices = <_DeviceModel>[
+  _DeviceModel(
     name: 'Android',
-    device: Device.android,
+    device: _Device.android,
   ),
-  DeviceModel(
+  _DeviceModel(
     name: 'iOS',
-    device: Device.ios,
+    device: _Device.ios,
   ),
-  DeviceModel(
+  _DeviceModel(
     name: 'Windows',
-    device: Device.windows,
+    device: _Device.windows,
   ),
-  DeviceModel(
+  _DeviceModel(
     name: 'MacOS',
-    device: Device.macos,
+    device: _Device.macos,
   ),
-  DeviceModel(
+  _DeviceModel(
     name: 'Linux',
-    device: Device.linux,
+    device: _Device.linux,
   ),
 ];
 
@@ -60,7 +60,7 @@ class DeviceInfoPlusSample extends StatefulWidget {
 }
 
 class _DeviceInfoPlusSampleState extends State<DeviceInfoPlusSample> {
-  DeviceModel _selectDevice = devices.first;
+  _DeviceModel _selectDevice = devices.first;
 
   Future<DeviceInfo?> _getDeviceInfo() async {
     final deviceInfo = DeviceInfoPlugin();
@@ -69,27 +69,27 @@ class _DeviceInfoPlusSampleState extends State<DeviceInfoPlusSample> {
 
     try {
       switch (_selectDevice.device) {
-        case Device.android:
+        case _Device.android:
           final androidInfo = await deviceInfo.androidInfo;
           deviceId = androidInfo.id;
           deviceName = androidInfo.model;
           break;
-        case Device.ios:
+        case _Device.ios:
           final iosInfo = await deviceInfo.iosInfo;
           deviceId = iosInfo.identifierForVendor ?? '';
           deviceName = iosInfo.name;
           break;
-        case Device.windows:
+        case _Device.windows:
           final windowsInfo = await deviceInfo.windowsInfo;
           deviceId = windowsInfo.deviceId;
           deviceName = windowsInfo.computerName;
           break;
-        case Device.macos:
+        case _Device.macos:
           final macOsInfo = await deviceInfo.macOsInfo;
           deviceId = macOsInfo.systemGUID ?? '';
           deviceName = macOsInfo.computerName;
           break;
-        case Device.linux:
+        case _Device.linux:
           final linuxInfo = await deviceInfo.linuxInfo;
           deviceId = linuxInfo.id;
           deviceName = linuxInfo.name;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const standardUrl = 'https://pub.dev/';
+const _standardUrl = 'https://pub.dev/';
 
 class UrlLauncherSample extends StatefulWidget {
   const UrlLauncherSample({super.key});
@@ -17,7 +17,7 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
   BuildContext _getContext() => context;
 
   Future<void> _openUrl() async {
-    _url = _urlController.text.trim() == '' ? standardUrl : _urlController.text;
+    _url = _urlController.text.trim() == '' ? _standardUrl : _urlController.text;
 
     if (!_url.startsWith('https://') || !await launchUrl(Uri.parse(_url))) {
       showDialog(
@@ -62,7 +62,7 @@ class _UrlLauncherSampleState extends State<UrlLauncherSample> {
             TextFormField(
               controller: _urlController,
               decoration: InputDecoration(
-                hintText: standardUrl,
+                hintText: _standardUrl,
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.grey.shade400,

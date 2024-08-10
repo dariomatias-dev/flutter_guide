@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-const actions = <SlidableActionTemplate>[
+const _actions = <SlidableActionTemplate>[
   SlidableActionTemplate(
     backgroundColor: Colors.blue,
     icon: Icons.edit,
@@ -26,30 +26,30 @@ class FlutterSlidableSample extends StatelessWidget {
           children: <Widget>[
             FlutterSlidableTemplate(
               title: 'Flutter Slidable Motion: Scroll',
-              startActions: actions,
+              startActions: _actions,
             ),
             FlutterSlidableDividir(),
             FlutterSlidableTemplate(
               title: 'Flutter Slidable Motion: Drawer',
               motion: DrawerMotion(),
-              startActions: actions,
+              startActions: _actions,
             ),
             FlutterSlidableDividir(),
             FlutterSlidableTemplate(
               title: 'Flutter Slidable Motion: Stretch',
               motion: StretchMotion(),
-              startActions: actions,
+              startActions: _actions,
             ),
             FlutterSlidableDividir(),
             FlutterSlidableTemplate(
               title: 'Flutter Slidable With End Actions',
-              endActions: actions,
+              endActions: _actions,
             ),
             FlutterSlidableDividir(),
             FlutterSlidableTemplate(
               title: 'Flutter Slidable With Start And End Actions',
-              startActions: actions,
-              endActions: actions,
+              startActions: _actions,
+              endActions: _actions,
             ),
           ],
         ),

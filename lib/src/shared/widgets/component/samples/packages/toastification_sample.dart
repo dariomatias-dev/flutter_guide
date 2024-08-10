@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
 
-class ToastificationTypeModel {
-  const ToastificationTypeModel({
+class _ToastificationTypeModel {
+  const _ToastificationTypeModel({
     required this.title,
     required this.type,
   });
@@ -11,20 +11,20 @@ class ToastificationTypeModel {
   final ToastificationType type;
 }
 
-const toastificationTypes = <ToastificationTypeModel>[
-  ToastificationTypeModel(
+const _toastificationTypes = <_ToastificationTypeModel>[
+  _ToastificationTypeModel(
     title: 'Error',
     type: ToastificationType.error,
   ),
-  ToastificationTypeModel(
+  _ToastificationTypeModel(
     title: 'Info',
     type: ToastificationType.info,
   ),
-  ToastificationTypeModel(
+  _ToastificationTypeModel(
     title: 'Success',
     type: ToastificationType.success,
   ),
-  ToastificationTypeModel(
+  _ToastificationTypeModel(
     title: 'Warning',
     type: ToastificationType.warning,
   ),
@@ -97,9 +97,9 @@ class _ToastificationSampleState extends State<ToastificationSample> {
               child: DropdownButton(
                 value: _toastificationType,
                 items: List.generate(
-                  toastificationTypes.length,
+                  _toastificationTypes.length,
                   (index) {
-                    final toastificationType = toastificationTypes[index];
+                    final toastificationType = _toastificationTypes[index];
 
                     return DropdownMenuItem(
                       value: toastificationType.type,
