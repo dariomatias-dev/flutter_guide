@@ -31,6 +31,7 @@ import 'package:flutter_guide/src/shared/widgets/component/samples/packages/load
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/loading_indicator_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/msh_checkbox_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/salomon_bottom_bar_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/packages/share_plus_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/shared_preferences_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/side_sheet_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/component/samples/packages/smooth_page_indicator_sample.dart';
@@ -162,6 +163,11 @@ const packages = <PackageModel>[
     name: PackageNames.salomonBottomBarPackage,
     icon: Icons.view_carousel,
     sample: SalomonBottomBarSample(),
+  ),
+  PackageModel(
+    name: PackageNames.sharePlusPackage,
+    icon: Icons.share,
+    sample: SharePlusSample(),
   ),
   PackageModel(
     name: PackageNames.sharedPreferencesPackage,
