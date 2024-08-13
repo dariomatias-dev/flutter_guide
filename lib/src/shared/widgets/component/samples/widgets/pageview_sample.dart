@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const colors = <Color>[
+const _colors = <Color>[
   Colors.blue,
   Colors.yellow,
   Colors.red,
@@ -15,10 +15,10 @@ class PageViewSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
-        itemCount: colors.length,
+        itemCount: _colors.length,
         itemBuilder: (context, index) {
           return Container(
-            color: colors[index],
+            color: _colors[index],
             constraints: const BoxConstraints.expand(),
             child: Center(
               child: Text(

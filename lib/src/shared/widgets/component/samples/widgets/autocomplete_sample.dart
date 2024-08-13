@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const programmingLanguages = <String>[
+const _programmingLanguages = <String>[
   'Dart',
   'Python',
   'JavaScript',
@@ -20,7 +20,7 @@ class AutocompleteSample extends StatelessWidget {
       body: Center(
         child: Autocomplete(
           optionsBuilder: (textEditingValue) {
-            return programmingLanguages.where((programmingLanguage) {
+            return _programmingLanguages.where((programmingLanguage) {
               return programmingLanguage.toLowerCase().contains(
                     textEditingValue.text.trim().toLowerCase(),
                   );

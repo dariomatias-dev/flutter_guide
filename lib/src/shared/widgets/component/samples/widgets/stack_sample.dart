@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const colors = <Color>[
+const _colors = <Color>[
   Colors.blue,
   Colors.yellow,
   Colors.red,
@@ -22,13 +22,13 @@ class _StackSampleState extends State<StackSample> {
       body: Center(
         child: Stack(
           alignment: Alignment.center,
-          children: List.generate(colors.length, (index) {
+          children: List.generate(_colors.length, (index) {
             _size -= 50.0;
 
             return Container(
               width: _size,
               height: _size,
-              color: colors[index],
+              color: _colors[index],
             );
           }),
         ),

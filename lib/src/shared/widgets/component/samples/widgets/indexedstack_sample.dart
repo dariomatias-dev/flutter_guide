@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const colors = <Color>[
+const _colors = <Color>[
   Colors.blue,
   Colors.yellow,
   Colors.red,
@@ -31,10 +31,10 @@ class _IndexedStackSampleState extends State<IndexedStackSample> {
           children: <Widget>[
             IndexedStack(
               index: _itemIndex,
-              children: List.generate(colors.length, (index) {
+              children: List.generate(_colors.length, (index) {
                 return Container(
                   height: 160.0,
-                  color: colors[index],
+                  color: _colors[index],
                   child: Center(
                     child: Text(
                       'Item ${index + 1}',

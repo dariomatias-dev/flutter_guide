@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-const colors = <Color>[
+const _colors = <Color>[
   Colors.blue,
   Colors.yellow,
   Colors.red,
 ];
 
-final rowItems = List.generate(colors.length, (index) {
+final _rowItems = List.generate(_colors.length, (index) {
   return Container(
     width: 50.0,
     height: 50.0,
-    color: colors[index],
+    color: _colors[index],
   );
 });
 
 /// MainAxisAlignment
-class MainAxisAlignmentModel {
-  const MainAxisAlignmentModel({
+class _MainAxisAlignmentModel {
+  const _MainAxisAlignmentModel({
     required this.name,
     required this.mainAxisAlignment,
   });
@@ -25,37 +25,37 @@ class MainAxisAlignmentModel {
   final MainAxisAlignment mainAxisAlignment;
 }
 
-const mainAxisAlignments = <MainAxisAlignmentModel>[
-  MainAxisAlignmentModel(
+const _mainAxisAlignments = <_MainAxisAlignmentModel>[
+  _MainAxisAlignmentModel(
     name: 'Center',
     mainAxisAlignment: MainAxisAlignment.center,
   ),
-  MainAxisAlignmentModel(
+  _MainAxisAlignmentModel(
     name: 'End',
     mainAxisAlignment: MainAxisAlignment.end,
   ),
-  MainAxisAlignmentModel(
+  _MainAxisAlignmentModel(
     name: 'SpaceAround',
     mainAxisAlignment: MainAxisAlignment.spaceAround,
   ),
-  MainAxisAlignmentModel(
+  _MainAxisAlignmentModel(
     name: 'SpaceBetween',
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
   ),
-  MainAxisAlignmentModel(
+  _MainAxisAlignmentModel(
     name: 'SpaceEvenly',
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
   ),
-  MainAxisAlignmentModel(
+  _MainAxisAlignmentModel(
     name: 'Start',
     mainAxisAlignment: MainAxisAlignment.start,
   ),
 ];
 
-final mainAxisAlignmentItems = List.generate(
-  mainAxisAlignments.length,
+final _mainAxisAlignmentItems = List.generate(
+  _mainAxisAlignments.length,
   (index) {
-    final mainAxisAlignment = mainAxisAlignments[index];
+    final mainAxisAlignment = _mainAxisAlignments[index];
 
     return DropdownMenuItem(
       value: mainAxisAlignment.mainAxisAlignment,
@@ -67,8 +67,8 @@ final mainAxisAlignmentItems = List.generate(
 );
 
 /// MainAxisSize
-class MainAxisSizeModel {
-  const MainAxisSizeModel({
+class _MainAxisSizeModel {
+  const _MainAxisSizeModel({
     required this.name,
     required this.mainAxisSize,
   });
@@ -77,21 +77,21 @@ class MainAxisSizeModel {
   final MainAxisSize mainAxisSize;
 }
 
-const mainAxisSizes = <MainAxisSizeModel>[
-  MainAxisSizeModel(
+const _mainAxisSizes = <_MainAxisSizeModel>[
+  _MainAxisSizeModel(
     name: 'Max',
     mainAxisSize: MainAxisSize.max,
   ),
-  MainAxisSizeModel(
+  _MainAxisSizeModel(
     name: 'Min',
     mainAxisSize: MainAxisSize.min,
   ),
 ];
 
-final mainAxisSizeItems = List.generate(
-  mainAxisSizes.length,
+final _mainAxisSizeItems = List.generate(
+  _mainAxisSizes.length,
   (index) {
-    final mainAxisSize = mainAxisSizes[index];
+    final mainAxisSize = _mainAxisSizes[index];
 
     return DropdownMenuItem(
       value: mainAxisSize.mainAxisSize,
@@ -122,7 +122,7 @@ class _RowSampleState extends State<RowSample> {
           Row(
             mainAxisAlignment: _mainAxisAlignment,
             mainAxisSize: _mainAxisSize,
-            children: rowItems,
+            children: _rowItems,
           ),
         ],
       ),
@@ -134,7 +134,7 @@ class _RowSampleState extends State<RowSample> {
             const Text('MainAxisAlignment'),
             DropdownButton<MainAxisAlignment>(
               value: _mainAxisAlignment,
-              items: mainAxisAlignmentItems,
+              items: _mainAxisAlignmentItems,
               onChanged: (value) {
                 setState(() {
                   _mainAxisAlignment = value!;
@@ -145,7 +145,7 @@ class _RowSampleState extends State<RowSample> {
             const Text('MainAxisSize'),
             DropdownButton<MainAxisSize>(
               value: _mainAxisSize,
-              items: mainAxisSizeItems,
+              items: _mainAxisSizeItems,
               onChanged: (value) {
                 setState(() {
                   _mainAxisSize = value!;

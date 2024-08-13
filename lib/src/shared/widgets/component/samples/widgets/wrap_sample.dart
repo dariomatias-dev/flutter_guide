@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const programmingLanguages = <String>[
+const _programmingLanguages = <String>[
   'Dart',
   'Python',
   'JavaScript',
@@ -13,11 +13,11 @@ const programmingLanguages = <String>[
   'Swift',
 ];
 
-final texts = List.generate(
-  programmingLanguages.length,
+final _texts = List.generate(
+  _programmingLanguages.length,
   (index) {
     return Text(
-      programmingLanguages[index],
+      _programmingLanguages[index],
     );
   },
 );
@@ -40,7 +40,7 @@ class _WrapSampleState extends State<WrapSample> {
         child: Wrap(
           spacing: _spacing * 100,
           runSpacing: _runSpacing * 100,
-          children: texts,
+          children: _texts,
         ),
       ),
       bottomNavigationBar: SizedBox(

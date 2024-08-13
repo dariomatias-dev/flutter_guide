@@ -7,14 +7,14 @@ enum FloatingActionButtonType {
   standard,
 }
 
-const floatingActionButtonTypes = <FloatingActionButtonType>[
+const _floatingActionButtonTypes = <FloatingActionButtonType>[
   FloatingActionButtonType.standard,
   FloatingActionButtonType.extended,
   FloatingActionButtonType.large,
   FloatingActionButtonType.small,
 ];
 
-const screenNames = <String>[
+const _screenNames = <String>[
   'Standard',
   'Extended',
   'Large',
@@ -49,15 +49,15 @@ class FloatingActionButtonSample extends StatelessWidget {
           spacing: 12.0,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: List.generate(
-            floatingActionButtonTypes.length,
+            _floatingActionButtonTypes.length,
             (index) {
               return ElevatedButton(
                 onPressed: () => _onPressed(
                   context,
-                  floatingActionButtonTypes[index],
+                  _floatingActionButtonTypes[index],
                 ),
                 child: Text(
-                  screenNames[index],
+                  _screenNames[index],
                 ),
               );
             },

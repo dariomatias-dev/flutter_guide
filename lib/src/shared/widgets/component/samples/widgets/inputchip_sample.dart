@@ -9,6 +9,7 @@ class InputChipSample extends StatefulWidget {
 
 class _InputChipSampleState extends State<InputChipSample> {
   late List<int> _inputs;
+
   int? _selectedItemValue;
 
   void _selectInput(int index) {

@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-final elements = List.generate(100, (index) {
+final _elements = List.generate(100, (index) {
   return Container(
     color: Color.fromARGB(
       255,
@@ -36,7 +36,7 @@ class _GridViewSampleState extends State<GridViewSample> {
             crossAxisCount: _crossAxisCount,
           ),
           itemBuilder: (context, index) {
-            return elements[index];
+            return _elements[index];
           },
         ),
       ),

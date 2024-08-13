@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AlignmentModel {
-  const AlignmentModel({
+class _AlignmentModel {
+  const _AlignmentModel({
     required this.name,
     required this.alignment,
   });
@@ -10,40 +10,40 @@ class AlignmentModel {
   final Alignment alignment;
 }
 
-const alignments = <AlignmentModel>[
-  AlignmentModel(
+const _alignments = <_AlignmentModel>[
+  _AlignmentModel(
     name: 'Bottom Center',
     alignment: Alignment.bottomCenter,
   ),
-  AlignmentModel(
+  _AlignmentModel(
     name: 'Bottom Left',
     alignment: Alignment.bottomLeft,
   ),
-  AlignmentModel(
+  _AlignmentModel(
     name: 'Bottom Right',
     alignment: Alignment.bottomRight,
   ),
-  AlignmentModel(
+  _AlignmentModel(
     name: 'Center',
     alignment: Alignment.center,
   ),
-  AlignmentModel(
+  _AlignmentModel(
     name: 'Center Left',
     alignment: Alignment.centerLeft,
   ),
-  AlignmentModel(
+  _AlignmentModel(
     name: 'Center Right',
     alignment: Alignment.centerRight,
   ),
-  AlignmentModel(
+  _AlignmentModel(
     name: 'Top Center',
     alignment: Alignment.topCenter,
   ),
-  AlignmentModel(
+  _AlignmentModel(
     name: 'Top Left',
     alignment: Alignment.topLeft,
   ),
-  AlignmentModel(
+  _AlignmentModel(
     name: 'Top Right',
     alignment: Alignment.topRight,
   ),
@@ -57,7 +57,7 @@ class AlignSample extends StatefulWidget {
 }
 
 class _AlignSampleState extends State<AlignSample> {
-  AlignmentModel _alignment = const AlignmentModel(
+  _AlignmentModel _alignment = const _AlignmentModel(
     name: 'Center',
     alignment: Alignment.center,
   );
@@ -81,8 +81,8 @@ class _AlignSampleState extends State<AlignSample> {
             child: DropdownButtonHideUnderline(
               child: DropdownButton(
                 value: _alignment,
-                items: List.generate(alignments.length, (index) {
-                  final alignment = alignments[index];
+                items: List.generate(_alignments.length, (index) {
+                  final alignment = _alignments[index];
 
                   return DropdownMenuItem(
                     value: alignment,

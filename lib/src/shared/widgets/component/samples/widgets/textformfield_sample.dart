@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const defaultMessage = 'Type something below';
+const _defaultMessage = 'Type something below';
 
 class TextFormFieldSample extends StatefulWidget {
   const TextFormFieldSample({super.key});
@@ -11,7 +11,7 @@ class TextFormFieldSample extends StatefulWidget {
 
 class _TextFormFieldSampleState extends State<TextFormFieldSample> {
   final _inputController = TextEditingController();
-  String _value = defaultMessage;
+  String _value = _defaultMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _TextFormFieldSampleState extends State<TextFormFieldSample> {
               onChanged: (value) {
                 if (value.length <= 100) {
                   setState(() {
-                    _value = value.isEmpty ? defaultMessage : value;
+                    _value = value.isEmpty ? _defaultMessage : value;
                   });
                 } else {
                   _inputController.text = _value;

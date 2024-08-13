@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 
-const opacities = <double>[
-  0.0,
-  0.1,
-  0.25,
-  0.5,
-  0.75,
-  1.0,
-];
-
 class OpacitySample extends StatefulWidget {
   const OpacitySample({super.key});
 

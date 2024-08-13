@@ -10,7 +10,7 @@ class PeriodModel {
   final IconData iconData;
 }
 
-const periods = <PeriodModel>[
+const _periods = <PeriodModel>[
   PeriodModel(
     name: 'Day',
     iconData: Icons.calendar_view_day,
@@ -35,7 +35,7 @@ enum Color {
   red,
 }
 
-final colors = <Color>[
+final _colors = <Color>[
   Color.red,
   Color.blue,
   Color.green,
@@ -49,9 +49,9 @@ class SegmentedButtonSample extends StatefulWidget {
 }
 
 class _SegmentedButtonSampleState extends State<SegmentedButtonSample> {
-  final _periodSelected = ValueNotifier(periods.first);
+  final _periodSelected = ValueNotifier(_periods.first);
   final _colorSelected = ValueNotifier(
-    <Color>{colors.first},
+    <Color>{_colors.first},
   );
 
   TextStyle get _defaultTextStyle => const TextStyle(
@@ -131,8 +131,8 @@ class _ChoosePeriodStateWidget extends State<ChoosePeriodWidget> {
   @override
   Widget build(BuildContext context) {
     return SegmentedButton<PeriodModel>(
-      segments: List.generate(periods.length, (index) {
-        final period = periods[index];
+      segments: List.generate(_periods.length, (index) {
+        final period = _periods[index];
 
         return ButtonSegment<PeriodModel>(
           value: period,
@@ -177,8 +177,8 @@ class _ChooseColorsWidgetState extends State<ChooseColorsWidget> {
   @override
   Widget build(BuildContext context) {
     return SegmentedButton<Color>(
-      segments: List.generate(colors.length, (index) {
-        final color = colors[index];
+      segments: List.generate(_colors.length, (index) {
+        final color = _colors[index];
 
         return ButtonSegment<Color>(
           value: color,

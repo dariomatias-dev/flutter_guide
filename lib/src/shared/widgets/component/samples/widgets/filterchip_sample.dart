@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const programmingLanguages = <String>[
+const _programmingLanguages = <String>[
   'Dart',
   'Python',
   'JavaScript',
@@ -50,8 +50,8 @@ class _FilterChipSampleState extends State<FilterChipSample> {
                 spacing: 6.0,
                 runSpacing: 6.0,
                 alignment: WrapAlignment.center,
-                children: List.generate(programmingLanguages.length, (index) {
-                  final programmingLanguage = programmingLanguages[index];
+                children: List.generate(_programmingLanguages.length, (index) {
+                  final programmingLanguage = _programmingLanguages[index];
 
                   return FilterChip(
                     label: Text(programmingLanguage),
@@ -69,8 +69,8 @@ class _FilterChipSampleState extends State<FilterChipSample> {
                 spacing: 6.0,
                 runSpacing: 6.0,
                 alignment: WrapAlignment.center,
-                children: List.generate(programmingLanguages.length, (index) {
-                  final programmingLanguage = programmingLanguages[index];
+                children: List.generate(_programmingLanguages.length, (index) {
+                  final programmingLanguage = _programmingLanguages[index];
 
                   return FilterChip(
                     label: Text(programmingLanguage),

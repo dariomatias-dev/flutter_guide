@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const screens = <String>[
+const _screens = <String>[
   'Home',
   'Profile',
   'Settings',
@@ -15,7 +15,7 @@ class NavigationRailSample extends StatefulWidget {
 
 class _NavigationRailSampleState extends State<NavigationRailSample> {
   int _selectedIndex = 0;
-  String _screen = screens.first;
+  String _screen = _screens.first;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _NavigationRailSampleState extends State<NavigationRailSample> {
           NavigationRail(
             selectedIndex: _selectedIndex,
             onDestinationSelected: (value) {
-              _screen = screens[value];
+              _screen = _screens[value];
               _selectedIndex = value;
 
               setState(() {});

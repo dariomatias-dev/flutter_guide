@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const screens = <String>[
+const _screens = <String>[
   'Home Screen',
   'Profile Screen',
   'Settings Screen',
@@ -21,7 +21,7 @@ class _NavigationBarSampleState extends State<NavigationBarSample> {
     return Scaffold(
       body: Center(
         child: Text(
-          screens[_selectedScreenIndex],
+          _screens[_selectedScreenIndex],
         ),
       ),
       bottomNavigationBar: NavigationBar(
