@@ -46,7 +46,9 @@ class SaveButtonController {
     );
   }
 
-  void setSaved(String componentName) {
+  void setSaved(
+    String componentName,
+  ) {
     saved = _favoritesService.contains(
       componentName,
     );

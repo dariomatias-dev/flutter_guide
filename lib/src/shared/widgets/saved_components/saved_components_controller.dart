@@ -53,7 +53,7 @@ class SavedComponentsController {
   void getSavedComponents() {
     final items = <ComponentModel>[];
 
-    for (ComponentModel widgetItem in _groupOfComponents) {
+    for (var widgetItem in _groupOfComponents) {
       if (_favoritesService.savedComponents.contains(widgetItem.name)) {
         items.add(widgetItem);
       }

@@ -92,7 +92,7 @@ class _AwesomeSnackbarContentSampleState
       padding: const EdgeInsets.only(
         top: 20.0,
       ),
-      elevation: 0,
+      elevation: 0.0,
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
       content: AwesomeSnackbarContent(
@@ -112,7 +112,7 @@ class _AwesomeSnackbarContentSampleState
 
   void _showAwesomeMaterialBanner() {
     final awesomeMaterialBanner = MaterialBanner(
-      elevation: 0,
+      elevation: 0.0,
       backgroundColor: Colors.transparent,
       forceActionsBelow: true,
       content: AwesomeSnackbarContent(

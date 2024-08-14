@@ -21,7 +21,7 @@ class IconButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWellButtonWidget(
       onTap: onTap,
-      borderRadius: 100,
+      borderRadius: 100.0,
       child: SizedBox(
         width: 40.0,
         height: 40.0,

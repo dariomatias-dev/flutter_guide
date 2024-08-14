@@ -5,5 +5,5 @@ import 'package:flutter_guide/src/features/main/main_screen.dart';
 
 final flutterGuideRoutes = {
   // Main Screen
-  FlutterGuideRouteNames.main: (_) => const MainScreen(),
+  FlutterGuideRouteNames.main: (context) => const MainScreen(),
 };

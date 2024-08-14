@@ -21,7 +21,9 @@ class _InfiniteScrollPaginationSampleState
 
   Future<void> _fecthNumberOfItems() async {
     await Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(
+        seconds: 3,
+      ),
       () {
         final items = List.generate(_pageSize, (index) {
           _quantityOfItems++;

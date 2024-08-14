@@ -9,7 +9,7 @@ class ListTileItemWidget extends StatelessWidget {
     required this.title,
     this.icon,
     this.openInBrowser = false,
-    this.borderRadius = 0,
+    this.borderRadius = 0.0,
     this.padding,
     this.trailingWidgets,
   });
