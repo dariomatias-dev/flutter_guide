@@ -1,18 +1,19 @@
-import 'package:flutter_guide/src/core/enums/language_code.dart';
+import 'package:flutter/cupertino.dart';
 
-import 'package:flutter_guide/src/shared/models/language_model.dart';
+class LanguagesApp {
+  static const en = 'en';
+  static const ptBr = 'pt_BR';
+  static const es = 'es';
 
-const englishLanguage = LanguageModel(
-  name: 'English',
-  languageCode: LanguageCode.enUs,
-);
+  static const _languageLocales = {
+    en: Locale('en'),
+    ptBr: Locale('pt', 'BR'),
+    es: Locale('es'),
+  };
 
-const portugueseLanguage = LanguageModel(
-  name: 'Português',
-  languageCode: LanguageCode.ptBr,
-);
-
-const languages = <LanguageModel>[
-  englishLanguage,
-  portugueseLanguage,
-];
+  static Locale locale(
+    String language,
+  ) {
+    return _languageLocales[language] ?? _languageLocales[en]!;
+  }
+}

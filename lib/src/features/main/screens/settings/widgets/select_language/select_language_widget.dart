@@ -33,29 +33,29 @@ class _SelectLanguageWidgetState extends State<SelectLanguageWidget> {
       },
       icon: Icons.language,
       title: 'Language',
-      trailingWidgets: <Widget>[
-        ValueListenableBuilder(
-          valueListenable: _controller.selectedLanguageNotifier,
-          builder: (context, value, child) {
-            return Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  value.name,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 14.0,
-                  ),
-                ),
-                Icon(
-                  Icons.arrow_drop_down,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ],
-            );
-          },
-        ),
-      ],
+      // trailingWidgets: <Widget>[
+      //   ValueListenableBuilder(
+      //     valueListenable: _controller.selectedLanguageNotifier,
+      //     builder: (context, value, child) {
+      //       return Row(
+      //         mainAxisSize: MainAxisSize.min,
+      //         children: <Widget>[
+      //           Text(
+      //             value.name,
+      //             style: TextStyle(
+      //               color: Theme.of(context).colorScheme.primary,
+      //               fontSize: 14.0,
+      //             ),
+      //           ),
+      //           Icon(
+      //             Icons.arrow_drop_down,
+      //             color: Theme.of(context).colorScheme.primary,
+      //           ),
+      //         ],
+      //       );
+      //     },
+      //   ),
+      // ],
     );
   }
 }

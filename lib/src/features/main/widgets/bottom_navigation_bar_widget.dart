@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
 const _icons = <IconData>[
@@ -8,14 +10,8 @@ const _icons = <IconData>[
   Icons.archive_outlined,
   Icons.settings_outlined,
 ];
-const _names = <String>[
-  'Home',
-  'Widgets',
-  'Packages',
-  'Settings',
-];
 
-class BottomNavigationBarWidget extends StatelessWidget {
+class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({
     super.key,
     required this.screenIndex,
@@ -28,12 +24,36 @@ class BottomNavigationBarWidget extends StatelessWidget {
   ) updateScreenIndex;
 
   @override
+  State<BottomNavigationBarWidget> createState() =>
+      _BottomNavigationBarWidgetState();
+}
+
+class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
+  final _names = <String>[];
+
+  @override
+  void didChangeDependencies() {
+    final appLocalizations = AppLocalizations.of(context)!;
+
+    _names.addAll([
+      appLocalizations.bottomNavigatioBarHome,
+      appLocalizations.bottomNavigatioBarWidgets,
+      appLocalizations.bottomNavigatioBarPackages,
+      appLocalizations.bottomNavigatioBarSettings,
+    ]);
+
+    setState(() {});
+
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SalomonBottomBar(
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      currentIndex: screenIndex,
+      currentIndex: widget.screenIndex,
       onTap: (value) {
-        updateScreenIndex(value);
+        widget.updateScreenIndex(value);
       },
       items: List.generate(_names.length, (index) {
         return SalomonBottomBarItem(
@@ -41,7 +61,9 @@ class BottomNavigationBarWidget extends StatelessWidget {
           icon: Icon(
             _icons[index],
           ),
-          title: Text(_names[index]),
+          title: Text(
+            _names[index],
+          ),
           selectedColor: Colors.blue,
         );
       }),
