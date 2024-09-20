@@ -1,5 +1,3 @@
-import 'package:flutter_guide/src/core/enums/language_code.dart';
-
 class LanguageModel {
   const LanguageModel({
     required this.name,
@@ -7,5 +5,5 @@ class LanguageModel {
   });
 
   final String name;
-  final LanguageCode languageCode;
+  final String languageCode;
 }
