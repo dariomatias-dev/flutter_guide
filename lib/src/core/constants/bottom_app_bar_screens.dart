@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/core/constants/components/packages.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
@@ -10,29 +11,35 @@ import 'package:flutter_guide/src/features/main/screens/settings/settings_screen
 import 'package:flutter_guide/src/shared/models/screen_model.dart';
 import 'package:flutter_guide/src/shared/widgets/components/components_screen.dart';
 
-final bottomAppBarScreens = <ScreenModel>[
-  const ScreenModel(
-    title: 'FlutterGuide',
-    screen: HomeScreen(),
-  ),
-  ScreenModel(
-    title: 'Widgets',
-    screen: ComponentsScreen(
-      key: GlobalKey(),
-      componentType: ComponentType.widget,
-      components: widgets,
+List<ScreenModel> getBottomAppBarScreens(
+  BuildContext context,
+) {
+  final appLocalizations = AppLocalizations.of(context)!;
+
+  return <ScreenModel>[
+    const ScreenModel(
+      title: 'FlutterGuide',
+      screen: HomeScreen(),
     ),
-  ),
-  ScreenModel(
-    title: 'Packages',
-    screen: ComponentsScreen(
-      key: GlobalKey(),
-      componentType: ComponentType.package,
-      components: packages,
+    ScreenModel(
+      title: 'Widgets',
+      screen: ComponentsScreen(
+        key: GlobalKey(),
+        componentType: ComponentType.widget,
+        components: widgets,
+      ),
     ),
-  ),
-  const ScreenModel(
-    title: 'Settings',
-    screen: SettingsScreen(),
-  ),
-];
+    ScreenModel(
+      title: appLocalizations.packages,
+      screen: ComponentsScreen(
+        key: GlobalKey(),
+        componentType: ComponentType.package,
+        components: packages,
+      ),
+    ),
+    ScreenModel(
+      title: appLocalizations.settings,
+      screen: const SettingsScreen(),
+    ),
+  ];
+}

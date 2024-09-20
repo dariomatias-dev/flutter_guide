@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/shared/utils/open_url.dart';
 
@@ -45,10 +46,10 @@ class SourceCodeButtonWidget extends StatelessWidget {
               ),
               borderRadius: borderRadius,
             ),
-            child: const Center(
+            child: Center(
               child: Text(
-                'Source Code',
-                style: TextStyle(
+                AppLocalizations.of(context)!.sourceCode,
+                style: const TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Colors.blue,
                 ),

@@ -40,24 +40,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const AppInfoWidget(),
               const SizedBox(height: 20.0),
               ListTileItemWidget(
-                title: 'Docs and Resources',
+                title: _controller.appLocalizations.docsAndResources,
                 icon: Icons.description_outlined,
                 onTap: _controller.showDocsAndResourcesDialog,
               ),
-              const SelectLanguageWidget(),
-              const ListTileItemWidget(
-                title: 'My Website',
+              SelectLanguageWidget(
+                title: _controller.appLocalizations.language,
+              ),
+              ListTileItemWidget(
+                title: _controller.appLocalizations.myWebsite,
                 icon: Icons.public,
                 openInBrowser: true,
                 onTap: null,
               ),
+              // ListTileItemWidget(
+              //   title: 'Buy Me a Coffee',
+              //   icon: Icons.local_cafe_outlined,
+              //   onTap: _controller.showDonateDialog,
+              // ),
               ListTileItemWidget(
-                title: 'Buy Me a Coffee',
-                icon: Icons.local_cafe_outlined,
-                onTap: _controller.showDonateDialog,
-              ),
-              const ListTileItemWidget(
-                title: 'About',
+                title: _controller.appLocalizations.about,
                 icon: Icons.info_outline,
                 onTap: null,
               ),

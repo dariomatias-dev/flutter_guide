@@ -35,11 +35,12 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   void didChangeDependencies() {
     final appLocalizations = AppLocalizations.of(context)!;
 
+    _names.clear();
     _names.addAll([
-      appLocalizations.bottomNavigatioBarHome,
-      appLocalizations.bottomNavigatioBarWidgets,
-      appLocalizations.bottomNavigatioBarPackages,
-      appLocalizations.bottomNavigatioBarSettings,
+      appLocalizations.home,
+      appLocalizations.widgets,
+      appLocalizations.packages,
+      appLocalizations.settings,
     ]);
 
     setState(() {});

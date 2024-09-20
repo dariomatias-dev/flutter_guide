@@ -18,6 +18,8 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final bottomAppBarScreens = getBottomAppBarScreens(context);
+
     return Scaffold(
       appBar: MainAppBarWidget(
         title: bottomAppBarScreens[_controller.screenIndex].title,

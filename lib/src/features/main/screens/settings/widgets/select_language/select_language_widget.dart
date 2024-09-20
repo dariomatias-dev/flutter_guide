@@ -5,7 +5,12 @@ import 'package:flutter_guide/src/features/main/screens/settings/widgets/select_
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 
 class SelectLanguageWidget extends StatefulWidget {
-  const SelectLanguageWidget({super.key});
+  const SelectLanguageWidget({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
 
   @override
   State<SelectLanguageWidget> createState() => _SelectLanguageWidgetState();
@@ -32,7 +37,7 @@ class _SelectLanguageWidgetState extends State<SelectLanguageWidget> {
         });
       },
       icon: Icons.language,
-      title: 'Language',
+      title: widget.title,
       trailingWidgets: <Widget>[
         ValueListenableBuilder(
           valueListenable: _controller.selectedLanguageNotifier,

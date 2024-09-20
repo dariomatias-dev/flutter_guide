@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_guide/src/core/constants/languages_app.dart';
+import 'package:flutter_guide/src/core/shared_preferences_keys.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,6 +31,11 @@ Future<void> main() async {
 
   // Application Version
   final packageInfo = await PackageInfo.fromPlatform();
+
+  // Application Language
+  final language = sharedPreferences.getString(
+    SharedPreferencesKeys.languageKey,
+  );
 
   // Theme
   final themeController = ThemeController(
@@ -68,6 +75,9 @@ Future<void> main() async {
   runApp(
     UserPreferencesInheritedWidget(
       appVersion: packageInfo.version,
+      languageNotifier: ValueNotifier(
+        language ?? LanguagesApp.en,
+      ),
       sharedPreferences: sharedPreferences,
       themeController: themeController,
       favoriteWidgetNotifier: favoriteWidgetNotifier,

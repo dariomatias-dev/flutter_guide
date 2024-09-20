@@ -1,9 +1,9 @@
 class LanguageModel {
   const LanguageModel({
     required this.name,
-    required this.languageCode,
+    required this.code,
   });
 
   final String name;
-  final String languageCode;
+  final String code;
 }

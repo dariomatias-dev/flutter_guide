@@ -15,6 +15,7 @@ class SelectLanguageController {
     _init(context);
   }
 
+  late UserPreferencesInheritedWidget _userPreferencesInheritedWidget;
   late SharedPreferences _sharedPreferences;
 
   late ValueNotifier<LanguageModel> selectedLanguageNotifier;
@@ -22,8 +23,9 @@ class SelectLanguageController {
   void _init(
     BuildContext context,
   ) {
-    _sharedPreferences =
-        UserPreferencesInheritedWidget.of(context)!.sharedPreferences;
+    _userPreferencesInheritedWidget =
+        UserPreferencesInheritedWidget.of(context)!;
+    _sharedPreferences = _userPreferencesInheritedWidget.sharedPreferences;
 
     final selectedLanguageName = _sharedPreferences.getString(
           SharedPreferencesKeys.languageKey,
@@ -33,7 +35,7 @@ class SelectLanguageController {
     LanguageModel? selectedLanguage;
 
     for (final language in languages) {
-      if (selectedLanguageName == language.languageCode) {
+      if (selectedLanguageName == language.code) {
         selectedLanguage = language;
         break;
       }
@@ -77,11 +79,15 @@ class SelectLanguageController {
 
           return PopupMenuItem(
             onTap: () {
+              UserPreferencesInheritedWidget.of(context)!
+                  .languageNotifier
+                  .value = language.code;
+
               selectedLanguageNotifier.value = language;
 
               _sharedPreferences.setString(
                 SharedPreferencesKeys.languageKey,
-                language.languageCode,
+                language.code,
               );
 
               setStateCallback();

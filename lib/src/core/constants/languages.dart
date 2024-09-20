@@ -5,10 +5,10 @@ import 'package:flutter_guide/src/shared/models/language_model.dart';
 const languages = <LanguageModel>[
   LanguageModel(
     name: 'English',
-    languageCode: LanguagesApp.en,
+    code: LanguagesApp.en,
   ),
   LanguageModel(
     name: 'Português',
-    languageCode: LanguagesApp.ptBr,
+    code: LanguagesApp.ptBr,
   ),
 ];

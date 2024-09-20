@@ -1,7 +1,13 @@
 {
     "@@locale": "en",
-    "bottomNavigatioBarHome": "Home",
-    "bottomNavigatioBarWidgets": "Widgets",
-    "bottomNavigatioBarPackages": "Packages",
-    "bottomNavigatioBarSettings": "Settings"
+    "language": "Language",
+    "home": "Home",
+    "widgets": "Widgets",
+    "packages": "Packages",
+    "settings": "Settings",
+    "version": "Version",
+    "sourceCode": "Source Code",
+    "docsAndResources": "Docs and Resources",
+    "myWebsite": "My Website",
+    "about": "About"
 }
