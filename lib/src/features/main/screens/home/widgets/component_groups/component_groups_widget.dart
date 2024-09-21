@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/core/constants/component_groups.dart';
 
@@ -17,7 +18,7 @@ class ComponentGroupsWidget extends StatelessWidget {
             left: 12.0,
           ),
           child: Text(
-            'Components',
+            AppLocalizations.of(context)!.components,
             style: TextStyle(
               color: Colors.grey.shade600,
               fontSize: 12.0,

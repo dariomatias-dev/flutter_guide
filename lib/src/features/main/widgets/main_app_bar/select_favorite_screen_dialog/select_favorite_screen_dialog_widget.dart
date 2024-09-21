@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
@@ -35,8 +36,10 @@ class _SelectFavoriteScreenDialogWidgetState
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
+
     return CustomDialog.dialog(
-      title: 'Favorites',
+      title: appLocalizations.favorites,
       children: <Widget>[
         ListTileItemWidget(
           onTap: () {
@@ -57,7 +60,7 @@ class _SelectFavoriteScreenDialogWidgetState
               ComponentType.package,
             );
           },
-          title: 'Packages',
+          title: appLocalizations.packages,
           icon: Icons.archive_outlined,
         ),
       ],

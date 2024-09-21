@@ -35,7 +35,9 @@ class _SavedComponentsState extends State<SavedComponents> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: StandardAppBarWidget(
-        titleName: 'Saved ${_controller.componentTypeName}',
+        titleName: _controller.isWidget
+            ? _controller.appLocalizations.savedWidgets
+            : _controller.appLocalizations.savedPackages,
       ),
       body: ValueListenableBuilder(
         valueListenable: _controller.favoriteNotifier,
@@ -50,7 +52,9 @@ class _SavedComponentsState extends State<SavedComponents> {
                 )
               : Center(
                   child: Text(
-                    'No ${_controller.componentTypeName} have been saved yet.',
+                    _controller.isWidget
+                        ? _controller.appLocalizations.noWidgetSaved
+                        : _controller.appLocalizations.noPackageSaved,
                   ),
                 );
         },

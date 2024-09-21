@@ -22,7 +22,7 @@ class ActionButtonWidget extends StatelessWidget {
         child: ElevatedButton(
           onPressed: onTap,
           style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor ?? Colors.white,
+            backgroundColor: backgroundColor ?? FlutterGuideColors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16.0),
             ),

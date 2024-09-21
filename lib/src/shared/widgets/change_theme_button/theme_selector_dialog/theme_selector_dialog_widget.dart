@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/shared/widgets/change_theme_button/theme_selector_dialog/theme_selector_dialog_controller.dart';
 import 'package:flutter_guide/src/shared/widgets/custom_dialog/custom_dialog.dart';
@@ -33,8 +34,10 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
+
     return CustomDialog.dialog(
-      title: 'Select the Theme',
+      title: appLocalizations.selectTheTheme,
       actions: <ActionButtonWidget>[
         CustomDialog.button(
           text: 'Ok',
@@ -57,7 +60,9 @@ class _ThemeSelectorStateDialogWidget extends State<ThemeSelectorDialogWidget> {
           onChanged: _controller.updateThemeMode,
         ),
         RadioListTile(
-          title: const Text('System'),
+          title: Text(
+            appLocalizations.system,
+          ),
           value: ThemeMode.system,
           groupValue: _controller.themeMode,
           onChanged: _controller.updateThemeMode,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
@@ -46,12 +47,14 @@ class FavoritesService {
 
     if (!savedComponents.contains(componentName)) {
       _saveComponent(
+        context,
         componentName,
       );
 
       saved = true;
     } else {
       _removeComponent(
+        context,
         componentName,
       );
 
@@ -71,9 +74,11 @@ class FavoritesService {
   }
 
   void _saveComponent(
+    BuildContext context,
     String componentName,
   ) {
-    _snackBarMessage = '$_componentTypeName saved';
+    _snackBarMessage =
+        '$_componentTypeName ${AppLocalizations.of(context)!.saved}';
 
     savedComponents.add(
       componentName,
@@ -81,9 +86,11 @@ class FavoritesService {
   }
 
   void _removeComponent(
+    BuildContext context,
     String componentName,
   ) {
-    _snackBarMessage = '$_componentTypeName removed';
+    _snackBarMessage =
+        '$_componentTypeName ${AppLocalizations.of(context)!.removed}';
 
     final items = <String>[];
     for (var savedWidget in savedComponents) {

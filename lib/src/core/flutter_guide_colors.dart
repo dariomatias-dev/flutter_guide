@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class FlutterGuideColors {
+  // White Tons
+  static const white = Color(0xFFFFFFFF);
+
   // Blue Tons
   static const blue100 = Color(0xFFE9F2FF);
   static const ligthBlue200 = Color(0xFFB3B9C4);

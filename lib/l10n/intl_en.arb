@@ -1,5 +1,7 @@
 {
     "@@locale": "en",
+    "elements": "Elements",
+    "components": "Components",
     "language": "Language",
     "home": "Home",
     "widgets": "Widgets",
@@ -9,5 +11,14 @@
     "sourceCode": "Source Code",
     "docsAndResources": "Docs and Resources",
     "myWebsite": "My Website",
-    "about": "About"
+    "about": "About",
+    "favorites": "Favorites",
+    "saved": "salved",
+    "removed": "removed",
+    "savedWidgets": "Saved Widgets",
+    "savedPackages": "Saved Packages",
+    "noWidgetSaved": "No widget has been saved yet.",
+    "noPackageSaved": "No package has been saved yet.",
+    "selectTheTheme": "Select the Theme",
+    "system": "System"
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/core/enums/interface_type_enum.dart';
 
@@ -43,7 +44,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             BorderListTileItemWidget(
-              title: 'Elements',
+              title: AppLocalizations.of(context)!.elements,
               icon: Icons.list_alt,
               onTap: () {
                 navigateTo(

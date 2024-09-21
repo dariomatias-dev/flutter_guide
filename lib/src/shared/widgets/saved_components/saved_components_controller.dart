@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/core/constants/components/packages.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
@@ -22,6 +23,9 @@ class SavedComponentsController {
     );
   }
 
+  late AppLocalizations appLocalizations;
+  late bool isWidget;
+
   late String componentTypeName;
 
   late FavoriteNotifier favoriteNotifier;
@@ -34,7 +38,10 @@ class SavedComponentsController {
     BuildContext context,
     ComponentType componentType,
   ) {
+    appLocalizations = AppLocalizations.of(context)!;
     componentTypeName = componentType.name;
+
+    isWidget = componentTypeName == ComponentType.widget.name;
 
     final UserPreferencesInheritedWidget(
       :getFavoriteNotifier,

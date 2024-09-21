@@ -41,6 +41,7 @@ class CustomDialogScreenWidget extends StatelessWidget {
                     padding: const EdgeInsets.all(12.0),
                     width: MediaQuery.sizeOf(context).width,
                     decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(32.0),
                     ),
                     child: child,
