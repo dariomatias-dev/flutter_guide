@@ -19,6 +19,8 @@ class InterfaceCatalogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isUi = elementType == InterfaceTypeEnum.ui;
+    final uis = getUis(context);
+    final elements = getElements(context);
 
     return Scaffold(
       appBar: StandardAppBarWidget(

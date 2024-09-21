@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 // Elements
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/configuring_dio_sample.dart';
 import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/elements/custom_dropdown_sample.dart';
@@ -13,49 +16,55 @@ import 'package:flutter_guide/src/shared/widgets/interface_catalog/samples/eleme
 
 import 'package:flutter_guide/src/shared/models/interface_model.dart';
 
-const elements = <InterfaceModel>[
-  InterfaceModel(
-    name: 'Custom Popup Menu',
-    component: CustomPopupMenuSample(),
-  ),
-  InterfaceModel(
-    name: 'Custom Dropdown Sample',
-    component: CustomDropdownSample(),
-  ),
-  InterfaceModel(
-    name: 'Gaps',
-    component: GapsSample(),
-  ),
-  InterfaceModel(
-    name: 'Password Field',
-    component: PasswordFieldSample(),
-  ),
-  InterfaceModel(
-    name: 'Loading Button',
-    component: LoadingButtonSample(),
-  ),
-  InterfaceModel(
-    name: 'Infinite Grid View',
-    component: InfiniteGridViewSample(),
-  ),
-  InterfaceModel(
-    name: 'Pagination',
-    component: PaginationSample(),
-  ),
-  InterfaceModel(
-    name: 'Configuring Dio',
-    component: ConfiguringDioSample(),
-  ),
-  InterfaceModel(
-    name: 'Loading Dialog',
-    component: LoadingDialogSample(),
-  ),
-  InterfaceModel(
-    name: 'Loading Screen',
-    component: LoadingScreenSample(),
-  ),
-  InterfaceModel(
-    name: 'Image Loader',
-    component: ImageLoaderSample(),
-  ),
-];
+List<InterfaceModel> getElements(
+  BuildContext context,
+) {
+  final appLocalizations = AppLocalizations.of(context)!;
+
+  return <InterfaceModel>[
+    InterfaceModel(
+      name: appLocalizations.customPopupMenu,
+      component: const CustomPopupMenuSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.customDropdown,
+      component: const CustomDropdownSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.gaps,
+      component: const GapsSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.passwordField,
+      component: const PasswordFieldSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.loadingButton,
+      component: const LoadingButtonSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.infiniteGridView,
+      component: const InfiniteGridViewSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.pagination,
+      component: const PaginationSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.configuringDio,
+      component: const ConfiguringDioSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.loadingDialog,
+      component: const LoadingDialogSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.loadingScreen,
+      component: const LoadingScreenSample(),
+    ),
+    InterfaceModel(
+      name: appLocalizations.imageLoader,
+      component: const ImageLoaderSample(),
+    ),
+  ];
+}

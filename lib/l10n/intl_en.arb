@@ -20,5 +20,20 @@
     "noWidgetSaved": "No widget has been saved yet.",
     "noPackageSaved": "No package has been saved yet.",
     "selectTheTheme": "Select the Theme",
-    "system": "System"
+    "system": "System",
+    "loginScreen": "Login Screen",
+    "loginScreenWithBackgroundImage": "Login Screen With Background Image",
+    "emailsApp": "Emails App",
+    "chatScreen": "Chat Screen",
+    "customPopupMenu": "Custom Popup Menu",
+    "customDropdown": "Custom Dropdown",
+    "gaps": "Gaps",
+    "passwordField": "Password Field",
+    "loadingButton": "Loading Button",
+    "infiniteGridView": "Infinite Grid View",
+    "pagination": "Pagination",
+    "configuringDio": "Configuring Dio",
+    "loadingDialog": "Loading Dialog",
+    "loadingScreen": "Loading Screen",
+    "imageLoader": "Image Loader"
 }

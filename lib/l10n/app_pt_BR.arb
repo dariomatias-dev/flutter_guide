@@ -20,5 +20,20 @@
     "noWidgetSaved": "Nenhum widget foi salvo ainda.",
     "noPackageSaved": "Nenhum pacote foi salvo ainda.",
     "selectTheTheme": "Selecione o Tema",
-    "system": "Sistema"
+    "system": "Sistema",
+    "loginScreen": "Tela de Login",
+    "loginScreenWithBackgroundImage": "Tela de Login com Imagem de Fundo",
+    "emailsApp": "App de Emails",
+    "chatScreen": "Tela de Chat",
+    "customPopupMenu": "Menu Popup Personalizado",
+    "customDropdown": "Dropdown Personalizado",
+    "gaps": "Espaçamentos",
+    "passwordField": "Campo de Senha",
+    "loadingButton": "Botão de Carregamento",
+    "infiniteGridView": "Grade Infinita",
+    "pagination": "Paginação",
+    "configuringDio": "Configurando Dio",
+    "loadingDialog": "Diálogo de Carregamento",
+    "loadingScreen": "Tela de Carregamento",
+    "imageLoader": "Carregador de Imagem"
 }
