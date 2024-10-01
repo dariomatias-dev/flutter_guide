@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BottomSheetSample extends StatefulWidget {
-  const BottomSheetSample({super.key});
+class ShowBottomSheetSample extends StatefulWidget {
+  const ShowBottomSheetSample({super.key});
 
   @override
-  State<BottomSheetSample> createState() => _BottomSheetSampleState();
+  State<ShowBottomSheetSample> createState() => _ShowBottomSheetSampleState();
 }
 
-class _BottomSheetSampleState extends State<BottomSheetSample> {
+class _ShowBottomSheetSampleState extends State<ShowBottomSheetSample> {
   final _isOpen = ValueNotifier(false);
 
   PersistentBottomSheetController? _persistentBottomSheetController;

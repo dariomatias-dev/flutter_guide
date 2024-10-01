@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_guide/src/core/constants/components/functions.dart';
 import 'package:flutter_guide/src/core/constants/languages_app.dart';
 import 'package:flutter_guide/src/core/shared_preferences_keys.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -71,6 +72,7 @@ Future<void> main() async {
   }
 
   final widgetInfos = getWidgetInfos();
+  final functionsInfos = getFunctionInfos();
 
   runApp(
     UserPreferencesInheritedWidget(
@@ -88,8 +90,9 @@ Future<void> main() async {
       getFavoriteService: getFavoriteService,
       child: ComponentsMapInheritedWidget(
         widgetsMap: widgetInfos.samples,
-        packagesMap: packagesMap(),
         widgetNames: widgetInfos.componentNames,
+        packagesMap: packagesMap(),
+        functionsMap: functionsInfos.samples,
         child: FlutterGuideApp(
           themeController: themeController,
         ),

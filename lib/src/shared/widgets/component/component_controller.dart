@@ -29,10 +29,19 @@ class ComponentController {
     final ComponentsMapInheritedWidget(
       :widgetsMap,
       :packagesMap,
+      :functionsMap,
     ) = ComponentsMapInheritedWidget.of(_context)!;
-    component = (_componentType == ComponentType.widget
-        ? widgetsMap
-        : packagesMap)[_componentName]!;
+
+    switch (_componentType) {
+      case ComponentType.widget:
+        component = widgetsMap[_componentName]!;
+        break;
+      case ComponentType.package:
+        component = packagesMap[_componentName]!;
+        break;
+      default:
+        component = functionsMap[_componentName]!;
+    }
 
     componentCategory = _componentType == ComponentType.widget
         ? (component as WidgetSummaryModel).category

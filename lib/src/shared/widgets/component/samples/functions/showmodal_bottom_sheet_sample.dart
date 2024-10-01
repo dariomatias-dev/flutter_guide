@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ModalBottomSheetSample extends StatefulWidget {
-  const ModalBottomSheetSample({super.key});
+class ShowModalBottomSheetSample extends StatefulWidget {
+  const ShowModalBottomSheetSample({super.key});
 
   @override
-  State<ModalBottomSheetSample> createState() => _ModalBottomSheetSampleState();
+  State<ShowModalBottomSheetSample> createState() => _ShowModalBottomSheetSampleState();
 }
 
-class _ModalBottomSheetSampleState extends State<ModalBottomSheetSample> {
+class _ShowModalBottomSheetSampleState extends State<ShowModalBottomSheetSample> {
   void _showModalBottomSheet() {
     showModalBottomSheet(
       context: context,

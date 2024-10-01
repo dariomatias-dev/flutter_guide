@@ -38,10 +38,20 @@ class _ComponentScreenState extends State<ComponentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    late final String folderName;
+    switch (widget.componentType) {
+      case ComponentType.widget:
+        folderName = 'widgets';
+      case ComponentType.package:
+        folderName = 'packages';
+      default:
+        folderName = 'functions';
+    }
+
     return ComponentSampleScreen(
       title: _controller.component.name,
       filePath:
-          'lib/src/shared/widgets/component/samples/${widget.componentType == ComponentType.widget ? 'widgets' : 'packages'}/${widget.componentName.toLowerCase()}_sample.dart',
+          'lib/src/shared/widgets/component/samples/$folderName/${widget.componentName.toLowerCase()}_sample.dart',
       sample: _controller.component.sample,
       popupMenuItems: <PopupMenuEntry>[
         FavoritePopupMenuItemWidget(

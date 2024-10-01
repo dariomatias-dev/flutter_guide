@@ -8,6 +8,7 @@ class ComponentsMapInheritedWidget extends InheritedWidget {
     required this.widgetNames,
     required this.widgetsMap,
     required this.packagesMap,
+    required this.functionsMap,
     required super.child,
   });
 
@@ -15,6 +16,7 @@ class ComponentsMapInheritedWidget extends InheritedWidget {
 
   final Map<String, WidgetSummaryModel> widgetsMap;
   final Map<String, PackageSummaryModel> packagesMap;
+  final Map<String, FunctionSummaryModel> functionsMap;
 
   static ComponentsMapInheritedWidget? of(BuildContext context) {
     return context

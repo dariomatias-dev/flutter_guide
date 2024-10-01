@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/core/constants/components/functions.dart';
+import 'package:flutter_guide/src/core/constants/components/widgets.dart';
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
+
+import 'package:flutter_guide/src/shared/widgets/components/components_screen.dart';
 import 'package:flutter_guide/src/shared/widgets/default_tab_bar_widget.dart';
 
-class ElementsScreen extends StatelessWidget {
+class ElementsScreen extends StatefulWidget {
   const ElementsScreen({super.key});
+
+  @override
+  State<ElementsScreen> createState() => _ElementsScreenState();
+}
+
+class _ElementsScreenState extends State<ElementsScreen> {
+  int _tabIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +27,11 @@ class ElementsScreen extends StatelessWidget {
             Container(
               color: Theme.of(context).colorScheme.secondary,
               child: DefaultTabBarWidget(
-                onTap: (value) {},
+                onTap: (value) {
+                  setState(() {
+                    _tabIndex = value;
+                  });
+                },
                 tabs: const <Tab>[
                   Tab(
                     child: Text('Widgets'),
@@ -26,6 +42,15 @@ class ElementsScreen extends StatelessWidget {
                 ],
               ),
             ),
+            Expanded(
+              child: ComponentsScreen(
+                key: GlobalKey(),
+                componentType: _tabIndex == 0
+                    ? ComponentType.widget
+                    : ComponentType.material,
+                components: _tabIndex == 0 ? widgets : functions,
+              ),
+            )
           ],
         ),
       ),
