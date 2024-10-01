@@ -70,26 +70,6 @@ const worldCitiesNames = <String>[
   'Istanbul',
   'São Paulo',
   'Bangkok',
-  'New York',
-  'Los Angeles',
-  'London',
-  'Paris',
-  'Tokyo',
-  'Beijing',
-  'Sydney',
-  'Rio de Janeiro',
-  'Dubai',
-  'Moscow',
-  'Toronto',
-  'Hong Kong',
-  'Berlin',
-  'Singapore',
-  'Mumbai',
-  'Cape Town',
-  'Rome',
-  'Istanbul',
-  'São Paulo',
-  'Bangkok',
 ];
 
 final worldCities = List.generate(worldCitiesNames.length, (index) {
@@ -218,15 +198,14 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
         _dropdownButtonKey.currentContext!.findRenderObject() as RenderBox;
     final position = renderBox.globalToLocal(Offset.zero);
 
-    final availableSpace = MediaQuery.sizeOf(context).height -
-        position.dy * -1 -
-        renderBox.size.height;
+    final positionDy = position.dy * -1;
+
+    final bottomSpace =
+        MediaQuery.of(context).size.height - positionDy - renderBox.size.height;
 
     late final EdgeInsets padding;
 
-    final optionsLen = 44.0 * widget.options.length;
-
-    if (optionsLen < availableSpace) {
+    if (positionDy < (bottomSpace + (bottomSpace * 0.6))) {
       final topPadding = position.dy * -1 + renderBox.size.height + 6.0;
 
       padding = EdgeInsets.only(
