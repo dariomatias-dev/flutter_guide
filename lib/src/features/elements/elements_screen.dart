@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/core/constants/components/functions.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
@@ -32,12 +33,14 @@ class _ElementsScreenState extends State<ElementsScreen> {
                     _tabIndex = value;
                   });
                 },
-                tabs: const <Tab>[
-                  Tab(
+                tabs: <Tab>[
+                  const Tab(
                     child: Text('Widgets'),
                   ),
                   Tab(
-                    child: Text('Functions'),
+                    child: Text(
+                      AppLocalizations.of(context)!.functions,
+                    ),
                   ),
                 ],
               ),

@@ -22,7 +22,7 @@ List<ScreenModel> getBottomAppBarScreens(
       screen: HomeScreen(),
     ),
     ScreenModel(
-      title: 'Widgets',
+      title: appLocalizations.elements,
       screen: ElementsScreen(
         key: GlobalKey(),
       ),

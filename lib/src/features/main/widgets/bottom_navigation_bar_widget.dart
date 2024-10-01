@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import 'package:salomon_bottom_bar_extend/salomon_bottom_bar.dart';
 
 const _icons = <IconData>[
@@ -16,12 +14,14 @@ class BottomNavigationBarWidget extends StatefulWidget {
     super.key,
     required this.screenIndex,
     required this.updateScreenIndex,
+    required this.screenNames,
   });
 
   final int screenIndex;
   final void Function(
     int value,
   ) updateScreenIndex;
+  final List<String> screenNames;
 
   @override
   State<BottomNavigationBarWidget> createState() =>
@@ -32,20 +32,12 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   final _names = <String>[];
 
   @override
-  void didChangeDependencies() {
-    final appLocalizations = AppLocalizations.of(context)!;
+  void initState() {
+    _names.addAll(
+      widget.screenNames,
+    );
 
-    _names.clear();
-    _names.addAll([
-      appLocalizations.home,
-      'Elements',
-      appLocalizations.packages,
-      appLocalizations.settings,
-    ]);
-
-    setState(() {});
-
-    super.didChangeDependencies();
+    super.initState();
   }
 
   @override

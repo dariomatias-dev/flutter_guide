@@ -1,4 +1,4 @@
 class FunctionNames {
-  static const showBottomSheetMaterial = 'ShowBottomSheet';
-  static const showModalBottomSheetMaterial = 'ShowModalBottomSheet';
+  static const showBottomSheetMaterial = 'showBottomSheet';
+  static const showModalBottomSheetMaterial = 'showModalBottomSheet';
 }

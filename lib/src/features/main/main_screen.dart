@@ -18,13 +18,16 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final bottomAppBarScreens = getBottomAppBarScreens(context);
+    final screens = getBottomAppBarScreens(
+      context,
+    );
+    final screenSelected = screens[_controller.screenIndex];
 
     return Scaffold(
       appBar: MainAppBarWidget(
-        title: bottomAppBarScreens[_controller.screenIndex].title,
+        title: screenSelected.title,
       ),
-      body: bottomAppBarScreens[_controller.screenIndex].screen,
+      body: screenSelected.screen,
       bottomNavigationBar: BottomNavigationBarWidget(
         screenIndex: _controller.screenIndex,
         updateScreenIndex: (value) {
@@ -33,6 +36,12 @@ class _MainScreenState extends State<MainScreen> {
             value,
           );
         },
+        screenNames: List.generate(
+          screens.length,
+          (index) {
+            return screens[index].title;
+          },
+        ),
       ),
     );
   }
