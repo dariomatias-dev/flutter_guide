@@ -70,6 +70,26 @@ const worldCitiesNames = <String>[
   'Istanbul',
   'São Paulo',
   'Bangkok',
+  'New York',
+  'Los Angeles',
+  'London',
+  'Paris',
+  'Tokyo',
+  'Beijing',
+  'Sydney',
+  'Rio de Janeiro',
+  'Dubai',
+  'Moscow',
+  'Toronto',
+  'Hong Kong',
+  'Berlin',
+  'Singapore',
+  'Mumbai',
+  'Cape Town',
+  'Rome',
+  'Istanbul',
+  'São Paulo',
+  'Bangkok',
 ];
 
 final worldCities = List.generate(worldCitiesNames.length, (index) {
@@ -117,7 +137,7 @@ class _CustomDropdownSampleState extends State<CustomDropdownSample> {
         ),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               DropdownButtonWidget(
                 title: 'Days of the Week',
@@ -197,7 +217,29 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
     final renderBox =
         _dropdownButtonKey.currentContext!.findRenderObject() as RenderBox;
     final position = renderBox.globalToLocal(Offset.zero);
-    final topPadding = position.dy * -1 + 14.0;
+
+    final availableSpace = MediaQuery.sizeOf(context).height -
+        position.dy * -1 -
+        renderBox.size.height;
+
+    late final EdgeInsets padding;
+
+    final optionsLen = 44.0 * widget.options.length;
+
+    if (optionsLen < availableSpace) {
+      final topPadding = position.dy * -1 + renderBox.size.height + 6.0;
+
+      padding = EdgeInsets.only(
+        top: topPadding,
+      );
+    } else {
+      final bottomPadding =
+          MediaQuery.sizeOf(context).height - position.dy * -1 + 6.0;
+
+      padding = EdgeInsets.only(
+        bottom: bottomPadding,
+      );
+    }
 
     _overlayEntry = OverlayEntry(
       builder: (context) {
@@ -206,7 +248,7 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
           removeMenu: _removeMenu,
           boxShadow: _boxShadow,
           borderRadius: _defaultBorderRadius,
-          topPadding: topPadding,
+          padding: padding,
           options: widget.options,
           onChange: (value) {
             widget.onChange(value);
@@ -279,7 +321,7 @@ class MenuWidget extends StatefulWidget {
     this.selectedOption,
     required this.boxShadow,
     required this.borderRadius,
-    required this.topPadding,
+    required this.padding,
     required this.options,
     required this.onChange,
   });
@@ -288,7 +330,7 @@ class MenuWidget extends StatefulWidget {
   final MenuOptionModel? selectedOption;
   final BoxShadow boxShadow;
   final BorderRadius borderRadius;
-  final double topPadding;
+  final EdgeInsets padding;
   final List<MenuOptionModel> options;
   final void Function(
     MenuOptionModel value,
@@ -332,23 +374,32 @@ class _MenuWidgetState extends State<MenuWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final isTopDirection = widget.padding.top != 0.0;
+    final mediaQuery = MediaQuery.of(context);
+
     return GestureDetector(
       onTap: widget.removeMenu,
       child: Material(
         color: Colors.transparent,
         child: Padding(
           padding: EdgeInsets.only(
-            top: widget.topPadding,
+            top: isTopDirection ? widget.padding.top : mediaQuery.padding.top,
+            bottom: widget.padding.bottom,
             right: 12.0,
             left: 12.0,
           ),
           child: Column(
+            mainAxisAlignment: isTopDirection
+                ? MainAxisAlignment.start
+                : MainAxisAlignment.end,
             children: <Widget>[
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: MediaQuery.sizeOf(context).height -
-                      widget.topPadding -
-                      40.0,
+                  maxHeight: isTopDirection
+                      ? mediaQuery.size.height - widget.padding.top - 40.0
+                      : mediaQuery.size.height -
+                          mediaQuery.padding.top -
+                          widget.padding.bottom,
                 ),
                 child: AnimatedOpacity(
                   opacity: _opacity,
@@ -407,7 +458,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                   ),
                 ),
               ),
-              const Spacer(),
+              if (isTopDirection) const Spacer(),
             ],
           ),
         ),
