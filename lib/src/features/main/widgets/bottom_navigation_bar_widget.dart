@@ -38,7 +38,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
     _names.clear();
     _names.addAll([
       appLocalizations.home,
-      appLocalizations.widgets,
+      'Elements',
       appLocalizations.packages,
       appLocalizations.settings,
     ]);

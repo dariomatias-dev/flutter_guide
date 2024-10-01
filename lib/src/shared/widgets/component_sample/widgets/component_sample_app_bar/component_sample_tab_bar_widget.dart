@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_guide/src/shared/widgets/default_tab_bar_widget.dart';
+
 class ComponentSampleTabBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
   const ComponentSampleTabBarWidget({
@@ -16,10 +18,7 @@ class ComponentSampleTabBarWidget extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return TabBar(
-      labelColor: Colors.blue.shade400.withOpacity(0.8),
-      unselectedLabelColor: Theme.of(context).colorScheme.tertiary,
-      indicatorColor: Colors.blue.shade400.withOpacity(0.8),
+    return DefaultTabBarWidget(
       onTap: (value) {
         currentTabIndexNotifier.value = value;
       },
