@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
-import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
 
 import 'package:flutter_guide/src/providers/widgets_map_inherited_widget.dart';
 
@@ -23,7 +22,7 @@ class ComponentController {
   final String _componentName;
 
   late ComponentSummaryModel component;
-  late WidgetCategory? componentCategory;
+  late ComponentType? type;
 
   void _init() {
     final ComponentsMapInheritedWidget(
@@ -35,15 +34,15 @@ class ComponentController {
     switch (_componentType) {
       case ComponentType.widget:
         component = widgetsMap[_componentName]!;
-        componentCategory = (component as WidgetSummaryModel).category;
+        type = (component as WidgetSummaryModel).type;
         break;
-      case ComponentType.functions:
+      case ComponentType.function:
         component = functionsMap[_componentName]!;
-        componentCategory = (component as FunctionSummaryModel).category;
+        type = (component as FunctionSummaryModel).type;
         break;
       default:
         component = packagesMap[_componentName]!;
-        componentCategory = null;
+        type = null;
     }
   }
 }

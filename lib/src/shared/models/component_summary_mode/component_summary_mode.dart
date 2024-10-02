@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
 part 'package_summary_model.dart';
 part 'widget_summary_model.dart';

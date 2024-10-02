@@ -1,16 +1,16 @@
-import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
 class DocPopupMenuItemController {
   String category = '';
 
   String getCategory(
-    WidgetCategory widgetCategory,
+    ComponentType type,
   ) {
-    switch (widgetCategory) {
-      case WidgetCategory.widgets:
+    switch (type) {
+      case ComponentType.widget:
         return 'widgets';
-      case WidgetCategory.material:
-      case WidgetCategory.functions:
+      case ComponentType.material:
+      case ComponentType.function:
         return 'material';
       default:
         return 'cupertino';

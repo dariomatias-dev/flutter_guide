@@ -6,8 +6,8 @@ class FunctionModel extends ComponentModel {
     required super.icon,
     super.videoId,
     required super.sample,
-    required this.category,
+    required this.type,
   });
 
-  final WidgetCategory category;
+  final ComponentType type;
 }

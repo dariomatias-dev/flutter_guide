@@ -70,7 +70,7 @@ class _ComponentScreenState extends State<ComponentScreen> {
           ),
         DocPopupMenuItemWidget(
           componentName: _controller.component.name,
-          componentCategory: _controller.componentCategory,
+          type: _controller.type,
         ),
       ],
     );

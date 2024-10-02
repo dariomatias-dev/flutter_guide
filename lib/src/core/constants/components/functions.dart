@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_guide/src/core/constants/function_names.dart';
-import 'package:flutter_guide/src/core/enums/widget_category_enum.dart';
+import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
 // Models
 import 'package:flutter_guide/src/shared/models/component_model/component_model.dart';
@@ -17,13 +17,13 @@ const functions = <FunctionModel>[
     name: FunctionNames.showBottomSheetMaterial,
     icon: Icons.keyboard_arrow_up,
     sample: ShowBottomSheetSample(),
-    category: WidgetCategory.functions,
+    type: ComponentType.function,
   ),
   FunctionModel(
     name: FunctionNames.showModalBottomSheetMaterial,
     icon: Icons.keyboard_arrow_up,
     sample: ShowModalBottomSheetSample(),
-    category: WidgetCategory.functions,
+    type: ComponentType.function,
   ),
 ];
 
@@ -36,7 +36,7 @@ FunctionInfosModel getFunctionInfos() {
 
     samples[function.name] = FunctionSummaryModel(
       name: function.name,
-      category: function.category,
+      type: function.type,
       videoId: function.videoId,
       sample: function.sample,
     );

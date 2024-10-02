@@ -1,6 +1,7 @@
 enum ComponentType {
   widget,
-  package,
   material,
-  functions,
+  cupertino,
+  function,
+  package,
 }
