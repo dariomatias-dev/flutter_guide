@@ -10,6 +10,7 @@ class DocPopupMenuItemController {
       case WidgetCategory.widgets:
         return 'widgets';
       case WidgetCategory.material:
+      case WidgetCategory.functions:
         return 'material';
       default:
         return 'cupertino';

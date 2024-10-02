@@ -10,20 +10,20 @@ import 'package:flutter_guide/src/shared/models/widget_infos_model/component_inf
 
 // Functions
 import 'package:flutter_guide/src/shared/widgets/component/samples/functions/showbottomsheet_sample.dart';
-import 'package:flutter_guide/src/shared/widgets/component/samples/functions/showmodal_bottom_sheet_sample.dart';
+import 'package:flutter_guide/src/shared/widgets/component/samples/functions/showmodalbottomsheet_sample.dart';
 
 const functions = <FunctionModel>[
   FunctionModel(
     name: FunctionNames.showBottomSheetMaterial,
     icon: Icons.keyboard_arrow_up,
     sample: ShowBottomSheetSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.functions,
   ),
   FunctionModel(
     name: FunctionNames.showModalBottomSheetMaterial,
     icon: Icons.keyboard_arrow_up,
     sample: ShowModalBottomSheetSample(),
-    category: WidgetCategory.material,
+    category: WidgetCategory.functions,
   ),
 ];
 

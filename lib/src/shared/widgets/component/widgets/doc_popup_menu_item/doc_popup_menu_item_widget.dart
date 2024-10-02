@@ -42,7 +42,10 @@ class _PopupMenuItemDocWidgetState extends State<DocPopupMenuItemWidget> {
           );
 
           url =
-              'https://api.flutter.dev/flutter/$componentCategory/${widget.componentName}-class.html';
+              'https://api.flutter.dev/flutter/$componentCategory/${widget.componentName}';
+
+          url +=
+              '${widget.componentCategory != WidgetCategory.functions ? '-class' : ''}.html';
         }
 
         openUrl(

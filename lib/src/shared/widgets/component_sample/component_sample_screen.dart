@@ -27,9 +27,6 @@ class ComponentSampleScreen extends StatefulWidget {
 class _ComponentSampleScreenState extends State<ComponentSampleScreen> {
   @override
   Widget build(BuildContext context) {
-    final themeController =
-        UserPreferencesInheritedWidget.of(context)!.themeController;
-
     return ComponentSampleScreenInheritedWidget(
       file: widget.filePath,
       child: DefaultTabController(
@@ -43,7 +40,7 @@ class _ComponentSampleScreenState extends State<ComponentSampleScreen> {
           body: TabBarView(
             children: <Widget>[
               AnimatedBuilder(
-                animation: themeController,
+                animation: UserPreferencesInheritedWidget.of(context)!.themeController,
                 builder: (context, child) {
                   return Theme(
                     data: Theme.of(context).brightness == Brightness.light

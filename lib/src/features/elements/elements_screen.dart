@@ -50,7 +50,7 @@ class _ElementsScreenState extends State<ElementsScreen> {
                 key: GlobalKey(),
                 componentType: _tabIndex == 0
                     ? ComponentType.widget
-                    : ComponentType.material,
+                    : ComponentType.functions,
                 components: _tabIndex == 0 ? widgets : functions,
               ),
             )

@@ -35,16 +35,15 @@ class ComponentController {
     switch (_componentType) {
       case ComponentType.widget:
         component = widgetsMap[_componentName]!;
+        componentCategory = (component as WidgetSummaryModel).category;
         break;
-      case ComponentType.package:
-        component = packagesMap[_componentName]!;
+      case ComponentType.functions:
+        component = functionsMap[_componentName]!;
+        componentCategory = (component as FunctionSummaryModel).category;
         break;
       default:
-        component = functionsMap[_componentName]!;
+        component = packagesMap[_componentName]!;
+        componentCategory = null;
     }
-
-    componentCategory = _componentType == ComponentType.widget
-        ? (component as WidgetSummaryModel).category
-        : null;
   }
 }
