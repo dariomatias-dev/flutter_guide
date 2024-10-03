@@ -35,9 +35,7 @@ class _SavedComponentsState extends State<SavedComponents> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: StandardAppBarWidget(
-        titleName: _controller.isWidget
-            ? _controller.appLocalizations.savedWidgets
-            : _controller.appLocalizations.savedPackages,
+        titleName: _controller.titleScreen,
       ),
       body: ValueListenableBuilder(
         valueListenable: _controller.favoriteNotifier,
@@ -52,9 +50,7 @@ class _SavedComponentsState extends State<SavedComponents> {
                 )
               : Center(
                   child: Text(
-                    _controller.isWidget
-                        ? _controller.appLocalizations.noWidgetSaved
-                        : _controller.appLocalizations.noPackageSaved,
+                    _controller.missingElementsMessage,
                   ),
                 );
         },

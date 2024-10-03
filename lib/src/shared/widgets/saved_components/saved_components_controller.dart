@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'package:flutter_guide/src/core/constants/components/functions.dart';
 import 'package:flutter_guide/src/core/constants/components/packages.dart';
 import 'package:flutter_guide/src/core/constants/components/widgets.dart';
 import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
@@ -23,8 +24,9 @@ class SavedComponentsController {
     );
   }
 
-  late AppLocalizations appLocalizations;
-  late bool isWidget;
+  late AppLocalizations _appLocalizations;
+  late String titleScreen;
+  late String missingElementsMessage;
 
   late String componentTypeName;
 
@@ -38,10 +40,8 @@ class SavedComponentsController {
     BuildContext context,
     ComponentType componentType,
   ) {
-    appLocalizations = AppLocalizations.of(context)!;
+    _appLocalizations = AppLocalizations.of(context)!;
     componentTypeName = componentType.name;
-
-    isWidget = componentTypeName == ComponentType.widget.name;
 
     final UserPreferencesInheritedWidget(
       :getFavoriteNotifier,
@@ -51,8 +51,22 @@ class SavedComponentsController {
     favoriteNotifier = getFavoriteNotifier(componentType);
     _favoritesService = getFavoriteService(componentType);
 
-    _groupOfComponents =
-        componentType == ComponentType.widget ? widgets : packages;
+    switch (componentType) {
+      case ComponentType.widget:
+        titleScreen = _appLocalizations.savedWidgets;
+        missingElementsMessage = _appLocalizations.noWidgetSaved;
+        _groupOfComponents = widgets;
+        break;
+      case ComponentType.function:
+        titleScreen = _appLocalizations.savedFunctions;
+        missingElementsMessage = _appLocalizations.noFunctionSaved;
+        _groupOfComponents = functions;
+        break;
+      default:
+        titleScreen = _appLocalizations.savedPackages;
+        missingElementsMessage = _appLocalizations.noPackageSaved;
+        _groupOfComponents = packages;
+    }
 
     getSavedComponents();
   }

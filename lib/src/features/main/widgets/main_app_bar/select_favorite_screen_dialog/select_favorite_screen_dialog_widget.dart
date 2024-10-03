@@ -57,6 +57,17 @@ class _SelectFavoriteScreenDialogWidgetState
             widget.overlayEntry?.remove();
 
             _controller.navigateTo(
+              ComponentType.function,
+            );
+          },
+          title: appLocalizations.functions,
+          icon: Icons.extension_outlined,
+        ),
+        ListTileItemWidget(
+          onTap: () {
+            widget.overlayEntry?.remove();
+
+            _controller.navigateTo(
               ComponentType.package,
             );
           },
