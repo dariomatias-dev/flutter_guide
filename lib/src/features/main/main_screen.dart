@@ -29,6 +29,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: screenSelected.screen,
       bottomNavigationBar: BottomNavigationBarWidget(
+        key: GlobalKey(),
         screenIndex: _controller.screenIndex,
         updateScreenIndex: (value) {
           _controller.updateScreenIndex(
@@ -39,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         screenNames: List.generate(
           screens.length,
           (index) {
-            return screens[index].title;
+            return screens[index].bottomNavigationBarName;
           },
         ),
       ),

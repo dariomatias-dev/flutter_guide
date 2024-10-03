@@ -1,9 +1,9 @@
 {
     "@@locale": "en",
+    "home": "Home",
     "elements": "Elements",
     "components": "Components",
     "language": "Language",
-    "home": "Home",
     "function": "Function",
     "functions": "Functions",
     "package": "Package",
@@ -49,5 +49,8 @@
     "contribute": "Contribute",
     "supportProject": "Support the project by buying a coffee.",
     "donate": "Donate",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "flutterDocs": "Flutter Docs",
+    "dartDocs": "Dart Docs",
+    "samples": "Samples"
 }

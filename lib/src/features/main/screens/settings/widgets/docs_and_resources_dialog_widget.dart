@@ -17,6 +17,10 @@ class DocsAndResourcesDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final docsAndResources = getDocsAndResources(
+      context,
+    );
+
     return CustomDialog.dialog(
       title: AppLocalizations.of(context)!.docsAndResources,
       actions: <ActionButtonWidget>[

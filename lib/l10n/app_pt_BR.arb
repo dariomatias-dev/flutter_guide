@@ -49,5 +49,8 @@
     "contribute": "Contribuir",
     "supportProject": "Apoie o projeto comprando um café.",
     "donate": "Doar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "flutterDocs": "Flutter Documentação",
+    "dartDocs": "Dart Documentação",
+    "samples": "Exemplos"
 }

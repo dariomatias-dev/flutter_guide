@@ -17,18 +17,21 @@ List<ScreenModel> getBottomAppBarScreens(
   final appLocalizations = AppLocalizations.of(context)!;
 
   return <ScreenModel>[
-    const ScreenModel(
+    ScreenModel(
       title: 'FlutterGuide',
-      screen: HomeScreen(),
+      bottomNavigationBarName: appLocalizations.home,
+      screen: const HomeScreen(),
     ),
     ScreenModel(
       title: appLocalizations.elements,
+      bottomNavigationBarName: appLocalizations.elements,
       screen: ElementsScreen(
         key: GlobalKey(),
       ),
     ),
     ScreenModel(
       title: appLocalizations.packages,
+      bottomNavigationBarName: appLocalizations.packages,
       screen: ComponentsScreen(
         key: GlobalKey(),
         componentType: ComponentType.package,
@@ -37,6 +40,7 @@ List<ScreenModel> getBottomAppBarScreens(
     ),
     ScreenModel(
       title: appLocalizations.settings,
+      bottomNavigationBarName: appLocalizations.settings,
       screen: const SettingsScreen(),
     ),
   ];
