@@ -6,6 +6,7 @@
     "home": "Home",
     "function": "Function",
     "functions": "Functions",
+    "package": "Package",
     "packages": "Packages",
     "settings": "Settings",
     "version": "Version",
@@ -44,5 +45,9 @@
     "configuringDio": "Configuring Dio",
     "loadingDialog": "Loading Dialog",
     "loadingScreen": "Loading Screen",
-    "imageLoader": "Image Loader"
+    "imageLoader": "Image Loader",
+    "contribute": "Contribute",
+    "supportProject": "Support the project by buying a coffee.",
+    "donate": "Donate",
+    "cancel": "Cancel"
 }

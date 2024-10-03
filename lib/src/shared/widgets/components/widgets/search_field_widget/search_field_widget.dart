@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
@@ -45,6 +46,20 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
+
+    late final String hintText;
+    switch (widget.componentType) {
+      case ComponentType.widget:
+        hintText = 'Widget';
+        break;
+      case ComponentType.function:
+        hintText = appLocalizations.function;
+        break;
+      default:
+        hintText = appLocalizations.package;
+    }
+
     return Container(
       width: double.infinity,
       height: 44.0,
@@ -55,9 +70,10 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
         controller: _controller.searchFieldController,
         decoration: InputDecoration(
           filled: true,
-          fillColor: Theme.of(context).brightness == Brightness.light
-              ? Colors.grey.shade300.withOpacity(0.8)
-              : FlutterGuideColors.darkNeutral200.withOpacity(0.8),
+          fillColor: (Theme.of(context).brightness == Brightness.light
+                  ? Colors.grey.shade300
+                  : FlutterGuideColors.darkNeutral200)
+              .withOpacity(0.8),
           prefixIcon: Icon(
             Icons.search,
             color: Theme.of(context).colorScheme.tertiary,
@@ -71,8 +87,7 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
               size: 20.0,
             ),
           ),
-          hintText:
-              '${widget.componentType == ComponentType.widget ? 'Widget' : 'Package'}...',
+          hintText: '$hintText...',
           hintStyle: TextStyle(
             color: Colors.grey.shade600,
             fontSize: 14.0,

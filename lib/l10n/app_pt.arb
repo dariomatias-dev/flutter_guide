@@ -12,6 +12,7 @@
     "home": "Início",
     "function": "Função",
     "functions": "Funções",
+    "package": "Pacote",
     "packages": "Pacotes",
     "favorites": "Favoritos",
     "saved": "salvo",
@@ -44,5 +45,9 @@
     "configuringDio": "Configurando Dio",
     "loadingDialog": "Diálogo de Carregamento",
     "loadingScreen": "Tela de Carregamento",
-    "imageLoader": "Carregador de Imagem"
+    "imageLoader": "Carregador de Imagem",
+    "contribute": "Contribuir",
+    "supportProject": "Apoie o projeto comprando um café.",
+    "donate": "Doar",
+    "cancel": "Cancelar"
 }

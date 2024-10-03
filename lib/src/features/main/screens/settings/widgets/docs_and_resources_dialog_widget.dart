@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/core/constants/docs_and_resources_widget.dart';
 
@@ -17,7 +18,7 @@ class DocsAndResourcesDialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomDialog.dialog(
-      title: 'Docs and Resources',
+      title: AppLocalizations.of(context)!.docsAndResources,
       actions: <ActionButtonWidget>[
         CustomDialog.button(
           text: 'Ok',
