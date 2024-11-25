@@ -23,6 +23,7 @@ class PackageNames {
   static const loadingAnimationWidgetPackage = 'loading_animation_widget';
   static const loadingIndicatorPackage = 'loading_indicator';
   static const mshCheckboxPackage = 'msh_checkbox';
+  static const networkInfoPlusPackage = 'network_info_plus';
   static const salomonBottomBarPackage = 'salomon_bottom_bar';
   static const sharePlusPackage = 'share_plus';
   static const sharedPreferencesPackage = 'shared_preferences';

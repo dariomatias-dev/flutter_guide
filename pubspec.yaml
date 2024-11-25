@@ -78,6 +78,7 @@ dependencies:
   share_plus: ^10.0.0
   intl_utils: ^2.8.7
   flutter_animate: ^4.5.1
+  network_info_plus: ^6.1.1
 
 dev_dependencies:
   flutter_test:
