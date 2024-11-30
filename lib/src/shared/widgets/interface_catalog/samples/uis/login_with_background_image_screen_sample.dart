@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class LoginWitBackgroundImageScreenSample extends StatelessWidget {
-  const LoginWitBackgroundImageScreenSample({super.key});
+class LoginWithBackgroundImageScreenSample extends StatelessWidget {
+  const LoginWithBackgroundImageScreenSample({super.key});
 
   @override
   Widget build(BuildContext context) {

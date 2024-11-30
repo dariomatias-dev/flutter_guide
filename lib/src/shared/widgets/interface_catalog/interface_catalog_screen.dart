@@ -46,7 +46,7 @@ class InterfaceCatalogScreen extends StatelessWidget {
                     return ComponentSampleScreen(
                       title: element.name,
                       filePath:
-                          'lib/src/shared/widgets/interface_catalog/samples/${isUi ? 'uis' : 'elements'}/${element.name.toLowerCase().replaceAll(' ', '_')}_sample.dart',
+                          'lib/src/shared/widgets/interface_catalog/samples/${isUi ? 'uis' : 'elements'}/${element.fileName}_sample.dart',
                       sample: element.component,
                     );
                   },

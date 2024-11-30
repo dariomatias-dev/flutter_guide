@@ -24,46 +24,57 @@ List<InterfaceModel> getElements(
   return <InterfaceModel>[
     InterfaceModel(
       name: appLocalizations.customPopupMenu,
+      fileName: 'custom_popup_menu',
       component: const CustomPopupMenuSample(),
     ),
     InterfaceModel(
       name: appLocalizations.customDropdown,
+      fileName: 'custom_dropdown',
       component: const CustomDropdownSample(),
     ),
     InterfaceModel(
       name: appLocalizations.gaps,
+      fileName: 'gaps',
       component: const GapsSample(),
     ),
     InterfaceModel(
       name: appLocalizations.passwordField,
+      fileName: 'password_field',
       component: const PasswordFieldSample(),
     ),
     InterfaceModel(
       name: appLocalizations.loadingButton,
+      fileName: 'loading_button',
       component: const LoadingButtonSample(),
     ),
     InterfaceModel(
       name: appLocalizations.infiniteGridView,
+      fileName: 'infinite_grid_view',
       component: const InfiniteGridViewSample(),
     ),
     InterfaceModel(
       name: appLocalizations.pagination,
+      fileName: 'pagination',
       component: const PaginationSample(),
     ),
     InterfaceModel(
       name: appLocalizations.configuringDio,
+      fileName: 'configuring_dio',
       component: const ConfiguringDioSample(),
     ),
     InterfaceModel(
       name: appLocalizations.loadingDialog,
+      fileName: 'loading_dialog',
       component: const LoadingDialogSample(),
     ),
     InterfaceModel(
       name: appLocalizations.loadingScreen,
+      fileName: 'loading_screen',
       component: const LoadingScreenSample(),
     ),
     InterfaceModel(
       name: appLocalizations.imageLoader,
+      fileName: 'image_loader',
       component: const ImageLoaderSample(),
     ),
   ];
