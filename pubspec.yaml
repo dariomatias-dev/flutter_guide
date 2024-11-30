@@ -79,6 +79,7 @@ dependencies:
   intl_utils: ^2.8.7
   flutter_animate: ^4.5.1
   network_info_plus: ^6.1.1
+  icons_launcher: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -90,6 +91,12 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+
+icons_launcher:
+  image_path: "assets/icons/flutter_guide_icon.png"
+  platforms:
+    android:
+      enable: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
