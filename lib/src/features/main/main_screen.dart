@@ -24,9 +24,7 @@ class _MainScreenState extends State<MainScreen> {
     final screenSelected = screens[_controller.screenIndex];
 
     return Scaffold(
-      appBar: MainAppBarWidget(
-        title: screenSelected.title,
-      ),
+      appBar: const MainAppBarWidget(),
       body: screenSelected.screen,
       bottomNavigationBar: BottomNavigationBarWidget(
         key: GlobalKey(),

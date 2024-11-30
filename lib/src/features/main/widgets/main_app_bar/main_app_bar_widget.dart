@@ -6,12 +6,7 @@ import 'package:flutter_guide/src/shared/widgets/icon_button_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/standard_app_bar_widget.dart';
 
 class MainAppBarWidget extends StatefulWidget implements PreferredSizeWidget {
-  const MainAppBarWidget({
-    super.key,
-    required this.title,
-  });
-
-  final String title;
+  const MainAppBarWidget({super.key});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -39,15 +34,15 @@ class _MainAppBarWidgetState extends State<MainAppBarWidget> {
       title: Row(
         children: <Widget>[
           Image.asset(
-            'assets/icons/flutter_icon.png',
+            'assets/icons/flutter_guide_icon.png',
             width: 20.0,
             height: 20.0,
             fit: BoxFit.cover,
           ),
           const SizedBox(width: 16.0),
-          Text(
-            widget.title,
-            style: const TextStyle(
+          const Text(
+            'FlutterGuide',
+            style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w500,
             ),
