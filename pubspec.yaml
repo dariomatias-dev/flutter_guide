@@ -120,6 +120,9 @@ flutter:
     - lib/src/shared/widgets/component/samples/widgets/
     - lib/src/shared/widgets/component/samples/functions/
     - lib/src/shared/widgets/component/samples/packages/
+    
+    - lib/src/shared/widgets/interface_catalog/samples/elements/
+    - lib/src/shared/widgets/interface_catalog/samples/uis/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

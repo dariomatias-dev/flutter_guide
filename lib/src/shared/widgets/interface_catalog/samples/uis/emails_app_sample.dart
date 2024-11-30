@@ -86,8 +86,8 @@ final emails = <EmailModel>[
   ),
 ];
 
-class EmailsSample extends StatelessWidget {
-  const EmailsSample({super.key});
+class EmailsAppSample extends StatelessWidget {
+  const EmailsAppSample({super.key});
 
   @override
   Widget build(BuildContext context) {
