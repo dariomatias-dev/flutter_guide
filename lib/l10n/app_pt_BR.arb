@@ -52,5 +52,10 @@
     "cancel": "Cancelar",
     "flutterDocs": "Flutter Documentação",
     "dartDocs": "Dart Documentação",
-    "samples": "Exemplos"
+    "samples": "Exemplos",
+    "code": "Código",
+    "preview": "Visualização",
+    "save": "Salvar",
+    "remove": "Remover",
+    "copy": "Copiar"
 }

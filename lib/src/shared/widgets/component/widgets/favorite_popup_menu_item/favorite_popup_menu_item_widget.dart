@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/core/enums/component_type_enum.dart';
 
@@ -21,10 +22,12 @@ class FavoritePopupMenuItemWidget extends PopupMenuEntry {
   bool represents(value) => false;
 
   @override
-  State<FavoritePopupMenuItemWidget> createState() => FavoritePopupMenuItemWidgetState();
+  State<FavoritePopupMenuItemWidget> createState() =>
+      FavoritePopupMenuItemWidgetState();
 }
 
-class FavoritePopupMenuItemWidgetState extends State<FavoritePopupMenuItemWidget> {
+class FavoritePopupMenuItemWidgetState
+    extends State<FavoritePopupMenuItemWidget> {
   late FavoritePopupMenuItemController _controller;
 
   @override
@@ -40,6 +43,8 @@ class FavoritePopupMenuItemWidgetState extends State<FavoritePopupMenuItemWidget
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
+
     return PopupMenuItem(
       onTap: () {
         _controller.saved = _controller.favoritesService.toggleWidgetState(
@@ -50,7 +55,7 @@ class FavoritePopupMenuItemWidgetState extends State<FavoritePopupMenuItemWidget
         _controller.favoriteNotifier.setValue(widget.componentName);
       },
       child: Text(
-        _controller.saved ? 'Remove' : 'Save',
+        _controller.saved ? appLocalizations.remove : appLocalizations.save,
       ),
     );
   }

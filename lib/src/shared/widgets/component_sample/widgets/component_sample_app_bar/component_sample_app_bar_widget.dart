@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/component_sample_app_bar/component_sample_app_bar_controller.dart';
 import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/component_sample_app_bar/component_sample_tab_bar_widget.dart';
@@ -54,7 +55,9 @@ class _ComponentSampleAppBarWidgetState
             return <PopupMenuEntry>[
               PopupMenuItem(
                 onTap: _controller.copyCode,
-                child: const Text('Copy'),
+                child: Text(
+                  AppLocalizations.of(context)!.copy,
+                ),
               ),
               if (widget.popupMenuItems != null) ...widget.popupMenuItems!,
             ];
