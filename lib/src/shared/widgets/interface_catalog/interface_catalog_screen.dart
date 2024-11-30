@@ -4,6 +4,7 @@ import 'package:flutter_guide/src/core/constants/components/elements.dart';
 import 'package:flutter_guide/src/core/constants/components/uis.dart';
 import 'package:flutter_guide/src/core/enums/interface_type_enum.dart';
 
+import 'package:flutter_guide/src/shared/models/interface_model.dart';
 import 'package:flutter_guide/src/shared/widgets/component_sample/component_sample_screen.dart';
 import 'package:flutter_guide/src/shared/widgets/list_tile_item_widget.dart';
 import 'package:flutter_guide/src/shared/widgets/standard_app_bar_widget.dart';
@@ -19,15 +20,16 @@ class InterfaceCatalogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isUi = elementType == InterfaceTypeEnum.ui;
-    final uis = getUis(context);
-    final elements = getElements(context);
+    final interfaces = <InterfaceModel>[
+      ...(isUi ? getUis : getElements)(context)
+    ];
 
     return Scaffold(
       appBar: StandardAppBarWidget(
         titleName: isUi ? 'UIs' : 'Elements',
       ),
       body: ListView.separated(
-        itemCount: (isUi ? uis : elements).length,
+        itemCount: interfaces.length,
         padding: const EdgeInsets.symmetric(
           vertical: 12.0,
         ),
@@ -35,7 +37,7 @@ class InterfaceCatalogScreen extends StatelessWidget {
           return const SizedBox(height: 12.0);
         },
         itemBuilder: (context, index) {
-          final element = (isUi ? uis : elements)[index];
+          final element = interfaces[index];
 
           return ListTileItemWidget(
             onTap: () {

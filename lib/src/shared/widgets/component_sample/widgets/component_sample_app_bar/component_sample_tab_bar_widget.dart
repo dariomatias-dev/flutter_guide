@@ -24,6 +24,8 @@ class ComponentSampleTabBarWidget extends StatelessWidget
     return DefaultTabBarWidget(
       onTap: (value) {
         currentTabIndexNotifier.value = value;
+
+        FocusManager.instance.primaryFocus?.unfocus();
       },
       tabs: <Tab>[
         Tab(
