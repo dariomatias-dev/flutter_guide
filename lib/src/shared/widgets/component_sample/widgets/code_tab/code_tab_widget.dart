@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide/src/shared/widgets/component_sample/widgets/code_tab/code_tab_controller.dart';
 
 class CodeTab extends StatefulWidget {
-  const CodeTab({super.key});
+  const CodeTab({
+    super.key,
+    required this.fontSizeNotifier,
+  });
+
+  final ValueNotifier<double> fontSizeNotifier;
 
   @override
   State<CodeTab> createState() => _CodeTabState();
@@ -26,8 +31,6 @@ class _CodeTabState extends State<CodeTab> {
 
   @override
   Widget build(BuildContext context) {
-    _controller.code;
-
     return Theme(
       data: Theme.of(context).copyWith(
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -44,11 +47,16 @@ class _CodeTabState extends State<CodeTab> {
               vertical: 16.0,
               horizontal: 6.0,
             ),
-            child: Text.rich(
-              _controller.code,
-              style: const TextStyle(
-                fontSize: 12.0,
-              ),
+            child: ValueListenableBuilder(
+              valueListenable: widget.fontSizeNotifier,
+              builder: (context, value, child) {
+                return SelectableText.rich(
+                  _controller.code,
+                  style: TextStyle(
+                    fontSize: value,
+                  ),
+                );
+              },
             ),
           ),
         ),

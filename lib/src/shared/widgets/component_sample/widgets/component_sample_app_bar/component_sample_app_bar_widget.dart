@@ -11,10 +11,12 @@ class ComponentSampleAppBarWidget extends StatefulWidget
     super.key,
     required this.title,
     required this.popupMenuItems,
+    required this.showFloatingActionsNotifier,
   });
 
   final String title;
   final List<PopupMenuEntry>? popupMenuItems;
+  final ValueNotifier<bool> showFloatingActionsNotifier;
 
   @override
   Size get preferredSize => const Size.fromHeight(
@@ -66,6 +68,7 @@ class _ComponentSampleAppBarWidgetState
       ],
       bottom: ComponentSampleTabBarWidget(
         currentTabIndexNotifier: _currentTabIndexNotifier,
+        showFloatingActionsNotifier: widget.showFloatingActionsNotifier,
       ),
     );
   }
