@@ -57,5 +57,6 @@
     "preview": "Visualização",
     "save": "Salvar",
     "remove": "Remover",
-    "copy": "Copiar"
+    "copy": "Copiar",
+    "copyToClipboard": "Código copiado para a área de transferência"
 }

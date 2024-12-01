@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_guide/src/providers/component_sample_screen_inherited_widget.dart';
 
@@ -24,9 +25,13 @@ class ComponentSampleAppBarController {
     ScaffoldMessenger.of(
       getContext(),
     ).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text(
-          'Code copied to the clipboard',
+          AppLocalizations.of(getContext())!.copyToClipboard,
+        ),
+        action: SnackBarAction(
+          label: 'Ok',
+          onPressed: () {},
         ),
       ),
     );

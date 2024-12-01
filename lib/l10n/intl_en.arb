@@ -57,5 +57,6 @@
     "preview": "Preview",
     "save": "Save",
     "remove": "Remove",
-    "copy": "Copy"
+    "copy": "Copy",
+    "copyToClipboard": "Code copied to the clipboard"
 }

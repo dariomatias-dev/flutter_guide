@@ -5,7 +5,7 @@ class ComponentSampleController {
   static const maxFontSize = 16.0;
 
   final showFloatingActionsNotifier = ValueNotifier(false);
-  final fontSizeNotifier = ValueNotifier(minFontSize);
+  final fontSizeNotifier = ValueNotifier(12.0);
 
   void dispose() {
     showFloatingActionsNotifier.dispose();

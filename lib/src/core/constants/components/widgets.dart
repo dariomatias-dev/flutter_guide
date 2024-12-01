@@ -117,7 +117,7 @@ const widgets = <WidgetModel>[
   WidgetModel(
     name: WidgetNames.actionChipMaterial,
     icon: Icons.label_outline,
-    sample: ActionchipSample(),
+    sample: ActionChipSample(),
     type: ComponentType.material,
   ),
   WidgetModel(

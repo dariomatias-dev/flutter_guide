@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ActionchipSample extends StatefulWidget {
-  const ActionchipSample({super.key});
+class ActionChipSample extends StatefulWidget {
+  const ActionChipSample({super.key});
 
   @override
-  State<ActionchipSample> createState() => AactionchiSsampleState();
+  State<ActionChipSample> createState() => ActionchiSsampleState();
 }
 
-class AactionchiSsampleState extends State<ActionchipSample> {
+class ActionchiSsampleState extends State<ActionChipSample> {
   bool _isFavorite = false;
 
   @override
