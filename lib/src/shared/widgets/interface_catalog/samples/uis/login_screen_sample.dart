@@ -33,50 +33,55 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20.0,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Login',
-              style: TextStyle(
-                fontSize: 32.0,
-                fontWeight: FontWeight.w800,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: 120.0,
+            right: 20.0,
+            left: 20.0,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'Login',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
-            ),
-            const SizedBox(height: 40.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SocialButtonWidget(
-                  onTap: () {},
-                  icon: FontAwesomeIcons.google,
-                ),
-                const SizedBox(width: 20.0),
-                SocialButtonWidget(
-                  onTap: () {},
-                  icon: FontAwesomeIcons.facebookF,
-                ),
-                const SizedBox(width: 20.0),
-                SocialButtonWidget(
-                  onTap: () {},
-                  icon: FontAwesomeIcons.apple,
-                ),
-              ],
-            ),
-            const SizedBox(height: 20.0),
-            const Text(
-              'or use your account',
-              style: TextStyle(
-                fontSize: 16.0,
+              const SizedBox(height: 40.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SocialButtonWidget(
+                    onTap: () {},
+                    icon: FontAwesomeIcons.google,
+                  ),
+                  const SizedBox(width: 20.0),
+                  SocialButtonWidget(
+                    onTap: () {},
+                    icon: FontAwesomeIcons.facebookF,
+                  ),
+                  const SizedBox(width: 20.0),
+                  SocialButtonWidget(
+                    onTap: () {},
+                    icon: FontAwesomeIcons.apple,
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(height: 28.0),
-            const FormWidget(),
-          ],
+              const SizedBox(height: 20.0),
+              const Text(
+                'or use your account',
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
+              ),
+              const SizedBox(height: 28.0),
+              const FormWidget(),
+            ],
+          ),
         ),
       ),
     );
@@ -95,21 +100,27 @@ class SocialButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 44.0,
-        height: 44.0,
-        decoration: BoxDecoration(
-          border: Border.all(
-            width: 1.0,
-            color: Colors.grey.shade400,
+    return SizedBox(
+      width: 44.0,
+      height: 44.0,
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.zero,
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.grey.shade700,
+          shadowColor: Colors.transparent,
+          shape: CircleBorder(
+            side: BorderSide(
+              width: 1.0,
+              color: Colors.grey.shade400,
+            ),
           ),
-          shape: BoxShape.circle,
         ),
         child: Center(
           child: FaIcon(
             icon,
+            color: Colors.black,
             size: 26.0,
           ),
         ),
