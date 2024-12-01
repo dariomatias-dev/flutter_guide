@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-final _effects = <Widget>[
+final _effects = <Animate Function({
+  Duration? duration,
+})>[
   const Text(
     'Hello World!',
-  ).animate().blur(),
+  ).animate().blur,
   const Text(
     'Hello World!',
-  ).animate().flip(),
+  ).animate().flip,
   const Text(
     'Hello World!',
-  ).animate().fade(),
+  ).animate().fade,
   const Text(
     'Hello World!',
-  ).animate().fadeOut(),
+  ).animate().fadeOut,
   const Text(
     'Hello World!',
-  ).animate().scale(),
+  ).animate().scale,
   const Text(
     'Hello World!',
-  ).animate().show(),
+  ).animate().show,
   const Text(
     'Hello World!',
-  ).animate().slide(),
+  ).animate().slide,
 ];
 
 class FlutterAnimateSample extends StatefulWidget {
@@ -60,7 +62,11 @@ class _FlutterAnimateSampleState extends State<FlutterAnimateSample> {
                                   : Colors.white,
                         ),
                       ),
-                      child: _effects[index],
+                      child: _effects[index](
+                        duration: const Duration(
+                          seconds: 1,
+                        ),
+                      ),
                     );
                   },
                 ),

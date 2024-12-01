@@ -32,7 +32,9 @@ class _SharedPreferencesSampleState extends State<SharedPreferencesSample> {
     });
   }
 
-  Future<void> _saveValue(String value) async {
+  Future<void> _saveValue(
+    String value,
+  ) async {
     if (value.length > 100) {
       _fieldController.text = value.substring(0, 100);
       return;
@@ -56,7 +58,6 @@ class _SharedPreferencesSampleState extends State<SharedPreferencesSample> {
   @override
   void dispose() {
     _fieldController.dispose();
-    _sharedPreferences?.clear();
 
     super.dispose();
   }
@@ -78,6 +79,9 @@ class _SharedPreferencesSampleState extends State<SharedPreferencesSample> {
                 filled: true,
                 hintText: 'Enter something...',
               ),
+              onTapOutside: (event) {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
             ),
             const SizedBox(height: 12.0),
             if (_value != null && _value != '')

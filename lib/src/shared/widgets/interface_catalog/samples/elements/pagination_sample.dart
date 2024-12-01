@@ -102,7 +102,7 @@ class StepNavigatorWidget extends StatelessWidget {
       fillColor: false,
       child: Icon(
         icon,
-        color: disabled ? Colors.grey.shade400 : Colors.black,
+        color: disabled ? Colors.grey.shade500 : Colors.black,
       ),
     );
   }
@@ -131,14 +131,16 @@ class PageActionWidget extends StatelessWidget {
         height: 32.0,
         decoration: BoxDecoration(
           color: disabled
-              ? Colors.grey.shade300
+              ? Colors.grey.shade600
               : fillColor
                   ? Colors.black
                   : Colors.white,
-          border: Border.all(
-            color: disabled ? Colors.grey.shade400 : Colors.black,
-            width: 1.0,
-          ),
+          border: disabled
+              ? null
+              : Border.all(
+                  color: Colors.black,
+                  width: 1.0,
+                ),
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Center(
