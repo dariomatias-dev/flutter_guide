@@ -118,6 +118,7 @@ class LoginWitBackgroundScreen extends StatelessWidget {
                               child: const Text(
                                 'Login',
                                 style: TextStyle(
+                                  color: Colors.black,
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -179,6 +180,9 @@ class TextFormFieldWidget extends StatelessWidget {
             ),
           ),
         ),
+        onTapOutside: (event) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
       ),
     );
   }

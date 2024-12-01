@@ -196,6 +196,18 @@ class _FormWidgetState extends State<FormWidget> {
                   email: email,
                   password: password,
                 );
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    action: SnackBarAction(
+                      onPressed: () {},
+                      label: 'Ok',
+                    ),
+                    content: const Text(
+                      'Email and password valid for Login',
+                    ),
+                  ),
+                );
               }
             },
             text: 'Login',
@@ -334,6 +346,9 @@ class TextFormFieldWidget extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         autofocus: autofocus,
+        style: const TextStyle(
+          color: Colors.black,
+        ),
         decoration: InputDecoration(
           labelText: fieldName,
           labelStyle: const TextStyle(
@@ -347,6 +362,9 @@ class TextFormFieldWidget extends StatelessWidget {
           ),
         ),
         validator: validator,
+        onTapOutside: (event) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
       ),
     );
   }
