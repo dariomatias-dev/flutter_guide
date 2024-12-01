@@ -20,23 +20,16 @@ class _ImageLoaderSampleState extends State<ImageLoaderSample> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              padding: const EdgeInsets.all(8.0),
+            SizedBox(
               width: 160.0,
               height: 160.0,
-              decoration: const BoxDecoration(
-                color: Colors.blue,
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: ImageLoader(
-                  key: GlobalKey(),
-                  url:
-                      'https://camo.githubusercontent.com/8ca355b5c8a6df04ea30294e513b38128c214075013df41d95609ccd1a745c91/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f636d732d73746f726167652d6275636b65742f36653139666565366234376233366361363133662e706e67',
-                ),
+              child: ImageLoader(
+                key: GlobalKey(),
+                url:
+                    'https://raw.githubusercontent.com/dariomatias-dev/flutter_guide/refs/heads/main/assets/icons/flutter_icon.png',
               ),
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 24.0),
             ElevatedButton(
               onPressed: () {
                 setState(() {});
@@ -115,14 +108,25 @@ class _ImageLoaderState extends State<ImageLoader> {
       future: _loader(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator(
-            color: Colors.white,
+          return Container(
+            padding: const EdgeInsets.all(8.0),
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+              shape: BoxShape.circle,
+            ),
+            child: const Center(
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            ),
           );
         } else if (snapshot.hasError || snapshot.data == null) {
-          return const Text(
-            'Error loading image.',
-            style: TextStyle(
-              color: Colors.white,
+          return const Center(
+            child: Text(
+              'Error loading image.',
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
           );
         }

@@ -44,32 +44,29 @@ class _GapsSampleState extends State<GapsSample> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        color: Colors.blue.shade50.withOpacity(0.6),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const SizedBox(height: 6.0),
-            Text(
-              'Gap: $_gap',
-              style: const TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.w500,
-              ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          const SizedBox(height: 6.0),
+          Text(
+            'Gap: $_gap',
+            style: const TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w500,
             ),
-            Slider(
-              value: _gap,
-              min: 0.0,
-              max: 40.0,
-              divisions: 20,
-              onChanged: (value) {
-                setState(() {
-                  _gap = value;
-                });
-              },
-            ),
-          ],
-        ),
+          ),
+          Slider(
+            value: _gap,
+            min: 0.0,
+            max: 40.0,
+            divisions: 20,
+            onChanged: (value) {
+              setState(() {
+                _gap = value;
+              });
+            },
+          ),
+        ],
       ),
     );
   }
